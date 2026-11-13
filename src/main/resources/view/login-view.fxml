@@ -5,5 +5,5 @@
 <HBox xmlns="http://javafx.com/javafx/21"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:id="raiz"
-      fx:controller="pe.edu.unaj.andara.controller.LoginController"
+      fx:controller="pe.andra.controller.LoginController"
       styleClass="login"/>

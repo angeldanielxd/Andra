@@ -1,7 +1,7 @@
 {
  "v": 5,
  "ctx": {
-  "sede": "capilla",
+  "sede": "central",
   "fac": "all"
  },
  "pagos": [
@@ -25,7 +25,7 @@
    "estado": "pendiente",
    "creado": "2026-10-19T18:42",
    "vence": "2026-10-24",
-   "sede": "capilla"
+   "sede": "central"
   },
   {
    "id": "PAG-2026-004903",
@@ -43,7 +43,7 @@
    "estado": "pendiente",
    "creado": "2026-10-20T08:15",
    "vence": "2026-10-23",
-   "sede": "capilla"
+   "sede": "central"
   },
   {
    "id": "PAG-2026-003112",
@@ -64,7 +64,7 @@
    "metodo": "yape",
    "op": "YP48201933",
    "boleta": "B001-002871",
-   "sede": "capilla"
+   "sede": "central"
   },
   {
    "id": "PAG-2026-001877",
@@ -89,7 +89,7 @@
    "metodo": "plin",
    "op": "PL77120458",
    "boleta": "B001-001204",
-   "sede": "capilla"
+   "sede": "central"
   },
   {
    "id": "PAG-2026-002450",
@@ -110,7 +110,7 @@
    "metodo": "visa",
    "op": "VS30982211",
    "boleta": "B001-002203",
-   "sede": "capilla"
+   "sede": "central"
   },
   {
    "id": "PAG-2026-005200",
@@ -132,7 +132,7 @@
    "op": "OP81020000",
    "boleta": "B001-003000",
    "vence": "2026-10-23",
-   "sede": "capilla"
+   "sede": "central"
   },
   {
    "id": "PAG-2026-005201",
@@ -154,7 +154,7 @@
    "op": "OP81020031",
    "boleta": "B001-003001",
    "vence": "2026-10-23",
-   "sede": "capilla"
+   "sede": "central"
   },
   {
    "id": "PAG-2026-005202",
@@ -176,7 +176,7 @@
    "op": "OP81020977",
    "boleta": "B001-003002",
    "vence": "2026-10-23",
-   "sede": "capilla"
+   "sede": "central"
   },
   {
    "id": "PAG-2026-005203",
@@ -198,7 +198,7 @@
    "op": "OP81021008",
    "boleta": "B001-003003",
    "vence": "2026-10-23",
-   "sede": "capilla"
+   "sede": "central"
   },
   {
    "id": "PAG-2026-005204",
@@ -220,7 +220,7 @@
    "op": "OP81021954",
    "boleta": "B001-003004",
    "vence": "2026-10-23",
-   "sede": "ayabacas"
+   "sede": "norte"
   },
   {
    "id": "PAG-2026-005205",
@@ -242,7 +242,7 @@
    "op": null,
    "boleta": null,
    "vence": "2026-10-23",
-   "sede": "ayabacas"
+   "sede": "norte"
   },
   {
    "id": "PAG-2026-005206",
@@ -264,7 +264,7 @@
    "op": null,
    "boleta": null,
    "vence": "2026-10-23",
-   "sede": "salida-cuzco"
+   "sede": "sur"
   },
   {
    "id": "PAG-2026-005207",
@@ -286,7 +286,7 @@
    "op": "OP81022962",
    "boleta": "B001-003007",
    "vence": "2026-10-23",
-   "sede": "salida-cuzco"
+   "sede": "sur"
   },
   {
    "id": "PAG-2026-005208",
@@ -308,7 +308,7 @@
    "op": "OP81023908",
    "boleta": "B001-003008",
    "vence": "2026-10-23",
-   "sede": "capilla"
+   "sede": "central"
   },
   {
    "id": "PAG-2026-005209",
@@ -330,7 +330,7 @@
    "op": "OP81023939",
    "boleta": "B001-003009",
    "vence": "2026-10-23",
-   "sede": "capilla"
+   "sede": "central"
   },
   {
    "id": "PAG-2026-005210",
@@ -352,7 +352,7 @@
    "op": "OP81024885",
    "boleta": "B001-003010",
    "vence": "2026-10-23",
-   "sede": "ayabacas"
+   "sede": "norte"
   },
   {
    "id": "PAG-2026-005211",
@@ -374,7 +374,7 @@
    "op": "OP81024916",
    "boleta": "B001-003011",
    "vence": "2026-10-23",
-   "sede": "ayabacas"
+   "sede": "norte"
   },
   {
    "id": "PAG-2026-005212",
@@ -396,7 +396,7 @@
    "op": "OP81025862",
    "boleta": "B001-003012",
    "vence": "2026-10-23",
-   "sede": "capilla"
+   "sede": "central"
   },
   {
    "id": "PAG-2026-005213",
@@ -418,7 +418,7 @@
    "op": null,
    "boleta": null,
    "vence": "2026-10-23",
-   "sede": "capilla"
+   "sede": "central"
   },
   {
    "id": "PAG-2026-005214",
@@ -440,7 +440,7 @@
    "op": null,
    "boleta": null,
    "vence": "2026-10-23",
-   "sede": "capilla"
+   "sede": "central"
   },
   {
    "id": "PAG-2026-005215",
@@ -462,7 +462,7 @@
    "op": "OP81026870",
    "boleta": "B001-003015",
    "vence": "2026-10-23",
-   "sede": "capilla"
+   "sede": "central"
   },
   {
    "id": "PAG-2026-005216",
@@ -484,7 +484,7 @@
    "op": "OP81027816",
    "boleta": "B001-003016",
    "vence": "2026-10-23",
-   "sede": "capilla"
+   "sede": "central"
   },
   {
    "id": "PAG-2026-005217",
@@ -506,7 +506,7 @@
    "op": "OP81027847",
    "boleta": "B001-003017",
    "vence": "2026-10-23",
-   "sede": "capilla"
+   "sede": "central"
   },
   {
    "id": "PAG-2026-005218",
@@ -528,7 +528,7 @@
    "op": "OP81028793",
    "boleta": "B001-003018",
    "vence": "2026-10-23",
-   "sede": "ayabacas"
+   "sede": "norte"
   },
   {
    "id": "PAG-2026-005219",
@@ -550,7 +550,7 @@
    "op": "OP81028824",
    "boleta": "B001-003019",
    "vence": "2026-10-23",
-   "sede": "ayabacas"
+   "sede": "norte"
   },
   {
    "id": "PAG-2026-005220",
@@ -575,7 +575,7 @@
    "metodo": "yape",
    "op": "OP91000000",
    "boleta": "B001-003500",
-   "sede": "capilla"
+   "sede": "central"
   },
   {
    "id": "PAG-2026-005221",
@@ -600,7 +600,7 @@
    "metodo": "mastercard",
    "op": "OP91001301",
    "boleta": "B001-003501",
-   "sede": "capilla"
+   "sede": "central"
   },
   {
    "id": "PAG-2026-005222",
@@ -625,7 +625,7 @@
    "metodo": "yape",
    "op": "OP91002602",
    "boleta": "B001-003502",
-   "sede": "ayabacas"
+   "sede": "norte"
   },
   {
    "id": "PAG-2026-005223",
@@ -650,7 +650,7 @@
    "metodo": "plin",
    "op": "OP91003903",
    "boleta": "B001-003503",
-   "sede": "capilla"
+   "sede": "central"
   },
   {
    "id": "PAG-2026-005224",
@@ -675,7 +675,7 @@
    "metodo": "visa",
    "op": "OP91005204",
    "boleta": "B001-003504",
-   "sede": "ayabacas"
+   "sede": "norte"
   },
   {
    "id": "PAG-2026-005225",
@@ -700,7 +700,7 @@
    "metodo": "amex",
    "op": "OP91006505",
    "boleta": "B001-003505",
-   "sede": "ayabacas"
+   "sede": "norte"
   }
  ],
  "others": {
@@ -708,7 +708,7 @@
    {
     "id": "SOL-2026-085300",
     "user": "2023104512",
-    "sede": "capilla",
+    "sede": "central",
     "kind": "doc",
     "tupa": "t-cest",
     "pago": "PAG-2026-005200",
@@ -728,7 +728,7 @@
      ],
      [
       "Recojo",
-      "Mesa de Partes · Sede Capilla"
+      "Mesa de Partes · Sede Central"
      ]
     ],
     "title": "Constancia de estudios",
@@ -747,7 +747,7 @@
      "dni": "73581246",
      "codigo": "2023104512",
      "fac": "adm",
-     "correo": "2023104512@unaj.edu.pe",
+     "correo": "2023104512@institucion.edu",
      "motivo": "Trámite personal"
     },
     "fecha": "2026-10-20T08:00"
@@ -755,7 +755,7 @@
    {
     "id": "SOL-2026-085301",
     "user": "2022301877",
-    "sede": "capilla",
+    "sede": "central",
     "kind": "doc",
     "tupa": "t-cnoad",
     "pago": "PAG-2026-005202",
@@ -775,7 +775,7 @@
      ],
      [
       "Recojo",
-      "Mesa de Partes · Sede Capilla"
+      "Mesa de Partes · Sede Central"
      ]
     ],
     "title": "Constancia de no adeudo",
@@ -794,7 +794,7 @@
      "dni": "72910354",
      "codigo": "2022301877",
      "fac": "imc",
-     "correo": "2022301877@unaj.edu.pe",
+     "correo": "2022301877@institucion.edu",
      "motivo": "Trámite personal"
     },
     "fecha": "2026-10-17T09:07"
@@ -802,7 +802,7 @@
    {
     "id": "SOL-2026-085302",
     "user": "2024118230",
-    "sede": "ayabacas",
+    "sede": "norte",
     "kind": "doc",
     "tupa": "t-cert",
     "pago": "PAG-2026-005204",
@@ -822,7 +822,7 @@
      ],
      [
       "Recojo",
-      "Mesa de Partes · Sede Ayabacas"
+      "Mesa de Partes · Sede Norte"
      ]
     ],
     "title": "Certificado de estudios",
@@ -840,8 +840,8 @@
      "nombre": "María Belén Quispe Choque",
      "dni": "74125896",
      "codigo": "2024118230",
-     "fac": "iia",
-     "correo": "2024118230@unaj.edu.pe",
+     "fac": "iag",
+     "correo": "2024118230@institucion.edu",
      "motivo": "Trámite personal"
     },
     "fecha": "2026-10-14T10:14"
@@ -849,7 +849,7 @@
    {
     "id": "SOL-2026-085303",
     "user": "2021209944",
-    "sede": "salida-cuzco",
+    "sede": "sur",
     "kind": "doc",
     "tupa": "t-silabo",
     "pago": "PAG-2026-005206",
@@ -857,7 +857,7 @@
     "icon": "doc",
     "iconLabel": "PAGO",
     "tone": "warning",
-    "status": "Pago pendiente en Andara Pay",
+    "status": "Pago pendiente en Andra Pay",
     "meta": [
      [
       "Fecha de registro",
@@ -869,7 +869,7 @@
      ],
      [
       "Recojo",
-      "Mesa de Partes · Sede Salida Cuzco"
+      "Mesa de Partes · Sede Sur"
      ]
     ],
     "title": "Sílabos certificados",
@@ -887,8 +887,8 @@
      "nombre": "Kevin Arturo Mamani Ccama",
      "dni": "71458963",
      "codigo": "2021209944",
-     "fac": "iaf",
-     "correo": "2021209944@unaj.edu.pe",
+     "fac": "iam",
+     "correo": "2021209944@institucion.edu",
      "motivo": "Trámite personal"
     },
     "fecha": "2026-10-20T11:21"
@@ -896,7 +896,7 @@
    {
     "id": "SOL-2026-085304",
     "user": "2023307615",
-    "sede": "capilla",
+    "sede": "central",
     "kind": "doc",
     "tupa": "t-ctrab",
     "pago": "PAG-2026-005208",
@@ -916,7 +916,7 @@
      ],
      [
       "Recojo",
-      "Mesa de Partes · Sede Capilla"
+      "Mesa de Partes · Sede Central"
      ]
     ],
     "title": "Constancia de trabajo",
@@ -935,7 +935,7 @@
      "dni": "73269514",
      "codigo": "2023307615",
      "fac": "eco",
-     "correo": "2023307615@unaj.edu.pe",
+     "correo": "2023307615@institucion.edu",
      "motivo": "Trámite personal"
     },
     "fecha": "2026-10-17T12:28"
@@ -943,7 +943,7 @@
    {
     "id": "SOL-2026-085305",
     "user": "2024402281",
-    "sede": "ayabacas",
+    "sede": "norte",
     "kind": "doc",
     "tupa": "t-verif",
     "pago": "PAG-2026-005210",
@@ -963,7 +963,7 @@
      ],
      [
       "Recojo",
-      "Mesa de Partes · Sede Ayabacas"
+      "Mesa de Partes · Sede Norte"
      ]
     ],
     "title": "Constancia de verificación de grado o título",
@@ -981,8 +981,8 @@
      "nombre": "Rodrigo Andrés Huamán Coaquira",
      "dni": "75632148",
      "codigo": "2024402281",
-     "fac": "ier",
-     "correo": "2024402281@unaj.edu.pe",
+     "fac": "iel",
+     "correo": "2024402281@institucion.edu",
      "motivo": "Trámite personal"
     },
     "fecha": "2026-10-14T13:35"
@@ -990,7 +990,7 @@
    {
     "id": "SOL-2026-085306",
     "user": "D-10452",
-    "sede": "capilla",
+    "sede": "central",
     "kind": "doc",
     "tupa": "t-rez",
     "pago": "PAG-2026-005212",
@@ -1010,7 +1010,7 @@
      ],
      [
       "Recojo",
-      "Mesa de Partes · Sede Capilla"
+      "Mesa de Partes · Sede Central"
      ]
     ],
     "title": "Derecho de examen de rezagados",
@@ -1028,8 +1028,8 @@
      "nombre": "Mg. Elena Vilca Turpo",
      "dni": "40125874",
      "codigo": "D-10452",
-     "fac": "gpd",
-     "correo": "d-10452@unaj.edu.pe",
+     "fac": "gpu",
+     "correo": "d-10452@institucion.edu",
      "motivo": "Trámite personal"
     },
     "fecha": "2026-10-20T14:42"
@@ -1037,7 +1037,7 @@
    {
     "id": "SOL-2026-085307",
     "user": "A-20871",
-    "sede": "capilla",
+    "sede": "central",
     "kind": "doc",
     "tupa": "t-cest",
     "pago": "PAG-2026-005214",
@@ -1045,7 +1045,7 @@
     "icon": "doc",
     "iconLabel": "PAGO",
     "tone": "warning",
-    "status": "Pago pendiente en Andara Pay",
+    "status": "Pago pendiente en Andra Pay",
     "meta": [
      [
       "Fecha de registro",
@@ -1057,7 +1057,7 @@
      ],
      [
       "Recojo",
-      "Mesa de Partes · Sede Capilla"
+      "Mesa de Partes · Sede Central"
      ]
     ],
     "title": "Constancia de estudios",
@@ -1076,7 +1076,7 @@
      "dni": "42589631",
      "codigo": "A-20871",
      "fac": null,
-     "correo": "a-20871@unaj.edu.pe",
+     "correo": "a-20871@institucion.edu",
      "motivo": "Trámite personal"
     },
     "fecha": "2026-10-17T15:49"
@@ -1106,7 +1106,7 @@
    {
     "id": "ro3",
     "user": "2024118230",
-    "space": "Planta Piloto de Industrias Alimentarias",
+    "space": "Planta Piloto Agroindustrial",
     "date": "2026-10-22",
     "hora": "08:00 - 10:00",
     "status": "Pendiente",
@@ -1140,7 +1140,7 @@
     "user": "2024402281",
     "code": "EQ-2026-0471",
     "name": "Analizador de energía Fluke 1738 + piranómetro",
-    "sub": "Solicitud para el 21/10/2026 (10:00) • 4 horas lectivas • Sede Ayabacas",
+    "sub": "Solicitud para el 21/10/2026 (10:00) • 4 horas lectivas • Sede Norte",
     "status": "En revisión"
    },
    {
@@ -1148,7 +1148,7 @@
     "user": "2022301877",
     "code": "EQ-2026-0468",
     "name": "Osciloscopio digital Rigol DS1054Z",
-    "sub": "Solicitud para el 20/10/2026 (14:00) • 2 horas lectivas • Sede Capilla",
+    "sub": "Solicitud para el 20/10/2026 (14:00) • 2 horas lectivas • Sede Central",
     "status": "En revisión"
    },
    {
@@ -1156,15 +1156,15 @@
     "user": "2023307615",
     "code": "EQ-2026-0459",
     "name": "Laptop con Stata y EViews",
-    "sub": "Retirado hoy 08:30 • Sede Capilla",
+    "sub": "Retirado hoy 08:30 • Sede Central",
     "status": "Aprobado"
    },
    {
     "id": "ho4",
     "user": "2022115590",
     "code": "EQ-2026-0450",
-    "name": "Dinamómetro textil y cuentahilos",
-    "sub": "Devuelto con éxito: 18/10/2026 • Sede Ayabacas",
+    "name": "Estación total y nivel topográfico",
+    "sub": "Devuelto con éxito: 18/10/2026 • Sede Norte",
     "status": "Devuelto"
    }
   ]
@@ -1198,7 +1198,7 @@
  "reservas": [
   {
    "id": "r1",
-   "space": "Laboratorio Epier A-300",
+   "space": "Laboratorio de Electricidad A-300",
    "date": "2026-10-20",
    "hora": "10:00 - 12:00",
    "status": "Aprobado",
@@ -1237,7 +1237,7 @@
  ],
  "favDocs": [
   "g1",
-  "m-iss"
+  "m-isi"
  ],
  "myDocs": [
   {
@@ -1269,7 +1269,7 @@
   "e9"
  ],
  "favSpaces": [
-  "epier-a300"
+  "lab-elec-a300"
  ],
  "loan": {
   "code": "EQ-2026-0419",
@@ -1278,7 +1278,7 @@
   "deadline": "hora actual + 2h15m",
   "renewed": false,
   "incident": null,
-  "place": "Laboratorio Episs A-450 · Pabellón A (Piso 4) · Sede Capilla"
+  "place": "Laboratorio de Informática A-450 · Pabellón A (Piso 4) · Sede Central"
  },
  "hist": [
   {
@@ -1292,7 +1292,7 @@
    "id": "h2",
    "code": "EQ-2026-0398",
    "name": "Set de 2 Raquetas de Tenis Wilson + Tubo de Pelotas",
-   "sub": "Devuelto con éxito: 28/09/2026 (10:00 - 12:00) • Polideportivo UNAJ",
+   "sub": "Devuelto con éxito: 28/09/2026 (10:00 - 12:00) • Polideportivo",
    "status": "Devuelto"
   },
   {
@@ -1334,17 +1334,17 @@
     ],
     [
      "Derecho / Tasa",
-     "S/ 38.00 (Pagado con Yape · Andara Pay)"
+     "S/ 38.00 (Pagado con Yape · Andra Pay)"
     ],
     [
      "Unidad académica",
-     "EP Ingeniería de Software y Sistemas"
+     "EP Ingeniería de Sistemas"
     ]
    ],
    "title": "Certificado Oficial de Notas y Orden de Mérito (Ciclos 2024-2 al 2026-1)",
-   "desc": "Incluye promedio ponderado acumulado, ubicación en el tercio superior de Ingeniería Software y Sistemas y firma digital institucional con plena validez ante SUNEDU.",
+   "desc": "Incluye promedio ponderado acumulado, ubicación en el tercio superior de Ingeniería de Sistemas y firma digital institucional con plena validez ante SUNEDU.",
    "tags": [
-    "Firma Digital: Token UNAJ",
+    "Firma Digital: Token institucional",
     "Código de Validación: 4F82-K921"
    ],
    "acts": [
@@ -1433,8 +1433,8 @@
     ]
    ],
    "title": "Solicitud de Permiso y Justificación de Inasistencia por Salud",
-   "desc": "Permiso justificado a examen parcial por descanso médico. Requiere subsanar documento con visado del Servicio Médico UNAJ.",
-   "obs": "El certificado médico adjunto no cuenta con el sello del Servicio Médico UNAJ (Bienestar Universitario). Favor de pasar por validación médica virtual o presencial y adjuntar la constancia visada antes del plazo límite.",
+   "desc": "Permiso justificado a examen parcial por descanso médico. Requiere subsanar documento con visado del Servicio Médico.",
+   "obs": "El certificado médico adjunto no cuenta con el sello del Servicio Médico (Bienestar Universitario). Favor de pasar por validación médica virtual o presencial y adjuntar la constancia visada antes del plazo límite.",
    "acts": [
     [
      "primary",
@@ -1469,7 +1469,7 @@
     ],
     [
      "Espacio / Lugar",
-     "Sede Capilla · Laboratorio Episs A-450"
+     "Sede Central · Laboratorio de Informática A-450"
     ],
     [
      "Capacidad",
@@ -1527,7 +1527,7 @@
    "desc": "Solicitado para ensayo de elenco universitario. Equipo verificado con batería al 100%, cables XLR blindados y trípodes de soporte.",
    "tags": [
     "Código de Retiro: TIU-9842",
-    "Lugar de entrega: Sede Capilla · Pabellón Central (Audiovisuales)"
+    "Lugar de entrega: Sede Central · Pabellón Central (Audiovisuales)"
    ],
    "acts": [
     [
@@ -1564,7 +1564,7 @@
   },
   {
    "id": "n3",
-   "text": "Tu reserva del Laboratorio Epier A-300 fue aprobada.",
+   "text": "Tu reserva del Laboratorio de Electricidad A-300 fue aprobada.",
    "to": "reservas",
    "read": true
   }
@@ -1574,20 +1574,20 @@
   "nombre": "Carlos J. Saldaña",
   "codigo": "2024207009",
   "dni": "72458913",
-  "correo": "2024207009@est.unaj.edu.pe",
+  "correo": "2024207009@est.institucion.edu",
   "celular": "951 234 567",
-  "escuela": "iss",
-  "sede": "capilla"
+  "escuela": "isi",
+  "sede": "central"
  },
  "cuentasDemo": {
   "estudiante": {
    "usuario": "2024207009 o DNI 72458913",
-   "contrasena": "andara2026"
+   "contrasena": "andra2026"
   },
   "administrador": {
    "nombre": "Rosa Mamani Quispe",
    "cargo": "Especialista de Mesa de Partes y Tesorería",
-   "correo": "rmamani@unaj.edu.pe",
+   "correo": "rmamani@institucion.edu",
    "contrasena": "admin2026"
   }
  },
@@ -1601,7 +1601,7 @@
  "colaSinConexion": [],
  "usosCarne": [
   {
-   "lugar": "Biblioteca Central · Sede Capilla",
+   "lugar": "Biblioteca Central · Sede Central",
    "diasAtras": 1,
    "hora": "09:12",
    "ok": true
@@ -1613,7 +1613,7 @@
    "ok": true
   },
   {
-   "lugar": "Laboratorio Episs A-450",
+   "lugar": "Laboratorio de Informática A-450",
    "diasAtras": 3,
    "hora": "08:02",
    "ok": true

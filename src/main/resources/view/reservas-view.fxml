@@ -6,7 +6,7 @@
 <ScrollPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:id="desplazable"
-            fx:controller="pe.edu.unaj.andara.controller.ReservasController"
+            fx:controller="pe.andra.controller.ReservasController"
             fitToWidth="true" hbarPolicy="NEVER" styleClass="pagina-scroll">
     <VBox fx:id="pagina" styleClass="pagina"/>
 </ScrollPane>

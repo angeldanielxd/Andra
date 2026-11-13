@@ -148,15 +148,15 @@
    "qu": "Administración",
    "ay": "Administración"
   },
-  "Administración y Emprendimiento Empresarial": {
-   "en": "Business Administration and Entrepreneurship",
-   "qu": "Empresa Kamachiy, Emprendimiento",
-   "ay": "Empresa Apnaqawi, Emprendimiento"
+  "Administración de Empresas": {
+   "en": "Business Administration",
+   "qu": "Empresa Kamachiy",
+   "ay": "Empresa Apnaqawi"
   },
-  "Administración y Emprendimiento Empresarial, Economía, Gestión Pública y Desarrollo Social, Ingeniería de Software y Sistemas, Ingeniería Industrial, Ingeniería Mecatrónica": {
-   "en": "Business Administration and Entrepreneurship, Economics, Public Management and Social Development, Software and Systems Engineering, Industrial Engineering, Mechatronics Engineering",
-   "qu": "Administración y Emprendimiento Empresarial, Economía, Gestión Pública y Desarrollo Social, Ingeniería de Software y Sistemas, Ingeniería Industrial, Ingeniería Mecatrónica",
-   "ay": "Administración y Emprendimiento Empresarial, Economía, Gestión Pública y Desarrollo Social, Ingeniería de Software y Sistemas, Ingeniería Industrial, Ingeniería Mecatrónica"
+  "Administración de Empresas, Economía, Gestión Pública, Ingeniería de Sistemas, Ingeniería Industrial, Ingeniería Mecatrónica": {
+   "en": "Business Administration, Economics, Public Management, Systems Engineering, Industrial Engineering, Mechatronics Engineering",
+   "qu": "Administración de Empresas, Economía, Gestión Pública, Ingeniería de Sistemas, Ingeniería Industrial, Ingeniería Mecatrónica",
+   "ay": "Administración de Empresas, Economía, Gestión Pública, Ingeniería de Sistemas, Ingeniería Industrial, Ingeniería Mecatrónica"
   },
   "Administrador": {
    "en": "Administrator",
@@ -258,10 +258,10 @@
    "qu": "Akllasqakunaman yapay: Kit Arduino Mega + sensores industriales",
    "ay": "Munatanakaru yapxataña: Kit Arduino Mega + sensores industriales"
   },
-  "Agregar a favoritos: Laboratorio Episs {0}": {
-   "en": "Add to favorites: Episs Lab {0}",
-   "qu": "Akllasqakunaman yapay: Laboratorio Episs {0}",
-   "ay": "Munatanakaru yapxataña: Laboratorio Episs {0}"
+  "Agregar a favoritos: Laboratorio de Informática {0}": {
+   "en": "Add to favorites: Computer Lab {0}",
+   "qu": "Akllasqakunaman yapay: Laboratorio de Informática {0}",
+   "ay": "Munatanakaru yapxataña: Laboratorio de Informática {0}"
   },
   "Agregar a favoritos: Laboratorio de Econometría y Estadística": {
    "en": "Add to favorites: Econometrics and Statistics Lab",
@@ -428,40 +428,35 @@
    "qu": "Ana Patricia Ramos Soto · Yape · {0} {1}",
    "ay": "Ana Patricia Ramos Soto · Yape · {0} {1}"
   },
-  "Andara": {
-   "en": "Andara",
-   "qu": "Andara",
-   "ay": "Andara"
+  "Andra": {
+   "en": "Andra",
+   "qu": "Andra",
+   "ay": "Andra"
   },
-  "Andara Pay": {
-   "en": "Andara Pay",
-   "qu": "Andara Pay",
-   "ay": "Andara Pay"
+  "Andra Pay": {
+   "en": "Andra Pay",
+   "qu": "Andra Pay",
+   "ay": "Andra Pay"
   },
-  "Andara Pay · Andara": {
-   "en": "Andara Pay · Andara",
-   "qu": "Andara Pay · Andara",
-   "ay": "Andara Pay · Andara"
+  "Andra Pay · Andra": {
+   "en": "Andra Pay · Andra",
+   "qu": "Andra Pay · Andra",
+   "ay": "Andra Pay · Andra"
   },
-  "Andara UNAJ, tus trámites más simples. Ir al inicio": {
-   "en": "Andara UNAJ, your paperwork made simple. Go to home",
-   "qu": "Andara UNAJ, trámiteykikuna aswan facil. Qallariyman riy",
-   "ay": "Andara UNAJ, trámitenakama juk'amp jasa. Qalltawir saraña"
+  "Andra · Panel": {
+   "en": "Andra · Dashboard",
+   "qu": "Andra · Panel",
+   "ay": "Andra · Panel"
   },
-  "Andara · Panel": {
-   "en": "Andara · Dashboard",
-   "qu": "Andara · Panel",
-   "ay": "Andara · Panel"
+  "Andra, ir al inicio": {
+   "en": "Andra, go to home",
+   "qu": "Andra, qallariyman riy",
+   "ay": "Andra, qalltar saraña"
   },
-  "Andara · UNAJ": {
-   "en": "Andara · UNAJ",
-   "qu": "Andara · UNAJ",
-   "ay": "Andara · UNAJ"
-  },
-  "Andara, ir al inicio": {
-   "en": "Andara, go to home",
-   "qu": "Andara, qallariyman riy",
-   "ay": "Andara, qalltar saraña"
+  "Andra, tus trámites más simples. Ir al inicio": {
+   "en": "Andra, your paperwork made simple. Go to home",
+   "qu": "Andra , trámiteykikuna aswan facil. Qallariyman riy",
+   "ay": "Andra , trámitenakama juk'amp jasa. Qalltawir saraña"
   },
   "Anular trámite": {
    "en": "Cancel procedure",
@@ -473,10 +468,10 @@
    "qu": "T'aqwiy",
    "ay": "Uñakipaña"
   },
-  "Análisis · Andara · Panel": {
-   "en": "Analytics · Andara · Dashboard",
-   "qu": "T'aqwiy · Andara · Panel",
-   "ay": "Uñakipäwi · Andara · Panel"
+  "Análisis · Andra · Panel": {
+   "en": "Analytics · Andra · Dashboard",
+   "qu": "T'aqwiy · Andra · Panel",
+   "ay": "Uñakipäwi · Andra · Panel"
   },
   "Aplicar": {
    "en": "Apply",
@@ -698,11 +693,6 @@
    "qu": "Tikrakuqtin willaway",
    "ay": "Mayjt'ani ukhax yatiyita"
   },
-  "Ayabacas": {
-   "en": "Ayabacas",
-   "qu": "Ayabacas",
-   "ay": "Ayabacas"
-  },
   "Ayer": {
    "en": "Yesterday",
    "qu": "Qayna p'unchaw",
@@ -718,10 +708,10 @@
    "qu": "Yanapay",
    "ay": "Yanapa"
   },
-  "Ayuda · Andara": {
-   "en": "Help · Andara",
-   "qu": "Yanapay · Andara",
-   "ay": "Yanapa · Andara"
+  "Ayuda · Andra": {
+   "en": "Help · Andra",
+   "qu": "Yanapay · Andra",
+   "ay": "Yanapa · Andra"
   },
   "Año {0}": {
    "en": "Year {0}",
@@ -758,10 +748,10 @@
    "qu": "Biblioteca Central",
    "ay": "Biblioteca Central"
   },
-  "Biblioteca Central · Sede Capilla": {
-   "en": "Central Library · Capilla Campus",
-   "qu": "Chawpi Biblioteca · Capilla sede",
-   "ay": "Taypi Biblioteca · Capilla sede"
+  "Biblioteca Central · Sede Central": {
+   "en": "Central Library · Central Campus",
+   "qu": "Chawpi Biblioteca · Central sede",
+   "ay": "Taypi Biblioteca · Central sede"
   },
   "Bienestar Universitario": {
    "en": "Student Welfare",
@@ -913,10 +903,10 @@
    "qu": "Auditorio Magno waqaychayta chinkachiy",
    "ay": "Auditorio Magno katuyawi jaytaña"
   },
-  "Cancelar reserva Laboratorio Epier {0}": {
-   "en": "Cancel Laboratorio Epier {0} booking",
-   "qu": "Laboratorio Epier {0} waqaychayta chinkachiy",
-   "ay": "Laboratorio Epier {0} katuyawi jaytaña"
+  "Cancelar reserva Laboratorio de Electricidad {0}": {
+   "en": "Cancel Electrical Lab {0} booking",
+   "qu": "Laboratorio de Electricidad {0} waqaychayta chinkachiy",
+   "ay": "Laboratorio de Electricidad {0} katuyawi jaytaña"
   },
   "Cancelar solicitud {0}": {
    "en": "Cancel request {0}",
@@ -953,11 +943,6 @@
    "qu": "Hunt'ay: {0} runa",
    "ay": "Phuqhaña: {0} jaqi"
   },
-  "Capilla": {
-   "en": "Capilla",
-   "qu": "Capilla",
-   "ay": "Capilla"
-  },
   "Cargo de entrega": {
    "en": "Delivery receipt",
    "qu": "Chaskisqa cargo",
@@ -983,10 +968,10 @@
    "qu": "Carlos J. Saldaña ({0})",
    "ay": "Carlos J. Saldaña ({0})"
   },
-  "Carlos J. Saldaña · Devuelto con éxito: {0} ({1} - {2}) • Polideportivo UNAJ": {
-   "en": "Carlos J. Saldaña · Returned successfully: {0} ({1} - {2}) • UNAJ Sports Center",
-   "qu": "Carlos J. Saldaña · Allinta kutichisqa: {0} ({1} - {2}) • Polideportivo UNAJ",
-   "ay": "Carlos J. Saldaña · Walikiw kutt'ayata: {0} ({1} - {2}) • Polideportivo UNAJ"
+  "Carlos J. Saldaña · Devuelto con éxito: {0} ({1} - {2}) • Polideportivo": {
+   "en": "Carlos J. Saldaña · Returned successfully: {0} ({1} - {2}) • Sports Center",
+   "qu": "Carlos J. Saldaña · Allinta kutichisqa: {0} ({1} - {2}) • Polideportivo",
+   "ay": "Carlos J. Saldaña · Walikiw kutt'ayata: {0} ({1} - {2}) • Polideportivo"
   },
   "Carlos J. Saldaña · Devuelto con éxito: {0} ({1} - {2}) • Sala de Música": {
    "en": "Carlos J. Saldaña · Returned successfully: {0} ({1} - {2}) • Music Room",
@@ -998,10 +983,10 @@
    "qu": "Carlos J. Saldaña · Allinta kutichisqa: {0} • Imagen Institucional",
    "ay": "Carlos J. Saldaña · Suma kutt'ayata: {0} • Imagen Institucional"
   },
-  "Carlos J. Saldaña · Estudiante · {0} · EP Ingeniería de Software y Sistemas": {
-   "en": "Carlos J. Saldaña · Student · {0} · Software and Systems Engineering",
-   "qu": "Carlos J. Saldaña · Yachaqaq · {0} · EP Ingeniería de Software y Sistemas",
-   "ay": "Carlos J. Saldaña · Yatiqiri · {0} · EP Ingeniería de Software y Sistemas"
+  "Carlos J. Saldaña · Estudiante · {0} · EP Ingeniería de Sistemas": {
+   "en": "Carlos J. Saldaña · Student · {0} · Systems Engineering",
+   "qu": "Carlos J. Saldaña · Yachaqaq · {0} · EP Ingeniería de Sistemas",
+   "ay": "Carlos J. Saldaña · Yatiqiri · {0} · EP Ingeniería de Sistemas"
   },
   "Carlos J. Saldaña · Hoy, {0} hrs (Restan {1}h {2}m)": {
    "en": "Carlos J. Saldaña · Today, {0} hrs ({1}h {2}m left)",
@@ -1033,10 +1018,10 @@
    "qu": "Carlos J. Saldaña · {0} · Secretaría Académica qhawachkan",
    "ay": "Carlos J. Saldaña · {0} · Secretaría Académica uñakipaski"
   },
-  "Carlos J. Saldaña · {0} · {1} - {2} · {3} personas · Sede Capilla": {
-   "en": "Carlos J. Saldaña · {0} · {1} - {2} · {3} people · Capilla Campus",
-   "qu": "Carlos J. Saldaña · {0} · {1} - {2} · {3} runakuna · Sede Capilla",
-   "ay": "Carlos J. Saldaña · {0} · {1} - {2} · {3} jaqinaka · Sede Capilla"
+  "Carlos J. Saldaña · {0} · {1} - {2} · {3} personas · Sede Central": {
+   "en": "Carlos J. Saldaña · {0} · {1} - {2} · {3} people · Central Campus",
+   "qu": "Carlos J. Saldaña · {0} · {1} - {2} · {3} runakuna · Sede Central",
+   "ay": "Carlos J. Saldaña · {0} · {1} - {2} · {3} jaqinaka · Sede Central"
   },
   "Carné": {
    "en": "ID card",
@@ -1092,6 +1077,11 @@
    "en": "Equipment catalog",
    "qu": "Equipo catálogo",
    "ay": "Equipo catálogo"
+  },
+  "Central": {
+   "en": "Central",
+   "qu": "Central",
+   "ay": "Central"
   },
   "Central telefónica": {
    "en": "Phone line",
@@ -1223,10 +1213,10 @@
    "qu": "Matrículaykita pagowan hunt'ay",
    "ay": "Matrículam pagompi phuqhacham"
   },
-  "Completada en el sistema académico UNAJ": {
-   "en": "Completed in the UNAJ academic system",
-   "qu": "UNAJ yachay sistemapi tukusqa",
-   "ay": "UNAJ yatiqäw sistemana tukuyata"
+  "Completada en el sistema académico": {
+   "en": "Completed in the institution's academic system",
+   "qu": "yachay sistemapi tukusqa",
+   "ay": "yatiqäw sistemana tukuyata"
   },
   "Comprobante": {
    "en": "Receipt",
@@ -1253,10 +1243,10 @@
    "qu": "Asesorwan utaq encargadowan rimanakuy",
    "ay": "Asesormpi jan ukax encargadompi aruskipam"
   },
-  "Con Andara Pay": {
-   "en": "With Andara Pay",
-   "qu": "Andara Paywan",
-   "ay": "Andara Payampi"
+  "Con Andra Pay": {
+   "en": "With Andra Pay",
+   "qu": "Andra Paywan",
+   "ay": "Andra Payampi"
   },
   "Con pago pendiente": {
    "en": "Payment pending",
@@ -1288,10 +1278,10 @@
    "qu": "Takyachiy",
    "ay": "Chiqanchaña"
   },
-  "Confirmar matrícula en Andara Pay": {
-   "en": "Confirm enrollment in Andara Pay",
-   "qu": "Andara Paypi matrículata chiqanchay",
-   "ay": "Andara Payan matrícula chiqanchaña"
+  "Confirmar matrícula en Andra Pay": {
+   "en": "Confirm enrollment in Andra Pay",
+   "qu": "Andra Paypi matrículata chiqanchay",
+   "ay": "Andra Payan matrícula chiqanchaña"
   },
   "Confirmar reserva": {
    "en": "Confirm booking",
@@ -1948,10 +1938,10 @@
    "qu": "Kutichisqa",
    "ay": "Kutt'ayata"
   },
-  "Devuelto con éxito: {0} ({1} - {2}) • Polideportivo UNAJ": {
-   "en": "Returned successfully: {0} ({1} - {2}) • UNAJ Sports Center",
-   "qu": "Allinta kutichisqa: {0} ({1} - {2}) • Polideportivo UNAJ",
-   "ay": "Askiw kutt'ayata: {0} ({1} - {2}) • Polideportivo UNAJ"
+  "Devuelto con éxito: {0} ({1} - {2}) • Polideportivo": {
+   "en": "Returned successfully: {0} ({1} - {2}) • Sports Center",
+   "qu": "Allinta kutichisqa: {0} ({1} - {2}) • Polideportivo",
+   "ay": "Askiw kutt'ayata: {0} ({1} - {2}) • Polideportivo"
   },
   "Devuelto con éxito: {0} ({1} - {2}) • Sala de Música": {
    "en": "Returned successfully: {0} ({1} - {2}) • Music Room",
@@ -1978,10 +1968,10 @@
    "qu": "Diana Rocío Flores Pari · Mastercard · {0} {1}",
    "ay": "Diana Rocío Flores Pari · Mastercard · {0} {1}"
   },
-  "Diana Rocío Flores Pari · Retirado hoy {0} • Sede Capilla": {
-   "en": "Diana Rocío Flores Pari · Picked up today {0} • Capilla Campus",
-   "qu": "Diana Rocío Flores Pari · Kunan p'unchaw apasqa {0} • Sede Capilla",
-   "ay": "Diana Rocío Flores Pari · Jichhür apata {0} • Sede Capilla"
+  "Diana Rocío Flores Pari · Retirado hoy {0} • Sede Central": {
+   "en": "Diana Rocío Flores Pari · Picked up today {0} • Central Campus",
+   "qu": "Diana Rocío Flores Pari · Kunan p'unchaw apasqa {0} • Sede Central",
+   "ay": "Diana Rocío Flores Pari · Jichhür apata {0} • Sede Central"
   },
   "Diana Rocío Flores Pari · {0} · Pagado · Por emitir": {
    "en": "Diana Rocío Flores Pari · {0} · Paid · To be issued",
@@ -2053,10 +2043,10 @@
    "qu": "Yachachiq",
    "ay": "Yatichiri"
   },
-  "Docente · {0} · Gestión Pública y Desarrollo Social": {
-   "en": "Faculty · {0} · Public Management and Social Development",
-   "qu": "Yachachiq · {0} · Gestión Pública y Desarrollo Social",
-   "ay": "Yatichiri · {0} · Gestión Pública y Desarrollo Social"
+  "Docente · {0} · Gestión Pública": {
+   "en": "Faculty · {0} · Public Management",
+   "qu": "Yachachiq · {0} · Gestión Pública",
+   "ay": "Yatichiri · {0} · Gestión Pública"
   },
   "Docente, Administrativo": {
    "en": "Faculty, Administrative",
@@ -2133,10 +2123,10 @@
    "qu": "Qillqakuna, formatokuna",
    "ay": "Qillqanaka, formatonaka"
   },
-  "Documentos · Andara": {
-   "en": "Documents · Andara",
-   "qu": "Qillqakuna · Andara",
-   "ay": "Qillqanaka · Andara"
+  "Documentos · Andra": {
+   "en": "Documents · Andra",
+   "qu": "Qillqakuna · Andra",
+   "ay": "Qillqanaka · Andra"
   },
   "Dom {0}": {
    "en": "Sun {0}",
@@ -2183,20 +2173,20 @@
    "qu": "RURAKUCHKAN",
    "ay": "LURASKIWA"
   },
-  "EP Administración y Emprendimiento Empresarial": {
-   "en": "EP Business Administration and Entrepreneurship",
-   "qu": "EP Administración y Emprendimiento Empresarial",
-   "ay": "EP Administración y Emprendimiento Empresarial"
+  "EP Administración de Empresas": {
+   "en": "EP Business Administration",
+   "qu": "EP Administración de Empresas",
+   "ay": "EP Administración de Empresas"
   },
   "EP Economía": {
    "en": "EP Economics",
    "qu": "EP Economía",
    "ay": "EP Economía"
   },
-  "EP Gestión Pública y Desarrollo Social": {
-   "en": "Public Management and Social Development",
-   "qu": "EP Gestión Pública y Desarrollo Social",
-   "ay": "EP Gestión Pública y Desarrollo Social"
+  "EP Gestión Pública": {
+   "en": "Public Management",
+   "qu": "EP Gestión Pública",
+   "ay": "EP Gestión Pública"
   },
   "EP Ingeniería Industrial": {
    "en": "EP Industrial Engineering",
@@ -2208,20 +2198,20 @@
    "qu": "EP Ingeniería Mecatrónica",
    "ay": "EP Ingeniería Mecatrónica"
   },
-  "EP Ingeniería de Software y Sistemas": {
-   "en": "School of Software and Systems Engineering",
-   "qu": "EP Software, Sistemas Ingeniería",
-   "ay": "EP Software, Sistemas Ingeniería"
+  "EP Ingeniería de Sistemas": {
+   "en": "School of Systems Engineering",
+   "qu": "EP Sistemas Ingeniería",
+   "ay": "EP Sistemas Ingeniería"
   },
-  "EP Ingeniería de Software y Sistemas · Sede Capilla": {
-   "en": "EP Software and Systems Engineering · Capilla Campus",
-   "qu": "EP Ingeniería de Software y Sistemas · Sede Capilla",
-   "ay": "EP Ingeniería de Software y Sistemas · Sede Capilla"
+  "EP Ingeniería de Sistemas · Sede Central": {
+   "en": "EP Systems Engineering · Central Campus",
+   "qu": "EP Ingeniería de Sistemas · Sede Central",
+   "ay": "EP Ingeniería de Sistemas · Sede Central"
   },
-  "EP Ingeniería en Energías Renovables": {
-   "en": "Renewable Energy Engineering",
-   "qu": "EP Ingeniería en Energías Renovables",
-   "ay": "EP Ingeniería en Energías Renovables"
+  "EP Ingeniería Eléctrica": {
+   "en": "Electrical Engineering",
+   "qu": "EP Ingeniería Eléctrica",
+   "ay": "EP Ingeniería Eléctrica"
   },
   "EQUIPO": {
    "en": "EQUIPMENT",
@@ -2498,10 +2488,10 @@
    "qu": "Tariy hinaspa aulakunata, laboratoriokunata, huk hatun yachaywasi kitikunatapas waqaychay.",
    "ay": "Thaqham ukat aulanaka, laboratorionaka, yaqha jach'a yatiqañ uta chiqanakampi katxaruma."
   },
-  "Energías Renovables, Industrias Alimentarias y Textil y Confecciones": {
-   "en": "Renewable Energy, Food Industry and Textile and Apparel",
-   "qu": "Musuqyaq Energía, Mikhuna Industria, Away P'acha Ruray",
-   "ay": "Machaqtiri Energía, Manq'a Industria, Sawu Isi Luräwi"
+  "Eléctrica, Agroindustrial y Civil": {
+   "en": "Electrical, Agroindustrial and Civil",
+   "qu": "Eléctrica, Agroindustrial, Civil",
+   "ay": "Eléctrica, Agroindustrial, Civil"
   },
   "Ensayo de exposición final": {
    "en": "Final presentation rehearsal",
@@ -2553,10 +2543,10 @@
    "qu": "Kay rikuchiypi yanqa kachay.",
    "ay": "Aka uñacht'ayäwin yant'a apayawi."
   },
-  "Episs {0}": {
-   "en": "Episs {0}",
-   "qu": "Episs {0}",
-   "ay": "Episs {0}"
+  "Informática {0}": {
+   "en": "Computer Lab {0}",
+   "qu": "Informática {0}",
+   "ay": "Informática {0}"
   },
   "Equipamiento": {
    "en": "Equipment",
@@ -2593,10 +2583,10 @@
    "qu": "Yachay wasi equipokuna",
    "ay": "Universidad equiponaka"
   },
-  "Equipos · Andara": {
-   "en": "Equipment · Andara",
-   "qu": "Equipokuna · Andara",
-   "ay": "Equiponaka · Andara"
+  "Equipos · Andra": {
+   "en": "Equipment · Andra",
+   "qu": "Equipokuna · Andra",
+   "ay": "Equiponaka · Andra"
   },
   "Equipos: OK": {
    "en": "Equipment: OK",
@@ -2658,10 +2648,10 @@
    "qu": "Escuela",
    "ay": "Escuela"
   },
-  "Escuela Profesional de Ingeniería de Software y Sistemas · {0}": {
-   "en": "Professional School of Software and Systems Engineering · {0}",
-   "qu": "Escuela Profesional de Ingeniería de Software y Sistemas · {0}",
-   "ay": "Escuela Profesional de Ingeniería de Software y Sistemas · {0}"
+  "Escuela Profesional de Ingeniería de Sistemas · {0}": {
+   "en": "Professional School of Systems Engineering · {0}",
+   "qu": "Escuela Profesional de Ingeniería de Sistemas · {0}",
+   "ay": "Escuela Profesional de Ingeniería de Sistemas · {0}"
   },
   "Escuela profesional": {
    "en": "School",
@@ -2683,10 +2673,10 @@
    "qu": "Kiti / Maypi",
    "ay": "Chiqa / Kawkin"
   },
-  "Espacio · Sede Capilla": {
-   "en": "Space · Capilla Campus",
-   "qu": "Espacio · Sede Capilla",
-   "ay": "Espacio · Sede Capilla"
+  "Espacio · Sede Central": {
+   "en": "Space · Central Campus",
+   "qu": "Espacio · Sede Central",
+   "ay": "Espacio · Sede Central"
   },
   "Espacios": {
    "en": "Spaces",
@@ -2698,10 +2688,10 @@
    "qu": "Mesa de Partes, Tesorería yachaq",
    "ay": "Mesa de Partes, Tesorería yatiri"
   },
-  "Esperando tu pago en Andara Pay": {
-   "en": "Awaiting your payment in Andara Pay",
-   "qu": "Andara Paypi pagoykita suyachkan",
-   "ay": "Andara Payan pagomaw suyaski"
+  "Esperando tu pago en Andra Pay": {
+   "en": "Awaiting your payment in Andra Pay",
+   "qu": "Andra Paypi pagoykita suyachkan",
+   "ay": "Andra Payan pagomaw suyaski"
   },
   "Estado": {
    "en": "Status",
@@ -2748,15 +2738,15 @@
    "qu": "Yachaqaq cómputo laboratoriopi llamk'achkan",
    "ay": "Yatiqiri cómputo laboratorion irnaqaski"
   },
-  "Estudiante · EP Ingeniería de Software y Sistemas": {
-   "en": "Student · EP Software and Systems Engineering",
-   "qu": "Yachaqaq · EP Ingeniería de Software y Sistemas",
-   "ay": "Yatiqiri · EP Ingeniería de Software y Sistemas"
+  "Estudiante · EP Ingeniería de Sistemas": {
+   "en": "Student · EP Systems Engineering",
+   "qu": "Yachaqaq · EP Ingeniería de Sistemas",
+   "ay": "Yatiqiri · EP Ingeniería de Sistemas"
   },
-  "Estudiante · {0} · Administración y Emprendimiento Empresarial": {
-   "en": "Student · {0} · Business Administration and Entrepreneurship",
-   "qu": "Yachaqaq · {0} · Administración y Emprendimiento Empresarial",
-   "ay": "Yatiqiri · {0} · Administración y Emprendimiento Empresarial"
+  "Estudiante · {0} · Administración de Empresas": {
+   "en": "Student · {0} · Business Administration",
+   "qu": "Yachaqaq · {0} · Administración de Empresas",
+   "ay": "Yatiqiri · {0} · Administración de Empresas"
   },
   "Estudiante · {0} · Economía": {
    "en": "Student · {0} · Economics",
@@ -2768,10 +2758,10 @@
    "qu": "Yachaqaq · {0} · Ingeniería Mecatrónica",
    "ay": "Yatiqiri · {0} · Ingeniería Mecatrónica"
   },
-  "Estudiante · {0} · Ingeniería de Software y Sistemas": {
-   "en": "Student · {0} · Software and Systems Engineering",
-   "qu": "Yachaqaq · {0} · Ingeniería de Software y Sistemas",
-   "ay": "Yatiqiri · {0} · Ingeniería de Software y Sistemas"
+  "Estudiante · {0} · Ingeniería de Sistemas": {
+   "en": "Student · {0} · Systems Engineering",
+   "qu": "Yachaqaq · {0} · Ingeniería de Sistemas",
+   "ay": "Yatiqiri · {0} · Ingeniería de Sistemas"
   },
   "Estudiante, Egresado": {
    "en": "Student, Graduate",
@@ -2808,10 +2798,10 @@
    "qu": "Expediente N.°",
    "ay": "Expediente N.°"
   },
-  "Expediente {0}. Adjunta la constancia visada por el Servicio Médico UNAJ.": {
-   "en": "File {0}. Attach the certificate stamped by UNAJ Medical Service.",
-   "qu": "Expediente {0}. Servicio Médico UNAJ visasqan constanciata yapay.",
-   "ay": "Expediente {0}. Servicio Médico UNAJ visata constancia yapxataña."
+  "Expediente {0}. Adjunta la constancia visada por el Servicio Médico.": {
+   "en": "File {0}. Attach the certificate stamped by Medical Service.",
+   "qu": "Expediente {0}. Servicio Médico visasqan constanciata yapay.",
+   "ay": "Expediente {0}. Servicio Médico visata constancia yapxataña."
   },
   "Expediente {0}. El cambio queda sujeto a disponibilidad.": {
    "en": "Case file {0}. The change is subject to availability.",
@@ -2843,10 +2833,10 @@
    "qu": "Reservakunata maskay",
    "ay": "Reservanak thaqhaña"
   },
-  "Facebook de la UNAJ (abre en una pestaña nueva)": {
-   "en": "UNAJ Facebook (opens in a new tab)",
-   "qu": "UNAJ Facebook (musuq pestañapi kichakun)",
-   "ay": "UNAJ Facebook (machaq pestañan jist'arasi)"
+  "Facebook de la institución (abre en una pestaña nueva)": {
+   "en": "Institution Facebook (opens in a new tab)",
+   "qu": "Facebook (musuq pestañapi kichakun)",
+   "ay": "Facebook (machaq pestañan jist'arasi)"
   },
   "Falla de funcionamiento": {
    "en": "Malfunction",
@@ -2863,10 +2853,10 @@
    "qu": "Munasqakuna ñawpaqta",
    "ay": "Munatanaka nayraqata"
   },
-  "Favoritos · Andara": {
-   "en": "Favorites · Andara",
-   "qu": "Munasqakuna · Andara",
-   "ay": "Munatanaka · Andara"
+  "Favoritos · Andra": {
+   "en": "Favorites · Andra",
+   "qu": "Munasqakuna · Andra",
+   "ay": "Munatanaka · Andra"
   },
   "Fecha": {
    "en": "Date",
@@ -2978,10 +2968,10 @@
    "qu": "Digital Firma, SUNEDU Certificadokunapas",
    "ay": "Digital Firma, SUNEDU Certificadonakampi"
   },
-  "Firma Digital: Token UNAJ": {
-   "en": "Digital Signature: UNAJ Token",
-   "qu": "Digital Firma: UNAJ Token",
-   "ay": "Digital Firma: UNAJ Token"
+  "Firma Digital: Token institucional": {
+   "en": "Digital Signature: Institutional Token",
+   "qu": "Digital Firma: Token",
+   "ay": "Digital Firma: Token"
   },
   "Firma de convenio institucional con documentos oficiales": {
    "en": "Signing of institutional agreement with official documents",
@@ -3080,13 +3070,8 @@
   },
   "Gestión Pública": {
    "en": "Public Management",
-   "qu": "Gestión Pública",
-   "ay": "Gestión Pública"
-  },
-  "Gestión Pública y Desarrollo Social": {
-   "en": "Public Management and Social Development",
-   "qu": "Llaqta Kamachiy, Ayllu Wiñay",
-   "ay": "Markachir Apnaqawi, Ayllu Jilsuwi"
+   "qu": "Llaqta Kamachiy",
+   "ay": "Markachir Apnaqawi"
   },
   "Gestión Pública y Gobierno Digital": {
    "en": "Public Management and Digital Government",
@@ -3238,10 +3223,10 @@
    "qu": "Pacha: lunesmanta viernes kama, {0} horamanta {1} hora kama",
    "ay": "Pacha: lunesat viernes kama, {0} horat {1} hora kama"
   },
-  "Horarios de Laboratorio Episs {0}": {
-   "en": "Laboratorio Episs {0} schedule",
-   "qu": "Laboratorio Episs {0} horariokuna",
-   "ay": "Laboratorio Episs {0} horarionaka"
+  "Horarios de Laboratorio de Informática {0}": {
+   "en": "Computer Lab {0} schedule",
+   "qu": "Laboratorio de Informática {0} horariokuna",
+   "ay": "Laboratorio de Informática {0} horarionaka"
   },
   "Horarios de hoy": {
    "en": "Today's schedule",
@@ -3293,10 +3278,10 @@
    "qu": "Ukhupi kan",
    "ay": "Manqhankiwa"
   },
-  "Incluye promedio ponderado acumulado, ubicación en el tercio superior de Ingeniería Software y Sistemas y firma digital institucional con plena validez ante SUNEDU.": {
-   "en": "Includes cumulative weighted average, ranking in the top third of Software and Systems Engineering and an institutional digital signature fully valid before SUNEDU.",
-   "qu": "Promedio ponderado acumulado, Software Sistemas Ingenieríapa hanaq kimsa t'aqanpi maypi kasqan, institución digital firma ima, SUNEDU ñawpaqpi tukuy chaniyuq.",
-   "ay": "Promedio ponderado acumulado, Software Sistemas Ingenierían alay kimsa t'aqapan kawkinkasa, institución digital firma ukanak apt'i, SUNEDU nayraqatan taqi chanini."
+  "Incluye promedio ponderado acumulado, ubicación en el tercio superior de Ingeniería de Sistemas y firma digital institucional con plena validez ante SUNEDU.": {
+   "en": "Includes cumulative weighted average, ranking in the top third of Systems Engineering and an institutional digital signature fully valid before SUNEDU.",
+   "qu": "Promedio ponderado acumulado, Sistemas Ingenieríapa hanaq kimsa t'aqanpi maypi kasqan, institución digital firma ima, SUNEDU ñawpaqpi tukuy chaniyuq.",
+   "ay": "Promedio ponderado acumulado, Sistemas Ingenierían alay kimsa t'aqapan kawkinkasa, institución digital firma ukanak apt'i, SUNEDU nayraqatan taqi chanini."
   },
   "Incluye {0} micrófonos inalámbricos y trípode": {
    "en": "Includes {0} wireless microphones and tripod",
@@ -3318,10 +3303,10 @@
    "qu": "Wasikuna",
    "ay": "Utanaka"
   },
-  "Ingeniería Ambiental y Forestal": {
-   "en": "Environmental and Forest Engineering",
-   "qu": "Pachamama, Sach'a-sach'a Ingeniería",
-   "ay": "Pachamama, Quqa Ingeniería"
+  "Ingeniería Ambiental": {
+   "en": "Environmental Engineering",
+   "qu": "Pachamama Ingeniería",
+   "ay": "Pachamama Ingeniería"
   },
   "Ingeniería Industrial": {
    "en": "Industrial Engineering",
@@ -3333,30 +3318,30 @@
    "qu": "Ingeniería Mecatrónica",
    "ay": "Ingeniería Mecatrónica"
   },
-  "Ingeniería Textil y de Confecciones": {
-   "en": "Textile and Apparel Engineering",
-   "qu": "Away, P'acha Ruray Ingeniería",
-   "ay": "Sawu, Isi Luräwi Ingeniería"
+  "Ingeniería Civil": {
+   "en": "Civil Engineering",
+   "qu": "Ingeniería Civil",
+   "ay": "Ingeniería Civil"
   },
-  "Ingeniería de Software y Sistemas": {
-   "en": "Software and Systems Engineering",
-   "qu": "Software, Sistemas Ingeniería",
-   "ay": "Software, Sistemas Ingeniería"
+  "Ingeniería de Sistemas": {
+   "en": "Systems Engineering",
+   "qu": "Sistemas Ingeniería",
+   "ay": "Sistemas Ingeniería"
   },
-  "Ingeniería en Energías Renovables": {
-   "en": "Renewable Energy Engineering",
-   "qu": "Musuqyaq Energía Ingeniería",
-   "ay": "Machaqtiri Energía Ingeniería"
+  "Ingeniería Eléctrica": {
+   "en": "Electrical Engineering",
+   "qu": "Ingeniería Eléctrica",
+   "ay": "Ingeniería Eléctrica"
   },
-  "Ingeniería en Energías Renovables, Ingeniería en Industrias Alimentarias, Ingeniería Textil y de Confecciones": {
-   "en": "Renewable Energy Engineering, Food Industry Engineering, Textile and Apparel Engineering",
-   "qu": "Ingeniería en Energías Renovables, Ingeniería en Industrias Alimentarias, Ingeniería Textil y de Confecciones",
-   "ay": "Ingeniería en Energías Renovables, Ingeniería en Industrias Alimentarias, Ingeniería Textil y de Confecciones"
+  "Ingeniería Eléctrica, Ingeniería Agroindustrial, Ingeniería Civil": {
+   "en": "Electrical Engineering, Agroindustrial Engineering, Civil Engineering",
+   "qu": "Ingeniería Eléctrica, Ingeniería Agroindustrial, Ingeniería Civil",
+   "ay": "Ingeniería Eléctrica, Ingeniería Agroindustrial, Ingeniería Civil"
   },
-  "Ingeniería en Industrias Alimentarias": {
-   "en": "Food Industry Engineering",
-   "qu": "Mikhuna Industria Ingeniería",
-   "ay": "Manq'a Industria Ingeniería"
+  "Ingeniería Agroindustrial": {
+   "en": "Agroindustrial Engineering",
+   "qu": "Ingeniería Agroindustrial",
+   "ay": "Ingeniería Agroindustrial"
   },
   "Ingeniería · {0}º piso": {
    "en": "Engineering · Floor {0}",
@@ -3388,10 +3373,10 @@
    "qu": "Extraordinaria mañakuyta yaykuchiy",
    "ay": "Extraordinaria mayiwi mantayaña"
   },
-  "Ingresar · Andara": {
-   "en": "Sign in · Andara",
-   "qu": "Yaykuy · Andara",
-   "ay": "Mantaña · Andara"
+  "Ingresar · Andra": {
+   "en": "Sign in · Andra",
+   "qu": "Yaykuy · Andra",
+   "ay": "Mantaña · Andra"
   },
   "Ingreso a eventos y ceremonias": {
    "en": "Entry to events and ceremonies",
@@ -3422,6 +3407,11 @@
    "en": "Home",
    "qu": "Qallariy",
    "ay": "Qalltawi"
+  },
+  "Institución": {
+   "en": "Institution",
+   "qu": "Institución",
+   "ay": "Institución"
   },
   "Institución o empresa (opcional)": {
    "en": "Institution or company (optional)",
@@ -3498,20 +3488,20 @@
    "qu": "José Luis Ticona Huanca · Mastercard · {0} {1}",
    "ay": "José Luis Ticona Huanca · Mastercard · {0} {1}"
   },
-  "José Luis Ticona Huanca · Solicitud para el {0} ({1}) • {2} horas lectivas • Sede Capilla": {
-   "en": "José Luis Ticona Huanca · Request for {0} ({1}) • {2} class hours • Capilla Campus",
-   "qu": "José Luis Ticona Huanca · {0} paq mañakuy ({1}) • {2} yachay horakuna • Sede Capilla",
-   "ay": "José Luis Ticona Huanca · {0} taki mayiwi ({1}) • {2} yatiqañ horanaka • Sede Capilla"
+  "José Luis Ticona Huanca · Solicitud para el {0} ({1}) • {2} horas lectivas • Sede Central": {
+   "en": "José Luis Ticona Huanca · Request for {0} ({1}) • {2} class hours • Central Campus",
+   "qu": "José Luis Ticona Huanca · {0} paq mañakuy ({1}) • {2} yachay horakuna • Sede Central",
+   "ay": "José Luis Ticona Huanca · {0} taki mayiwi ({1}) • {2} yatiqañ horanaka • Sede Central"
   },
   "José Luis Ticona Huanca · {0} · Pagado · Por emitir": {
    "en": "José Luis Ticona Huanca · {0} · Paid · To be issued",
    "qu": "José Luis Ticona Huanca · {0} · Pagasqa · Qunapaq",
    "ay": "José Luis Ticona Huanca · {0} · Pagatawa · Churañataki"
   },
-  "José Luis Ticona Huanca · {0} · {1} - {2} · {3} personas · Sede Capilla": {
-   "en": "José Luis Ticona Huanca · {0} · {1} - {2} · {3} people · Capilla Campus",
-   "qu": "José Luis Ticona Huanca · {0} · {1} - {2} · {3} runakuna · Sede Capilla",
-   "ay": "José Luis Ticona Huanca · {0} · {1} - {2} · {3} jaqinaka · Sede Capilla"
+  "José Luis Ticona Huanca · {0} · {1} - {2} · {3} personas · Sede Central": {
+   "en": "José Luis Ticona Huanca · {0} · {1} - {2} · {3} people · Central Campus",
+   "qu": "José Luis Ticona Huanca · {0} · {1} - {2} · {3} runakuna · Sede Central",
+   "ay": "José Luis Ticona Huanca · {0} · {1} - {2} · {3} jaqinaka · Sede Central"
   },
   "Jue": {
    "en": "Thu",
@@ -3573,35 +3563,35 @@
    "qu": "Laboratorio Qusqa, Chiqaqchasqa",
    "ay": "Laboratorio Churata, Chiqanchata"
   },
-  "Laboratorio Epier {0}": {
-   "en": "Epier Lab {0}",
-   "qu": "Laboratorio Epier {0}",
-   "ay": "Laboratorio Epier {0}"
+  "Laboratorio de Electricidad {0}": {
+   "en": "Electrical Lab {0}",
+   "qu": "Laboratorio de Electricidad {0}",
+   "ay": "Laboratorio de Electricidad {0}"
   },
-  "Laboratorio Episs {0}": {
-   "en": "Episs Lab {0}",
-   "qu": "Laboratorio Episs {0}",
-   "ay": "Laboratorio Episs {0}"
+  "Laboratorio de Informática {0}": {
+   "en": "Computer Lab {0}",
+   "qu": "Laboratorio de Informática {0}",
+   "ay": "Laboratorio de Informática {0}"
   },
-  "Laboratorio Episs {0} · Libre": {
-   "en": "Laboratorio Episs {0} · Available",
-   "qu": "Laboratorio Episs {0} · Ch'usaq",
-   "ay": "Laboratorio Episs {0} · Ch'usa"
+  "Laboratorio de Informática {0} · Libre": {
+   "en": "Computer Lab {0} · Available",
+   "qu": "Laboratorio de Informática {0} · Ch'usaq",
+   "ay": "Laboratorio de Informática {0} · Ch'usa"
   },
-  "Laboratorio Episs {0} · Martes, {1} de octubre, {2} · {3} - {4} La solicitud quedará pendiente de aprobación y podrás verla en Reservas.": {
-   "en": "Episs Lab {0} · Tuesday, October {1}, {2} · {3} - {4} The request will be pending approval and you can see it in Bookings.",
-   "qu": "Laboratorio Episs {0} · Martes, {1} octubre, {2} · {3} - {4} Mañakuyqa aprobacionta suyachkanqa, Reservakunapitaq qhawayta atinki.",
-   "ay": "Laboratorio Episs {0} · Martes, {1} octubre, {2} · {3} - {4} Mayiwix aprobación suyt'aniwa, Reservanakan uñjasmawa."
+  "Laboratorio de Informática {0} · Martes, {1} de octubre, {2} · {3} - {4} La solicitud quedará pendiente de aprobación y podrás verla en Reservas.": {
+   "en": "Computer Lab {0} · Tuesday, October {1}, {2} · {3} - {4} The request will be pending approval and you can see it in Bookings.",
+   "qu": "Laboratorio de Informática {0} · Martes, {1} octubre, {2} · {3} - {4} Mañakuyqa aprobacionta suyachkanqa, Reservakunapitaq qhawayta atinki.",
+   "ay": "Laboratorio de Informática {0} · Martes, {1} octubre, {2} · {3} - {4} Mayiwix aprobación suyt'aniwa, Reservanakan uñjasmawa."
   },
-  "Laboratorio Episs {0} · Ocupado": {
-   "en": "Laboratorio Episs {0} · Occupied",
-   "qu": "Laboratorio Episs {0} · Hap'isqa",
-   "ay": "Laboratorio Episs {0} · Katuyata"
+  "Laboratorio de Informática {0} · Ocupado": {
+   "en": "Computer Lab {0} · Occupied",
+   "qu": "Laboratorio de Informática {0} · Hap'isqa",
+   "ay": "Laboratorio de Informática {0} · Katuyata"
   },
-  "Laboratorio Episs {0}: {1}": {
-   "en": "Laboratorio Episs {0}: {1}",
-   "qu": "Laboratorio Episs {0}: {1}",
-   "ay": "Laboratorio Episs {0}: {1}"
+  "Laboratorio de Informática {0}: {1}": {
+   "en": "Computer Lab {0}: {1}",
+   "qu": "Laboratorio de Informática {0}: {1}",
+   "ay": "Laboratorio de Informática {0}: {1}"
   },
   "Laboratorio de Econometría y Estadística": {
    "en": "Econometrics and Statistics Lab",
@@ -3698,10 +3688,10 @@
    "qu": "Laboratoriokuna",
    "ay": "Laboratorionaka"
   },
-  "Laboratorios y talleres de cada escuela en las tres sedes; auditorios en la sede Capilla.": {
-   "en": "Labs and workshops for each school at all three campuses; auditoriums at Capilla Campus.",
-   "qu": "Sapa escuelapa laboratoriokuna tallerkunapas kimsa sedekunapi; auditoriokunataq sede Capillapi.",
-   "ay": "Sapa escuelan laboratorionaka tallernakapax kimsa sedenakan; auditorionakax sede Capillan."
+  "Laboratorios y talleres de cada escuela en las tres sedes; auditorios en la sede Central.": {
+   "en": "Labs and workshops for each school at all three campuses; auditoriums at Central Campus.",
+   "qu": "Sapa escuelapa laboratoriokuna tallerkunapas kimsa sedekunapi; auditoriokunataq sede Centralpi.",
+   "ay": "Sapa escuelan laboratorionaka tallernakapax kimsa sedenakan; auditorionakax sede Centralan."
   },
   "Laptop Dell Latitude para desarrollo": {
    "en": "Dell Latitude laptop for development",
@@ -3783,10 +3773,10 @@
    "qu": "Llamk'achinapaq listo",
    "ay": "Apnaqañatak wakicht'ata"
   },
-  "Listo · Ventanilla {0} Mesa de Partes · Sede Capilla": {
-   "en": "Ready · Window {0} Front Desk · Capilla Campus",
-   "qu": "Listo kachkan · Ventanilla {0} Mesa de Partes · Sede Capilla",
-   "ay": "Listowa · Ventanilla {0} Mesa de Partes · Sede Capilla"
+  "Listo · Ventanilla {0} Mesa de Partes · Sede Central": {
+   "en": "Ready · Window {0} Front Desk · Central Campus",
+   "qu": "Listo kachkan · Ventanilla {0} Mesa de Partes · Sede Central",
+   "ay": "Listowa · Ventanilla {0} Mesa de Partes · Sede Central"
   },
   "Listos y entregados": {
    "en": "Ready and delivered",
@@ -3828,20 +3818,20 @@
    "qu": "Lucía Fernanda Condori Apaza · {0} {1} - {2}",
    "ay": "Lucía Fernanda Condori Apaza · {0} {1} - {2}"
   },
-  "Lucía Fernanda Condori Apaza · {0} · {1} - {2} · {3} personas · Sede Capilla": {
-   "en": "Lucía Fernanda Condori Apaza · {0} · {1} - {2} · {3} people · Capilla Campus",
-   "qu": "Lucía Fernanda Condori Apaza · {0} · {1} - {2} · {3} runakuna · Sede Capilla",
-   "ay": "Lucía Fernanda Condori Apaza · {0} · {1} - {2} · {3} jaqinaka · Sede Capilla"
+  "Lucía Fernanda Condori Apaza · {0} · {1} - {2} · {3} personas · Sede Central": {
+   "en": "Lucía Fernanda Condori Apaza · {0} · {1} - {2} · {3} people · Central Campus",
+   "qu": "Lucía Fernanda Condori Apaza · {0} · {1} - {2} · {3} runakuna · Sede Central",
+   "ay": "Lucía Fernanda Condori Apaza · {0} · {1} - {2} · {3} jaqinaka · Sede Central"
   },
-  "Lugar de devolución: Laboratorio Episs {0} · Pabellón A (Piso {1}) · Sede Capilla": {
-   "en": "Return location: Episs Lab {0} · Building A (Floor {1}) · Capilla Campus",
-   "qu": "Kutichina kiti: Laboratorio Episs {0} · Pabellón A (Piso {1}) · Sede Capilla",
-   "ay": "Kutt'ayañ chiqa: Laboratorio Episs {0} · Pabellón A (Piso {1}) · Sede Capilla"
+  "Lugar de devolución: Laboratorio de Informática {0} · Pabellón A (Piso {1}) · Sede Central": {
+   "en": "Return location: Computer Lab {0} · Building A (Floor {1}) · Central Campus",
+   "qu": "Kutichina kiti: Laboratorio de Informática {0} · Pabellón A (Piso {1}) · Sede Central",
+   "ay": "Kutt'ayañ chiqa: Laboratorio de Informática {0} · Pabellón A (Piso {1}) · Sede Central"
   },
-  "Lugar de entrega: Sede Capilla · Pabellón Central (Audiovisuales)": {
-   "en": "Delivery location: Capilla Campus · Central Pavilion (Audiovisual)",
-   "qu": "Quykuy kiti: Capilla Sede · Chawpi Pabellón (Audiovisuales)",
-   "ay": "Churañ chiqa: Capilla Sede · Taypi Pabellón (Audiovisuales)"
+  "Lugar de entrega: Sede Central · Pabellón Central (Audiovisuales)": {
+   "en": "Delivery location: Central Campus · Central Pavilion (Audiovisual)",
+   "qu": "Quykuy kiti: Central Sede · Chawpi Pabellón (Audiovisuales)",
+   "ay": "Churañ chiqa: Central Sede · Taypi Pabellón (Audiovisuales)"
   },
   "Lun": {
    "en": "Mon",
@@ -3893,10 +3883,10 @@
    "qu": "Chiqaqchasqa yachay malla",
    "ay": "Chiqanchata yatiqawi malla"
   },
-  "Malla curricular {0} · Ingeniería de Software y Sistemas": {
-   "en": "Curriculum {0} · Software and Systems Engineering",
-   "qu": "Malla curricular {0} · Ingeniería de Software y Sistemas",
-   "ay": "Malla curricular {0} · Ingeniería de Software y Sistemas"
+  "Malla curricular {0} · Ingeniería de Sistemas": {
+   "en": "Curriculum {0} · Systems Engineering",
+   "qu": "Malla curricular {0} · Ingeniería de Sistemas",
+   "ay": "Malla curricular {0} · Ingeniería de Sistemas"
   },
   "Manufactura y Control Numérico (CNC)": {
    "en": "Manufacturing and Numerical Control (CNC)",
@@ -3953,10 +3943,10 @@
    "qu": "Atipachaw, {0} octubre killa, {1} kunan",
    "ay": "Martisa, {0} octubre phaxsi, {1} jichhüru"
   },
-  "Martes, {0} de octubre, {1} · Esto es lo que pasa hoy en Andara.": {
-   "en": "Tuesday, October {0}, {1} · Here's what's happening today in Andara.",
-   "qu": "Martes, {0} octubre, {1} · Kayqa kunan p'unchaw Andarapi kaqmi.",
-   "ay": "Martes, {0} octubre, {1} · Akaw jichhürun Andaran utjki."
+  "Martes, {0} de octubre, {1} · Esto es lo que pasa hoy en Andra.": {
+   "en": "Tuesday, October {0}, {1} · Here's what's happening today in Andra.",
+   "qu": "Martes, {0} octubre, {1} · Kayqa kunan p'unchaw Andrapi kaqmi.",
+   "ay": "Martes, {0} octubre, {1} · Akaw jichhürun Andran utjki."
   },
   "Mastercard": {
    "en": "Mastercard",
@@ -4033,35 +4023,35 @@
    "qu": "Hamuq killa",
    "ay": "Jutir phaxsi"
   },
-  "Mesa de Partes Virtual UNAJ": {
-   "en": "UNAJ Virtual Front Desk",
-   "qu": "UNAJ Virtual Mesa de Partes",
-   "ay": "UNAJ Virtual Mesa de Partes"
+  "Mesa de Partes Virtual": {
+   "en": "Virtual Front Desk",
+   "qu": "Virtual Mesa de Partes",
+   "ay": "Virtual Mesa de Partes"
   },
   "Mesa de Partes Virtual, Validación Reniec, Pasarela de Pagos y Custodia funcionando sin demoras.": {
    "en": "Virtual Front Desk, Reniec Validation, Payment Gateway and Custody running with no delays.",
    "qu": "Mesa de Partes Virtual, Validación Reniec, Pasarela de Pagos, Custodiapas mana unaspa llamk'achkan.",
    "ay": "Mesa de Partes Virtual, Validación Reniec, Pasarela de Pagos, Custodias jan qhipt'asa irnaqaski."
   },
-  "Mesa de Partes en Ayabacas, Capilla y Salida Cuzco. Primero aparece tu sede seleccionada.": {
-   "en": "Front desks at Ayabacas, Capilla and Salida Cuzco. Your selected campus shows first.",
-   "qu": "Mesa de Partes Ayabacaspi, Capillapi, Salida Cuzcopi. Ñawpaqta akllasqa sedeyki rikhurin.",
-   "ay": "Mesa de Partes Ayabacasan, Capillan, Salida Cuzcon. Nayraqat ajllita sedemaw uñsti."
+  "Mesa de Partes en las sedes Central, Norte y Sur. Primero aparece tu sede seleccionada.": {
+   "en": "Front desks at the Central, North and South campuses. Your selected campus shows first.",
+   "qu": "Mesa de Partes sede Centralpi, Nortepi, Surpi. Ñawpaqta akllasqa sedeyki rikhurin.",
+   "ay": "Mesa de Partes sede Centralan, Norten, Surana. Nayraqat ajllita sedemaw uñsti."
   },
-  "Mesa de Partes · Sede Ayabacas": {
-   "en": "Front Desk · Ayabacas Campus",
-   "qu": "Mesa de Partes · Ayabacas sede",
-   "ay": "Mesa de Partes · Ayabacas sede"
+  "Mesa de Partes · Sede Central": {
+   "en": "Front Desk · Central Campus",
+   "qu": "Mesa de Partes · Central sede",
+   "ay": "Mesa de Partes · Central sede"
   },
-  "Mesa de Partes · Sede La Capilla": {
-   "en": "Front Desk · La Capilla Campus",
-   "qu": "Mesa de Partes · La Capilla sede",
-   "ay": "Mesa de Partes · La Capilla sede"
+  "Mesa de Partes · Sede Norte": {
+   "en": "Front Desk · North Campus",
+   "qu": "Mesa de Partes · Norte sede",
+   "ay": "Mesa de Partes · Norte sede"
   },
-  "Mesa de Partes · Sede Salida Cuzco": {
-   "en": "Front Desk · Salida Cuzco Campus",
-   "qu": "Mesa de Partes · Salida Cuzco sede",
-   "ay": "Mesa de Partes · Salida Cuzco sede"
+  "Mesa de Partes · Sede Sur": {
+   "en": "Front Desk · South Campus",
+   "qu": "Mesa de Partes · Sur sede",
+   "ay": "Mesa de Partes · Sur sede"
   },
   "Mg. Elena Vilca Turpo": {
    "en": "Mg. Elena Vilca Turpo",
@@ -4078,20 +4068,20 @@
    "qu": "Mg. Elena Vilca Turpo · {0} {1} - {2}",
    "ay": "Mg. Elena Vilca Turpo · {0} {1} - {2}"
   },
-  "Mg. Elena Vilca Turpo · {0} · {1} - {2} · {3} personas · Sede Capilla": {
-   "en": "Mg. Elena Vilca Turpo · {0} · {1} - {2} · {3} people · Capilla Campus",
-   "qu": "Mg. Elena Vilca Turpo · {0} · {1} - {2} · {3} runakuna · Sede Capilla",
-   "ay": "Mg. Elena Vilca Turpo · {0} · {1} - {2} · {3} jaqinaka · Sede Capilla"
+  "Mg. Elena Vilca Turpo · {0} · {1} - {2} · {3} personas · Sede Central": {
+   "en": "Mg. Elena Vilca Turpo · {0} · {1} - {2} · {3} people · Central Campus",
+   "qu": "Mg. Elena Vilca Turpo · {0} · {1} - {2} · {3} runakuna · Sede Central",
+   "ay": "Mg. Elena Vilca Turpo · {0} · {1} - {2} · {3} jaqinaka · Sede Central"
   },
   "Mi carné digital": {
    "en": "My digital ID",
    "qu": "Digital carnéy",
    "ay": "Digital carnéxa"
   },
-  "Mi carné · Andara": {
-   "en": "My card · Andara",
-   "qu": "Carnéy · Andara",
-   "ay": "Carnéja · Andara"
+  "Mi carné · Andra": {
+   "en": "My card · Andra",
+   "qu": "Carnéy · Andra",
+   "ay": "Carnéja · Andra"
   },
   "Mi cuenta": {
    "en": "My account",
@@ -4108,10 +4098,10 @@
    "qu": "Mañakuyniykuna",
    "ay": "Mayitanakaxa"
   },
-  "Mis Solicitudes · Andara": {
-   "en": "My Requests · Andara",
-   "qu": "Mañakuyniykuna · Andara",
-   "ay": "Mayiwinakaja · Andara"
+  "Mis Solicitudes · Andra": {
+   "en": "My Requests · Andra",
+   "qu": "Mañakuyniykuna · Andra",
+   "ay": "Mayiwinakaja · Andra"
   },
   "Mis documentos": {
    "en": "My documents",
@@ -4228,10 +4218,10 @@
    "qu": "Imarayku",
    "ay": "Kunatakisa"
   },
-  "Motivo de Jefatura: Falta visado del Servicio Médico UNAJ (Edificio Administrativo). Plazo límite de vencimiento: {0} horas.": {
-   "en": "Office note: Missing UNAJ Medical Service stamp (Administrative Building). Deadline: {0} hours.",
-   "qu": "Jefatura nisqan: Servicio Médico UNAJ visadon pisin (Edificio Administrativo). Tukukuy plazo: {0} horas.",
-   "ay": "Jefatura siwa: Servicio Médico UNAJ visado pist'iwa (Edificio Administrativo). Tukuy plazo: {0} horas."
+  "Motivo de Jefatura: Falta visado del Servicio Médico (Edificio Administrativo). Plazo límite de vencimiento: {0} horas.": {
+   "en": "Office note: Missing Medical Service stamp (Administrative Building). Deadline: {0} hours.",
+   "qu": "Jefatura nisqan: Servicio Médico visadon pisin (Edificio Administrativo). Tukukuy plazo: {0} horas.",
+   "ay": "Jefatura siwa: Servicio Médico visado pist'iwa (Edificio Administrativo). Tukuy plazo: {0} horas."
   },
   "Motivo de la reserva": {
    "en": "Booking reason",
@@ -4338,6 +4328,11 @@
    "qu": "Kamachikuykuna",
    "ay": "Kamachinaka"
   },
+  "Norte": {
+   "en": "North",
+   "qu": "Norte",
+   "ay": "Norte"
+  },
   "Notas, créditos aprobados y promedio ponderado.": {
    "en": "Grades, approved credits and weighted average.",
    "qu": "Notakuna, atipasqa créditokuna, promedio ponderado.",
@@ -4353,10 +4348,10 @@
    "qu": "Willakuykuna, {0} mana ñawinchasqa",
    "ay": "Yatiyawinaka, {0} jan liyita"
   },
-  "Notificación en Andara": {
-   "en": "Andara notification",
-   "qu": "Andarapi willakuy",
-   "ay": "Andaran yatiyawi"
+  "Notificación en Andra": {
+   "en": "Andra notification",
+   "qu": "Andrapi willakuy",
+   "ay": "Andran yatiyawi"
   },
   "Novedades": {
    "en": "What's new",
@@ -4483,10 +4478,10 @@
    "qu": "Pagana kamachiy",
    "ay": "Payllañ mayiwi"
   },
-  "Orden {0} guardada en Andara Pay. Págala antes del {1}": {
-   "en": "Order {0} saved in Andara Pay. Pay it before {1}",
-   "qu": "Orden {0} Andara Paypi waqaychasqa. {1} ñawpaqta pagay",
-   "ay": "Orden {0} Andara Payan imatawa. {1} nayraqat pagaña"
+  "Orden {0} guardada en Andra Pay. Págala antes del {1}": {
+   "en": "Order {0} saved in Andra Pay. Pay it before {1}",
+   "qu": "Orden {0} Andra Paypi waqaychasqa. {1} ñawpaqta pagay",
+   "ay": "Orden {0} Andra Payan imatawa. {1} nayraqat pagaña"
   },
   "Ordenar por": {
    "en": "Sort by",
@@ -4673,20 +4668,20 @@
    "qu": "Pagasqa utaq qhawakushan",
    "ay": "Payllata jan ukax uñakipaski"
   },
-  "Pagar con Andara Pay": {
-   "en": "Pay with Andara Pay",
-   "qu": "Andara Pay-wan pagay",
-   "ay": "Andara Pay-mpi payllaña"
+  "Pagar con Andra Pay": {
+   "en": "Pay with Andra Pay",
+   "qu": "Andra Pay-wan pagay",
+   "ay": "Andra Pay-mpi payllaña"
   },
   "Pagar después": {
    "en": "Pay later",
    "qu": "Qhipaman pagay",
    "ay": "Qhipat payllaña"
   },
-  "Pagar en Andara Pay": {
-   "en": "Pay with Andara Pay",
-   "qu": "Andara Pay-pi pagay",
-   "ay": "Andara Pay-n payllaña"
+  "Pagar en Andra Pay": {
+   "en": "Pay with Andra Pay",
+   "qu": "Andra Pay-pi pagay",
+   "ay": "Andra Pay-n payllaña"
   },
   "Pagar lo más próximo · {0}": {
    "en": "Pay next due · {0}",
@@ -4718,20 +4713,20 @@
    "qu": "Pago takyachisqa",
    "ay": "Payllawi chiqanchatawa"
   },
-  "Pago confirmado. Sede de atención: Sede La Capilla. Montos referenciales de demostración; no se realizan cargos reales.": {
-   "en": "Payment confirmed. Service campus: La Capilla Campus. Demo reference amounts; no real charges are made.",
-   "qu": "Pago chiqanchasqa. Yanapay sede: Sede La Capilla. Rikuchinapaq qullqi yupaykuna; mana chiqap cobrokuna ruwakunchu.",
-   "ay": "Payllawi chiqanchata. Yanapt'añ sede: Sede La Capilla. Uñacht'ayañatak qullqi jakhunaka; janiw chiqpach cobronak luraskiti."
+  "Pago confirmado. Sede de atención: Sede Central. Montos referenciales de demostración; no se realizan cargos reales.": {
+   "en": "Payment confirmed. Service campus: Central Campus. Demo reference amounts; no real charges are made.",
+   "qu": "Pago chiqanchasqa. Yanapay sede: Sede Central. Rikuchinapaq qullqi yupaykuna; mana chiqap cobrokuna ruwakunchu.",
+   "ay": "Payllawi chiqanchata. Yanapt'añ sede: Sede Central. Uñacht'ayañatak qullqi jakhunaka; janiw chiqpach cobronak luraskiti."
   },
   "Pago pendiente": {
    "en": "Payment pending",
    "qu": "Pago suyachkan",
    "ay": "Payllawi suyt'aski"
   },
-  "Pago pendiente en Andara Pay": {
-   "en": "Pending payment in Andara Pay",
-   "qu": "Andara Pay-pi suyachkan qullqi",
-   "ay": "Andara Pay-nx suyt'ki payllawi"
+  "Pago pendiente en Andra Pay": {
+   "en": "Pending payment in Andra Pay",
+   "qu": "Andra Pay-pi suyachkan qullqi",
+   "ay": "Andra Pay-nx suyt'ki payllawi"
   },
   "Pago simulado para demostración": {
    "en": "Simulated demo payment",
@@ -4768,10 +4763,10 @@
    "qu": "Yachachiqkunapaq, administrativo llamkaqkunapaq.",
    "ay": "Yatichirinakataki, administrativo irnaqirinakataki."
   },
-  "Para el {0} · Sede Capilla. Pasa el cursor y elige uno para ver sus detalles.": {
-   "en": "For {0} · Capilla Campus. Hover and pick one to see its details.",
-   "qu": "{0} paq · Sede Capilla. Cursorta apamuy hinaspa hukta akllay qhawanapaq.",
-   "ay": "{0} taki · Sede Capilla. Cursor apanim ukat mayni ajlliy uñjañataki."
+  "Para el {0} · Sede Central. Pasa el cursor y elige uno para ver sus detalles.": {
+   "en": "For {0} · Central Campus. Hover and pick one to see its details.",
+   "qu": "{0} paq · Sede Central. Cursorta apamuy hinaspa hukta akllay qhawanapaq.",
+   "ay": "{0} taki · Sede Central. Cursor apanim ukat mayni ajlliy uñjañataki."
   },
   "Para hoy": {
    "en": "For today",
@@ -4863,10 +4858,10 @@
    "qu": "Pacha",
    "ay": "Pacha"
   },
-  "Permiso justificado a examen parcial por descanso médico. Requiere subsanar documento con visado del Servicio Médico UNAJ.": {
-   "en": "Excused from midterm exam due to medical leave. Document must be corrected with a stamp from UNAJ Medical Service.",
-   "qu": "Hampi samaypi kasqanrayku chawpi examenmanta permiso. UNAJ Hampi Yanapakuypa visadonwan qillqata allichanan.",
-   "ay": "Qulla samarañan utjatap layku taypi examenat permiso. UNAJ Qulla Yanapawin visadopampi qillqa askichañawa."
+  "Permiso justificado a examen parcial por descanso médico. Requiere subsanar documento con visado del Servicio Médico.": {
+   "en": "Excused from midterm exam due to medical leave. Document must be corrected with a stamp from Medical Service.",
+   "qu": "Hampi samaypi kasqanrayku chawpi examenmanta permiso. Hampi Yanapakuypa visadonwan qillqata allichanan.",
+   "ay": "Qulla samarañan utjatap layku taypi examenat permiso. Qulla Yanapawin visadopampi qillqa askichañawa."
   },
   "Plan de estudios": {
    "en": "Study plan",
@@ -4948,10 +4943,10 @@
    "qu": "Carné chinkaptin utaq waqllikuptin.",
    "ay": "Carné chhaqhatapata jan ukax q'añuchatapata."
   },
-  "Portada de ingreso al campus de la UNAJ": {
-   "en": "UNAJ campus entrance",
-   "qu": "UNAJ campusman yaykuna punku",
-   "ay": "UNAJ campusar mantañ punku"
+  "Portada de ingreso al campus": {
+   "en": "Campus entrance",
+   "qu": "campusman yaykuna punku",
+   "ay": "campusar mantañ punku"
   },
   "Preguntas frecuentes sobre trámites y servicios": {
    "en": "FAQ about procedures and services",
@@ -5088,10 +5083,10 @@
    "qu": "Equipo mañakuykuna",
    "ay": "Equipo mayt'awinaka"
   },
-  "Préstamos · Andara · Panel": {
-   "en": "Loans · Andara · Dashboard",
-   "qu": "Mañakuykuna · Andara · Panel",
-   "ay": "Mayt'awinaka · Andara · Panel"
+  "Préstamos · Andra · Panel": {
+   "en": "Loans · Andra · Dashboard",
+   "qu": "Mañakuykuna · Andra · Panel",
+   "ay": "Mayt'awinaka · Andra · Panel"
   },
   "Próxima franja": {
    "en": "Next slot",
@@ -5143,10 +5138,10 @@
    "qu": "Chaskina cheqas",
    "ay": "Katuqañ chiqa"
   },
-  "Punto de entrega · Sede Capilla": {
-   "en": "Pickup point · Capilla Campus",
-   "qu": "Quna chiqa · Capilla sede",
-   "ay": "Churañ chiqa · Capilla sede"
+  "Punto de entrega · Sede Central": {
+   "en": "Pickup point · Central Campus",
+   "qu": "Quna chiqa · Central sede",
+   "ay": "Churañ chiqa · Central sede"
   },
   "Pérdida o extravío de accesorio": {
    "en": "Lost or missing accessory",
@@ -5193,15 +5188,15 @@
    "qu": "Akllasqakunamanta qichuy: Kit Microfonía Inalámbrica Shure BLX",
    "ay": "Munatanakat apsuña: Kit Microfonía Inalámbrica Shure BLX"
   },
-  "Quitar de favoritos: Laboratorio Epier {0}": {
-   "en": "Remove from favorites: Epier Lab {0}",
-   "qu": "Akllasqakunamanta qichuy: Laboratorio Epier {0}",
-   "ay": "Munatanakat apsuña: Laboratorio Epier {0}"
+  "Quitar de favoritos: Laboratorio de Electricidad {0}": {
+   "en": "Remove from favorites: Electrical Lab {0}",
+   "qu": "Akllasqakunamanta qichuy: Laboratorio de Electricidad {0}",
+   "ay": "Munatanakat apsuña: Laboratorio de Electricidad {0}"
   },
-  "Quitar de favoritos: Malla curricular {0} · Ingeniería de Software y Sistemas": {
-   "en": "Remove from favorites: Curriculum {0} · Software and Systems Engineering",
-   "qu": "Favoritokunamanta qichuy: Malla curricular {0} · Ingeniería de Software y Sistemas",
-   "ay": "Favoritonakat apsuña: Malla curricular {0} · Ingeniería de Software y Sistemas"
+  "Quitar de favoritos: Malla curricular {0} · Ingeniería de Sistemas": {
+   "en": "Remove from favorites: Curriculum {0} · Systems Engineering",
+   "qu": "Favoritokunamanta qichuy: Malla curricular {0} · Ingeniería de Sistemas",
+   "ay": "Favoritonakat apsuña: Malla curricular {0} · Ingeniería de Sistemas"
   },
   "Quitar de favoritos: Proyector Láser Epson {0}L {1}K": {
    "en": "Remove from favorites: Epson {0}L {1}K Laser Projector",
@@ -5493,15 +5488,15 @@
    "qu": "Reservakuna, mañakuykuna",
    "ay": "Reservanaka, mayt'awinaka"
   },
-  "Reservas · Andara": {
-   "en": "Bookings · Andara",
-   "qu": "Reservakuna · Andara",
-   "ay": "Reservanaka · Andara"
+  "Reservas · Andra": {
+   "en": "Bookings · Andra",
+   "qu": "Reservakuna · Andra",
+   "ay": "Reservanaka · Andra"
   },
-  "Reservas · Andara · Panel": {
-   "en": "Bookings · Andara · Dashboard",
-   "qu": "Waqaychaykuna · Andara · Panel",
-   "ay": "Katuyawinaka · Andara · Panel"
+  "Reservas · Andra · Panel": {
+   "en": "Bookings · Andra · Dashboard",
+   "qu": "Waqaychaykuna · Andra · Panel",
+   "ay": "Katuyawinaka · Andra · Panel"
   },
   "Reservas: OK": {
    "en": "Bookings: OK",
@@ -5548,10 +5543,10 @@
    "qu": "Cursomanta lluqsiy",
    "ay": "Cursot mistuña"
   },
-  "Retiro en: Sede Capilla · Pabellón Central (Módulo Audiovisuales).": {
-   "en": "Pickup at: Capilla Campus · Central Pavilion (Audiovisual Module).",
-   "qu": "Maypi apakun: Sede Capilla · Pabellón Central (Módulo Audiovisuales).",
-   "ay": "Kawkhan apsuña: Sede Capilla · Pabellón Central (Módulo Audiovisuales)."
+  "Retiro en: Sede Central · Pabellón Central (Módulo Audiovisuales).": {
+   "en": "Pickup at: Central Campus · Central Pavilion (Audiovisual Module).",
+   "qu": "Maypi apakun: Sede Central · Pabellón Central (Módulo Audiovisuales).",
+   "ay": "Kawkhan apsuña: Sede Central · Pabellón Central (Módulo Audiovisuales)."
   },
   "Retiro programado: Mañana, {0} ({1} - {2}) • Edificio Central": {
    "en": "Scheduled pickup: Tomorrow, {0} ({1} - {2}) • Main Building",
@@ -5683,11 +5678,6 @@
    "qu": "Salakuna",
    "ay": "Salanaka"
   },
-  "Salida Cuzco": {
-   "en": "Salida Cuzco",
-   "qu": "Salida Cuzco",
-   "ay": "Salida Cuzco"
-  },
   "Saltar al contenido": {
    "en": "Skip to content",
    "qu": "Willakuyman phinkiy",
@@ -5708,10 +5698,10 @@
    "qu": "Willakuyniykikunawan ruwakun, Yapewan, Plinwan utaq tarjetawan pagay, hinaspa kikin p'unchawllapi chaskinki.",
    "ay": "Yatiyawinakamampi lurasi, Yapempi, Plinampi jan ukax tarjetampi payllam, ukat uka pachpa urunkiw katuqasma."
   },
-  "Se liberará Laboratorio Epier {0} el {1} Recuerda cancelar con al menos {2} minutos de anticipación.": {
-   "en": "Epier Lab {0} will be freed on {1} Remember to cancel at least {2} minutes ahead.",
-   "qu": "Laboratorio Epier {0} {1} p'unchawpi kacharikunqa. Yuyariy aswan pisi {2} minuto ñawpaqta cancelayta.",
-   "ay": "Laboratorio Epier {0} {1} urun antutatäniwa. Amtam juk'ampi {2} minuto nayraqat cancelaña."
+  "Se liberará Laboratorio de Electricidad {0} el {1} Recuerda cancelar con al menos {2} minutos de anticipación.": {
+   "en": "Electrical Lab {0} will be freed on {1} Remember to cancel at least {2} minutes ahead.",
+   "qu": "Laboratorio de Electricidad {0} {1} p'unchawpi kacharikunqa. Yuyariy aswan pisi {2} minuto ñawpaqta cancelayta.",
+   "ay": "Laboratorio de Electricidad {0} {1} urun antutatäniwa. Amtam juk'ampi {2} minuto nayraqat cancelaña."
   },
   "Se renueva en {0} s": {
    "en": "Renews in {0} s",
@@ -5733,240 +5723,230 @@
    "qu": "Sede",
    "ay": "Sede"
   },
-  "Sede Ayabacas": {
-   "en": "Ayabacas Campus",
-   "qu": "Ayabacas sede",
-   "ay": "Ayabacas sede"
+  "Sede Central": {
+   "en": "Central Campus",
+   "qu": "Central sede",
+   "ay": "Central sede"
   },
-  "Sede Ayabacas · Mesa de Partes": {
-   "en": "Ayabacas Campus · Front Desk",
-   "qu": "Ayabacas sede · Mesa de Partes",
-   "ay": "Ayabacas sede · Mesa de Partes"
+  "Sede Central · Biblioteca Central": {
+   "en": "Central Campus · Central Library",
+   "qu": "Central sede · Chawpi Biblioteca",
+   "ay": "Central sede · Taypi Biblioteca"
   },
-  "Sede Ayabacas · Pabellón A, {0}er piso": {
-   "en": "Ayabacas Campus · Building A, floor {0}",
-   "qu": "Ayabacas sede · A Pabellón, {0}er piso",
-   "ay": "Ayabacas sede · A Pabellón, {0}er piso"
+  "Sede Central · Edificio Administrativo (Imagen Institucional)": {
+   "en": "Central Campus · Administrative Building (Institutional Image)",
+   "qu": "Sede Central · Edificio Administrativo (Imagen Institucional)",
+   "ay": "Sede Central · Edificio Administrativo (Imagen Institucional)"
   },
-  "Sede Ayabacas · Pabellón de Servicios Académicos · Ventanillas {0} a {1}": {
-   "en": "Ayabacas Campus · Academic Services Building · Windows {0} to {1}",
-   "qu": "Sede Ayabacas · Pabellón de Servicios Académicos · Ventanillakuna {0} manta {1} kama",
-   "ay": "Sede Ayabacas · Pabellón de Servicios Académicos · Ventanillanaka {0} ukat {1} kama"
+  "Sede Central · Edificio Central": {
+   "en": "Central Campus · Main Building",
+   "qu": "Central sede · Chawpi wasi",
+   "ay": "Central sede · Taypi uta"
   },
-  "Sede Ayabacas: {0}": {
-   "en": "Ayabacas Campus: {0}",
-   "qu": "Sede Ayabacas: {0}",
-   "ay": "Sede Ayabacas: {0}"
+  "Sede Central · Edificio Central (Módulo de secretaría)": {
+   "en": "Central Campus · Central Building (Secretary's Office Module)",
+   "qu": "Sede Central · Edificio Central (Módulo de secretaría)",
+   "ay": "Sede Central · Edificio Central (Módulo de secretaría)"
   },
-  "Sede Capilla": {
-   "en": "Capilla Campus",
-   "qu": "Capilla sede",
-   "ay": "Capilla sede"
+  "Sede Central · Edificio Central (Piso {0})": {
+   "en": "Central Campus · Central Building (Floor {0})",
+   "qu": "Sede Central · Edificio Central ({0} pata)",
+   "ay": "Sede Central · Edificio Central ({0} pata)"
   },
-  "Sede Capilla · Biblioteca Central": {
-   "en": "Capilla Campus · Central Library",
-   "qu": "Capilla sede · Chawpi Biblioteca",
-   "ay": "Capilla sede · Taypi Biblioteca"
+  "Sede Central · Edificio Central, {0}º piso": {
+   "en": "Central Campus · Central Building, floor {0}",
+   "qu": "Sede Central · Edificio Central, {0}º pata",
+   "ay": "Sede Central · Edificio Central, {0}º pata"
   },
-  "Sede Capilla · Edificio Administrativo (Imagen Institucional)": {
-   "en": "Capilla Campus · Administrative Building (Institutional Image)",
-   "qu": "Sede Capilla · Edificio Administrativo (Imagen Institucional)",
-   "ay": "Sede Capilla · Edificio Administrativo (Imagen Institucional)"
+  "Sede Central · Estudio de Música (Auditorio Magno)": {
+   "en": "Central Campus · Music Studio (Auditorio Magno)",
+   "qu": "Sede Central · Estudio de Música (Auditorio Magno)",
+   "ay": "Sede Central · Estudio de Música (Auditorio Magno)"
   },
-  "Sede Capilla · Edificio Central": {
-   "en": "Capilla Campus · Main Building",
-   "qu": "Capilla sede · Chawpi wasi",
-   "ay": "Capilla sede · Taypi uta"
+  "Sede Central · Gimnasio (Pabellón Deportivo)": {
+   "en": "Central Campus · Gym (Sports Pavilion)",
+   "qu": "Sede Central · Gimnasio (Pabellón Deportivo)",
+   "ay": "Sede Central · Gimnasio (Pabellón Deportivo)"
   },
-  "Sede Capilla · Edificio Central (Módulo de secretaría)": {
-   "en": "Capilla Campus · Central Building (Secretary's Office Module)",
-   "qu": "Sede Capilla · Edificio Central (Módulo de secretaría)",
-   "ay": "Sede Capilla · Edificio Central (Módulo de secretaría)"
+  "Sede Central · Laboratorio de Informática {0}": {
+   "en": "Central Campus · Computer Lab {0}",
+   "qu": "Central Sede · Laboratorio de Informática {0}",
+   "ay": "Central Sede · Laboratorio de Informática {0}"
   },
-  "Sede Capilla · Edificio Central (Piso {0})": {
-   "en": "Capilla Campus · Central Building (Floor {0})",
-   "qu": "Sede Capilla · Edificio Central ({0} pata)",
-   "ay": "Sede Capilla · Edificio Central ({0} pata)"
+  "Sede Central · Laboratorio de Informática {0} · {1} de Octubre, {2} ({3} - {4})": {
+   "en": "Central Campus · Computer Lab {0} · October {1}, {2} ({3} - {4})",
+   "qu": "Sede Central · Laboratorio de Informática {0} · {1} Octubre, {2} ({3} - {4})",
+   "ay": "Sede Central · Laboratorio de Informática {0} · {1} Octubre, {2} ({3} - {4})"
   },
-  "Sede Capilla · Edificio Central, {0}º piso": {
-   "en": "Capilla Campus · Central Building, floor {0}",
-   "qu": "Sede Capilla · Edificio Central, {0}º pata",
-   "ay": "Sede Capilla · Edificio Central, {0}º pata"
+  "Sede Central · Laboratorio de Econometría": {
+   "en": "Central Campus · Econometrics Lab",
+   "qu": "Sede Central · Laboratorio de Econometría",
+   "ay": "Sede Central · Laboratorio de Econometría"
   },
-  "Sede Capilla · Estudio de Música (Auditorio Magno)": {
-   "en": "Capilla Campus · Music Studio (Auditorio Magno)",
-   "qu": "Sede Capilla · Estudio de Música (Auditorio Magno)",
-   "ay": "Sede Capilla · Estudio de Música (Auditorio Magno)"
+  "Sede Central · Laboratorio de Ergonomía {0}": {
+   "en": "Central Campus · Ergonomics Lab {0}",
+   "qu": "Sede Central · Laboratorio de Ergonomía {0}",
+   "ay": "Sede Central · Laboratorio de Ergonomía {0}"
   },
-  "Sede Capilla · Gimnasio (Pabellón Deportivo)": {
-   "en": "Capilla Campus · Gym (Sports Pavilion)",
-   "qu": "Sede Capilla · Gimnasio (Pabellón Deportivo)",
-   "ay": "Sede Capilla · Gimnasio (Pabellón Deportivo)"
+  "Sede Central · Laboratorio de Robótica {0}": {
+   "en": "Central Campus · Robotics Lab {0}",
+   "qu": "Sede Central · Laboratorio de Robótica {0}",
+   "ay": "Sede Central · Laboratorio de Robótica {0}"
   },
-  "Sede Capilla · Laboratorio Episs {0}": {
-   "en": "Capilla Campus · Episs Lab {0}",
-   "qu": "Capilla Sede · Episs Laboratorio {0}",
-   "ay": "Capilla Sede · Episs Laboratorio {0}"
+  "Sede Central · Mesa de Partes": {
+   "en": "Central Campus · Front Desk",
+   "qu": "Central sede · Mesa de Partes",
+   "ay": "Central sede · Mesa de Partes"
   },
-  "Sede Capilla · Laboratorio Episs {0} · {1} de Octubre, {2} ({3} - {4})": {
-   "en": "Capilla Campus · Episs Lab {0} · October {1}, {2} ({3} - {4})",
-   "qu": "Sede Capilla · Laboratorio Episs {0} · {1} Octubre, {2} ({3} - {4})",
-   "ay": "Sede Capilla · Laboratorio Episs {0} · {1} Octubre, {2} ({3} - {4})"
+  "Sede Central · Pabellón A, {0}º piso": {
+   "en": "Central Campus · Building A, floor {0}",
+   "qu": "Central sede · A Pabellón, {0}º piso",
+   "ay": "Central sede · A Pabellón, {0}º piso"
   },
-  "Sede Capilla · Laboratorio de Econometría": {
-   "en": "Capilla Campus · Econometrics Lab",
-   "qu": "Sede Capilla · Laboratorio de Econometría",
-   "ay": "Sede Capilla · Laboratorio de Econometría"
+  "Sede Central · Pabellón Administrativo · Ventanillas {0} a {1}": {
+   "en": "Central Campus · Administrative Pavilion · Windows {0} to {1}",
+   "qu": "Sede Central · Pabellón Administrativo · Ventanillas {0} manta {1} kama",
+   "ay": "Sede Central · Pabellón Administrativo · Ventanillas {0} ukat {1} kama"
   },
-  "Sede Capilla · Laboratorio de Ergonomía {0}": {
-   "en": "Capilla Campus · Ergonomics Lab {0}",
-   "qu": "Sede Capilla · Laboratorio de Ergonomía {0}",
-   "ay": "Sede Capilla · Laboratorio de Ergonomía {0}"
+  "Sede Central · Pabellón B, {0}er piso": {
+   "en": "Central Campus · Building B, floor {0}",
+   "qu": "Central sede · B Pabellón, {0}er piso",
+   "ay": "Central sede · B Pabellón, {0}er piso"
   },
-  "Sede Capilla · Laboratorio de Robótica {0}": {
-   "en": "Capilla Campus · Robotics Lab {0}",
-   "qu": "Sede Capilla · Laboratorio de Robótica {0}",
-   "ay": "Sede Capilla · Laboratorio de Robótica {0}"
+  "Sede Central · Pabellón C, {0}º piso": {
+   "en": "Central Campus · Building C, floor {0}",
+   "qu": "Central sede · C Pabellón, {0}º piso",
+   "ay": "Central sede · C Pabellón, {0}º piso"
   },
-  "Sede Capilla · Pabellón A, {0}º piso": {
-   "en": "Capilla Campus · Building A, floor {0}",
-   "qu": "Capilla sede · A Pabellón, {0}º piso",
-   "ay": "Capilla sede · A Pabellón, {0}º piso"
+  "Sede Central · Pabellón Central (Módulo Audiovisuales)": {
+   "en": "Central Campus · Central Pavilion (Audiovisual Module)",
+   "qu": "Sede Central · Pabellón Central (Módulo Audiovisuales)",
+   "ay": "Sede Central · Pabellón Central (Módulo Audiovisuales)"
   },
-  "Sede Capilla · Pabellón Administrativo · Ventanillas {0} a {1}": {
-   "en": "Capilla Campus · Administrative Pavilion · Windows {0} to {1}",
-   "qu": "Sede Capilla · Pabellón Administrativo · Ventanillas {0} manta {1} kama",
-   "ay": "Sede Capilla · Pabellón Administrativo · Ventanillas {0} ukat {1} kama"
+  "Sede Central · Pabellón E, {0}er piso": {
+   "en": "Central Campus · Building E, floor {0}",
+   "qu": "Central sede · E Pabellón, {0}er piso",
+   "ay": "Central sede · E Pabellón, {0}er piso"
   },
-  "Sede Capilla · Pabellón B, {0}er piso": {
-   "en": "Capilla Campus · Building B, floor {0}",
-   "qu": "Capilla sede · B Pabellón, {0}er piso",
-   "ay": "Capilla sede · B Pabellón, {0}er piso"
+  "Sede Central · Pabellón E, {0}º piso": {
+   "en": "Central Campus · Building E, floor {0}",
+   "qu": "Central sede · E Pabellón, {0}º piso",
+   "ay": "Central sede · E Pabellón, {0}º piso"
   },
-  "Sede Capilla · Pabellón C, {0}º piso": {
-   "en": "Capilla Campus · Building C, floor {0}",
-   "qu": "Capilla sede · C Pabellón, {0}º piso",
-   "ay": "Capilla sede · C Pabellón, {0}º piso"
+  "Sede Central · Pabellón F": {
+   "en": "Central Campus · Building F",
+   "qu": "Central sede · F Pabellón",
+   "ay": "Central sede · F Pabellón"
   },
-  "Sede Capilla · Pabellón Central (Módulo Audiovisuales)": {
-   "en": "Capilla Campus · Central Pavilion (Audiovisual Module)",
-   "qu": "Sede Capilla · Pabellón Central (Módulo Audiovisuales)",
-   "ay": "Sede Capilla · Pabellón Central (Módulo Audiovisuales)"
+  "Sede Central · Pabellón I, {0}er piso": {
+   "en": "Central Campus · Building I, floor {0}",
+   "qu": "Central sede · I Pabellón, {0}er piso",
+   "ay": "Central sede · I Pabellón, {0}er piso"
   },
-  "Sede Capilla · Pabellón E, {0}er piso": {
-   "en": "Capilla Campus · Building E, floor {0}",
-   "qu": "Capilla sede · E Pabellón, {0}er piso",
-   "ay": "Capilla sede · E Pabellón, {0}er piso"
+  "Sede Central · Pabellón I, {0}º piso": {
+   "en": "Central Campus · Building I, floor {0}",
+   "qu": "Central sede · I Pabellón, {0}º piso",
+   "ay": "Central sede · I Pabellón, {0}º piso"
   },
-  "Sede Capilla · Pabellón E, {0}º piso": {
-   "en": "Capilla Campus · Building E, floor {0}",
-   "qu": "Capilla sede · E Pabellón, {0}º piso",
-   "ay": "Capilla sede · E Pabellón, {0}º piso"
+  "Sede Central · Pabellón de Mecatrónica": {
+   "en": "Central Campus · Mechatronics Building",
+   "qu": "Central sede · Mecatrónica Pabellón",
+   "ay": "Central sede · Mecatrónica Pabellón"
   },
-  "Sede Capilla · Pabellón F": {
-   "en": "Capilla Campus · Building F",
-   "qu": "Capilla sede · F Pabellón",
-   "ay": "Capilla sede · F Pabellón"
+  "Sede Central · Sala de Elencos (Auditorio Magno)": {
+   "en": "Central Campus · Ensemble Room (Auditorio Magno)",
+   "qu": "Sede Central · Sala de Elencos (Auditorio Magno)",
+   "ay": "Sede Central · Sala de Elencos (Auditorio Magno)"
   },
-  "Sede Capilla · Pabellón I, {0}er piso": {
-   "en": "Capilla Campus · Building I, floor {0}",
-   "qu": "Capilla sede · I Pabellón, {0}er piso",
-   "ay": "Capilla sede · I Pabellón, {0}er piso"
+  "Sede Central · Sala de Ensayos (Auditorio Magno)": {
+   "en": "Central Campus · Rehearsal Room (Auditorio Magno)",
+   "qu": "Sede Central · Sala de Ensayos (Auditorio Magno)",
+   "ay": "Sede Central · Sala de Ensayos (Auditorio Magno)"
   },
-  "Sede Capilla · Pabellón I, {0}º piso": {
-   "en": "Capilla Campus · Building I, floor {0}",
-   "qu": "Capilla sede · I Pabellón, {0}º piso",
-   "ay": "Capilla sede · I Pabellón, {0}º piso"
+  "Sede Central · Sala de Gestión Pública": {
+   "en": "Central Campus · Public Management Room",
+   "qu": "Central sede · Sala de Gestión Pública",
+   "ay": "Central sede · Sala de Gestión Pública"
   },
-  "Sede Capilla · Pabellón de Mecatrónica": {
-   "en": "Capilla Campus · Mechatronics Building",
-   "qu": "Capilla sede · Mecatrónica Pabellón",
-   "ay": "Capilla sede · Mecatrónica Pabellón"
+  "Sede Central · Sala de Simulación Empresarial": {
+   "en": "Central Campus · Business Simulation Room",
+   "qu": "Sede Central · Sala de Simulación Empresarial",
+   "ay": "Sede Central · Sala de Simulación Empresarial"
   },
-  "Sede Capilla · Sala de Elencos (Auditorio Magno)": {
-   "en": "Capilla Campus · Ensemble Room (Auditorio Magno)",
-   "qu": "Sede Capilla · Sala de Elencos (Auditorio Magno)",
-   "ay": "Sede Capilla · Sala de Elencos (Auditorio Magno)"
+  "Sede Central. Pasa el cursor y elige uno para ver sus detalles.": {
+   "en": "Central Campus. Hover and choose one to see its details.",
+   "qu": "Sede Central. Cursorta apay, hukta akllay willakuyninkunata qhawanapaq.",
+   "ay": "Sede Central. Cursor apaña, maya ajlliña qhanañchäwinakap uñjañataki."
   },
-  "Sede Capilla · Sala de Ensayos (Auditorio Magno)": {
-   "en": "Capilla Campus · Rehearsal Room (Auditorio Magno)",
-   "qu": "Sede Capilla · Sala de Ensayos (Auditorio Magno)",
-   "ay": "Sede Capilla · Sala de Ensayos (Auditorio Magno)"
+  "Sede Central: {0}": {
+   "en": "Central Campus: {0}",
+   "qu": "Sede Central: {0}",
+   "ay": "Sede Central: {0}"
   },
-  "Sede Capilla · Sala de Gestión Pública": {
-   "en": "Capilla Campus · Public Management Room",
-   "qu": "Capilla sede · Sala de Gestión Pública",
-   "ay": "Capilla sede · Sala de Gestión Pública"
+  "Sede Norte": {
+   "en": "North Campus",
+   "qu": "Norte sede",
+   "ay": "Norte sede"
   },
-  "Sede Capilla · Sala de Simulación Empresarial": {
-   "en": "Capilla Campus · Business Simulation Room",
-   "qu": "Sede Capilla · Sala de Simulación Empresarial",
-   "ay": "Sede Capilla · Sala de Simulación Empresarial"
+  "Sede Norte · Mesa de Partes": {
+   "en": "North Campus · Front Desk",
+   "qu": "Norte sede · Mesa de Partes",
+   "ay": "Norte sede · Mesa de Partes"
   },
-  "Sede Capilla. Pasa el cursor y elige uno para ver sus detalles.": {
-   "en": "Capilla Campus. Hover and choose one to see its details.",
-   "qu": "Sede Capilla. Cursorta apay, hukta akllay willakuyninkunata qhawanapaq.",
-   "ay": "Sede Capilla. Cursor apaña, maya ajlliña qhanañchäwinakap uñjañataki."
+  "Sede Norte · Pabellón A, {0}er piso": {
+   "en": "North Campus · Building A, floor {0}",
+   "qu": "Norte sede · A Pabellón, {0}er piso",
+   "ay": "Norte sede · A Pabellón, {0}er piso"
   },
-  "Sede La Capilla": {
-   "en": "La Capilla Campus",
-   "qu": "Sede La Capilla",
-   "ay": "Sede La Capilla"
+  "Sede Norte · Pabellón de Servicios Académicos · Ventanillas {0} a {1}": {
+   "en": "North Campus · Academic Services Building · Windows {0} to {1}",
+   "qu": "Sede Norte · Pabellón de Servicios Académicos · Ventanillakuna {0} manta {1} kama",
+   "ay": "Sede Norte · Pabellón de Servicios Académicos · Ventanillanaka {0} ukat {1} kama"
   },
-  "Sede La Capilla · Mesa de Partes": {
-   "en": "La Capilla Campus · Front Desk",
-   "qu": "La Capilla sede · Mesa de Partes",
-   "ay": "La Capilla sede · Mesa de Partes"
+  "Sede Norte: {0}": {
+   "en": "North Campus: {0}",
+   "qu": "Sede Norte: {0}",
+   "ay": "Sede Norte: {0}"
   },
-  "Sede La Capilla · Pabellón Administrativo · Ventanillas {0} a {1}": {
-   "en": "La Capilla Campus · Administrative Pavilion · Windows {0} to {1}",
-   "qu": "Sede La Capilla · Pabellón Administrativo · Ventanillas {0} manta {1} kama",
-   "ay": "Sede La Capilla · Pabellón Administrativo · Ventanillas {0} ukat {1} kama"
+  "Sede Sur": {
+   "en": "South Campus",
+   "qu": "Sur sede",
+   "ay": "Sur sede"
   },
-  "Sede La Capilla: {0}": {
-   "en": "La Capilla Campus: {0}",
-   "qu": "Sede La Capilla: {0}",
-   "ay": "Sede La Capilla: {0}"
+  "Sede Sur · Edificio Central · Ventanilla {0}": {
+   "en": "South Campus · Central Building · Window {0}",
+   "qu": "Sede Sur · Edificio Central · Ventanilla {0}",
+   "ay": "Sede Sur · Edificio Central · Ventanilla {0}"
   },
-  "Sede Salida Cuzco": {
-   "en": "Salida Cuzco Campus",
-   "qu": "Salida Cuzco sede",
-   "ay": "Salida Cuzco sede"
+  "Sede Sur · Mesa de Partes": {
+   "en": "South Campus · Front Desk",
+   "qu": "Sur sede · Mesa de Partes",
+   "ay": "Sur sede · Mesa de Partes"
   },
-  "Sede Salida Cuzco · Edificio Central · Ventanilla {0}": {
-   "en": "Salida Cuzco Campus · Central Building · Window {0}",
-   "qu": "Sede Salida Cuzco · Edificio Central · Ventanilla {0}",
-   "ay": "Sede Salida Cuzco · Edificio Central · Ventanilla {0}"
-  },
-  "Sede Salida Cuzco · Mesa de Partes": {
-   "en": "Salida Cuzco Campus · Front Desk",
-   "qu": "Salida Cuzco sede · Mesa de Partes",
-   "ay": "Salida Cuzco sede · Mesa de Partes"
-  },
-  "Sede Salida Cuzco: {0}": {
-   "en": "Salida Cuzco Campus: {0}",
-   "qu": "Sede Salida Cuzco: {0}",
-   "ay": "Sede Salida Cuzco: {0}"
+  "Sede Sur: {0}": {
+   "en": "South Campus: {0}",
+   "qu": "Sede Sur: {0}",
+   "ay": "Sede Sur: {0}"
   },
   "Sede de atención": {
    "en": "Service location",
    "qu": "Yanapana sede",
    "ay": "Yanapt'añ sede"
   },
-  "Sede de atención: Sede La Capilla. Montos referenciales de demostración; no se realizan cargos reales.": {
-   "en": "Service campus: La Capilla Campus. Demo reference amounts; no real charges are made.",
-   "qu": "Yanapay sede: Sede La Capilla. Rikuchinapaq qullqi yupaykuna; mana chiqap cobrokuna ruwakunchu.",
-   "ay": "Yanapt'añ sede: Sede La Capilla. Uñacht'ayañatak qullqi jakhunaka; janiw chiqpach cobronak luraskiti."
+  "Sede de atención: Sede Central. Montos referenciales de demostración; no se realizan cargos reales.": {
+   "en": "Service campus: Central Campus. Demo reference amounts; no real charges are made.",
+   "qu": "Yanapay sede: Sede Central. Rikuchinapaq qullqi yupaykuna; mana chiqap cobrokuna ruwakunchu.",
+   "ay": "Yanapt'añ sede: Sede Central. Uñacht'ayañatak qullqi jakhunaka; janiw chiqpach cobronak luraskiti."
   },
   "Sede de recojo": {
    "en": "Pickup location",
    "qu": "Huqarina wasi",
    "ay": "Aptañ uta"
   },
-  "Sede: Capilla. Cambiar sede": {
-   "en": "Campus: Capilla. Change campus",
-   "qu": "Sede: Capilla. Sedeta tikray",
-   "ay": "Sede: Capilla. Sede mayjt'ayaña"
+  "Sede: Central. Cambiar sede": {
+   "en": "Campus: Central. Change campus",
+   "qu": "Sede: Central. Sedeta tikray",
+   "ay": "Sede: Central. Sede mayjt'ayaña"
   },
   "Sedes y directorio institucional": {
    "en": "Campuses and directory",
@@ -5993,20 +5973,20 @@
    "qu": "Qatipay: Sayachisqa: allichanayki huk observación kachkan",
    "ay": "Arktaña: Sayt'ayata: mä observación askichañamaw utji"
   },
-  "Seguimiento: Esperando tu pago en Andara Pay": {
-   "en": "Tracking: Awaiting your payment in Andara Pay",
-   "qu": "Qatipay: Andara Paypi pagoykita suyachkan",
-   "ay": "Arktaña: Andara Payan pagoma suyaskiwa"
+  "Seguimiento: Esperando tu pago en Andra Pay": {
+   "en": "Tracking: Awaiting your payment in Andra Pay",
+   "qu": "Qatipay: Andra Paypi pagoykita suyachkan",
+   "ay": "Arktaña: Andra Payan pagoma suyaskiwa"
   },
   "Seguimiento: Estimado: {0} a {1} días hábiles": {
    "en": "Tracking: Estimated: {0} to {1} business days",
    "qu": "Qatipay: Yaqa: {0} manta {1} llamk'ay p'unchaw kama",
    "ay": "Arktaña: Niya: {0} ukat {1} irnaqäw uru kama"
   },
-  "Seguimiento: Listo · Ventanilla {0} Mesa de Partes · Sede Capilla": {
-   "en": "Tracking: Ready · Window {0} Front Desk · Capilla Campus",
-   "qu": "Qatipay: Listo kachkan · Ventanilla {0} Mesa de Partes · Sede Capilla",
-   "ay": "Arktaña: Listowa · Ventanilla {0} Mesa de Partes · Sede Capilla"
+  "Seguimiento: Listo · Ventanilla {0} Mesa de Partes · Sede Central": {
+   "en": "Tracking: Ready · Window {0} Front Desk · Central Campus",
+   "qu": "Qatipay: Listo kachkan · Ventanilla {0} Mesa de Partes · Sede Central",
+   "ay": "Arktaña: Listowa · Ventanilla {0} Mesa de Partes · Sede Central"
   },
   "Seguro Médico Universitario / EsSalud": {
    "en": "University Health Insurance / EsSalud",
@@ -6123,15 +6103,15 @@
    "qu": "Profesional uyarichina sistema",
    "ay": "Profesional ist'ayañ sistema"
   },
-  "Software y Sistemas": {
-   "en": "Software and Systems",
-   "qu": "Software y Sistemas",
-   "ay": "Software y Sistemas"
+  "Sistemas": {
+   "en": "Systems",
+   "qu": "Sistemas",
+   "ay": "Sistemas"
   },
-  "Software y Sistemas, Industrial, Mecatrónica, Administración, Economía, Gestión Pública y auditorios": {
-   "en": "Software and Systems, Industrial, Mechatronics, Business Administration, Economics, Public Management and auditoriums",
-   "qu": "Software, Sistemas, Industrial, Mecatrónica, Administración, Economía, Llaqta Kamachiy, auditoriokuna",
-   "ay": "Software, Sistemas, Industrial, Mecatrónica, Administración, Economía, Markachir Apnaqawi, auditorionaka"
+  "Sistemas, Industrial, Mecatrónica, Administración, Economía, Gestión Pública y auditorios": {
+   "en": "Systems, Industrial, Mechatronics, Business Administration, Economics, Public Management and auditoriums",
+   "qu": "Sistemas, Industrial, Mecatrónica, Administración, Economía, Llaqta Kamachiy, auditoriokuna",
+   "ay": "Sistemas, Industrial, Mecatrónica, Administración, Economía, Markachir Apnaqawi, auditorionaka"
   },
   "Soles, pagos confirmados": {
    "en": "Soles, confirmed payments",
@@ -6348,6 +6328,11 @@
    "qu": "Pisi llamk'achisqa",
    "ay": "Juk'a apnaqata"
   },
+  "Sur": {
+   "en": "South",
+   "qu": "Sur",
+   "ay": "Sur"
+  },
   "Sustento (opcional)": {
    "en": "Supporting reason (optional)",
    "qu": "Sustento (munaspaqa)",
@@ -6558,10 +6543,10 @@
    "qu": "Llapan runakuna",
    "ay": "Taqi jaqinaka"
   },
-  "Todo lo que debes pagar a la universidad, en un solo lugar. No hay pensiones: la UNAJ es pública.": {
-   "en": "Everything you owe the university, in one place. No tuition: UNAJ is public.",
-   "qu": "Hatun yachaywasiman llapan pagananki, huk kitillapi. Mana pensión kanchu: UNAJqa llaqtapam.",
-   "ay": "Jach'a yatiqañ utar taqi payllañama, mä chiqakiru. Janiw pensión utjkiti: UNAJ markankiwa."
+  "Todo lo que debes pagar a la universidad, en un solo lugar.": {
+   "en": "Everything you owe the university, in one place.",
+   "qu": "Hatun yachaywasiman llapan pagananki, huk kitillapi.",
+   "ay": "Jach'a yatiqañ utar taqi payllañama, mä chiqakiru."
   },
   "Todo lo que necesitas de tu universidad, en un solo lugar": {
    "en": "Everything you need from your university, in one place",
@@ -6583,10 +6568,10 @@
    "qu": "Tukuy equipokuna",
    "ay": "Taqi equiponaka"
   },
-  "Todos los pagos de Andara Pay: matrículas, documentos, carnés y otros derechos.": {
-   "en": "All Andara Pay payments: enrollment, documents, ID cards and other fees.",
-   "qu": "Andara Pay llapan pagokuna: matrícula, qillqakuna, carnékuna, huk derechokunapas.",
-   "ay": "Andara Pay taqi payllawinaka: matrícula, qillqatanaka, carnénaka, yaqha derechonakas."
+  "Todos los pagos de Andra Pay: matrículas, documentos, carnés y otros derechos.": {
+   "en": "All Andra Pay payments: enrollment, documents, ID cards and other fees.",
+   "qu": "Andra Pay llapan pagokuna: matrícula, qillqakuna, carnékuna, huk derechokunapas.",
+   "ay": "Andra Pay taqi payllawinaka: matrícula, qillqatanaka, carnénaka, yaqha derechonakas."
   },
   "Todos los sistemas de atención y trámites se encuentran operativos al {0}": {
    "en": "All service and paperwork systems are {0} operational",
@@ -6643,10 +6628,10 @@
    "qu": "Qullqi apaykachaykuna",
    "ay": "Qullqi apnaqawinaka"
   },
-  "Transacciones · Andara · Panel": {
-   "en": "Transactions · Andara · Dashboard",
-   "qu": "Pagokuna · Andara · Panel",
-   "ay": "Pagonaka · Andara · Panel"
+  "Transacciones · Andra · Panel": {
+   "en": "Transactions · Andra · Dashboard",
+   "qu": "Pagokuna · Andra · Panel",
+   "ay": "Pagonaka · Andra · Panel"
   },
   "Traslado interno": {
    "en": "Internal transfer",
@@ -6698,10 +6683,10 @@
    "qu": "Trámitekuna, ordenkuna",
    "ay": "Trámitenaka, ordenanaka"
   },
-  "Trámites · Andara · Panel": {
-   "en": "Requests · Andara · Dashboard",
-   "qu": "Trámitekuna · Andara · Panel",
-   "ay": "Trámitenaka · Andara · Panel"
+  "Trámites · Andra · Panel": {
+   "en": "Requests · Andra · Dashboard",
+   "qu": "Trámitekuna · Andra · Panel",
+   "ay": "Trámitenaka · Andra · Panel"
   },
   "Trámites, reservas y préstamos con seguimiento en tiempo real.": {
    "en": "Requests, bookings and loans with real-time tracking.",
@@ -6728,10 +6713,10 @@
    "qu": "Documentoykikuna, equipokuna, espaciokuna huk lugarllapi waqaychasqa.",
    "ay": "Documentonakama, equiponaka, chiqanaka mä chiqanak imata."
   },
-  "Tu expediente ingresará a Mesa de Partes Virtual. Si el trámite tiene costo (constancias, certificados, carné), generaremos la orden de pago con tus datos para pagarla en Andara Pay.": {
-   "en": "Your file will go to the Virtual Front Desk. If the procedure has a cost (certificates, transcripts, ID card), we'll create a payment order with your info to pay in Andara Pay.",
-   "qu": "Expedienteyki Mesa de Partes Virtualman yaykunqa. Trámite chaniyuq kaptinqa (constanciakuna, certificadokuna, carné), willakuyniykiwan pago ordenta ruwasaqku Andara Paypi paganaykipaq.",
-   "ay": "Expedientemax Mesa de Partes Virtualar mantani. Trámitex chanini ukhaxa (constancianaka, certificadonaka, carné), yatiyawinakamampi payllañ orden lurapxä Andara Payan payllañamataki."
+  "Tu expediente ingresará a Mesa de Partes Virtual. Si el trámite tiene costo (constancias, certificados, carné), generaremos la orden de pago con tus datos para pagarla en Andra Pay.": {
+   "en": "Your file will go to the Virtual Front Desk. If the procedure has a cost (certificates, transcripts, ID card), we'll create a payment order with your info to pay in Andra Pay.",
+   "qu": "Expedienteyki Mesa de Partes Virtualman yaykunqa. Trámite chaniyuq kaptinqa (constanciakuna, certificadokuna, carné), willakuyniykiwan pago ordenta ruwasaqku Andra Paypi paganaykipaq.",
+   "ay": "Expedientemax Mesa de Partes Virtualar mantani. Trámitex chanini ukhaxa (constancianaka, certificadonaka, carné), yatiyawinakamampi payllañ orden lurapxä Andra Payan payllañamataki."
   },
   "Tu expediente {0} fue observado. Subsánalo antes de {1} horas.": {
    "en": "Your file {0} was flagged. Fix it within {1} hours.",
@@ -6743,20 +6728,20 @@
    "qu": "Kikiyki akllay",
    "ay": "Juman ajllitama"
   },
-  "Tu reserva del Laboratorio Epier {0} fue aprobada.": {
-   "en": "Your booking for Epier Lab {0} was approved.",
-   "qu": "Epier {0} Laboratorio reservayki allinchasqa.",
-   "ay": "Epier {0} Laboratorio reservamax iyawsatawa."
+  "Tu reserva del Laboratorio de Electricidad {0} fue aprobada.": {
+   "en": "Your booking for Electrical Lab {0} was approved.",
+   "qu": "Laboratorio de Electricidad {0} reservayki allinchasqa.",
+   "ay": "Laboratorio de Electricidad {0} reservamax iyawsatawa."
   },
   "Tu sede": {
    "en": "Your campus",
    "qu": "Sedeyki",
    "ay": "Sedema"
   },
-  "Tuna femenina universitaria tocando guitarras y bandurrias con su estandarte": {
-   "en": "Women's university tuna playing guitars and bandurrias with their banner",
-   "qu": "Hatun yachaywasi warmi tuna guitarrakunata bandurriakunata tocachkan estandartenwan",
-   "ay": "Jach'a yatiqañ uta warmi tuna guitarranaka bandurrianaka tocaski estandartepampi"
+  "Guitarra, parlante, balón y laptop disponibles para préstamo": {
+   "en": "Guitar, speaker, ball and laptop available for loan",
+   "qu": "Guitarra, parlante, pelota, laptop ima mañakunapaq kachkan",
+   "ay": "Guitarra, parlante, pelota, laptop ukanakax mayt'añatakiw utji"
   },
   "Turno digital sin colas": {
    "en": "Digital queue, no lines",
@@ -6772,21 +6757,6 @@
    "en": "Professional degree",
    "qu": "Profesional título",
    "ay": "Profesional título"
-  },
-  "UNAJ": {
-   "en": "UNAJ",
-   "qu": "UNAJ",
-   "ay": "UNAJ"
-  },
-  "UNAJ · Andara": {
-   "en": "UNAJ · Andara",
-   "qu": "UNAJ · Andara",
-   "ay": "UNAJ · Andara"
-  },
-  "UNAJ · tus trámites más simples": {
-   "en": "UNAJ · your paperwork made simple",
-   "qu": "UNAJ · trámiteykikuna aswan facil",
-   "ay": "UNAJ · trámitenakamax juk'amp jasaki"
   },
   "Ubica la alerta en la pantalla 'Mis Solicitudes'.": {
    "en": "Find the alert on the 'My Requests' screen.",
@@ -6832,11 +6802,6 @@
    "en": "Treasury Unit · {0}",
    "qu": "Qullqi waqaychana · {0}",
    "ay": "Qullqi imañ uta · {0}"
-  },
-  "Universidad Nacional de Juliaca": {
-   "en": "National University of Juliaca",
-   "qu": "Juliaca Suyupa Hatun Yachay Wasin",
-   "ay": "Juliaca Suyun Jach'a Yatiqañ Utapa"
   },
   "Usar cuenta de demostración": {
    "en": "Use demo account",
@@ -7018,10 +6983,10 @@
    "qu": "Willakuykunata qhaway: Kit Microfonía Inalámbrica Shure BLX",
    "ay": "Qhanañchäwinak uñjaña: Kit Microfonía Inalámbrica Shure BLX"
   },
-  "Ver detalles de Laboratorio Episs {0}": {
-   "en": "View Laboratorio Episs {0} details",
-   "qu": "Laboratorio Episs {0} sut'inchayninta qhaway",
-   "ay": "Laboratorio Episs {0} qhanañchäwinakap uñjaña"
+  "Ver detalles de Laboratorio de Informática {0}": {
+   "en": "View Computer Lab {0} details",
+   "qu": "Laboratorio de Informática {0} sut'inchayninta qhaway",
+   "ay": "Laboratorio de Informática {0} qhanañchäwinakap uñjaña"
   },
   "Ver detalles de Laboratorio de Econometría y Estadística": {
    "en": "View details of Econometrics and Statistics Lab",
@@ -7178,10 +7143,10 @@
    "qu": "Sedepi llapanta qhaway",
    "ay": "Sedenkir taqi uñjaña"
   },
-  "Ver todo lo de la sede Capilla": {
-   "en": "View all of Capilla Campus",
-   "qu": "Capilla sedepi llapanta qhaway",
-   "ay": "Capilla sedenkir taqi uñjaña"
+  "Ver todo lo de la sede Central": {
+   "en": "View all of Central Campus",
+   "qu": "Central sedepi llapanta qhaway",
+   "ay": "Central sedenkir taqi uñjaña"
   },
   "Ver transacciones": {
    "en": "View transactions",
@@ -7328,10 +7293,10 @@
    "qu": "Yanapasqañam",
    "ay": "Yanapatawa"
   },
-  "Ya llenaste tu ficha en el sistema académico de la UNAJ. Tu derecho de pago llegó a Andara Pay: págalo aquí y tu matrícula queda confirmada al instante.": {
-   "en": "You've filled out your form in the UNAJ academic system. Your fee is now in Andara Pay: pay it here and your enrollment is confirmed instantly.",
-   "qu": "UNAJ sistema académicopi fichaykita hunt'achinkiña. Pago derechoyki Andara Payman chayamun: kaypi pagay, matrículaykitaq utqaylla chiqanchakun.",
-   "ay": "UNAJ sistema académicon fichama phuqhantxtawa. Payllañ derechomax Andara Payar purini: akan payllam, matrículamax jank'akiw chiqanchasi."
+  "Ya llenaste tu ficha en el sistema académico de la institución. Tu derecho de pago llegó a Andra Pay: págalo aquí y tu matrícula queda confirmada al instante.": {
+   "en": "You've filled out your form in the institution's academic system. Your fee is now in Andra Pay: pay it here and your enrollment is confirmed instantly.",
+   "qu": "sistema académicopi fichaykita hunt'achinkiña. Pago derechoyki Andra Payman chayamun: kaypi pagay, matrículaykitaq utqaylla chiqanchakun.",
+   "ay": "sistema académicon fichama phuqhantxtawa. Payllañ derechomax Andra Payar purini: akan payllam, matrículamax jank'akiw chiqanchasi."
   },
   "Yape": {
    "en": "Yape",
@@ -7343,25 +7308,25 @@
    "qu": "Yape: {0}",
    "ay": "Yape: {0}"
   },
-  "YouTube de la UNAJ (abre en una pestaña nueva)": {
-   "en": "UNAJ YouTube (opens in a new tab)",
-   "qu": "UNAJ YouTube (musuq pestañapi kichakun)",
-   "ay": "UNAJ YouTube (machaq pestañan jist'arasi)"
+  "YouTube de la institución (abre en una pestaña nueva)": {
+   "en": "Institution YouTube (opens in a new tab)",
+   "qu": "YouTube (musuq pestañapi kichakun)",
+   "ay": "YouTube (machaq pestañan jist'arasi)"
   },
   "admin{0}": {
    "en": "admin{0}",
    "qu": "admin{0}",
    "ay": "admin{0}"
   },
-  "andara{0}": {
-   "en": "andara{0}",
-   "qu": "andara{0}",
-   "ay": "andara{0}"
+  "andra{0}": {
+   "en": "andra{0}",
+   "qu": "andra{0}",
+   "ay": "andra{0}"
   },
-  "defensoria@unaj.edu.pe": {
-   "en": "defensoria@unaj.edu.pe",
-   "qu": "defensoria@unaj.edu.pe",
-   "ay": "defensoria@unaj.edu.pe"
+  "defensoria@institucion.edu": {
+   "en": "defensoria@institucion.edu",
+   "qu": "defensoria@institucion.edu",
+   "ay": "defensoria@institucion.edu"
   },
   "es el trámite más pedido ({0} del periodo). Conviene emitirlo de forma automática.": {
    "en": "is the most requested procedure ({0} of the period). It should be issued automatically.",
@@ -7378,10 +7343,10 @@
    "qu": "lunes {0} manta {1} kama",
    "ay": "lunes {0} ukat {1} kama"
   },
-  "mesadepartes@unaj.edu.pe": {
-   "en": "mesadepartes@unaj.edu.pe",
-   "qu": "mesadepartes@unaj.edu.pe",
-   "ay": "mesadepartes@unaj.edu.pe"
+  "mesadepartes@institucion.edu": {
+   "en": "mesadepartes@institucion.edu",
+   "qu": "mesadepartes@institucion.edu",
+   "ay": "mesadepartes@institucion.edu"
   },
   "o DNI": {
    "en": "or DNI",
@@ -7393,30 +7358,30 @@
    "qu": "sapa cursopaq",
    "ay": "sapa cursotaki"
   },
-  "rmamani@unaj.edu.pe": {
-   "en": "rmamani@unaj.edu.pe",
-   "qu": "rmamani@unaj.edu.pe",
-   "ay": "rmamani@unaj.edu.pe"
+  "rmamani@institucion.edu": {
+   "en": "rmamani@institucion.edu",
+   "qu": "rmamani@institucion.edu",
+   "ay": "rmamani@institucion.edu"
   },
   "se usa solo el {0} del tiempo. Podría abrirse a otras escuelas o a talleres.": {
    "en": "only used {0} of the time. It could open to other schools or workshops.",
    "qu": "pachamanta {0} llamk'achikun. Huk escuelakunaman tallerkunamanpas kichakunman.",
    "ay": "pachat {0} ukak apnaqasi. Yaqha escuelanakaru tallernakarus jist'arasispawa."
   },
-  "soporte.academico@unaj.edu.pe": {
-   "en": "soporte.academico@unaj.edu.pe",
-   "qu": "soporte.academico@unaj.edu.pe",
-   "ay": "soporte.academico@unaj.edu.pe"
+  "soporte@institucion.edu": {
+   "en": "soporte@institucion.edu",
+   "qu": "soporte@institucion.edu",
+   "ay": "soporte@institucion.edu"
   },
   "tus trámites más simples": {
    "en": "your paperwork made simple",
    "qu": "ruwanaykikuna aswan facil",
    "ay": "lurawinakamax jasakiwa"
   },
-  "{0} (Pagado con Yape · Andara Pay)": {
-   "en": "{0} (Paid with Yape · Andara Pay)",
-   "qu": "{0} (Yapewan pagasqa · Andara Pay)",
-   "ay": "{0} (Yapempi payllata · Andara Pay)"
+  "{0} (Pagado con Yape · Andra Pay)": {
+   "en": "{0} (Paid with Yape · Andra Pay)",
+   "qu": "{0} (Yapewan pagasqa · Andra Pay)",
+   "ay": "{0} (Yapempi payllata · Andra Pay)"
   },
   "{0} (Pendiente)": {
    "en": "{0} (Pending)",
@@ -7443,10 +7408,10 @@
    "qu": "{0} Septiembre killa, {1}",
    "ay": "{0} Septiembre phaxsi, {1}"
   },
-  "{0} de las órdenes del periodo ya están pagadas con Andara Pay, sin colas en el banco.": {
-   "en": "{0} of this period's orders are already paid with Andara Pay, no bank lines.",
-   "qu": "Periodo ordenkunamanta {0} Andara Paywan pagasqaña, mana bancopi sayaspa.",
-   "ay": "Periodo ordenanakat {0} Andara Paympi payllatäxiwa, jan bancon sayt'asa."
+  "{0} de las órdenes del periodo ya están pagadas con Andra Pay, sin colas en el banco.": {
+   "en": "{0} of this period's orders are already paid with Andra Pay, no bank lines.",
+   "qu": "Periodo ordenkunamanta {0} Andra Paywan pagasqaña, mana bancopi sayaspa.",
+   "ay": "Periodo ordenanakat {0} Andra Paympi payllatäxiwa, jan bancon sayt'asa."
   },
   "{0} de {1}": {
    "en": "{0} of {1}",
@@ -7658,30 +7623,30 @@
    "qu": "{0} · Trámite · {1} p'unchawpi tukukun",
    "ay": "{0} · Trámite · {1} urun tukusi"
   },
-  "{0} · {1} a. m. – {2} p. m. · Sede Ayabacas": {
-   "en": "{0} · {1} a.m. – {2} p.m. · Ayabacas Campus",
-   "qu": "{0} · {1} a. m. – {2} p. m. · Sede Ayabacas",
-   "ay": "{0} · {1} a. m. – {2} p. m. · Sede Ayabacas"
+  "{0} · {1} a. m. – {2} p. m. · Sede Central": {
+   "en": "{0} · {1} a.m. – {2} p.m. · Central Campus",
+   "qu": "{0} · {1} a. m. – {2} p. m. · Sede Central",
+   "ay": "{0} · {1} a. m. – {2} p. m. · Sede Central"
   },
-  "{0} · {1} a. m. – {2} p. m. · Sede Capilla": {
-   "en": "{0} · {1} a.m. – {2} p.m. · Capilla Campus",
-   "qu": "{0} · {1} a. m. – {2} p. m. · Sede Capilla",
-   "ay": "{0} · {1} a. m. – {2} p. m. · Sede Capilla"
+  "{0} · {1} a. m. – {2} p. m. · Sede Norte": {
+   "en": "{0} · {1} a.m. – {2} p.m. · North Campus",
+   "qu": "{0} · {1} a. m. – {2} p. m. · Sede Norte",
+   "ay": "{0} · {1} a. m. – {2} p. m. · Sede Norte"
   },
-  "{0}@est.unaj.edu.pe": {
-   "en": "{0}@est.unaj.edu.pe",
-   "qu": "{0}@est.unaj.edu.pe",
-   "ay": "{0}@est.unaj.edu.pe"
+  "{0}@est.institucion.edu": {
+   "en": "{0}@est.institucion.edu",
+   "qu": "{0}@est.institucion.edu",
+   "ay": "{0}@est.institucion.edu"
   },
-  "© {0} Andara · UNAJ": {
-   "en": "© {0} Andara · UNAJ",
-   "qu": "© {0} Andara · UNAJ",
-   "ay": "© {0} Andara · UNAJ"
+  "© {0} Andra": {
+   "en": "© {0} Andra",
+   "qu": "© {0} Andra",
+   "ay": "© {0} Andra"
   },
-  "· Sede Capilla · {0}–{1} de mañana": {
-   "en": "· Capilla Campus · {0}–{1} a.m.",
-   "qu": "· Capilla sede · tutamanta {0}–{1}",
-   "ay": "· Capilla sede · alwa {0}–{1}"
+  "· Sede Central · {0}–{1} de mañana": {
+   "en": "· Central Campus · {0}–{1} a.m.",
+   "qu": "· Central sede · tutamanta {0}–{1}",
+   "ay": "· Central sede · alwa {0}–{1}"
   },
   "· Tienes {0} pagos pendientes, incluida tu matrícula {1}-{2}": {
    "en": "· You have {0} pending payments, including your enrollment {1}-{2}",

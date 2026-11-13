@@ -1,26 +1,26 @@
 {
  "sedes": [
   {
-   "id": "capilla",
-   "name": "Capilla",
-   "full": "Sede La Capilla",
-   "desc": "Software y Sistemas, Industrial, Mecatrónica, Administración, Economía, Gestión Pública y auditorios",
+   "id": "central",
+   "name": "Central",
+   "full": "Sede Central",
+   "desc": "Sistemas, Industrial, Mecatrónica, Administración, Economía, Gestión Pública y auditorios",
    "office": "Pabellón Administrativo · Ventanillas 1 a 6",
    "hours": "Lunes a viernes de 08:30 a 18:00 hrs"
   },
   {
-   "id": "ayabacas",
-   "name": "Ayabacas",
-   "full": "Sede Ayabacas",
-   "desc": "Energías Renovables, Industrias Alimentarias y Textil y Confecciones",
+   "id": "norte",
+   "name": "Norte",
+   "full": "Sede Norte",
+   "desc": "Eléctrica, Agroindustrial y Civil",
    "office": "Pabellón de Servicios Académicos · Ventanillas 1 a 4",
    "hours": "Lunes a viernes de 08:00 a 16:00 hrs"
   },
   {
-   "id": "salida-cuzco",
-   "name": "Salida Cuzco",
-   "full": "Sede Salida Cuzco",
-   "desc": "Ingeniería Ambiental y Forestal",
+   "id": "sur",
+   "name": "Sur",
+   "full": "Sede Sur",
+   "desc": "Ingeniería Ambiental",
    "office": "Edificio Central · Ventanilla 1",
    "hours": "Lunes a viernes de 08:30 a 17:00 hrs"
   }
@@ -28,53 +28,53 @@
  "escuelas": [
   {
    "id": "adm",
-   "name": "Administración y Emprendimiento Empresarial",
-   "sede": "capilla"
+   "name": "Administración de Empresas",
+   "sede": "central"
   },
   {
    "id": "eco",
    "name": "Economía",
-   "sede": "capilla"
+   "sede": "central"
   },
   {
-   "id": "gpd",
-   "name": "Gestión Pública y Desarrollo Social",
-   "sede": "capilla"
+   "id": "gpu",
+   "name": "Gestión Pública",
+   "sede": "central"
   },
   {
-   "id": "iaf",
-   "name": "Ingeniería Ambiental y Forestal",
-   "sede": "salida-cuzco"
+   "id": "iam",
+   "name": "Ingeniería Ambiental",
+   "sede": "sur"
   },
   {
-   "id": "iss",
-   "name": "Ingeniería de Software y Sistemas",
-   "sede": "capilla"
+   "id": "isi",
+   "name": "Ingeniería de Sistemas",
+   "sede": "central"
   },
   {
-   "id": "ier",
-   "name": "Ingeniería en Energías Renovables",
-   "sede": "ayabacas"
+   "id": "iel",
+   "name": "Ingeniería Eléctrica",
+   "sede": "norte"
   },
   {
-   "id": "iia",
-   "name": "Ingeniería en Industrias Alimentarias",
-   "sede": "ayabacas"
+   "id": "iag",
+   "name": "Ingeniería Agroindustrial",
+   "sede": "norte"
   },
   {
    "id": "iin",
    "name": "Ingeniería Industrial",
-   "sede": "capilla"
+   "sede": "central"
   },
   {
    "id": "imc",
    "name": "Ingeniería Mecatrónica",
-   "sede": "capilla"
+   "sede": "central"
   },
   {
-   "id": "itc",
-   "name": "Ingeniería Textil y de Confecciones",
-   "sede": "ayabacas"
+   "id": "ici",
+   "name": "Ingeniería Civil",
+   "sede": "norte"
   }
  ],
  "dependenciasAdministrativas": [
@@ -89,13 +89,13 @@
  ],
  "espacios": [
   {
-   "id": "episs-a450",
-   "name": "Laboratorio Episs A-450",
+   "id": "lab-info-a450",
+   "name": "Laboratorio de Informática A-450",
    "type": "Laboratorio",
    "cap": 50,
    "status": "Disponible",
-   "sede": "capilla",
-   "fac": "iss",
+   "sede": "central",
+   "fac": "isi",
    "bld": "Pabellón A, 4.º piso"
   },
   {
@@ -104,8 +104,8 @@
    "type": "Laboratorio",
    "cap": 30,
    "status": "Disponible",
-   "sede": "capilla",
-   "fac": "iss",
+   "sede": "central",
+   "fac": "isi",
    "bld": "Pabellón B, 3.er piso"
   },
   {
@@ -114,7 +114,7 @@
    "type": "Laboratorio",
    "cap": 25,
    "status": "Disponible",
-   "sede": "capilla",
+   "sede": "central",
    "fac": "imc",
    "bld": "Pabellón de Mecatrónica"
   },
@@ -124,7 +124,7 @@
    "type": "Taller",
    "cap": 20,
    "status": "Ocupado",
-   "sede": "capilla",
+   "sede": "central",
    "fac": "imc",
    "bld": "Pabellón de Mecatrónica"
   },
@@ -134,7 +134,7 @@
    "type": "Laboratorio",
    "cap": 30,
    "status": "Disponible",
-   "sede": "capilla",
+   "sede": "central",
    "fac": "iin",
    "bld": "Pabellón I, 2.º piso"
   },
@@ -144,7 +144,7 @@
    "type": "Laboratorio",
    "cap": 25,
    "status": "Disponible",
-   "sede": "capilla",
+   "sede": "central",
    "fac": "iin",
    "bld": "Pabellón I, 1.er piso"
   },
@@ -154,7 +154,7 @@
    "type": "Auditorio",
    "cap": 10000,
    "status": "Disponible",
-   "sede": "capilla",
+   "sede": "central",
    "bld": "Edificio Central"
   },
   {
@@ -163,7 +163,7 @@
    "type": "Auditorio",
    "cap": 300,
    "status": "Ocupado",
-   "sede": "capilla",
+   "sede": "central",
    "bld": "Edificio Central, 5.º piso"
   },
   {
@@ -172,7 +172,7 @@
    "type": "Aula",
    "cap": 50,
    "status": "Disponible",
-   "sede": "capilla",
+   "sede": "central",
    "bld": "Pabellón B, 1.er piso"
   },
   {
@@ -181,7 +181,7 @@
    "type": "Aula",
    "cap": 40,
    "status": "Disponible",
-   "sede": "capilla",
+   "sede": "central",
    "bld": "Pabellón C, 2.º piso"
   },
   {
@@ -190,7 +190,7 @@
    "type": "Auditorio",
    "cap": 180,
    "status": "Disponible",
-   "sede": "capilla",
+   "sede": "central",
    "bld": "Pabellón E, 1.er piso"
   },
   {
@@ -199,7 +199,7 @@
    "type": "Aula",
    "cap": 45,
    "status": "Disponible",
-   "sede": "ayabacas",
+   "sede": "norte",
    "bld": "Pabellón A, 1.er piso"
   },
   {
@@ -208,17 +208,17 @@
    "type": "Sala",
    "cap": 12,
    "status": "Disponible",
-   "sede": "capilla",
+   "sede": "central",
    "bld": "Biblioteca Central"
   },
   {
-   "id": "epier-a300",
-   "name": "Laboratorio Epier A-300",
+   "id": "lab-elec-a300",
+   "name": "Laboratorio de Electricidad A-300",
    "type": "Laboratorio",
    "cap": 50,
    "status": "Disponible",
-   "sede": "ayabacas",
-   "fac": "ier",
+   "sede": "norte",
+   "fac": "iel",
    "bld": "Pabellón A, 3.er piso"
   },
   {
@@ -227,9 +227,9 @@
    "type": "Laboratorio",
    "cap": 30,
    "status": "Disponible",
-   "sede": "ayabacas",
-   "fac": "ier",
-   "bld": "Pabellón de Energías"
+   "sede": "norte",
+   "fac": "iel",
+   "bld": "Pabellón de Electricidad"
   },
   {
    "id": "lab-eolica",
@@ -237,18 +237,18 @@
    "type": "Laboratorio",
    "cap": 25,
    "status": "Disponible",
-   "sede": "ayabacas",
-   "fac": "ier",
-   "bld": "Pabellón de Energías"
+   "sede": "norte",
+   "fac": "iel",
+   "bld": "Pabellón de Electricidad"
   },
   {
    "id": "planta-piloto",
-   "name": "Planta Piloto de Industrias Alimentarias",
+   "name": "Planta Piloto Agroindustrial",
    "type": "Taller",
    "cap": 25,
    "status": "Disponible",
-   "sede": "ayabacas",
-   "fac": "iia",
+   "sede": "norte",
+   "fac": "iag",
    "bld": "Módulo de Plantas Piloto"
   },
   {
@@ -257,8 +257,8 @@
    "type": "Laboratorio",
    "cap": 24,
    "status": "Ocupado",
-   "sede": "ayabacas",
-   "fac": "iia",
+   "sede": "norte",
+   "fac": "iag",
    "bld": "Pabellón C, 2.º piso"
   },
   {
@@ -267,19 +267,19 @@
    "type": "Laboratorio",
    "cap": 30,
    "status": "Disponible",
-   "sede": "salida-cuzco",
-   "fac": "iaf",
+   "sede": "sur",
+   "fac": "iam",
    "bld": "Pabellón D"
   },
   {
    "id": "vivero",
-   "name": "Vivero Forestal y Laboratorio de Dendrología",
+   "name": "Laboratorio de Calidad del Agua",
    "type": "Taller",
    "cap": 20,
    "status": "Disponible",
-   "sede": "salida-cuzco",
-   "fac": "iaf",
-   "bld": "Área de campo"
+   "sede": "sur",
+   "fac": "iam",
+   "bld": "Pabellón D"
   },
   {
    "id": "aula-b204",
@@ -287,28 +287,28 @@
    "type": "Aula",
    "cap": 40,
    "status": "Disponible",
-   "sede": "ayabacas",
+   "sede": "norte",
    "bld": "Pabellón B, 2.º piso"
   },
   {
    "id": "taller-conf",
-   "name": "Taller de Confección y Patronaje Industrial",
+   "name": "Laboratorio de Ensayo de Materiales",
    "type": "Taller",
    "cap": 30,
    "status": "Disponible",
-   "sede": "ayabacas",
-   "fac": "itc",
-   "bld": "Pabellón Textil"
+   "sede": "norte",
+   "fac": "ici",
+   "bld": "Pabellón de Ingeniería Civil"
   },
   {
    "id": "lab-fibras",
-   "name": "Laboratorio de Fibras y Tintorería Textil",
+   "name": "Laboratorio de Concreto y Asfalto",
    "type": "Laboratorio",
    "cap": 20,
    "status": "Disponible",
-   "sede": "ayabacas",
-   "fac": "itc",
-   "bld": "Pabellón Textil"
+   "sede": "norte",
+   "fac": "ici",
+   "bld": "Pabellón de Ingeniería Civil"
   },
   {
    "id": "sala-sim",
@@ -316,7 +316,7 @@
    "type": "Sala",
    "cap": 40,
    "status": "Disponible",
-   "sede": "capilla",
+   "sede": "central",
    "fac": "adm",
    "bld": "Pabellón E, 2.º piso"
   },
@@ -326,18 +326,18 @@
    "type": "Laboratorio",
    "cap": 35,
    "status": "Ocupado",
-   "sede": "capilla",
+   "sede": "central",
    "fac": "eco",
    "bld": "Pabellón E, 3.er piso"
   },
   {
-   "id": "sala-gpd",
+   "id": "sala-gpu",
    "name": "Sala de Gestión Pública y Gobierno Digital",
    "type": "Sala",
    "cap": 40,
    "status": "Disponible",
-   "sede": "capilla",
-   "fac": "gpd",
+   "sede": "central",
+   "fac": "gpu",
    "bld": "Pabellón F"
   },
   {
@@ -346,7 +346,7 @@
    "type": "Aula",
    "cap": 45,
    "status": "Disponible",
-   "sede": "salida-cuzco",
+   "sede": "sur",
    "bld": "Pabellón C, 3.er piso"
   }
  ],
@@ -573,7 +573,7 @@
   {
    "id": "g19",
    "name": "Convenio marco de prácticas preprofesionales",
-   "desc": "Acuerdo con empresas e instituciones de la región Puno.",
+   "desc": "Acuerdo con empresas e instituciones de la región.",
    "type": "Convenios",
    "dep": "Secretaría General",
    "aud": "Público en General",
@@ -628,10 +628,10 @@
   {
    "id": "m-adm",
    "fac": "adm",
-   "name": "Malla curricular 2024 · Administración y Emprendimiento Empresarial",
+   "name": "Malla curricular 2024 · Administración de Empresas",
    "desc": "Cursos por ciclo, créditos, prerrequisitos y electivos del plan vigente.",
    "type": "Malla curricular",
-   "dep": "Administración y Emprendimiento Empresarial",
+   "dep": "Administración de Empresas",
    "aud": "Estudiantes",
    "date": "2024-03-10",
    "freq": false,
@@ -640,10 +640,10 @@
   {
    "id": "p-adm",
    "fac": "adm",
-   "name": "Plan de estudios · Administración y Emprendimiento Empresarial",
+   "name": "Plan de estudios · Administración de Empresas",
    "desc": "Perfil del egresado, competencias y sumillas de los cursos.",
    "type": "Plan de estudios",
-   "dep": "Administración y Emprendimiento Empresarial",
+   "dep": "Administración de Empresas",
    "aud": "Público en General",
    "date": "2024-03-20",
    "freq": false,
@@ -655,7 +655,7 @@
    "name": "Sílabo Emprendimiento e Innovación",
    "desc": "Contenidos, evaluación y bibliografía · semestre 2026-2.",
    "type": "Sílabos",
-   "dep": "Administración y Emprendimiento Empresarial",
+   "dep": "Administración de Empresas",
    "aud": "Estudiantes",
    "date": "2026-08-03",
    "freq": false,
@@ -698,180 +698,180 @@
    "pages": 6
   },
   {
-   "id": "m-gpd",
-   "fac": "gpd",
-   "name": "Malla curricular 2024 · Gestión Pública y Desarrollo Social",
+   "id": "m-gpu",
+   "fac": "gpu",
+   "name": "Malla curricular 2024 · Gestión Pública",
    "desc": "Cursos por ciclo, créditos, prerrequisitos y electivos del plan vigente.",
    "type": "Malla curricular",
-   "dep": "Gestión Pública y Desarrollo Social",
+   "dep": "Gestión Pública",
    "aud": "Estudiantes",
    "date": "2024-02-12",
    "freq": false,
    "pages": 2
   },
   {
-   "id": "p-gpd",
-   "fac": "gpd",
-   "name": "Plan de estudios · Gestión Pública y Desarrollo Social",
+   "id": "p-gpu",
+   "fac": "gpu",
+   "name": "Plan de estudios · Gestión Pública",
    "desc": "Perfil del egresado, competencias y sumillas de los cursos.",
    "type": "Plan de estudios",
-   "dep": "Gestión Pública y Desarrollo Social",
+   "dep": "Gestión Pública",
    "aud": "Público en General",
    "date": "2024-02-22",
    "freq": false,
    "pages": 48
   },
   {
-   "id": "s-gpd",
-   "fac": "gpd",
+   "id": "s-gpu",
+   "fac": "gpu",
    "name": "Sílabo Políticas Públicas y Gestión Territorial",
    "desc": "Contenidos, evaluación y bibliografía · semestre 2026-2.",
    "type": "Sílabos",
-   "dep": "Gestión Pública y Desarrollo Social",
+   "dep": "Gestión Pública",
    "aud": "Estudiantes",
    "date": "2026-08-05",
    "freq": false,
    "pages": 6
   },
   {
-   "id": "m-iaf",
-   "fac": "iaf",
-   "name": "Malla curricular 2024 · Ingeniería Ambiental y Forestal",
+   "id": "m-iam",
+   "fac": "iam",
+   "name": "Malla curricular 2024 · Ingeniería Ambiental",
    "desc": "Cursos por ciclo, créditos, prerrequisitos y electivos del plan vigente.",
    "type": "Malla curricular",
-   "dep": "Ingeniería Ambiental y Forestal",
+   "dep": "Ingeniería Ambiental",
    "aud": "Estudiantes",
    "date": "2024-05-13",
    "freq": false,
    "pages": 2
   },
   {
-   "id": "p-iaf",
-   "fac": "iaf",
-   "name": "Plan de estudios · Ingeniería Ambiental y Forestal",
+   "id": "p-iam",
+   "fac": "iam",
+   "name": "Plan de estudios · Ingeniería Ambiental",
    "desc": "Perfil del egresado, competencias y sumillas de los cursos.",
    "type": "Plan de estudios",
-   "dep": "Ingeniería Ambiental y Forestal",
+   "dep": "Ingeniería Ambiental",
    "aud": "Público en General",
    "date": "2024-05-23",
    "freq": false,
    "pages": 48
   },
   {
-   "id": "s-iaf",
-   "fac": "iaf",
-   "name": "Sílabo Manejo Forestal Sostenible",
+   "id": "s-iam",
+   "fac": "iam",
+   "name": "Sílabo Gestión de Residuos Sólidos",
    "desc": "Contenidos, evaluación y bibliografía · semestre 2026-2.",
    "type": "Sílabos",
-   "dep": "Ingeniería Ambiental y Forestal",
+   "dep": "Ingeniería Ambiental",
    "aud": "Estudiantes",
    "date": "2026-08-06",
    "freq": false,
    "pages": 6
   },
   {
-   "id": "m-iss",
-   "fac": "iss",
-   "name": "Malla curricular 2024 · Ingeniería de Software y Sistemas",
+   "id": "m-isi",
+   "fac": "isi",
+   "name": "Malla curricular 2024 · Ingeniería de Sistemas",
    "desc": "Cursos por ciclo, créditos, prerrequisitos y electivos del plan vigente.",
    "type": "Malla curricular",
-   "dep": "Ingeniería de Software y Sistemas",
+   "dep": "Ingeniería de Sistemas",
    "aud": "Estudiantes",
    "date": "2024-03-14",
    "freq": true,
    "pages": 2
   },
   {
-   "id": "p-iss",
-   "fac": "iss",
-   "name": "Plan de estudios · Ingeniería de Software y Sistemas",
+   "id": "p-isi",
+   "fac": "isi",
+   "name": "Plan de estudios · Ingeniería de Sistemas",
    "desc": "Perfil del egresado, competencias y sumillas de los cursos.",
    "type": "Plan de estudios",
-   "dep": "Ingeniería de Software y Sistemas",
+   "dep": "Ingeniería de Sistemas",
    "aud": "Público en General",
    "date": "2024-03-24",
    "freq": false,
    "pages": 48
   },
   {
-   "id": "s-iss",
-   "fac": "iss",
+   "id": "s-isi",
+   "fac": "isi",
    "name": "Sílabo INF239 Algoritmos Complejos",
    "desc": "Contenidos, evaluación y bibliografía · semestre 2026-2.",
    "type": "Sílabos",
-   "dep": "Ingeniería de Software y Sistemas",
+   "dep": "Ingeniería de Sistemas",
    "aud": "Estudiantes",
    "date": "2026-08-07",
    "freq": false,
    "pages": 6
   },
   {
-   "id": "m-ier",
-   "fac": "ier",
-   "name": "Malla curricular 2024 · Ingeniería en Energías Renovables",
+   "id": "m-iel",
+   "fac": "iel",
+   "name": "Malla curricular 2024 · Ingeniería Eléctrica",
    "desc": "Cursos por ciclo, créditos, prerrequisitos y electivos del plan vigente.",
    "type": "Malla curricular",
-   "dep": "Ingeniería en Energías Renovables",
+   "dep": "Ingeniería Eléctrica",
    "aud": "Estudiantes",
    "date": "2024-04-15",
    "freq": false,
    "pages": 2
   },
   {
-   "id": "p-ier",
-   "fac": "ier",
-   "name": "Plan de estudios · Ingeniería en Energías Renovables",
+   "id": "p-iel",
+   "fac": "iel",
+   "name": "Plan de estudios · Ingeniería Eléctrica",
    "desc": "Perfil del egresado, competencias y sumillas de los cursos.",
    "type": "Plan de estudios",
-   "dep": "Ingeniería en Energías Renovables",
+   "dep": "Ingeniería Eléctrica",
    "aud": "Público en General",
    "date": "2024-04-25",
    "freq": false,
    "pages": 48
   },
   {
-   "id": "s-ier",
-   "fac": "ier",
-   "name": "Sílabo Energía Solar Fotovoltaica",
+   "id": "s-iel",
+   "fac": "iel",
+   "name": "Sílabo Máquinas Eléctricas",
    "desc": "Contenidos, evaluación y bibliografía · semestre 2026-2.",
    "type": "Sílabos",
-   "dep": "Ingeniería en Energías Renovables",
+   "dep": "Ingeniería Eléctrica",
    "aud": "Estudiantes",
    "date": "2026-08-08",
    "freq": false,
    "pages": 6
   },
   {
-   "id": "m-iia",
-   "fac": "iia",
-   "name": "Malla curricular 2024 · Ingeniería en Industrias Alimentarias",
+   "id": "m-iag",
+   "fac": "iag",
+   "name": "Malla curricular 2024 · Ingeniería Agroindustrial",
    "desc": "Cursos por ciclo, créditos, prerrequisitos y electivos del plan vigente.",
    "type": "Malla curricular",
-   "dep": "Ingeniería en Industrias Alimentarias",
+   "dep": "Ingeniería Agroindustrial",
    "aud": "Estudiantes",
    "date": "2024-02-16",
    "freq": false,
    "pages": 2
   },
   {
-   "id": "p-iia",
-   "fac": "iia",
-   "name": "Plan de estudios · Ingeniería en Industrias Alimentarias",
+   "id": "p-iag",
+   "fac": "iag",
+   "name": "Plan de estudios · Ingeniería Agroindustrial",
    "desc": "Perfil del egresado, competencias y sumillas de los cursos.",
    "type": "Plan de estudios",
-   "dep": "Ingeniería en Industrias Alimentarias",
+   "dep": "Ingeniería Agroindustrial",
    "aud": "Público en General",
    "date": "2024-02-26",
    "freq": false,
    "pages": 48
   },
   {
-   "id": "s-iia",
-   "fac": "iia",
+   "id": "s-iag",
+   "fac": "iag",
    "name": "Sílabo Tecnología de Productos Lácteos",
    "desc": "Contenidos, evaluación y bibliografía · semestre 2026-2.",
    "type": "Sílabos",
-   "dep": "Ingeniería en Industrias Alimentarias",
+   "dep": "Ingeniería Agroindustrial",
    "aud": "Estudiantes",
    "date": "2026-08-09",
    "freq": false,
@@ -950,36 +950,36 @@
    "pages": 6
   },
   {
-   "id": "m-itc",
-   "fac": "itc",
-   "name": "Malla curricular 2024 · Ingeniería Textil y de Confecciones",
+   "id": "m-ici",
+   "fac": "ici",
+   "name": "Malla curricular 2024 · Ingeniería Civil",
    "desc": "Cursos por ciclo, créditos, prerrequisitos y electivos del plan vigente.",
    "type": "Malla curricular",
-   "dep": "Ingeniería Textil y de Confecciones",
+   "dep": "Ingeniería Civil",
    "aud": "Estudiantes",
    "date": "2024-04-10",
    "freq": false,
    "pages": 2
   },
   {
-   "id": "p-itc",
-   "fac": "itc",
-   "name": "Plan de estudios · Ingeniería Textil y de Confecciones",
+   "id": "p-ici",
+   "fac": "ici",
+   "name": "Plan de estudios · Ingeniería Civil",
    "desc": "Perfil del egresado, competencias y sumillas de los cursos.",
    "type": "Plan de estudios",
-   "dep": "Ingeniería Textil y de Confecciones",
+   "dep": "Ingeniería Civil",
    "aud": "Público en General",
    "date": "2024-04-20",
    "freq": false,
    "pages": 48
   },
   {
-   "id": "s-itc",
-   "fac": "itc",
-   "name": "Sílabo Tecnología de Hilandería",
+   "id": "s-ici",
+   "fac": "ici",
+   "name": "Sílabo Análisis Estructural",
    "desc": "Contenidos, evaluación y bibliografía · semestre 2026-2.",
    "type": "Sílabos",
-   "dep": "Ingeniería Textil y de Confecciones",
+   "dep": "Ingeniería Civil",
    "aud": "Estudiantes",
    "date": "2026-08-12",
    "freq": false,
@@ -1027,7 +1027,7 @@
    "specs": "Batería 6h • Bluetooth • Incluye 2 micrófonos inalámbricos y trípode",
    "loc": "Pabellón Central (Módulo Audiovisuales)",
    "point": "Pabellón Central",
-   "sede": "capilla",
+   "sede": "central",
    "units": 3,
    "unit": "unid.",
    "mode": "prestamo"
@@ -1040,7 +1040,7 @@
    "specs": "2 balones oficiales • Red portátil reglamentaria • Inflador y conos",
    "loc": "Polideportivo (Sala de Deportes)",
    "point": "Polideportivo",
-   "sede": "ayabacas",
+   "sede": "norte",
    "units": 5,
    "unit": "kits",
    "mode": "prestamo"
@@ -1053,7 +1053,7 @@
    "specs": "88 teclas contrapesadas • Pedal sustain • Soporte tijera y funda",
    "loc": "Estudio de Música (Auditorio Magno)",
    "point": "Auditorio Magno",
-   "sede": "capilla",
+   "sede": "central",
    "units": 1,
    "unit": "unid.",
    "mode": "prestamo"
@@ -1066,7 +1066,7 @@
    "specs": "Ultra brillo para auditorio • Conexión HDMI/Wireless • Ecran portátil",
    "loc": "Edificio Central (Piso 2)",
    "point": "Edificio Central",
-   "sede": "capilla",
+   "sede": "central",
    "units": 4,
    "unit": "unid.",
    "mode": "prestamo"
@@ -1079,7 +1079,7 @@
    "specs": "2 balones de fútsal • 4 conos • Funda térmica",
    "loc": "Cancha de fútbol (Módulo deportivo)",
    "point": "Módulo deportivo",
-   "sede": "salida-cuzco",
+   "sede": "sur",
    "units": 6,
    "unit": "sets",
    "mode": "prestamo"
@@ -1092,7 +1092,7 @@
    "specs": "Lente 24-70mm f/2.8 • Trípode Manfrotto • Luz LED y tarjeta 128GB",
    "loc": "Edificio Administrativo (Imagen Institucional)",
    "point": "Edificio Administrativo",
-   "sede": "capilla",
+   "sede": "central",
    "units": 0,
    "unit": "unid.",
    "mode": "turno",
@@ -1106,7 +1106,7 @@
    "specs": "Afinador integrado • Cable blindado 5m • Funda acolchada y capodastro",
    "loc": "Sala de Ensayos (Auditorio Magno)",
    "point": "Auditorio Magno",
-   "sede": "capilla",
+   "sede": "central",
    "units": 2,
    "unit": "unid.",
    "mode": "prestamo"
@@ -1119,7 +1119,7 @@
    "specs": "Balones de básquet Spalding • Escalera de coordinación y cronómetro",
    "loc": "Gimnasio (Pabellón Deportivo)",
    "point": "Pabellón Deportivo",
-   "sede": "capilla",
+   "sede": "central",
    "units": 8,
    "unit": "sets",
    "mode": "prestamo"
@@ -1132,7 +1132,7 @@
    "specs": "Receptor dual • 2 micrófonos corbateros inalámbricos • Estuche rígido",
    "loc": "Edificio Central (Módulo de secretaría)",
    "point": "Edificio Central",
-   "sede": "capilla",
+   "sede": "central",
    "units": 3,
    "unit": "unid.",
    "mode": "prestamo"
@@ -1146,7 +1146,7 @@
    "specs": "Placa Mega 2560 • Servomotores • Sensores inductivos y ultrasónicos",
    "loc": "Laboratorio de Robótica M-102",
    "point": "Pabellón de Mecatrónica",
-   "sede": "capilla",
+   "sede": "central",
    "units": 6,
    "unit": "kits",
    "mode": "prestamo"
@@ -1160,7 +1160,7 @@
    "specs": "4 canales • 50 MHz • Puntas de prueba x10",
    "loc": "Laboratorio de Robótica M-102",
    "point": "Pabellón de Mecatrónica",
-   "sede": "capilla",
+   "sede": "central",
    "units": 2,
    "unit": "unid.",
    "mode": "prestamo"
@@ -1174,7 +1174,7 @@
    "specs": "Cronómetro centesimal • Tablero con clip • Formatos de muestreo",
    "loc": "Laboratorio de Ergonomía I-105",
    "point": "Pabellón I",
-   "sede": "capilla",
+   "sede": "central",
    "units": 10,
    "unit": "sets",
    "mode": "prestamo"
@@ -1182,13 +1182,13 @@
   {
    "id": "e13",
    "cat": "tecnologia",
-   "label": "Software y Sistemas",
-   "fac": "iss",
+   "label": "Sistemas",
+   "fac": "isi",
    "name": "Laptop Dell Latitude para desarrollo",
    "specs": "Core i7 • 16 GB RAM • Docker, Python 3.12 y VS Code",
-   "loc": "Laboratorio Episs A-450",
+   "loc": "Laboratorio de Informática A-450",
    "point": "Pabellón A",
-   "sede": "capilla",
+   "sede": "central",
    "units": 5,
    "unit": "unid.",
    "mode": "prestamo"
@@ -1196,13 +1196,13 @@
   {
    "id": "e14",
    "cat": "laboratorio",
-   "label": "Energías Renovables",
-   "fac": "ier",
+   "label": "Eléctrica",
+   "fac": "iel",
    "name": "Analizador de energía Fluke 1738 + piranómetro",
    "specs": "Registro trifásico • Sensor de radiación solar • Software de análisis",
    "loc": "Laboratorio de Energía Solar Fotovoltaica",
-   "point": "Pabellón de Energías",
-   "sede": "ayabacas",
+   "point": "Pabellón de Electricidad",
+   "sede": "norte",
    "units": 2,
    "unit": "unid.",
    "mode": "prestamo"
@@ -1210,13 +1210,13 @@
   {
    "id": "e15",
    "cat": "laboratorio",
-   "label": "Ambiental y Forestal",
-   "fac": "iaf",
+   "label": "Ambiental",
+   "fac": "iam",
    "name": "Kit de muestreo de suelos y agua",
    "specs": "pHmetro • Conductímetro • Barreno y frascos estériles",
    "loc": "Laboratorio de Suelos y Calidad Ambiental",
    "point": "Pabellón D",
-   "sede": "salida-cuzco",
+   "sede": "sur",
    "units": 4,
    "unit": "kits",
    "mode": "prestamo"
@@ -1224,13 +1224,13 @@
   {
    "id": "e16",
    "cat": "laboratorio",
-   "label": "Ambiental y Forestal",
-   "fac": "iaf",
-   "name": "GPS diferencial y clinómetro forestal",
-   "specs": "Precisión submétrica • Hipsómetro Suunto • Cinta diamétrica",
-   "loc": "Vivero Forestal",
-   "point": "Área de campo",
-   "sede": "salida-cuzco",
+   "label": "Ambiental",
+   "fac": "iam",
+   "name": "GPS diferencial y medidor multiparámetro",
+   "specs": "Precisión submétrica • Sonda de oxígeno disuelto • Turbidímetro",
+   "loc": "Laboratorio de Calidad del Agua",
+   "point": "Pabellón D",
+   "sede": "sur",
    "units": 0,
    "unit": "unid.",
    "mode": "turno",
@@ -1239,13 +1239,13 @@
   {
    "id": "e17",
    "cat": "laboratorio",
-   "label": "Industrias Alimentarias",
-   "fac": "iia",
+   "label": "Agroindustrial",
+   "fac": "iag",
    "name": "Refractómetro digital y balanza analítica",
    "specs": "Rango 0–85 °Brix • Balanza 0.0001 g • Estuche",
-   "loc": "Planta Piloto de Industrias Alimentarias",
+   "loc": "Planta Piloto Agroindustrial",
    "point": "Módulo de Plantas Piloto",
-   "sede": "ayabacas",
+   "sede": "norte",
    "units": 3,
    "unit": "sets",
    "mode": "prestamo"
@@ -1258,7 +1258,7 @@
    "specs": "Batería 11h • Mezclador de 3 canales • Bluetooth",
    "loc": "Edificio de Servicios",
    "point": "Edificio de Servicios",
-   "sede": "ayabacas",
+   "sede": "norte",
    "units": 2,
    "unit": "unid.",
    "mode": "prestamo"
@@ -1266,13 +1266,13 @@
   {
    "id": "e19",
    "cat": "laboratorio",
-   "label": "Textil y Confecciones",
-   "fac": "itc",
-   "name": "Dinamómetro textil y cuentahilos",
-   "specs": "Ensayo de tracción • Lupa 10x • Muestras patrón",
-   "loc": "Laboratorio de Fibras y Tintorería",
-   "point": "Pabellón Textil",
-   "sede": "ayabacas",
+   "label": "Civil",
+   "fac": "ici",
+   "name": "Estación total y nivel topográfico",
+   "specs": "Precisión angular de 2 segundos • Trípode • Prisma y bastón",
+   "loc": "Laboratorio de Concreto y Asfalto",
+   "point": "Pabellón de Ingeniería Civil",
+   "sede": "norte",
    "units": 2,
    "unit": "sets",
    "mode": "prestamo"
@@ -1286,7 +1286,7 @@
    "specs": "Core i5 • 16 GB RAM • Licencias académicas de Stata 18 y EViews 13",
    "loc": "Laboratorio de Econometría",
    "point": "Pabellón E",
-   "sede": "capilla",
+   "sede": "central",
    "units": 6,
    "unit": "unid.",
    "mode": "prestamo"
@@ -1300,7 +1300,7 @@
    "specs": "Samsung Galaxy Tab • Lector de códigos • Impresora térmica",
    "loc": "Sala de Simulación Empresarial",
    "point": "Pabellón E",
-   "sede": "capilla",
+   "sede": "central",
    "units": 4,
    "unit": "unid.",
    "mode": "prestamo"
@@ -1309,12 +1309,12 @@
    "id": "e22",
    "cat": "tecnologia",
    "label": "Gestión Pública",
-   "fac": "gpd",
+   "fac": "gpu",
    "name": "Proyector portátil Epson + ecran",
    "specs": "3600 lúmenes • HDMI • Ecran trípode de 100\"",
    "loc": "Sala de Gestión Pública",
    "point": "Pabellón F",
-   "sede": "capilla",
+   "sede": "central",
    "units": 3,
    "unit": "unid.",
    "mode": "prestamo"
@@ -1327,7 +1327,7 @@
    "specs": "Zampoñas sicu malta y chuli • Charango con funda",
    "loc": "Sala de Elencos (Auditorio Magno)",
    "point": "Auditorio Magno",
-   "sede": "capilla",
+   "sede": "central",
    "units": 4,
    "unit": "sets",
    "mode": "prestamo"
@@ -1340,7 +1340,7 @@
    "specs": "2 balones Mikasa • 2 balones Molten • Inflador",
    "loc": "Losa deportiva",
    "point": "Losa deportiva",
-   "sede": "ayabacas",
+   "sede": "norte",
    "units": 4,
    "unit": "kits",
    "mode": "prestamo"
@@ -1580,7 +1580,7 @@
    "dni": "73581246",
    "tipo": "Estudiante",
    "fac": "adm",
-   "sede": "capilla"
+   "sede": "central"
   },
   {
    "code": "2022301877",
@@ -1588,23 +1588,23 @@
    "dni": "72910354",
    "tipo": "Estudiante",
    "fac": "imc",
-   "sede": "capilla"
+   "sede": "central"
   },
   {
    "code": "2024118230",
    "name": "María Belén Quispe Choque",
    "dni": "74125896",
    "tipo": "Estudiante",
-   "fac": "iia",
-   "sede": "ayabacas"
+   "fac": "iag",
+   "sede": "norte"
   },
   {
    "code": "2021209944",
    "name": "Kevin Arturo Mamani Ccama",
    "dni": "71458963",
    "tipo": "Egresado",
-   "fac": "iaf",
-   "sede": "salida-cuzco"
+   "fac": "iam",
+   "sede": "sur"
   },
   {
    "code": "2023307615",
@@ -1612,23 +1612,23 @@
    "dni": "73269514",
    "tipo": "Estudiante",
    "fac": "eco",
-   "sede": "capilla"
+   "sede": "central"
   },
   {
    "code": "2024402281",
    "name": "Rodrigo Andrés Huamán Coaquira",
    "dni": "75632148",
    "tipo": "Estudiante",
-   "fac": "ier",
-   "sede": "ayabacas"
+   "fac": "iel",
+   "sede": "norte"
   },
   {
    "code": "D-10452",
    "name": "Mg. Elena Vilca Turpo",
    "dni": "40125874",
    "tipo": "Docente",
-   "fac": "gpd",
-   "sede": "capilla"
+   "fac": "gpu",
+   "sede": "central"
   },
   {
    "code": "A-20871",
@@ -1636,7 +1636,7 @@
    "dni": "42589631",
    "tipo": "Administrativo",
    "fac": null,
-   "sede": "capilla"
+   "sede": "central"
   },
   {
    "code": "PG-0001",
@@ -1644,15 +1644,15 @@
    "dni": "46987213",
    "tipo": "Público en general",
    "fac": null,
-   "sede": "capilla"
+   "sede": "central"
   },
   {
    "code": "2022115590",
    "name": "Brayan Smith Choque Laura",
    "dni": "72365418",
    "tipo": "Estudiante",
-   "fac": "itc",
-   "sede": "ayabacas"
+   "fac": "ici",
+   "sede": "norte"
   }
  ]
 }
