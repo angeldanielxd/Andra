@@ -43,7 +43,7 @@ public class ReservasAdminController extends VistaBase {
         List<Reserva> pendientes = l.stream().filter(r -> r.getEstado() == EstadoReserva.PENDIENTE).toList();
         List<Reserva> resto = l.stream().filter(r -> r.getEstado() != EstadoReserva.PENDIENTE).toList();
         List<Filtros.Avanzado> avanzados = AdminFiltros.fechas("Fecha desde", "Fecha hasta");
-        avanzados.addAll(AdminFiltros.persona(catalogo, "Código o DNI del solicitante", "Ej. 2024207009"));
+        avanzados.addAll(AdminFiltros.persona(catalogo, "Código o DNI del solicitante", "Ej. 20240157"));
         HBox cab = Componentes.cabeceraSeccion("Por aprobar (" + pendientes.size() + ")", null,
                 Filtros.boton(filtros, AdminService.PRESETS_RESERVAS, avanzados, notificador, this::redibujar));
         VBox s1 = Componentes.seccion(cab, Filtros.resumen(filtros, AdminService.PRESETS_RESERVAS, catalogo::nombreEscuela, this::redibujar),

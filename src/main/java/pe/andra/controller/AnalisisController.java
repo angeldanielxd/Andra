@@ -99,7 +99,7 @@ public class AnalisisController extends VistaBase {
 
     private VBox validador() {
         validar = new TextField();
-        Componentes.prompt(validar, "ANDRA-ID|… o 2024207009");
+        Componentes.prompt(validar, "ANDRA-ID|… o 20240157");
         Componentes.accesible(validar, "Código del carné");
         HBox.setHgrow(validar, Priority.ALWAYS);
         resultado = new VBox();

@@ -87,7 +87,7 @@ class CapturasTest {
         String rutas = System.getProperty("rutas", "");
         SesionService sesion = contexto.getBean(SesionService.class);
         enFx(() -> {
-            sesion.ingresar(Rol.ESTUDIANTE, "2024207009", "andra2026");
+            sesion.ingresar(Rol.ESTUDIANTE, "20240157", "andra2026");
             principal.alIngresar();
             return null;
         });
@@ -162,7 +162,7 @@ class CapturasTest {
         }
         enFx(() -> {
             sesion.cerrar();
-            sesion.ingresar(Rol.ADMINISTRADOR, "rmamani@institucion.edu", "admin2026");
+            sesion.ingresar(Rol.ADMINISTRADOR, "rmartinez@institucion.edu", "admin2026");
             principal.alIngresar();
             return null;
         });

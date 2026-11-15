@@ -149,10 +149,10 @@
    "bld": "Pabellón I, 1.er piso"
   },
   {
-   "id": "magno",
-   "name": "Auditorio Magno",
+   "id": "aud-principal",
+   "name": "Auditorio Principal",
    "type": "Auditorio",
-   "cap": 10000,
+   "cap": 800,
    "status": "Disponible",
    "sede": "central",
    "bld": "Edificio Central"
@@ -796,7 +796,7 @@
   {
    "id": "s-isi",
    "fac": "isi",
-   "name": "Sílabo INF239 Algoritmos Complejos",
+   "name": "Sílabo SIS301 Algoritmos Complejos",
    "desc": "Contenidos, evaluación y bibliografía · semestre 2026-2.",
    "type": "Sílabos",
    "dep": "Ingeniería de Sistemas",
@@ -996,7 +996,7 @@
   {
    "id": "instrumentos",
    "name": "Instrumentos",
-   "desc": "Teclados, guitarras, instrumentos andinos",
+   "desc": "Teclados, guitarras e instrumentos de percusión",
    "icon": "music"
   },
   {
@@ -1051,8 +1051,8 @@
    "label": "Instrumentos",
    "name": "Teclado Sintetizador Yamaha MX88",
    "specs": "88 teclas contrapesadas • Pedal sustain • Soporte tijera y funda",
-   "loc": "Estudio de Música (Auditorio Magno)",
-   "point": "Auditorio Magno",
+   "loc": "Estudio de Música (Auditorio Principal)",
+   "point": "Auditorio Principal",
    "sede": "central",
    "units": 1,
    "unit": "unid.",
@@ -1104,8 +1104,8 @@
    "label": "Instrumentos",
    "name": "Guitarra Electroacústica Fender CD-60",
    "specs": "Afinador integrado • Cable blindado 5m • Funda acolchada y capodastro",
-   "loc": "Sala de Ensayos (Auditorio Magno)",
-   "point": "Auditorio Magno",
+   "loc": "Sala de Ensayos (Auditorio Principal)",
+   "point": "Auditorio Principal",
    "sede": "central",
    "units": 2,
    "unit": "unid.",
@@ -1323,10 +1323,10 @@
    "id": "e23",
    "cat": "instrumentos",
    "label": "Instrumentos",
-   "name": "Set de zampoñas y charango",
-   "specs": "Zampoñas sicu malta y chuli • Charango con funda",
-   "loc": "Sala de Elencos (Auditorio Magno)",
-   "point": "Auditorio Magno",
+   "name": "Set de percusión: cajón y bongós",
+   "specs": "Cajón con funda • Bongós con soporte • Baquetas",
+   "loc": "Sala de Elencos (Auditorio Principal)",
+   "point": "Auditorio Principal",
    "sede": "central",
    "units": 4,
    "unit": "sets",
@@ -1575,48 +1575,48 @@
  ],
  "usuarios": [
   {
-   "code": "2023104512",
-   "name": "Lucía Fernanda Condori Apaza",
+   "code": "20230418",
+   "name": "Lucía Fernanda Torres Vega",
    "dni": "73581246",
    "tipo": "Estudiante",
    "fac": "adm",
    "sede": "central"
   },
   {
-   "code": "2022301877",
-   "name": "José Luis Ticona Huanca",
+   "code": "20220736",
+   "name": "José Luis Ramírez Castro",
    "dni": "72910354",
    "tipo": "Estudiante",
    "fac": "imc",
    "sede": "central"
   },
   {
-   "code": "2024118230",
-   "name": "María Belén Quispe Choque",
+   "code": "20240962",
+   "name": "María Belén Vargas Rojas",
    "dni": "74125896",
    "tipo": "Estudiante",
    "fac": "iag",
    "sede": "norte"
   },
   {
-   "code": "2021209944",
-   "name": "Kevin Arturo Mamani Ccama",
+   "code": "20210385",
+   "name": "Kevin Arturo Díaz Paredes",
    "dni": "71458963",
    "tipo": "Egresado",
    "fac": "iam",
    "sede": "sur"
   },
   {
-   "code": "2023307615",
-   "name": "Diana Rocío Flores Pari",
+   "code": "20231124",
+   "name": "Diana Rocío Flores Navarro",
    "dni": "73269514",
    "tipo": "Estudiante",
    "fac": "eco",
    "sede": "central"
   },
   {
-   "code": "2024402281",
-   "name": "Rodrigo Andrés Huamán Coaquira",
+   "code": "20240649",
+   "name": "Rodrigo Andrés Gutiérrez Salazar",
    "dni": "75632148",
    "tipo": "Estudiante",
    "fac": "iel",
@@ -1624,7 +1624,7 @@
   },
   {
    "code": "D-10452",
-   "name": "Mg. Elena Vilca Turpo",
+   "name": "Mg. Elena Morales Herrera",
    "dni": "40125874",
    "tipo": "Docente",
    "fac": "gpu",
@@ -1632,7 +1632,7 @@
   },
   {
    "code": "A-20871",
-   "name": "Julio César Apaza Lima",
+   "name": "Julio César Romero Silva",
    "dni": "42589631",
    "tipo": "Administrativo",
    "fac": null,
@@ -1647,8 +1647,8 @@
    "sede": "central"
   },
   {
-   "code": "2022115590",
-   "name": "Brayan Smith Choque Laura",
+   "code": "20220291",
+   "name": "Brayan Smith León Aguilar",
    "dni": "72365418",
    "tipo": "Estudiante",
    "fac": "ici",

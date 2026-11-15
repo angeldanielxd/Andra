@@ -58,7 +58,7 @@ public class TramitesAdminController extends VistaBase {
         pred.put("carne", s -> s.getTramite() != null && s.getTramite().isCarne());
         lista = FiltroService.aplicar(lista, filtros, pred, s -> s.getCodigo() + " " + s.getTitulo() + " " + s.getPersona().getNombre() + " " + s.getEstado());
         List<Filtros.Avanzado> avanzados = AdminFiltros.fechas("Desde", "Hasta");
-        avanzados.addAll(AdminFiltros.persona(catalogo, "Código o DNI del solicitante", "Ej. 2024207009"));
+        avanzados.addAll(AdminFiltros.persona(catalogo, "Código o DNI del solicitante", "Ej. 20240157"));
         HBox cab = new HBox(16, seg, Componentes.espacio(), Filtros.boton(filtros, AdminService.PRESETS_TRAMITES, avanzados, notificador, this::redibujar));
         cab.getStyleClass().add("section-h");
         Node cuerpo;

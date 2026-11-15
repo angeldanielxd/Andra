@@ -188,10 +188,10 @@
    "qu": "Munasqakunaman yapay",
    "ay": "Munatanakar yapxataña"
   },
-  "Agregar a favoritos: Auditorio Magno": {
-   "en": "Add to favorites: Auditorio Magno",
-   "qu": "Munasqakunaman yapay: Auditorio Magno",
-   "ay": "Munatanakar yapxataña: Auditorio Magno"
+  "Agregar a favoritos: Auditorio Principal": {
+   "en": "Add to favorites: Main Auditorium",
+   "qu": "Munasqakunaman yapay: Auditorio Principal",
+   "ay": "Munatanakar yapxataña: Auditorio Principal"
   },
   "Agregar a favoritos: Auditorio de Ciencias Empresariales": {
    "en": "Add to favorites: Business Sciences Auditorium",
@@ -363,10 +363,10 @@
    "qu": "Akllasqakunaman yapay: Set de Balones y Conos de Entrenamiento",
    "ay": "Munatanakaru yapxataña: Set de Balones y Conos de Entrenamiento"
   },
-  "Agregar a favoritos: Set de zampoñas y charango": {
-   "en": "Add to favorites: Zampoña and charango set",
-   "qu": "Akllasqakunaman yapay: Siku charangowan",
-   "ay": "Munatanakaru yapxataña: Siku charangomp"
+  "Agregar a favoritos: Set de percusión: cajón y bongós": {
+   "en": "Add to favorites: Percussion set: cajón and bongos",
+   "qu": "Akllasqakunaman yapay: Cajón bongóswan",
+   "ay": "Munatanakaru yapxataña: Cajón bongósamp"
   },
   "Agregar a favoritos: Solicitud de certificado de estudios": {
    "en": "Add to favorites: Certificate of studies request",
@@ -568,35 +568,35 @@
    "qu": "Auditorio",
    "ay": "Auditorio"
   },
-  "Auditorio Magno": {
-   "en": "Auditorio Magno",
-   "qu": "Auditorio Magno",
-   "ay": "Auditorio Magno"
+  "Auditorio Principal": {
+   "en": "Main Auditorium",
+   "qu": "Auditorio Principal",
+   "ay": "Auditorio Principal"
   },
-  "Auditorio Magno (uso general)": {
-   "en": "Auditorio Magno (general use)",
-   "qu": "Auditorio Magno (llapapaq)",
-   "ay": "Auditorio Magno (taqinitaki)"
+  "Auditorio Principal (uso general)": {
+   "en": "Main Auditorium (general use)",
+   "qu": "Auditorio Principal (llapapaq)",
+   "ay": "Auditorio Principal (taqinitaki)"
   },
-  "Auditorio Magno · Libre": {
-   "en": "Auditorio Magno · Free",
-   "qu": "Auditorio Magno · Ch'usaq",
-   "ay": "Auditorio Magno · Ch'usa"
+  "Auditorio Principal · Libre": {
+   "en": "Main Auditorium · Free",
+   "qu": "Auditorio Principal · Ch'usaq",
+   "ay": "Auditorio Principal · Ch'usa"
   },
-  "Auditorio Magno · Ocupado": {
-   "en": "Auditorio Magno · Occupied",
-   "qu": "Auditorio Magno · Hap'isqa",
-   "ay": "Auditorio Magno · Katuyata"
+  "Auditorio Principal · Ocupado": {
+   "en": "Main Auditorium · Occupied",
+   "qu": "Auditorio Principal · Hap'isqa",
+   "ay": "Auditorio Principal · Katuyata"
   },
-  "Auditorio Magno · {0} {1} - {2}": {
-   "en": "Auditorio Magno · {0} {1} - {2}",
-   "qu": "Auditorio Magno · {0} {1} - {2}",
-   "ay": "Auditorio Magno · {0} {1} - {2}"
+  "Auditorio Principal · {0} {1} - {2}": {
+   "en": "Main Auditorium · {0} {1} - {2}",
+   "qu": "Auditorio Principal · {0} {1} - {2}",
+   "ay": "Auditorio Principal · {0} {1} - {2}"
   },
-  "Auditorio Magno: {0}": {
-   "en": "Auditorio Magno: {0}",
-   "qu": "Auditorio Magno: {0}",
-   "ay": "Auditorio Magno: {0}"
+  "Auditorio Principal: {0}": {
+   "en": "Main Auditorium: {0}",
+   "qu": "Auditorio Principal: {0}",
+   "ay": "Auditorio Principal: {0}"
   },
   "Auditorio de Ciencias Empresariales": {
    "en": "Business Sciences Auditorium",
@@ -898,10 +898,10 @@
    "qu": "Reservata chinkachiy",
    "ay": "Reserva chhaqtayaña"
   },
-  "Cancelar reserva Auditorio Magno": {
-   "en": "Cancel Auditorio Magno booking",
-   "qu": "Auditorio Magno waqaychayta chinkachiy",
-   "ay": "Auditorio Magno katuyawi jaytaña"
+  "Cancelar reserva Auditorio Principal": {
+   "en": "Cancel Main Auditorium booking",
+   "qu": "Auditorio Principal waqaychayta chinkachiy",
+   "ay": "Auditorio Principal katuyawi jaytaña"
   },
   "Cancelar reserva Laboratorio de Electricidad {0}": {
    "en": "Cancel Electrical Lab {0} booking",
@@ -998,10 +998,10 @@
    "qu": "Carlos J. Saldaña · Apanapaq: Paqarin, {0} ({1} - {2}) • Edificio Central",
    "ay": "Carlos J. Saldaña · Apsuñataki: Qharüru, {0} ({1} - {2}) • Edificio Central"
   },
-  "Carlos J. Saldaña · Solicitud registrada para el {0} • Facultad de Ciencias de la Ingeniería": {
-   "en": "Carlos J. Saldaña · Request registered for {0} • Faculty of Engineering Sciences",
-   "qu": "Carlos J. Saldaña · {0} paq mañakuy qillqasqa • Facultad de Ciencias de la Ingeniería",
-   "ay": "Carlos J. Saldaña · {0} taki mayiwi qillqantata • Facultad de Ciencias de la Ingeniería"
+  "Carlos J. Saldaña · Solicitud registrada para el {0} • Facultad de Ingeniería": {
+   "en": "Carlos J. Saldaña · Request registered for {0} • Faculty of Engineering",
+   "qu": "Carlos J. Saldaña · {0} paq mañakuy qillqasqa • Facultad de Ingeniería",
+   "ay": "Carlos J. Saldaña · {0} taki mayiwi qillqantata • Facultad de Ingeniería"
   },
   "Carlos J. Saldaña · {0}": {
    "en": "Carlos J. Saldaña · {0}",
@@ -1778,20 +1778,20 @@
    "qu": "Qhipa examen qullqi",
    "ay": "Qhipa examen payllawi"
   },
-  "Derecho de examen de rezagados · INF{0}": {
-   "en": "Make-up exam fee · INF{0}",
-   "qu": "Qhipa examen qullqi · INF{0}",
-   "ay": "Qhipa examen payllawi · INF{0}"
+  "Derecho de examen de rezagados · SIS{0}": {
+   "en": "Make-up exam fee · SIS{0}",
+   "qu": "Qhipa examen qullqi · SIS{0}",
+   "ay": "Qhipa examen payllawi · SIS{0}"
   },
-  "Derecho de examen de rezagados · INF{0} {1}": {
-   "en": "Late exam fee · INF{0} {1}",
-   "qu": "Qhipa examenpa derechon · INF{0} {1}",
-   "ay": "Qhipa examen derecho · INF{0} {1}"
+  "Derecho de examen de rezagados · SIS{0} {1}": {
+   "en": "Late exam fee · SIS{0} {1}",
+   "qu": "Qhipa examenpa derechon · SIS{0} {1}",
+   "ay": "Qhipa examen derecho · SIS{0} {1}"
   },
-  "Derecho de examen de rezagados · {0} a Mg. Elena Vilca Turpo. Tesorería devolverá el monto por el mismo medio de pago.": {
-   "en": "Make-up exam fee · {0} to Mg. Elena Vilca Turpo. Treasury will refund the amount via the same payment method.",
-   "qu": "Qhipa examen derecho · {0} Mg. Elena Vilca Turpoman. Tesorería kikin pago ñanninta qullqita kutichinqa.",
-   "ay": "Qhipa examen derecho · {0} Mg. Elena Vilca Turporu. Tesorería uka pachpa payllañ thakimpi qullqi kutt'ayani."
+  "Derecho de examen de rezagados · {0} a Mg. Elena Morales Herrera. Tesorería devolverá el monto por el mismo medio de pago.": {
+   "en": "Make-up exam fee · {0} to Mg. Elena Morales Herrera. Treasury will refund the amount via the same payment method.",
+   "qu": "Qhipa examen derecho · {0} Mg. Elena Morales Herreraman. Tesorería kikin pago ñanninta qullqita kutichinqa.",
+   "ay": "Qhipa examen derecho · {0} Mg. Elena Morales Herreraru. Tesorería uka pachpa payllañ thakimpi qullqi kutt'ayani."
   },
   "Derecho de examen de rezagados: {0}": {
    "en": "Make-up exam fee: {0}",
@@ -1958,25 +1958,25 @@
    "qu": "Kutichisqa",
    "ay": "Kutt'ayatawa"
   },
-  "Diana Rocío Flores Pari": {
-   "en": "Diana Rocío Flores Pari",
-   "qu": "Diana Rocío Flores Pari",
-   "ay": "Diana Rocío Flores Pari"
+  "Diana Rocío Flores Navarro": {
+   "en": "Diana Rocío Flores Navarro",
+   "qu": "Diana Rocío Flores Navarro",
+   "ay": "Diana Rocío Flores Navarro"
   },
-  "Diana Rocío Flores Pari · Mastercard · {0} {1}": {
-   "en": "Diana Rocío Flores Pari · Mastercard · {0} {1}",
-   "qu": "Diana Rocío Flores Pari · Mastercard · {0} {1}",
-   "ay": "Diana Rocío Flores Pari · Mastercard · {0} {1}"
+  "Diana Rocío Flores Navarro · Mastercard · {0} {1}": {
+   "en": "Diana Rocío Flores Navarro · Mastercard · {0} {1}",
+   "qu": "Diana Rocío Flores Navarro · Mastercard · {0} {1}",
+   "ay": "Diana Rocío Flores Navarro · Mastercard · {0} {1}"
   },
-  "Diana Rocío Flores Pari · Retirado hoy {0} • Sede Central": {
-   "en": "Diana Rocío Flores Pari · Picked up today {0} • Central Campus",
-   "qu": "Diana Rocío Flores Pari · Kunan p'unchaw apasqa {0} • Sede Central",
-   "ay": "Diana Rocío Flores Pari · Jichhür apata {0} • Sede Central"
+  "Diana Rocío Flores Navarro · Retirado hoy {0} • Sede Central": {
+   "en": "Diana Rocío Flores Navarro · Picked up today {0} • Central Campus",
+   "qu": "Diana Rocío Flores Navarro · Kunan p'unchaw apasqa {0} • Sede Central",
+   "ay": "Diana Rocío Flores Navarro · Jichhür apata {0} • Sede Central"
   },
-  "Diana Rocío Flores Pari · {0} · Pagado · Por emitir": {
-   "en": "Diana Rocío Flores Pari · {0} · Paid · To be issued",
-   "qu": "Diana Rocío Flores Pari · {0} · Pagasqa · Qunapaq",
-   "ay": "Diana Rocío Flores Pari · {0} · Pagatawa · Churañataki"
+  "Diana Rocío Flores Navarro · {0} · Pagado · Por emitir": {
+   "en": "Diana Rocío Flores Navarro · {0} · Paid · To be issued",
+   "qu": "Diana Rocío Flores Navarro · {0} · Pagasqa · Qunapaq",
+   "ay": "Diana Rocío Flores Navarro · {0} · Pagatawa · Churañataki"
   },
   "Diners Club": {
    "en": "Diners Club",
@@ -2053,10 +2053,10 @@
    "qu": "Yachachiq, Administrativo",
    "ay": "Yatichiri, Administrativo"
   },
-  "Docente: Mg. Carlos Saldaña • Asignatura: CC{0} • Software precargado: Docker, Python {1} PyTorch y entornos de desarrollo VS Code.": {
-   "en": "Instructor: Mg. Carlos Saldaña • Course: CC{0} • Preloaded software: Docker, Python {1} PyTorch and VS Code development environments.",
-   "qu": "Yachachiq: Mg. Carlos Saldaña • Yachay: CC{0} • Churasqaña software: Docker, Python {1} PyTorch, VS Code ruray entornokuna.",
-   "ay": "Yatichiri: Mg. Carlos Saldaña • Yatiqawi: CC{0} • Uchatäxi software: Docker, Python {1} PyTorch, VS Code luräwi entornonaka."
+  "Docente: Mg. Carlos Saldaña • Asignatura: SIS{0} • Software precargado: Docker, Python {1} PyTorch y entornos de desarrollo VS Code.": {
+   "en": "Instructor: Mg. Carlos Saldaña • Course: SIS{0} • Preloaded software: Docker, Python {1} PyTorch and VS Code development environments.",
+   "qu": "Yachachiq: Mg. Carlos Saldaña • Yachay: SIS{0} • Churasqaña software: Docker, Python {1} PyTorch, VS Code ruray entornokuna.",
+   "ay": "Yatichiri: Mg. Carlos Saldaña • Yatiqawi: SIS{0} • Uchatäxi software: Docker, Python {1} PyTorch, VS Code luräwi entornonaka."
   },
   "Docentes": {
    "en": "Teachers",
@@ -3253,10 +3253,10 @@
    "qu": "Kunan, {0} hrs ({1}h {2}m puchun)",
    "ay": "Jichhüru, {0} hrs ({1}h {2}m puchu)"
   },
-  "INF{0} - Algoritmos Complejos": {
-   "en": "INF{0} - Complex Algorithms",
-   "qu": "INF{0} - Sasa Algoritmokuna",
-   "ay": "INF{0} - Ch'ama Algoritmonaka"
+  "SIS{0} - Algoritmos Complejos": {
+   "en": "SIS{0} - Complex Algorithms",
+   "qu": "SIS{0} - Sasa Algoritmokuna",
+   "ay": "SIS{0} - Ch'ama Algoritmonaka"
   },
   "Idioma": {
    "en": "Language",
@@ -3478,30 +3478,30 @@
    "qu": "Llapan p'unchaw",
    "ay": "Taqpach uru"
   },
-  "José Luis Ticona Huanca": {
-   "en": "José Luis Ticona Huanca",
-   "qu": "José Luis Ticona Huanca",
-   "ay": "José Luis Ticona Huanca"
+  "José Luis Ramírez Castro": {
+   "en": "José Luis Ramírez Castro",
+   "qu": "José Luis Ramírez Castro",
+   "ay": "José Luis Ramírez Castro"
   },
-  "José Luis Ticona Huanca · Mastercard · {0} {1}": {
-   "en": "José Luis Ticona Huanca · Mastercard · {0} {1}",
-   "qu": "José Luis Ticona Huanca · Mastercard · {0} {1}",
-   "ay": "José Luis Ticona Huanca · Mastercard · {0} {1}"
+  "José Luis Ramírez Castro · Mastercard · {0} {1}": {
+   "en": "José Luis Ramírez Castro · Mastercard · {0} {1}",
+   "qu": "José Luis Ramírez Castro · Mastercard · {0} {1}",
+   "ay": "José Luis Ramírez Castro · Mastercard · {0} {1}"
   },
-  "José Luis Ticona Huanca · Solicitud para el {0} ({1}) • {2} horas lectivas • Sede Central": {
-   "en": "José Luis Ticona Huanca · Request for {0} ({1}) • {2} class hours • Central Campus",
-   "qu": "José Luis Ticona Huanca · {0} paq mañakuy ({1}) • {2} yachay horakuna • Sede Central",
-   "ay": "José Luis Ticona Huanca · {0} taki mayiwi ({1}) • {2} yatiqañ horanaka • Sede Central"
+  "José Luis Ramírez Castro · Solicitud para el {0} ({1}) • {2} horas lectivas • Sede Central": {
+   "en": "José Luis Ramírez Castro · Request for {0} ({1}) • {2} class hours • Central Campus",
+   "qu": "José Luis Ramírez Castro · {0} paq mañakuy ({1}) • {2} yachay horakuna • Sede Central",
+   "ay": "José Luis Ramírez Castro · {0} taki mayiwi ({1}) • {2} yatiqañ horanaka • Sede Central"
   },
-  "José Luis Ticona Huanca · {0} · Pagado · Por emitir": {
-   "en": "José Luis Ticona Huanca · {0} · Paid · To be issued",
-   "qu": "José Luis Ticona Huanca · {0} · Pagasqa · Qunapaq",
-   "ay": "José Luis Ticona Huanca · {0} · Pagatawa · Churañataki"
+  "José Luis Ramírez Castro · {0} · Pagado · Por emitir": {
+   "en": "José Luis Ramírez Castro · {0} · Paid · To be issued",
+   "qu": "José Luis Ramírez Castro · {0} · Pagasqa · Qunapaq",
+   "ay": "José Luis Ramírez Castro · {0} · Pagatawa · Churañataki"
   },
-  "José Luis Ticona Huanca · {0} · {1} - {2} · {3} personas · Sede Central": {
-   "en": "José Luis Ticona Huanca · {0} · {1} - {2} · {3} people · Central Campus",
-   "qu": "José Luis Ticona Huanca · {0} · {1} - {2} · {3} runakuna · Sede Central",
-   "ay": "José Luis Ticona Huanca · {0} · {1} - {2} · {3} jaqinaka · Sede Central"
+  "José Luis Ramírez Castro · {0} · {1} - {2} · {3} personas · Sede Central": {
+   "en": "José Luis Ramírez Castro · {0} · {1} - {2} · {3} people · Central Campus",
+   "qu": "José Luis Ramírez Castro · {0} · {1} - {2} · {3} runakuna · Sede Central",
+   "ay": "José Luis Ramírez Castro · {0} · {1} - {2} · {3} jaqinaka · Sede Central"
   },
   "Jue": {
    "en": "Thu",
@@ -3528,10 +3528,10 @@
    "qu": "Illapachaw, {0} octubre killa, {1}",
    "ay": "Juywisa, {0} octubre phaxsi, {1}"
   },
-  "Julio César Apaza Lima": {
-   "en": "Julio César Apaza Lima",
-   "qu": "Julio César Apaza Lima",
-   "ay": "Julio César Apaza Lima"
+  "Julio César Romero Silva": {
+   "en": "Julio César Romero Silva",
+   "qu": "Julio César Romero Silva",
+   "ay": "Julio César Romero Silva"
   },
   "Justificaciones médicas y permisos extraordinarios: evaluación en {0} horas útiles.": {
    "en": "Medical justifications and special permits: reviewed within {0} working hours.",
@@ -3718,10 +3718,10 @@
    "qu": "Punku liyiq",
    "ay": "Punku liyiri"
   },
-  "Leyendo tu código en Auditorio Magno…": {
-   "en": "Reading your code at Auditorio Magno…",
-   "qu": "Auditorio Magnopi códigoykita ñawinchachkan…",
-   "ay": "Auditorio Magnon códigom liyiski…"
+  "Leyendo tu código en Auditorio Principal…": {
+   "en": "Reading your code at Main Auditorium…",
+   "qu": "Auditorio Principalpi códigoykita ñawinchachkan…",
+   "ay": "Auditorio Principaln códigom liyiski…"
   },
   "Libre": {
    "en": "Free",
@@ -3803,25 +3803,25 @@
    "qu": "Auditoriokunaqa Secretaría Generalpa aprobacionninta munanku.",
    "ay": "Auditorionakax Secretaría General aprobación munapxi."
   },
-  "Lucía Fernanda Condori Apaza": {
-   "en": "Lucía Fernanda Condori Apaza",
-   "qu": "Lucía Fernanda Condori Apaza",
-   "ay": "Lucía Fernanda Condori Apaza"
+  "Lucía Fernanda Torres Vega": {
+   "en": "Lucía Fernanda Torres Vega",
+   "qu": "Lucía Fernanda Torres Vega",
+   "ay": "Lucía Fernanda Torres Vega"
   },
-  "Lucía Fernanda Condori Apaza · Yape · {0} {1}": {
-   "en": "Lucía Fernanda Condori Apaza · Yape · {0} {1}",
-   "qu": "Lucía Fernanda Condori Apaza · Yape · {0} {1}",
-   "ay": "Lucía Fernanda Condori Apaza · Yape · {0} {1}"
+  "Lucía Fernanda Torres Vega · Yape · {0} {1}": {
+   "en": "Lucía Fernanda Torres Vega · Yape · {0} {1}",
+   "qu": "Lucía Fernanda Torres Vega · Yape · {0} {1}",
+   "ay": "Lucía Fernanda Torres Vega · Yape · {0} {1}"
   },
-  "Lucía Fernanda Condori Apaza · {0} {1} - {2}": {
-   "en": "Lucía Fernanda Condori Apaza · {0} {1} - {2}",
-   "qu": "Lucía Fernanda Condori Apaza · {0} {1} - {2}",
-   "ay": "Lucía Fernanda Condori Apaza · {0} {1} - {2}"
+  "Lucía Fernanda Torres Vega · {0} {1} - {2}": {
+   "en": "Lucía Fernanda Torres Vega · {0} {1} - {2}",
+   "qu": "Lucía Fernanda Torres Vega · {0} {1} - {2}",
+   "ay": "Lucía Fernanda Torres Vega · {0} {1} - {2}"
   },
-  "Lucía Fernanda Condori Apaza · {0} · {1} - {2} · {3} personas · Sede Central": {
-   "en": "Lucía Fernanda Condori Apaza · {0} · {1} - {2} · {3} people · Central Campus",
-   "qu": "Lucía Fernanda Condori Apaza · {0} · {1} - {2} · {3} runakuna · Sede Central",
-   "ay": "Lucía Fernanda Condori Apaza · {0} · {1} - {2} · {3} jaqinaka · Sede Central"
+  "Lucía Fernanda Torres Vega · {0} · {1} - {2} · {3} personas · Sede Central": {
+   "en": "Lucía Fernanda Torres Vega · {0} · {1} - {2} · {3} people · Central Campus",
+   "qu": "Lucía Fernanda Torres Vega · {0} · {1} - {2} · {3} runakuna · Sede Central",
+   "ay": "Lucía Fernanda Torres Vega · {0} · {1} - {2} · {3} jaqinaka · Sede Central"
   },
   "Lugar de devolución: Laboratorio de Informática {0} · Pabellón A (Piso {1}) · Sede Central": {
    "en": "Return location: Computer Lab {0} · Building A (Floor {1}) · Central Campus",
@@ -3868,10 +3868,10 @@
    "qu": "Telefono línea, yanapakuypas",
    "ay": "Telefono línea, yanapt'äwimpi"
   },
-  "Magno": {
-   "en": "Magno",
-   "qu": "Magno",
-   "ay": "Magno"
+  "Principal": {
+   "en": "Main",
+   "qu": "Hatun",
+   "ay": "Jach'a"
   },
   "Malla curricular": {
    "en": "Curriculum",
@@ -4053,25 +4053,25 @@
    "qu": "Mesa de Partes · Sur sede",
    "ay": "Mesa de Partes · Sur sede"
   },
-  "Mg. Elena Vilca Turpo": {
-   "en": "Mg. Elena Vilca Turpo",
-   "qu": "Mg. Elena Vilca Turpo",
-   "ay": "Mg. Elena Vilca Turpo"
+  "Mg. Elena Morales Herrera": {
+   "en": "Mg. Elena Morales Herrera",
+   "qu": "Mg. Elena Morales Herrera",
+   "ay": "Mg. Elena Morales Herrera"
   },
-  "Mg. Elena Vilca Turpo · Plin · {0} {1}": {
-   "en": "Mg. Elena Vilca Turpo · Plin · {0} {1}",
-   "qu": "Mg. Elena Vilca Turpo · Plin · {0} {1}",
-   "ay": "Mg. Elena Vilca Turpo · Plin · {0} {1}"
+  "Mg. Elena Morales Herrera · Plin · {0} {1}": {
+   "en": "Mg. Elena Morales Herrera · Plin · {0} {1}",
+   "qu": "Mg. Elena Morales Herrera · Plin · {0} {1}",
+   "ay": "Mg. Elena Morales Herrera · Plin · {0} {1}"
   },
-  "Mg. Elena Vilca Turpo · {0} {1} - {2}": {
-   "en": "Mg. Elena Vilca Turpo · {0} {1} - {2}",
-   "qu": "Mg. Elena Vilca Turpo · {0} {1} - {2}",
-   "ay": "Mg. Elena Vilca Turpo · {0} {1} - {2}"
+  "Mg. Elena Morales Herrera · {0} {1} - {2}": {
+   "en": "Mg. Elena Morales Herrera · {0} {1} - {2}",
+   "qu": "Mg. Elena Morales Herrera · {0} {1} - {2}",
+   "ay": "Mg. Elena Morales Herrera · {0} {1} - {2}"
   },
-  "Mg. Elena Vilca Turpo · {0} · {1} - {2} · {3} personas · Sede Central": {
-   "en": "Mg. Elena Vilca Turpo · {0} · {1} - {2} · {3} people · Central Campus",
-   "qu": "Mg. Elena Vilca Turpo · {0} · {1} - {2} · {3} runakuna · Sede Central",
-   "ay": "Mg. Elena Vilca Turpo · {0} · {1} - {2} · {3} jaqinaka · Sede Central"
+  "Mg. Elena Morales Herrera · {0} · {1} - {2} · {3} personas · Sede Central": {
+   "en": "Mg. Elena Morales Herrera · {0} · {1} - {2} · {3} people · Central Campus",
+   "qu": "Mg. Elena Morales Herrera · {0} · {1} - {2} · {3} runakuna · Sede Central",
+   "ay": "Mg. Elena Morales Herrera · {0} · {1} - {2} · {3} jaqinaka · Sede Central"
   },
   "Mi carné digital": {
    "en": "My digital ID",
@@ -4953,11 +4953,6 @@
    "qu": "Trámitekunamanta, serviciokunamanta sapa kuti tapukuykuna",
    "ay": "Trámitenakat, servicionakat sapa kuti jiskt'anaka"
   },
-  "Principal": {
-   "en": "Main",
-   "qu": "Hatun",
-   "ay": "Jach'a"
-  },
   "Probar modo sin conexión": {
    "en": "Try offline mode",
    "qu": "Mana internetniyuq modota pruebay",
@@ -5418,10 +5413,10 @@
    "qu": "Ventanillapi kikinpi yanapasqa kanaykipaq digital ticketta reservay.",
    "ay": "Ventanillan chiqak yanapt'ayasiñatak digital ticket reservaña."
   },
-  "Reserva · Auditorio Magno": {
-   "en": "Booking · Auditorio Magno",
-   "qu": "Waqaychay · Auditorio Magno",
-   "ay": "Katuyawi · Auditorio Magno"
+  "Reserva · Auditorio Principal": {
+   "en": "Booking · Main Auditorium",
+   "qu": "Waqaychay · Auditorio Principal",
+   "ay": "Katuyawi · Auditorio Principal"
   },
   "Reserva · Sala de Simulación Empresarial y Emprendimiento": {
    "en": "Booking · Business Simulation and Entrepreneurship Room",
@@ -5433,10 +5428,10 @@
    "qu": "Waqaychay",
    "ay": "Imt'aña"
   },
-  "Reservar Auditorio Magno": {
-   "en": "Book Auditorio Magno",
-   "qu": "Auditorio Magno reservay",
-   "ay": "Auditorio Magno reservaña"
+  "Reservar Auditorio Principal": {
+   "en": "Book Main Auditorium",
+   "qu": "Auditorio Principal reservay",
+   "ay": "Auditorio Principal reservaña"
   },
   "Reservar espacio": {
    "en": "Book a space",
@@ -5593,10 +5588,10 @@
    "qu": "Robótica, Automatización {0}",
    "ay": "Robótica, Automatización {0}"
   },
-  "Rosa Mamani Quispe": {
-   "en": "Rosa Mamani Quispe",
-   "qu": "Rosa Mamani Quispe",
-   "ay": "Rosa Mamani Quispe"
+  "Rosa Martínez Ruiz": {
+   "en": "Rosa Martínez Ruiz",
+   "qu": "Rosa Martínez Ruiz",
+   "ay": "Rosa Martínez Ruiz"
   },
   "Récord académico": {
    "en": "Academic record",
@@ -5758,10 +5753,10 @@
    "qu": "Sede Central · Edificio Central, {0}º pata",
    "ay": "Sede Central · Edificio Central, {0}º pata"
   },
-  "Sede Central · Estudio de Música (Auditorio Magno)": {
-   "en": "Central Campus · Music Studio (Auditorio Magno)",
-   "qu": "Sede Central · Estudio de Música (Auditorio Magno)",
-   "ay": "Sede Central · Estudio de Música (Auditorio Magno)"
+  "Sede Central · Estudio de Música (Auditorio Principal)": {
+   "en": "Central Campus · Music Studio (Main Auditorium)",
+   "qu": "Sede Central · Estudio de Música (Auditorio Principal)",
+   "ay": "Sede Central · Estudio de Música (Auditorio Principal)"
   },
   "Sede Central · Gimnasio (Pabellón Deportivo)": {
    "en": "Central Campus · Gym (Sports Pavilion)",
@@ -5853,15 +5848,15 @@
    "qu": "Central sede · Mecatrónica Pabellón",
    "ay": "Central sede · Mecatrónica Pabellón"
   },
-  "Sede Central · Sala de Elencos (Auditorio Magno)": {
-   "en": "Central Campus · Ensemble Room (Auditorio Magno)",
-   "qu": "Sede Central · Sala de Elencos (Auditorio Magno)",
-   "ay": "Sede Central · Sala de Elencos (Auditorio Magno)"
+  "Sede Central · Sala de Elencos (Auditorio Principal)": {
+   "en": "Central Campus · Ensemble Room (Main Auditorium)",
+   "qu": "Sede Central · Sala de Elencos (Auditorio Principal)",
+   "ay": "Sede Central · Sala de Elencos (Auditorio Principal)"
   },
-  "Sede Central · Sala de Ensayos (Auditorio Magno)": {
-   "en": "Central Campus · Rehearsal Room (Auditorio Magno)",
-   "qu": "Sede Central · Sala de Ensayos (Auditorio Magno)",
-   "ay": "Sede Central · Sala de Ensayos (Auditorio Magno)"
+  "Sede Central · Sala de Ensayos (Auditorio Principal)": {
+   "en": "Central Campus · Rehearsal Room (Main Auditorium)",
+   "qu": "Sede Central · Sala de Ensayos (Auditorio Principal)",
+   "ay": "Sede Central · Sala de Ensayos (Auditorio Principal)"
   },
   "Sede Central · Sala de Gestión Pública": {
    "en": "Central Campus · Public Management Room",
@@ -6043,10 +6038,10 @@
    "qu": "Pukllana pelotakuna, conokuna",
    "ay": "Anatañ pelotanaka, cononaka"
   },
-  "Set de zampoñas y charango": {
-   "en": "Panpipes and charango set",
-   "qu": "Sampoñakuna, charango ima",
-   "ay": "Sampoñanaka, charango ukanaka"
+  "Set de percusión: cajón y bongós": {
+   "en": "Percussion set: cajón and bongos",
+   "qu": "Cajón, bongós ima",
+   "ay": "Cajón, bongós ukanaka"
   },
   "Set de {0} Raquetas de Tenis Wilson + Tubo de Pelotas": {
    "en": "Set of {0} Wilson Tennis Rackets + Ball Tube",
@@ -6243,9 +6238,9 @@
    "qu": "Sapaq mañakuy",
    "ay": "Sapa mayiwi"
   },
-  "Solicitud registrada para el {0} • Facultad de Ciencias de la Ingeniería": {
-   "en": "Request registered for {0} • Faculty of Engineering Sciences",
-   "qu": "Mañakuy qillqasqa {0}paq • Ingeniería Yachaykuna Facultad",
+  "Solicitud registrada para el {0} • Facultad de Ingeniería": {
+   "en": "Request registered for {0} • Faculty of Engineering",
+   "qu": "Mañakuy qillqasqa {0}paq • Ingeniería Facultad",
    "ay": "Mayiwi qillqata {0}taki • Ingeniería Yatiqawinaka Facultad"
   },
   "Solicitudes y formularios": {
@@ -6433,10 +6428,10 @@
    "qu": "Yamaha MX{0} sintetizador teclado",
    "ay": "Yamaha MX{0} sintetizador teclado"
   },
-  "Teclados, guitarras, instrumentos andinos": {
-   "en": "Keyboards, guitars, Andean instruments",
-   "qu": "Tecladokuna, guitarrakuna, Anti tukanakuna",
-   "ay": "Tecladonaka, guitarranaka, Anti phust'añanaka"
+  "Teclados, guitarras e instrumentos de percusión": {
+   "en": "Keyboards, guitars and percussion instruments",
+   "qu": "Tecladokuna, guitarrakuna, percusión tukanakuna",
+   "ay": "Tecladonaka, guitarranaka, percusión instrumentonaka"
   },
   "Tecnología": {
    "en": "Technology",
@@ -6748,10 +6743,10 @@
    "qu": "Digital turno, mana suyaspa",
    "ay": "Digital turno, jan suyasa"
   },
-  "Técnico de Guardia Asignado: Makumba": {
-   "en": "On-Duty Technician Assigned: Makumba",
-   "qu": "Turno Técnico Qusqa: Makumba",
-   "ay": "Turno Técnico Churata: Makumba"
+  "Técnico de Guardia Asignado: Jorge Salinas": {
+   "en": "On-Duty Technician Assigned: Jorge Salinas",
+   "qu": "Turno Técnico Qusqa: Jorge Salinas",
+   "ay": "Turno Técnico Churata: Jorge Salinas"
   },
   "Título profesional": {
    "en": "Professional degree",
@@ -6883,10 +6878,10 @@
    "qu": "{0} p'unchawpi tukukun · Yachaypa constancian",
    "ay": "{0} urun tukusi · Yatiqäwin constancia"
   },
-  "Vence el {0} · Derecho de examen de rezagados · INF{1}": {
-   "en": "Due {0} · Late exam fee · INF{1}",
-   "qu": "{0} p'unchawpi tukukun · Qhipa examenpa derechon · INF{1}",
-   "ay": "{0} urun tukusi · Qhipa examen derecho · INF{1}"
+  "Vence el {0} · Derecho de examen de rezagados · SIS{1}": {
+   "en": "Due {0} · Late exam fee · SIS{1}",
+   "qu": "{0} p'unchawpi tukukun · Qhipa examenpa derechon · SIS{1}",
+   "ay": "{0} urun tukusi · Qhipa examen derecho · SIS{1}"
   },
   "Vence en {0} horas": {
    "en": "Due in {0} hours",
@@ -6933,10 +6928,10 @@
    "qu": "Sut'ichaykunata qhaway",
    "ay": "Qhanancht'awinak uñjaña"
   },
-  "Ver detalles de Auditorio Magno": {
-   "en": "View Auditorio Magno details",
-   "qu": "Auditorio Magnopa sut'inchayninta qhaway",
-   "ay": "Auditorio Magnon qhanañchäwinakap uñjaña"
+  "Ver detalles de Auditorio Principal": {
+   "en": "View Main Auditorium details",
+   "qu": "Auditorio Principalpa sut'inchayninta qhaway",
+   "ay": "Auditorio Principaln qhanañchäwinakap uñjaña"
   },
   "Ver detalles de Auditorio de Ciencias Empresariales": {
    "en": "View details of Business Sciences Auditorium",
@@ -7058,10 +7053,10 @@
    "qu": "Willakuykunata qhaway: Set de Balones y Conos de Entrenamiento",
    "ay": "Qhanañchäwinak uñjaña: Set de Balones y Conos de Entrenamiento"
   },
-  "Ver detalles de Set de zampoñas y charango": {
-   "en": "View details of Zampoña and charango set",
-   "qu": "Willakuykunata qhaway: Siku charangowan",
-   "ay": "Qhanañchäwinak uñjaña: Siku charangomp"
+  "Ver detalles de Set de percusión: cajón y bongós": {
+   "en": "View details of Percussion set: cajón and bongos",
+   "qu": "Willakuykunata qhaway: Cajón bongóswan",
+   "ay": "Qhanañchäwinak uñjaña: Cajón bongósamp"
   },
   "Ver detalles de Tablet con sistema de punto de venta": {
    "en": "View details of Point-of-sale tablet",
@@ -7358,10 +7353,10 @@
    "qu": "sapa cursopaq",
    "ay": "sapa cursotaki"
   },
-  "rmamani@institucion.edu": {
-   "en": "rmamani@institucion.edu",
-   "qu": "rmamani@institucion.edu",
-   "ay": "rmamani@institucion.edu"
+  "rmartinez@institucion.edu": {
+   "en": "rmartinez@institucion.edu",
+   "qu": "rmartinez@institucion.edu",
+   "ay": "rmartinez@institucion.edu"
   },
   "se usa solo el {0} del tiempo. Podría abrirse a otras escuelas o a talleres.": {
    "en": "only used {0} of the time. It could open to other schools or workshops.",
@@ -7598,10 +7593,10 @@
    "qu": "{0} · Qillqa · {1} p'unchawpi tukukun",
    "ay": "{0} · Qillqa · {1} urun tukusi"
   },
-  "{0} · Julio César Apaza Lima · vence {1}": {
-   "en": "{0} · Julio César Apaza Lima · due {1}",
-   "qu": "{0} · Julio César Apaza Lima · {1} tukukun",
-   "ay": "{0} · Julio César Apaza Lima · {1} tukusi"
+  "{0} · Julio César Romero Silva · vence {1}": {
+   "en": "{0} · Julio César Romero Silva · due {1}",
+   "qu": "{0} · Julio César Romero Silva · {1} tukukun",
+   "ay": "{0} · Julio César Romero Silva · {1} tukusi"
   },
   "{0} · Matrícula · Pagado el {1} con Plin": {
    "en": "{0} · Enrollment · Paid {1} with Plin",
@@ -7613,10 +7608,10 @@
    "qu": "{0} · Matrícula · {1} p'unchawpi tukukun",
    "ay": "{0} · Matrícula · {1} urun tukusi"
   },
-  "{0} · Mg. Elena Vilca Turpo · vence {1}": {
-   "en": "{0} · Mg. Elena Vilca Turpo · due {1}",
-   "qu": "{0} · Mg. Elena Vilca Turpo · {1} tukukun",
-   "ay": "{0} · Mg. Elena Vilca Turpo · {1} tukusi"
+  "{0} · Mg. Elena Morales Herrera · vence {1}": {
+   "en": "{0} · Mg. Elena Morales Herrera · due {1}",
+   "qu": "{0} · Mg. Elena Morales Herrera · {1} tukukun",
+   "ay": "{0} · Mg. Elena Morales Herrera · {1} tukusi"
   },
   "{0} · Trámite · Vence el {1}": {
    "en": "{0} · Request · Due {1}",

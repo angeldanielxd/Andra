@@ -23,8 +23,8 @@ Cuentas de demostración:
 
 | Rol | Usuario | Contraseña |
 |---|---|---|
-| Estudiante | `2024207009` o DNI `72458913` | `andra2026` |
-| Administrador | `rmamani@institucion.edu` | `admin2026` |
+| Estudiante | `20240157` o DNI `72458913` | `andra2026` |
+| Administrador | `rmartinez@institucion.edu` | `admin2026` |
 
 ## Pruebas
 
@@ -44,7 +44,7 @@ mvn clean package -DskipTests
 macOS:
 
 ```bash
-jpackage --name Andra --input target --main-jar andra-javafx-1.0.0.jar \
+jpackage --name Andra --input target --main-jar andra-javafx-1.1.0.jar \
   --main-class org.springframework.boot.loader.launch.JarLauncher \
   --icon src/main/resources/img/logo-andra.png --type dmg
 ```
@@ -52,7 +52,7 @@ jpackage --name Andra --input target --main-jar andra-javafx-1.0.0.jar \
 Windows:
 
 ```bat
-jpackage --name Andra --input target --main-jar andra-javafx-1.0.0.jar ^
+jpackage --name Andra --input target --main-jar andra-javafx-1.1.0.jar ^
   --main-class org.springframework.boot.loader.launch.JarLauncher --type msi --win-shortcut --win-menu
 ```
 

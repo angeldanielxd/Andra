@@ -88,11 +88,11 @@ class IntegracionTest {
 
     @Test
     void ingresoYPermisosPorRol() {
-        assertThatThrownBy(() -> sesion.ingresar(Rol.ESTUDIANTE, "2024207009", "mal")).isInstanceOf(NegocioException.class);
+        assertThatThrownBy(() -> sesion.ingresar(Rol.ESTUDIANTE, "20240157", "mal")).isInstanceOf(NegocioException.class);
         assertThat(sesion.ingresar(Rol.ESTUDIANTE, "72458913", "andra2026")).isEqualTo(Rol.ESTUDIANTE);
         assertThat(SesionService.puedeAcceder(sesion.rol(), "admin")).isFalse();
         sesion.cerrar();
-        assertThat(sesion.ingresar(Rol.ADMINISTRADOR, "RMAMANI@institucion.edu", "admin2026")).isEqualTo(Rol.ADMINISTRADOR);
+        assertThat(sesion.ingresar(Rol.ADMINISTRADOR, "RMARTINEZ@institucion.edu", "admin2026")).isEqualTo(Rol.ADMINISTRADOR);
         assertThat(sesion.esAdministrador()).isTrue();
         sesion.cerrar();
         assertThat(sesion.conectado()).isFalse();
@@ -223,12 +223,12 @@ class IntegracionTest {
     @Test
     void carneAceptaFranjaActualYVecinasYRechazaVencidoOAlterado() {
         long f = CarneService.franja(Fechas.milis());
-        String token = CarneService.token("2024207009", f);
+        String token = CarneService.token("20240157", f);
         assertThat(carne.verificar(token, f).ok()).isTrue();
         assertThat(carne.verificar(token, f + 1).ok()).isTrue();
         assertThat(carne.verificar(token, f - 1).ok()).isTrue();
         assertThat(carne.verificar(token, f + 2).mensaje()).isEqualTo("Código vencido. Pide al estudiante que muestre el código actual.");
-        String alterado = "ANDRA-ID|2024207009|" + f + "|ZZZZZZ";
+        String alterado = "ANDRA-ID|20240157|" + f + "|ZZZZZZ";
         assertThat(carne.verificar(alterado, f).mensaje()).isEqualTo("Firma inválida: el código fue alterado.");
         assertThat(carne.verificar("72458913", f).mensaje()).isEqualTo("Estudiante encontrado (validación manual por código)");
         assertThat(carne.verificar("000", f).ok()).isFalse();

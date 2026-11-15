@@ -164,10 +164,10 @@ public class ReservasController extends VistaBase {
                 "big", s -> s.getCapacidad() >= 50, "gen", s -> s.getEscuela() == null);
         lista = new ArrayList<>(FiltroService.aplicar(lista, filtros, pred, s -> s.getNombre() + " " + s.getEdificio() + " " + s.getTipo().getEtiqueta()
                 + " " + (s.getEscuela() == null ? "Uso general" : s.getEscuela().getNombre())));
-        Optional<Espacio> magno = lista.stream().filter(s -> "magno".equals(s.getCodigo())).findFirst();
-        if (magno.isPresent()) {
-            lista.remove(magno.get());
-            lista.add(0, magno.get());
+        Optional<Espacio> auditorio = lista.stream().filter(s -> "aud-principal".equals(s.getCodigo())).findFirst();
+        if (auditorio.isPresent()) {
+            lista.remove(auditorio.get());
+            lista.add(0, auditorio.get());
         }
         String sub = (filtro != null ? "Para el " + Fechas.dmy(filtro.fecha()) + (filtro.horario() != null ? ", " + filtro.horario() : "") + " · " : "")
                 + "Sede " + contexto.nombreSede() + (contexto.escuela() != null ? " · EP " + contexto.escuela().getNombre() : "")
@@ -209,7 +209,7 @@ public class ReservasController extends VistaBase {
                     : new AccionesEspacio.Precarga(filtro.fecha(), filtro.horario(), filtro.capacidad());
             for (int i = 0; i < lista.size(); i++) {
                 Espacio s = lista.get(i);
-                boolean destacado = "magno".equals(s.getCodigo()) && ("all".equals(categoria) || "AUDITORIO".equals(categoria));
+                boolean destacado = "aud-principal".equals(s.getCodigo()) && ("all".equals(categoria) || "AUDITORIO".equals(categoria));
                 g.getChildren().add(accionesEspacio.tarjeta(s, estadoDe(s), i, destacado, pre, this::redibujar));
             }
             contenido = g;

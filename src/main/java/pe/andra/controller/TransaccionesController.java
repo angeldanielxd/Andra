@@ -63,7 +63,7 @@ public class TransaccionesController extends VistaBase {
         s0.getStyleClass().add("sin-arriba");
         nodos.add(s0);
         List<Filtros.Avanzado> avanzados = AdminFiltros.fechas("Desde", "Hasta");
-        avanzados.add(Filtros.Avanzado.texto("code", "Código o DNI del usuario", "Ej. 2023104512"));
+        avanzados.add(Filtros.Avanzado.texto("code", "Código o DNI del usuario", "Ej. 20230418"));
         avanzados.add(Filtros.Avanzado.selector("fac", "Escuela profesional", "Todas las escuelas", AdminFiltros.escuelas(catalogo)));
         avanzados.add(Filtros.Avanzado.selector("kind", "Concepto", "Todos", List.of(Opcion.de("matricula", "Matrícula"), Opcion.de("documento", "Documento"),
                 Opcion.de("carne", "Carné"), Opcion.de("tramite", "Trámite"))));

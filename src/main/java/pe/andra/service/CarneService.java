@@ -22,7 +22,7 @@ public class CarneService {
 
     public static final long PASO_MS = 15000;
     public static final List<String> LUGARES = List.of("Biblioteca Central · Sede Central",
-            "Préstamo de equipos · Pabellón Central", "Laboratorio de Informática A-450", "Auditorio Magno");
+            "Préstamo de equipos · Pabellón Central", "Laboratorio de Informática A-450", "Auditorio Principal");
 
     private static final String SEMILLA_CJSV = "andra";
     private static final Pattern TOKEN = Pattern.compile("^ANDRA-ID\\|(\\w+)\\|(\\d+)\\|(\\w+)$");

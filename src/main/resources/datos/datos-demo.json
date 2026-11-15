@@ -7,7 +7,7 @@
  "pagos": [
   {
    "id": "PAG-2026-004821",
-   "user": "2024207009",
+   "user": "20240157",
    "tipo": "matricula",
    "concepto": "Matrícula regular 2026-2",
    "items": [
@@ -29,13 +29,13 @@
   },
   {
    "id": "PAG-2026-004903",
-   "user": "2024207009",
+   "user": "20240157",
    "tipo": "tramite",
    "tupa": "t-rez",
-   "concepto": "Derecho de examen de rezagados · INF239",
+   "concepto": "Derecho de examen de rezagados · SIS301",
    "items": [
     [
-     "Derecho de examen de rezagados · INF239 Algoritmos Complejos",
+     "Derecho de examen de rezagados · SIS301 Algoritmos Complejos",
      1,
      20
     ]
@@ -47,7 +47,7 @@
   },
   {
    "id": "PAG-2026-003112",
-   "user": "2024207009",
+   "user": "20240157",
    "tipo": "documento",
    "tupa": "t-cert",
    "concepto": "Certificado oficial de notas",
@@ -68,7 +68,7 @@
   },
   {
    "id": "PAG-2026-001877",
-   "user": "2024207009",
+   "user": "20240157",
    "tipo": "matricula",
    "concepto": "Matrícula regular 2026-1",
    "items": [
@@ -93,7 +93,7 @@
   },
   {
    "id": "PAG-2026-002450",
-   "user": "2024207009",
+   "user": "20240157",
    "tipo": "documento",
    "tupa": "t-cest",
    "concepto": "Constancia de estudios",
@@ -114,7 +114,7 @@
   },
   {
    "id": "PAG-2026-005200",
-   "user": "2023104512",
+   "user": "20230418",
    "tipo": "documento",
    "tupa": "t-cest",
    "concepto": "Constancia de estudios",
@@ -136,7 +136,7 @@
   },
   {
    "id": "PAG-2026-005201",
-   "user": "2023104512",
+   "user": "20230418",
    "tipo": "documento",
    "tupa": "t-record",
    "concepto": "Récord académico",
@@ -158,7 +158,7 @@
   },
   {
    "id": "PAG-2026-005202",
-   "user": "2022301877",
+   "user": "20220736",
    "tipo": "documento",
    "tupa": "t-cnoad",
    "concepto": "Constancia de no adeudo",
@@ -180,7 +180,7 @@
   },
   {
    "id": "PAG-2026-005203",
-   "user": "2022301877",
+   "user": "20220736",
    "tipo": "carne",
    "tupa": "t-carne",
    "concepto": "Carné universitario",
@@ -202,7 +202,7 @@
   },
   {
    "id": "PAG-2026-005204",
-   "user": "2024118230",
+   "user": "20240962",
    "tipo": "documento",
    "tupa": "t-cert",
    "concepto": "Certificado de estudios",
@@ -224,7 +224,7 @@
   },
   {
    "id": "PAG-2026-005205",
-   "user": "2024118230",
+   "user": "20240962",
    "tipo": "documento",
    "tupa": "t-cmat",
    "concepto": "Constancia de matrícula",
@@ -246,7 +246,7 @@
   },
   {
    "id": "PAG-2026-005206",
-   "user": "2021209944",
+   "user": "20210385",
    "tipo": "documento",
    "tupa": "t-silabo",
    "concepto": "Sílabos certificados",
@@ -268,7 +268,7 @@
   },
   {
    "id": "PAG-2026-005207",
-   "user": "2021209944",
+   "user": "20210385",
    "tipo": "documento",
    "tupa": "t-malla",
    "concepto": "Malla curricular certificada",
@@ -290,7 +290,7 @@
   },
   {
    "id": "PAG-2026-005208",
-   "user": "2023307615",
+   "user": "20231124",
    "tipo": "documento",
    "tupa": "t-ctrab",
    "concepto": "Constancia de trabajo",
@@ -312,7 +312,7 @@
   },
   {
    "id": "PAG-2026-005209",
-   "user": "2023307615",
+   "user": "20231124",
    "tipo": "documento",
    "tupa": "t-copia",
    "concepto": "Copia certificada de resolución",
@@ -334,7 +334,7 @@
   },
   {
    "id": "PAG-2026-005210",
-   "user": "2024402281",
+   "user": "20240649",
    "tipo": "documento",
    "tupa": "t-verif",
    "concepto": "Constancia de verificación de grado o título",
@@ -356,7 +356,7 @@
   },
   {
    "id": "PAG-2026-005211",
-   "user": "2024402281",
+   "user": "20240649",
    "tipo": "documento",
    "tupa": "t-cmer",
    "concepto": "Constancia de orden de mérito / tercio superior",
@@ -510,7 +510,7 @@
   },
   {
    "id": "PAG-2026-005218",
-   "user": "2022115590",
+   "user": "20220291",
    "tipo": "documento",
    "tupa": "t-cert",
    "concepto": "Certificado de estudios",
@@ -532,7 +532,7 @@
   },
   {
    "id": "PAG-2026-005219",
-   "user": "2022115590",
+   "user": "20220291",
    "tipo": "documento",
    "tupa": "t-cmat",
    "concepto": "Constancia de matrícula",
@@ -554,7 +554,7 @@
   },
   {
    "id": "PAG-2026-005220",
-   "user": "2023104512",
+   "user": "20230418",
    "tipo": "matricula",
    "concepto": "Matrícula regular 2026-2",
    "items": [
@@ -579,7 +579,7 @@
   },
   {
    "id": "PAG-2026-005221",
-   "user": "2022301877",
+   "user": "20220736",
    "tipo": "matricula",
    "concepto": "Matrícula regular 2026-2",
    "items": [
@@ -604,7 +604,7 @@
   },
   {
    "id": "PAG-2026-005222",
-   "user": "2024118230",
+   "user": "20240962",
    "tipo": "matricula",
    "concepto": "Matrícula regular 2026-2",
    "items": [
@@ -629,7 +629,7 @@
   },
   {
    "id": "PAG-2026-005223",
-   "user": "2023307615",
+   "user": "20231124",
    "tipo": "matricula",
    "concepto": "Matrícula regular 2026-2",
    "items": [
@@ -654,7 +654,7 @@
   },
   {
    "id": "PAG-2026-005224",
-   "user": "2024402281",
+   "user": "20240649",
    "tipo": "matricula",
    "concepto": "Matrícula regular 2026-2",
    "items": [
@@ -679,7 +679,7 @@
   },
   {
    "id": "PAG-2026-005225",
-   "user": "2022115590",
+   "user": "20220291",
    "tipo": "matricula",
    "concepto": "Matrícula regular 2026-2",
    "items": [
@@ -707,7 +707,7 @@
   "sols": [
    {
     "id": "SOL-2026-085300",
-    "user": "2023104512",
+    "user": "20230418",
     "sede": "central",
     "kind": "doc",
     "tupa": "t-cest",
@@ -732,7 +732,7 @@
      ]
     ],
     "title": "Constancia de estudios",
-    "desc": "Solicitado por Lucía Fernanda Condori Apaza (Estudiante).",
+    "desc": "Solicitado por Lucía Fernanda Torres Vega (Estudiante).",
     "step": 4,
     "acts": [
      [
@@ -743,18 +743,18 @@
     ],
     "solicitante": {
      "tipo": "Estudiante",
-     "nombre": "Lucía Fernanda Condori Apaza",
+     "nombre": "Lucía Fernanda Torres Vega",
      "dni": "73581246",
-     "codigo": "2023104512",
+     "codigo": "20230418",
      "fac": "adm",
-     "correo": "2023104512@institucion.edu",
+     "correo": "20230418@institucion.edu",
      "motivo": "Trámite personal"
     },
     "fecha": "2026-10-20T08:00"
    },
    {
     "id": "SOL-2026-085301",
-    "user": "2022301877",
+    "user": "20220736",
     "sede": "central",
     "kind": "doc",
     "tupa": "t-cnoad",
@@ -779,7 +779,7 @@
      ]
     ],
     "title": "Constancia de no adeudo",
-    "desc": "Solicitado por José Luis Ticona Huanca (Estudiante).",
+    "desc": "Solicitado por José Luis Ramírez Castro (Estudiante).",
     "step": 2,
     "acts": [
      [
@@ -790,18 +790,18 @@
     ],
     "solicitante": {
      "tipo": "Estudiante",
-     "nombre": "José Luis Ticona Huanca",
+     "nombre": "José Luis Ramírez Castro",
      "dni": "72910354",
-     "codigo": "2022301877",
+     "codigo": "20220736",
      "fac": "imc",
-     "correo": "2022301877@institucion.edu",
+     "correo": "20220736@institucion.edu",
      "motivo": "Trámite personal"
     },
     "fecha": "2026-10-17T09:07"
    },
    {
     "id": "SOL-2026-085302",
-    "user": "2024118230",
+    "user": "20240962",
     "sede": "norte",
     "kind": "doc",
     "tupa": "t-cert",
@@ -826,7 +826,7 @@
      ]
     ],
     "title": "Certificado de estudios",
-    "desc": "Solicitado por María Belén Quispe Choque (Estudiante).",
+    "desc": "Solicitado por María Belén Vargas Rojas (Estudiante).",
     "step": 2,
     "acts": [
      [
@@ -837,18 +837,18 @@
     ],
     "solicitante": {
      "tipo": "Estudiante",
-     "nombre": "María Belén Quispe Choque",
+     "nombre": "María Belén Vargas Rojas",
      "dni": "74125896",
-     "codigo": "2024118230",
+     "codigo": "20240962",
      "fac": "iag",
-     "correo": "2024118230@institucion.edu",
+     "correo": "20240962@institucion.edu",
      "motivo": "Trámite personal"
     },
     "fecha": "2026-10-14T10:14"
    },
    {
     "id": "SOL-2026-085303",
-    "user": "2021209944",
+    "user": "20210385",
     "sede": "sur",
     "kind": "doc",
     "tupa": "t-silabo",
@@ -873,7 +873,7 @@
      ]
     ],
     "title": "Sílabos certificados",
-    "desc": "Solicitado por Kevin Arturo Mamani Ccama (Egresado).",
+    "desc": "Solicitado por Kevin Arturo Díaz Paredes (Egresado).",
     "step": 1,
     "acts": [
      [
@@ -884,18 +884,18 @@
     ],
     "solicitante": {
      "tipo": "Egresado",
-     "nombre": "Kevin Arturo Mamani Ccama",
+     "nombre": "Kevin Arturo Díaz Paredes",
      "dni": "71458963",
-     "codigo": "2021209944",
+     "codigo": "20210385",
      "fac": "iam",
-     "correo": "2021209944@institucion.edu",
+     "correo": "20210385@institucion.edu",
      "motivo": "Trámite personal"
     },
     "fecha": "2026-10-20T11:21"
    },
    {
     "id": "SOL-2026-085304",
-    "user": "2023307615",
+    "user": "20231124",
     "sede": "central",
     "kind": "doc",
     "tupa": "t-ctrab",
@@ -920,7 +920,7 @@
      ]
     ],
     "title": "Constancia de trabajo",
-    "desc": "Solicitado por Diana Rocío Flores Pari (Estudiante).",
+    "desc": "Solicitado por Diana Rocío Flores Navarro (Estudiante).",
     "step": 2,
     "acts": [
      [
@@ -931,18 +931,18 @@
     ],
     "solicitante": {
      "tipo": "Estudiante",
-     "nombre": "Diana Rocío Flores Pari",
+     "nombre": "Diana Rocío Flores Navarro",
      "dni": "73269514",
-     "codigo": "2023307615",
+     "codigo": "20231124",
      "fac": "eco",
-     "correo": "2023307615@institucion.edu",
+     "correo": "20231124@institucion.edu",
      "motivo": "Trámite personal"
     },
     "fecha": "2026-10-17T12:28"
    },
    {
     "id": "SOL-2026-085305",
-    "user": "2024402281",
+    "user": "20240649",
     "sede": "norte",
     "kind": "doc",
     "tupa": "t-verif",
@@ -967,7 +967,7 @@
      ]
     ],
     "title": "Constancia de verificación de grado o título",
-    "desc": "Solicitado por Rodrigo Andrés Huamán Coaquira (Estudiante).",
+    "desc": "Solicitado por Rodrigo Andrés Gutiérrez Salazar (Estudiante).",
     "step": 2,
     "acts": [
      [
@@ -978,11 +978,11 @@
     ],
     "solicitante": {
      "tipo": "Estudiante",
-     "nombre": "Rodrigo Andrés Huamán Coaquira",
+     "nombre": "Rodrigo Andrés Gutiérrez Salazar",
      "dni": "75632148",
-     "codigo": "2024402281",
+     "codigo": "20240649",
      "fac": "iel",
-     "correo": "2024402281@institucion.edu",
+     "correo": "20240649@institucion.edu",
      "motivo": "Trámite personal"
     },
     "fecha": "2026-10-14T13:35"
@@ -1014,7 +1014,7 @@
      ]
     ],
     "title": "Derecho de examen de rezagados",
-    "desc": "Solicitado por Mg. Elena Vilca Turpo (Docente).",
+    "desc": "Solicitado por Mg. Elena Morales Herrera (Docente).",
     "step": 4,
     "acts": [
      [
@@ -1025,7 +1025,7 @@
     ],
     "solicitante": {
      "tipo": "Docente",
-     "nombre": "Mg. Elena Vilca Turpo",
+     "nombre": "Mg. Elena Morales Herrera",
      "dni": "40125874",
      "codigo": "D-10452",
      "fac": "gpu",
@@ -1061,7 +1061,7 @@
      ]
     ],
     "title": "Constancia de estudios",
-    "desc": "Solicitado por Julio César Apaza Lima (Administrativo).",
+    "desc": "Solicitado por Julio César Romero Silva (Administrativo).",
     "step": 1,
     "acts": [
      [
@@ -1072,7 +1072,7 @@
     ],
     "solicitante": {
      "tipo": "Administrativo",
-     "nombre": "Julio César Apaza Lima",
+     "nombre": "Julio César Romero Silva",
      "dni": "42589631",
      "codigo": "A-20871",
      "fac": null,
@@ -1085,7 +1085,7 @@
   "reservas": [
    {
     "id": "ro1",
-    "user": "2023104512",
+    "user": "20230418",
     "space": "Sala de Simulación Empresarial y Emprendimiento",
     "date": "2026-10-21",
     "hora": "10:00 - 12:00",
@@ -1096,7 +1096,7 @@
    {
     "id": "ro2",
     "user": "D-10452",
-    "space": "Auditorio Magno",
+    "space": "Auditorio Principal",
     "date": "2026-10-23",
     "hora": "16:00 - 18:00",
     "status": "Pendiente",
@@ -1105,7 +1105,7 @@
    },
    {
     "id": "ro3",
-    "user": "2024118230",
+    "user": "20240962",
     "space": "Planta Piloto Agroindustrial",
     "date": "2026-10-22",
     "hora": "08:00 - 10:00",
@@ -1115,7 +1115,7 @@
    },
    {
     "id": "ro4",
-    "user": "2022301877",
+    "user": "20220736",
     "space": "Laboratorio de Robótica y Automatización M-102",
     "date": "2026-10-20",
     "hora": "14:00 - 16:00",
@@ -1125,7 +1125,7 @@
    },
    {
     "id": "ro5",
-    "user": "2021209944",
+    "user": "20210385",
     "space": "Laboratorio de Suelos y Calidad Ambiental",
     "date": "2026-10-21",
     "hora": "12:00 - 14:00",
@@ -1137,7 +1137,7 @@
   "hist": [
    {
     "id": "ho1",
-    "user": "2024402281",
+    "user": "20240649",
     "code": "EQ-2026-0471",
     "name": "Analizador de energía Fluke 1738 + piranómetro",
     "sub": "Solicitud para el 21/10/2026 (10:00) • 4 horas lectivas • Sede Norte",
@@ -1145,7 +1145,7 @@
    },
    {
     "id": "ho2",
-    "user": "2022301877",
+    "user": "20220736",
     "code": "EQ-2026-0468",
     "name": "Osciloscopio digital Rigol DS1054Z",
     "sub": "Solicitud para el 20/10/2026 (14:00) • 2 horas lectivas • Sede Central",
@@ -1153,7 +1153,7 @@
    },
    {
     "id": "ho3",
-    "user": "2023307615",
+    "user": "20231124",
     "code": "EQ-2026-0459",
     "name": "Laptop con Stata y EViews",
     "sub": "Retirado hoy 08:30 • Sede Central",
@@ -1161,7 +1161,7 @@
    },
    {
     "id": "ho4",
-    "user": "2022115590",
+    "user": "20220291",
     "code": "EQ-2026-0450",
     "name": "Estación total y nivel topográfico",
     "sub": "Devuelto con éxito: 18/10/2026 • Sede Norte",
@@ -1207,7 +1207,7 @@
   },
   {
    "id": "r2",
-   "space": "Auditorio Magno",
+   "space": "Auditorio Principal",
    "date": "2026-10-20",
    "hora": "10:00 - 12:00",
    "status": "Pendiente",
@@ -1306,7 +1306,7 @@
    "id": "h4",
    "code": "EQ-2026-0455",
    "name": "Consola de Grabación Podcast RodeCaster + 4 Micrófonos Shure",
-   "sub": "Solicitud registrada para el 08/10/2026 • Facultad de Ciencias de la Ingeniería",
+   "sub": "Solicitud registrada para el 08/10/2026 • Facultad de Ingeniería",
    "status": "En revisión"
   },
   {
@@ -1425,7 +1425,7 @@
     ],
     [
      "Curso afectado",
-     "INF239 - Algoritmos Complejos"
+     "SIS301 - Algoritmos Complejos"
     ],
     [
      "Plazo subsanación",
@@ -1477,10 +1477,10 @@
     ]
    ],
    "title": "Reserva Especial: Laboratorio de Cómputo para Taller de Machine Learning",
-   "desc": "Docente: Mg. Carlos Saldaña • Asignatura: CC304 • Software precargado: Docker, Python 3.12, PyTorch y entornos de desarrollo VS Code.",
+   "desc": "Docente: Mg. Carlos Saldaña • Asignatura: SIS304 • Software precargado: Docker, Python 3.12, PyTorch y entornos de desarrollo VS Code.",
    "tags": [
     "Código de Llave / Acceso: LAB-992-K",
-    "Técnico de Guardia Asignado: Makumba"
+    "Técnico de Guardia Asignado: Jorge Salinas"
    ],
    "acts": [
     [
@@ -1572,22 +1572,22 @@
  "fechaReferencia": "2026-10-20",
  "usuario": {
   "nombre": "Carlos J. Saldaña",
-  "codigo": "2024207009",
+  "codigo": "20240157",
   "dni": "72458913",
-  "correo": "2024207009@est.institucion.edu",
-  "celular": "951 234 567",
+  "correo": "20240157@est.institucion.edu",
+  "celular": "912 345 678",
   "escuela": "isi",
   "sede": "central"
  },
  "cuentasDemo": {
   "estudiante": {
-   "usuario": "2024207009 o DNI 72458913",
+   "usuario": "20240157 o DNI 72458913",
    "contrasena": "andra2026"
   },
   "administrador": {
-   "nombre": "Rosa Mamani Quispe",
+   "nombre": "Rosa Martínez Ruiz",
    "cargo": "Especialista de Mesa de Partes y Tesorería",
-   "correo": "rmamani@institucion.edu",
+   "correo": "rmartinez@institucion.edu",
    "contrasena": "admin2026"
   }
  },

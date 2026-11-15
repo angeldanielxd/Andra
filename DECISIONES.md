@@ -30,7 +30,7 @@ Decisiones mínimas tomadas donde el prompt no definía algo, o donde se adaptó
 | Ventana 1280×800, mínima 1024×680, recuerda tamaño/posición/maximizado, título por sección | Hecho | |
 | §5 Contexto sede/escuela, "Todas las sedes" para admin | Hecho | |
 | §6.1 Inicio: carrusel, aviso Andra Pay, accesos rápidos, buscador con calendario | Hecho | |
-| §6.2 Reservas: buscador, Galería/Mapa, pestañas, Magno destacado, giro, detalle, reserva, mis reservas | Hecho | |
+| §6.2 Reservas: buscador, Galería/Mapa, pestañas, Auditorio Principal destacado, giro, detalle, reserva, mis reservas | Hecho | |
 | §6.3 Documentos: tarifario, buscador, rangos, filtros, orden, secciones, mis documentos | Hecho | |
 | §6.4 Equipos: categorías, buscador, catálogo con giro, detalle, préstamo activo, historial | Hecho | |
 | §6.5 Mis Solicitudes: filtros, pestañas, indicadores, alerta, rastreador, paginación, nueva solicitud | Hecho | |

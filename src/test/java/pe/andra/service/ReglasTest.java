@@ -41,9 +41,9 @@ class ReglasTest {
 
     @Test
     void validacionesDeYape() {
-        assertThat(PagoService.validarYape("951234567", "123456")).isEmpty();
+        assertThat(PagoService.validarYape("912345678", "123456")).isEmpty();
         assertThat(PagoService.validarYape("851234567", "123456")).containsEntry("celular", "Celular de 9 dígitos que empiece con 9.");
-        assertThat(PagoService.validarYape("951234567", "12345")).containsEntry("codigo", "El código tiene 6 dígitos.");
+        assertThat(PagoService.validarYape("912345678", "12345")).containsEntry("codigo", "El código tiene 6 dígitos.");
         assertThat(PagoService.validarYape("", "")).containsKeys("celular", "codigo");
     }
 
@@ -83,13 +83,13 @@ class ReglasTest {
         long t = 1_790_000_000_000L;
         long f = CarneService.franja(t);
         assertThat(CarneService.franja(t + 15000)).isEqualTo(f + 1);
-        assertThat(CarneService.token("2024207009", f)).isNotEqualTo(CarneService.token("2024207009", f + 1));
-        assertThat(CarneService.firma("2024207009", f)).hasSize(6).matches("[0-9A-Z]{6}");
-        String token = CarneService.token("2024207009", f);
+        assertThat(CarneService.token("20240157", f)).isNotEqualTo(CarneService.token("20240157", f + 1));
+        assertThat(CarneService.firma("20240157", f)).hasSize(6).matches("[0-9A-Z]{6}");
+        String token = CarneService.token("20240157", f);
         Matcher m = Pattern.compile("^ANDRA-ID\\|(\\w+)\\|(\\d+)\\|(\\w+)$").matcher(token);
         assertThat(m.matches()).isTrue();
         String alterado = token.substring(0, token.length() - 1) + (token.endsWith("A") ? "B" : "A");
-        assertThat(CarneService.firma("2024207009", f)).isNotEqualTo(alterado.substring(alterado.lastIndexOf('|') + 1));
+        assertThat(CarneService.firma("20240157", f)).isNotEqualTo(alterado.substring(alterado.lastIndexOf('|') + 1));
         assertThat(CarneService.segundosRestantes(f * 15000)).isEqualTo(15);
     }
 
@@ -130,7 +130,7 @@ class ReglasTest {
     void filtrosAvanzadosDelAdministrador() {
         record Fila(LocalDate fecha, String codigo, String escuela, String tipo) {
         }
-        List<Fila> filas = List.of(new Fila(LocalDate.of(2026, 10, 1), "2024207009 72458913", "isi", "Estudiante"),
+        List<Fila> filas = List.of(new Fila(LocalDate.of(2026, 10, 1), "20240157 72458913", "isi", "Estudiante"),
                 new Fila(LocalDate.of(2026, 10, 15), "D-10452 40125874", "gpu", "Docente"));
         EstadoFiltro e = new EstadoFiltro();
         e.getAvanzados().put("from", "2026-10-10");

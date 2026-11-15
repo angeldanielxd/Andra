@@ -57,7 +57,7 @@ public class PrestamosAdminController extends VistaBase {
             s1.getChildren().add(lst);
         }
         HBox cab = Componentes.cabeceraSeccion("En curso (" + curso.size() + ")", null, Filtros.boton(filtros, AdminService.PRESETS_PRESTAMOS,
-                AdminFiltros.persona(catalogo, "Código o DNI del solicitante", "Ej. 2024207009"), notificador, this::redibujar));
+                AdminFiltros.persona(catalogo, "Código o DNI del solicitante", "Ej. 20240157"), notificador, this::redibujar));
         s1.getChildren().addAll(cab, Filtros.resumen(filtros, AdminService.PRESETS_PRESTAMOS, catalogo::nombreEscuela, this::redibujar),
                 curso.isEmpty() ? Componentes.vacio("fth-box", "Nada en curso", "No hay préstamos por revisar.") : lista(curso));
         List<Node> nodos = new ArrayList<>(List.of(Componentes.heroAdmin("Préstamos de equipos", "Revisa solicitudes, entregas y devoluciones del inventario.",
