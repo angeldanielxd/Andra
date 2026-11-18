@@ -1,10 +1,10 @@
-﻿ANDRA 1.1.0 - CREAR EL .EXE PARA WINDOWS
+﻿ANDRA 1.3.0 - CREAR EL .EXE PARA WINDOWS
 ========================================
 
 Qué hay en esta carpeta
   crear-exe.bat            Genera el .exe. Se ejecuta con doble clic.
   Andra.ico                Icono de la aplicación.
-  andra-javafx-1.1.0.jar   La aplicación ya compilada para Windows (solo viene en el kit .zip;
+  andra-javafx-1.3.0.jar   La aplicación ya compilada para Windows (solo viene en el kit .zip;
                            en el proyecto, compílala antes con  mvn -DskipTests package).
 
 Pasos
@@ -16,13 +16,13 @@ Pasos
   4. Se abrirá la carpeta "salida" con:
        Andra\Andra.exe                     Versión portable: ábrela con doble clic.
                                            No separes Andra.exe de su carpeta.
-       Andra-1.1.0-windows-portable.zip    La misma versión comprimida, para compartir.
-       Andra-1.1.0.exe                     Instalador (solo si tienes WiX Toolset, ver abajo).
+       Andra-1.3.0-windows-portable.zip    La misma versión comprimida, para compartir.
+       Andra-1.3.0.exe                     Instalador (solo si tienes WiX Toolset, ver abajo).
 
   La app ya lleva su propio Java dentro: quien reciba la versión portable o el instalador
   no necesita instalar nada más.
 
-Instalador opcional (Andra-1.1.0.exe)
+Instalador opcional (Andra-1.3.0.exe)
   Para que el script también cree un instalador con accesos en el menú Inicio y el escritorio,
   instala WiX Toolset 3.14 (archivo wix314.exe):
        https://github.com/wixtoolset/wix3/releases

@@ -8,10 +8,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import pe.andra.BaseTemporal;
-import pe.andra.exception.NegocioException;
+import pe.andra.exception.DixonNegocioExcepcion;
 import pe.andra.model.*;
 import pe.andra.repository.*;
-import pe.andra.util.Fechas;
+import pe.andra.util.DixonFechas;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -27,229 +27,229 @@ class IntegracionTest {
         BaseTemporal.configurar(registro, "andra-integracion");
     }
 
-    @Autowired private DemoService demo;
-    @Autowired private PagoService pagos;
-    @Autowired private CatalogoService catalogo;
-    @Autowired private SesionService sesion;
-    @Autowired private ExpedienteService expedientes;
-    @Autowired private AdminService admin;
-    @Autowired private NotificacionService notificaciones;
-    @Autowired private ConexionService conexion;
-    @Autowired private ReservaService reservas;
-    @Autowired private OcupacionService ocupacion;
-    @Autowired private CarneService carne;
-    @Autowired private SeguimientoService seguimiento;
-    @Autowired private AnaliticaService analitica;
-    @Autowired private ContextoService contexto;
-    @Autowired private FavoritoService favoritos;
-    @Autowired private ReservaRepository reservaRepository;
-    @Autowired private MensajeEnviadoRepository mensajes;
-    @Autowired private AjustesService ajustes;
-    @Autowired private ConsultaAsesorService consultas;
+    @Autowired private DixonDemoServicio demo;
+    @Autowired private DixonPagoServicio pagos;
+    @Autowired private DixonCatalogoServicio catalogo;
+    @Autowired private DixonSesionServicio sesion;
+    @Autowired private DixonExpedienteServicio expedientes;
+    @Autowired private DixonAdministradorServicio admin;
+    @Autowired private DixonNotificacionServicio notificaciones;
+    @Autowired private DixonConexionServicio conexion;
+    @Autowired private DixonReservaServicio reservas;
+    @Autowired private DixonOcupacionServicio ocupacion;
+    @Autowired private DixonCarneServicio carne;
+    @Autowired private DixonSeguimientoServicio seguimiento;
+    @Autowired private DixonAnaliticaServicio analitica;
+    @Autowired private DixonContextoServicio contexto;
+    @Autowired private DixonFavoritoServicio favoritos;
+    @Autowired private DixonReservaRepositorio reservaRepository;
+    @Autowired private DixonMensajeEnviadoRepositorio mensajes;
+    @Autowired private DixonAjustesServicio ajustes;
+    @Autowired private DixonConsultaAsesorServicio consultas;
 
     @BeforeEach
     void preparar() {
-        demo.restablecer();
-        conexion.simularSinConexion(false);
-        conexion.redProperty().set(true);
+        demo.dixonRestablecer();
+        conexion.dixonSimularSinConexion(false);
+        conexion.dixonRedPropiedad().set(true);
     }
 
     @AfterEach
     void limpiar() {
-        conexion.simularSinConexion(false);
+        conexion.dixonSimularSinConexion(false);
     }
 
-    private DatosSolicitante yo() {
-        Persona p = sesion.estudiante();
-        return DatosSolicitante.builder().tipo("Estudiante").nombre(p.getNombre()).dni(p.getDni()).codigo(p.getCodigo())
-                .escuela("isi").correo(p.getCorreo()).build();
+    private DixonDatosSolicitante yo() {
+        DixonPersona p = sesion.dixonEstudiante();
+        return DixonDatosSolicitante.builder().dixonTipo("Estudiante").dixonNombre(p.getDixonNombre()).dixonDni(p.getDixonDni()).dixonCodigo(p.getDixonCodigo())
+                .dixonEscuela("isi").dixonCorreo(p.getDixonCorreo()).build();
     }
 
     @Test
     void consultaConAsesorLimitadaYAmpliable() {
-        Expediente e = expedientes.mios().stream().filter(ConsultaAsesorService::disponible).findFirst().orElseThrow();
-        ConsultaAsesor c = consultas.abrir(e.getCodigo());
-        assertThat(c.getMensajes().get(0).getTexto()).contains(e.getCodigo()).contains(e.getTitulo());
-        assertThat(c.restantes()).isEqualTo(3);
-        assertThatThrownBy(() -> consultas.solicitarAmpliacion(e.getCodigo())).isInstanceOf(NegocioException.class);
+        DixonExpediente e = expedientes.dixonMios().stream().filter(DixonConsultaAsesorServicio::dixonDisponible).findFirst().orElseThrow();
+        DixonConsultaAsesor c = consultas.dixonAbrir(e.getDixonCodigo());
+        assertThat(c.getDixonMensajes().get(0).getDixonTexto()).contains(e.getDixonCodigo()).contains(e.getDixonTitulo());
+        assertThat(c.dixonRestantes()).isEqualTo(3);
+        assertThatThrownBy(() -> consultas.dixonSolicitarAmpliacion(e.getDixonCodigo())).isInstanceOf(DixonNegocioExcepcion.class);
         for (int i = 0; i < 3; i++) {
-            consultas.preguntar(e.getCodigo(), "¿Cuándo estará listo?");
+            consultas.dixonPreguntar(e.getDixonCodigo(), "¿Cuándo estará listo?");
         }
-        assertThat(consultas.abrir(e.getCodigo()).restantes()).isZero();
-        assertThatThrownBy(() -> consultas.preguntar(e.getCodigo(), "Otra")).isInstanceOf(NegocioException.class);
-        assertThat(consultas.solicitarAmpliacion(e.getCodigo()).getAmpliacion()).isEqualTo(EstadoAmpliacion.PENDIENTE);
-        ConsultaAsesor ampliada = consultas.evaluarAmpliacion(e.getCodigo());
-        assertThat(ampliada.getAmpliacion()).isEqualTo(EstadoAmpliacion.APROBADA);
-        assertThat(ampliada.restantes()).isEqualTo(3);
-        assertThatThrownBy(() -> consultas.solicitarAmpliacion(e.getCodigo())).isInstanceOf(NegocioException.class);
-        Expediente listo = expedientes.mios().stream().filter(x -> !ConsultaAsesorService.disponible(x)).findFirst().orElseThrow();
-        assertThatThrownBy(() -> consultas.abrir(listo.getCodigo())).isInstanceOf(NegocioException.class);
+        assertThat(consultas.dixonAbrir(e.getDixonCodigo()).dixonRestantes()).isZero();
+        assertThatThrownBy(() -> consultas.dixonPreguntar(e.getDixonCodigo(), "Otra")).isInstanceOf(DixonNegocioExcepcion.class);
+        assertThat(consultas.dixonSolicitarAmpliacion(e.getDixonCodigo()).getDixonAmpliacion()).isEqualTo(DixonEstadoAmpliacion.PENDIENTE);
+        DixonConsultaAsesor ampliada = consultas.dixonEvaluarAmpliacion(e.getDixonCodigo());
+        assertThat(ampliada.getDixonAmpliacion()).isEqualTo(DixonEstadoAmpliacion.APROBADA);
+        assertThat(ampliada.dixonRestantes()).isEqualTo(3);
+        assertThatThrownBy(() -> consultas.dixonSolicitarAmpliacion(e.getDixonCodigo())).isInstanceOf(DixonNegocioExcepcion.class);
+        DixonExpediente listo = expedientes.dixonMios().stream().filter(x -> !DixonConsultaAsesorServicio.dixonDisponible(x)).findFirst().orElseThrow();
+        assertThatThrownBy(() -> consultas.dixonAbrir(listo.getDixonCodigo())).isInstanceOf(DixonNegocioExcepcion.class);
     }
 
     @Test
     void ingresoYPermisosPorRol() {
-        assertThatThrownBy(() -> sesion.ingresar(Rol.ESTUDIANTE, "20240157", "mal")).isInstanceOf(NegocioException.class);
-        assertThat(sesion.ingresar(Rol.ESTUDIANTE, "72458913", "andra2026")).isEqualTo(Rol.ESTUDIANTE);
-        assertThat(SesionService.puedeAcceder(sesion.rol(), "admin")).isFalse();
-        sesion.cerrar();
-        assertThat(sesion.ingresar(Rol.ADMINISTRADOR, "RMARTINEZ@institucion.edu", "admin2026")).isEqualTo(Rol.ADMINISTRADOR);
-        assertThat(sesion.esAdministrador()).isTrue();
-        sesion.cerrar();
-        assertThat(sesion.conectado()).isFalse();
+        assertThatThrownBy(() -> sesion.dixonIngresar(DixonRol.ESTUDIANTE, "20240157", "mal")).isInstanceOf(DixonNegocioExcepcion.class);
+        assertThat(sesion.dixonIngresar(DixonRol.ESTUDIANTE, "72458913", "andra2026")).isEqualTo(DixonRol.ESTUDIANTE);
+        assertThat(DixonSesionServicio.dixonPuedeAcceder(sesion.dixonRol(), "admin")).isFalse();
+        sesion.dixonCerrar();
+        assertThat(sesion.dixonIngresar(DixonRol.ADMINISTRADOR, "RMARTINEZ@institucion.edu", "admin2026")).isEqualTo(DixonRol.ADMINISTRADOR);
+        assertThat(sesion.dixonEsAdministrador()).isTrue();
+        sesion.dixonCerrar();
+        assertThat(sesion.dixonConectado()).isFalse();
     }
 
     @Test
     void efectosDelPagoEnOrdenExpedienteYMatricula() {
-        Tramite t = catalogo.tramite("t-cert").orElseThrow();
-        Pago p = pagos.crearOrden(t, yo(), 1, "Trabajo", "central", null);
-        Expediente e = expedientes.dePago(p).orElseThrow();
-        assertThat(e.getEstado()).isEqualTo("Pago pendiente en Andra Pay");
-        long antes = notificaciones.noLeidas(Rol.ADMINISTRADOR);
-        Pago pagado = pagos.completar(p.getCodigo(), MetodoPago.YAPE);
-        assertThat(pagado.isPagado()).isTrue();
-        assertThat(pagado.getBoleta()).startsWith("B001-");
-        assertThat(pagado.getOperacion()).startsWith("YP");
-        assertThat(pagado.getRecojoFecha()).isNotNull();
-        Expediente actualizado = expedientes.obtener(e.getCodigo());
-        assertThat(actualizado.getEstado()).isEqualTo("Pagado · En emisión");
-        assertThat(actualizado.getAcciones()).extracting(AccionExpediente::getAccion).contains("gen-sol", "rcpt-sol", "route-sol");
-        assertThat(notificaciones.noLeidas(Rol.ADMINISTRADOR)).isEqualTo(antes + 1);
-        Matricula m = pagos.matricula();
-        assertThat(m.isConfirmada()).isFalse();
-        pagos.completar(m.getPago().getCodigo(), MetodoPago.VISA);
-        assertThat(pagos.matricula().isConfirmada()).isTrue();
-        assertThat(carne.vigente()).isTrue();
-        assertThat(notificaciones.listar(Rol.ESTUDIANTE).get(0).getTexto()).contains("quedó confirmada");
+        DixonTramite t = catalogo.dixonTramite("t-cert").orElseThrow();
+        DixonPago p = pagos.dixonCrearOrden(t, yo(), 1, "Trabajo", "central", null);
+        DixonExpediente e = expedientes.dixonDePago(p).orElseThrow();
+        assertThat(e.getDixonEstado()).isEqualTo("Pago pendiente en Andra Pay");
+        long antes = notificaciones.dixonNoLeidas(DixonRol.ADMINISTRADOR);
+        DixonPago pagado = pagos.dixonCompletar(p.getDixonCodigo(), DixonMetodoPago.YAPE);
+        assertThat(pagado.dixonEsPagado()).isTrue();
+        assertThat(pagado.getDixonBoleta()).startsWith("B001-");
+        assertThat(pagado.getDixonOperacion()).startsWith("YP");
+        assertThat(pagado.getDixonRecojoFecha()).isNotNull();
+        DixonExpediente actualizado = expedientes.dixonObtener(e.getDixonCodigo());
+        assertThat(actualizado.getDixonEstado()).isEqualTo("Pagado · En emisión");
+        assertThat(actualizado.getDixonAcciones()).extracting(DixonAccionExpediente::getDixonAccion).contains("gen-sol", "rcpt-sol", "route-sol");
+        assertThat(notificaciones.dixonNoLeidas(DixonRol.ADMINISTRADOR)).isEqualTo(antes + 1);
+        DixonMatricula m = pagos.dixonMatricula();
+        assertThat(m.dixonEsConfirmada()).isFalse();
+        pagos.dixonCompletar(m.getDixonPago().getDixonCodigo(), DixonMetodoPago.VISA);
+        assertThat(pagos.dixonMatricula().dixonEsConfirmada()).isTrue();
+        assertThat(carne.dixonVigente()).isTrue();
+        assertThat(notificaciones.dixonListar(DixonRol.ESTUDIANTE).get(0).getDixonTexto()).contains("quedó confirmada");
     }
 
     @Test
     void desistirAnulaLaOrdenPendiente() {
-        Pago p = pagos.crearOrden(catalogo.tramite("t-cest").orElseThrow(), yo(), 1, "Trámite personal", "central", null);
-        Expediente e = expedientes.dePago(p).orElseThrow();
-        expedientes.desistir(e.getCodigo());
-        assertThat(pagos.obtener(p.getCodigo()).getEstado()).isEqualTo(EstadoPago.ANULADO);
+        DixonPago p = pagos.dixonCrearOrden(catalogo.dixonTramite("t-cest").orElseThrow(), yo(), 1, "Trámite personal", "central", null);
+        DixonExpediente e = expedientes.dixonDePago(p).orElseThrow();
+        expedientes.dixonDesistir(e.getDixonCodigo());
+        assertThat(pagos.dixonObtener(p.getDixonCodigo()).getDixonEstado()).isEqualTo(DixonEstadoPago.ANULADO);
     }
 
     @Test
     void validacionDelSolicitante() {
-        Tramite egresado = catalogo.tramite("t-cegr").orElseThrow();
-        assertThat(pagos.validarSolicitante(egresado, yo(), false)).containsEntry("publico", "Este trámite es para: Egresado.");
-        Tramite carneT = catalogo.tramite("t-carne").orElseThrow();
-        assertThat(pagos.validarSolicitante(carneT, yo(), false)).containsEntry("foto", "Sube tu foto para el carné.");
-        DatosSolicitante malo = yo().toBuilder().dni("123").correo("x").build();
-        assertThat(pagos.validarSolicitante(carneT, malo, true)).containsKeys("dni", "correo");
+        DixonTramite egresado = catalogo.dixonTramite("t-cegr").orElseThrow();
+        assertThat(pagos.dixonValidarSolicitante(egresado, yo(), false)).containsEntry("publico", "Este trámite es para: Egresado.");
+        DixonTramite carneT = catalogo.dixonTramite("t-carne").orElseThrow();
+        assertThat(pagos.dixonValidarSolicitante(carneT, yo(), false)).containsEntry("foto", "Sube tu foto para el carné.");
+        DixonDatosSolicitante malo = yo().toBuilder().dixonDni("123").dixonCorreo("x").build();
+        assertThat(pagos.dixonValidarSolicitante(carneT, malo, true)).containsKeys("dni", "correo");
     }
 
     @Test
     void accionesDelAdministradorNotificanYEnvianMensajes() {
-        Pago p = pagos.crearOrden(catalogo.tramite("t-cert").orElseThrow(), yo(), 1, "Trabajo", "central", null);
-        Expediente e = expedientes.dePago(p).orElseThrow();
-        assertThatThrownBy(() -> admin.emitir(e.getCodigo())).hasMessage("Esperando pago");
-        pagos.completar(p.getCodigo(), MetodoPago.PLIN);
-        int mensajesAntes = mensajes.findByExpedienteOrderByIdDesc(expedientes.obtener(e.getCodigo())).size();
+        DixonPago p = pagos.dixonCrearOrden(catalogo.dixonTramite("t-cert").orElseThrow(), yo(), 1, "Trabajo", "central", null);
+        DixonExpediente e = expedientes.dixonDePago(p).orElseThrow();
+        assertThatThrownBy(() -> admin.dixonEmitir(e.getDixonCodigo())).hasMessage("Esperando pago");
+        pagos.dixonCompletar(p.getDixonCodigo(), DixonMetodoPago.PLIN);
+        int mensajesAntes = mensajes.findByDixonExpedienteOrderByDixonIdDesc(expedientes.dixonObtener(e.getDixonCodigo())).size();
         assertThat(mensajesAntes).isEqualTo(2);
-        long antes = notificaciones.noLeidas(Rol.ESTUDIANTE);
-        admin.emitir(e.getCodigo());
-        assertThat(expedientes.obtener(e.getCodigo()).getGrupo()).isEqualTo(GrupoExpediente.LISTO);
-        assertThat(notificaciones.noLeidas(Rol.ESTUDIANTE)).isEqualTo(antes + 1);
-        seguimiento.cambiarPreferencia("wa", false);
-        admin.entregar(e.getCodigo());
-        List<MensajeEnviado> lista = mensajes.findByExpedienteOrderByIdDesc(expedientes.obtener(e.getCodigo()));
+        long antes = notificaciones.dixonNoLeidas(DixonRol.ESTUDIANTE);
+        admin.dixonEmitir(e.getDixonCodigo());
+        assertThat(expedientes.dixonObtener(e.getDixonCodigo()).getDixonGrupo()).isEqualTo(DixonGrupoExpediente.LISTO);
+        assertThat(notificaciones.dixonNoLeidas(DixonRol.ESTUDIANTE)).isEqualTo(antes + 1);
+        seguimiento.dixonCambiarPreferencia("wa", false);
+        admin.dixonEntregar(e.getDixonCodigo());
+        List<DixonMensajeEnviado> lista = mensajes.findByDixonExpedienteOrderByDixonIdDesc(expedientes.dixonObtener(e.getDixonCodigo()));
         assertThat(lista).hasSize(5);
-        assertThat(lista.get(0).getCanal()).isEqualTo(CanalAviso.CORREO);
-        assertThat(SeguimientoService.calcular(expedientes.obtener(e.getCodigo())).estimado()).isEqualTo("Entregado");
-        Expediente otro = expedientes.mios().stream().filter(x -> x.getGrupo() == GrupoExpediente.TRAMITE && x.getPago() == null).findFirst().orElseThrow();
-        assertThatThrownBy(() -> admin.observar(otro.getCodigo(), "corto")).hasMessage("Escribe al menos 15 caracteres.");
-        admin.observar(otro.getCodigo(), "Falta adjuntar la copia del DNI legible.");
-        assertThat(expedientes.obtener(otro.getCodigo()).getGrupo()).isEqualTo(GrupoExpediente.OBSERVADO);
-        assertThat(notificaciones.listar(Rol.ESTUDIANTE).get(0).getTexto()).contains("fue observado");
-        Reserva r = reservas.mias().stream().filter(x -> x.getEstado() == EstadoReserva.PENDIENTE).findFirst().orElseThrow();
-        admin.rechazarReserva(r.getId(), "El auditorio está en mantenimiento.");
-        assertThat(reservaRepository.findById(r.getId()).orElseThrow().getEstado()).isEqualTo(EstadoReserva.RECHAZADO);
-        Pago pagado = pagos.mios().stream().filter(Pago::isPagado).findFirst().orElseThrow();
-        admin.reembolsar(pagado.getCodigo());
-        assertThat(pagos.obtener(pagado.getCodigo()).getEstado()).isEqualTo(EstadoPago.REEMBOLSADO);
+        assertThat(lista.get(0).getDixonCanal()).isEqualTo(DixonCanalAviso.CORREO);
+        assertThat(DixonSeguimientoServicio.dixonCalcular(expedientes.dixonObtener(e.getDixonCodigo())).dixonEstimado()).isEqualTo("Entregado");
+        DixonExpediente otro = expedientes.dixonMios().stream().filter(x -> x.getDixonGrupo() == DixonGrupoExpediente.TRAMITE && x.getDixonPago() == null).findFirst().orElseThrow();
+        assertThatThrownBy(() -> admin.dixonObservar(otro.getDixonCodigo(), "corto")).hasMessage("Escribe al menos 15 caracteres.");
+        admin.dixonObservar(otro.getDixonCodigo(), "Falta adjuntar la copia del DNI legible.");
+        assertThat(expedientes.dixonObtener(otro.getDixonCodigo()).getDixonGrupo()).isEqualTo(DixonGrupoExpediente.OBSERVADO);
+        assertThat(notificaciones.dixonListar(DixonRol.ESTUDIANTE).get(0).getDixonTexto()).contains("fue observado");
+        DixonReserva r = reservas.dixonMias().stream().filter(x -> x.getDixonEstado() == DixonEstadoReserva.PENDIENTE).findFirst().orElseThrow();
+        admin.dixonRechazarReserva(r.getDixonId(), "El auditorio está en mantenimiento.");
+        assertThat(reservaRepository.findById(r.getDixonId()).orElseThrow().getDixonEstado()).isEqualTo(DixonEstadoReserva.RECHAZADO);
+        DixonPago pagado = pagos.dixonMios().stream().filter(DixonPago::dixonEsPagado).findFirst().orElseThrow();
+        admin.dixonReembolsar(pagado.getDixonCodigo());
+        assertThat(pagos.dixonObtener(pagado.getDixonCodigo()).getDixonEstado()).isEqualTo(DixonEstadoPago.REEMBOLSADO);
     }
 
     @Test
     void sinConexionLaColaCreceLosPagosSeBloqueanYSeVacia() {
-        conexion.simularSinConexion(true);
-        assertThat(conexion.sinConexion()).isTrue();
-        favoritos.alternar(TipoFavorito.EQUIPO, "e1");
-        expedientes.registrar("Traslado interno", "EP Ingeniería de Sistemas", "central", "Solicito traslado interno por motivos personales.", null);
-        assertThat(conexion.contarPendientes()).isEqualTo(2);
-        String m = pagos.matricula().getPago().getCodigo();
-        assertThatThrownBy(() -> pagos.completar(m, MetodoPago.YAPE)).hasMessage("Necesitas conexión para pagar");
-        conexion.simularSinConexion(false);
-        assertThat(conexion.sincronizar()).isEqualTo(2);
-        assertThat(conexion.contarPendientes()).isZero();
-        favoritos.alternar(TipoFavorito.EQUIPO, "e2");
-        assertThat(conexion.contarPendientes()).isZero();
+        conexion.dixonSimularSinConexion(true);
+        assertThat(conexion.dixonSinConexion()).isTrue();
+        favoritos.dixonAlternar(DixonTipoFavorito.EQUIPO, "e1");
+        expedientes.dixonRegistrar("Traslado interno", "EP Ingeniería de Sistemas", "central", "Solicito traslado interno por motivos personales.", null);
+        assertThat(conexion.dixonContarPendientes()).isEqualTo(2);
+        String m = pagos.dixonMatricula().getDixonPago().getDixonCodigo();
+        assertThatThrownBy(() -> pagos.dixonCompletar(m, DixonMetodoPago.YAPE)).hasMessage("Necesitas conexión para pagar");
+        conexion.dixonSimularSinConexion(false);
+        assertThat(conexion.dixonSincronizar()).isEqualTo(2);
+        assertThat(conexion.dixonContarPendientes()).isZero();
+        favoritos.dixonAlternar(DixonTipoFavorito.EQUIPO, "e2");
+        assertThat(conexion.dixonContarPendientes()).isZero();
     }
 
     @Test
     void persistenciaDeIdaYVuelta() {
-        Espacio redes = catalogo.espacio("lab-redes").orElseThrow();
-        LocalDate manana = Fechas.hoy().plusDays(1);
-        Reserva r = reservas.reservar(redes, manana, "08:00 - 10:00", 20, "Práctica calificada de Redes");
-        Reserva leida = reservaRepository.findById(r.getId()).orElseThrow();
-        assertThat(leida.getEspacio().getCodigo()).isEqualTo("lab-redes");
-        assertThat(leida.getFecha()).isEqualTo(manana);
-        assertThat(leida.getEstado()).isEqualTo(EstadoReserva.PENDIENTE);
-        assertThatThrownBy(() -> reservas.reservar(redes, manana, "08:00 - 10:00", 5, "Otra clase del curso")).hasMessage("Ese horario ya está reservado. Elige otro.");
-        ajustes.cambiar(a -> a.setIdioma("qu"));
-        assertThat(ajustes.obtener().getIdioma()).isEqualTo("qu");
-        assertThat(contexto.cambiarEscuela("iel")).isEqualTo("EP Ingeniería Eléctrica · Sede Norte.");
-        assertThat(contexto.codigoSede()).isEqualTo("norte");
-        assertThat(contexto.cambiarSede("central")).isEqualTo("Mostrando información de la Sede Central · todas las escuelas.");
-        assertThat(contexto.escuela()).isNull();
-        demo.restablecer();
-        assertThat(reservaRepository.findById(r.getId())).isEmpty();
-        assertThat(ajustes.obtener().getIdioma()).isEqualTo("qu");
+        DixonEspacio redes = catalogo.dixonEspacio("lab-redes").orElseThrow();
+        LocalDate manana = DixonFechas.dixonHoy().plusDays(1);
+        DixonReserva r = reservas.dixonReservar(redes, manana, "08:00 - 10:00", 20, "Práctica calificada de Redes");
+        DixonReserva leida = reservaRepository.findById(r.getDixonId()).orElseThrow();
+        assertThat(leida.getDixonEspacio().getDixonCodigo()).isEqualTo("lab-redes");
+        assertThat(leida.getDixonFecha()).isEqualTo(manana);
+        assertThat(leida.getDixonEstado()).isEqualTo(DixonEstadoReserva.PENDIENTE);
+        assertThatThrownBy(() -> reservas.dixonReservar(redes, manana, "08:00 - 10:00", 5, "Otra clase del curso")).hasMessage("Ese horario ya está reservado. Elige otro.");
+        ajustes.dixonCambiar(a -> a.setDixonIdioma("qu"));
+        assertThat(ajustes.dixonObtener().getDixonIdioma()).isEqualTo("qu");
+        assertThat(contexto.dixonCambiarEscuela("iel")).isEqualTo("EP Ingeniería Eléctrica · Sede Norte.");
+        assertThat(contexto.dixonCodigoSede()).isEqualTo("norte");
+        assertThat(contexto.dixonCambiarSede("central")).isEqualTo("Mostrando información de la Sede Central · todas las escuelas.");
+        assertThat(contexto.dixonEscuela()).isNull();
+        demo.dixonRestablecer();
+        assertThat(reservaRepository.findById(r.getDixonId())).isEmpty();
+        assertThat(ajustes.dixonObtener().getDixonIdioma()).isEqualTo("qu");
     }
 
     @Test
     void mapaLibrePorTerminarYOcupado() {
-        Espacio cnc = catalogo.espacio("taller-cnc").orElseThrow();
-        assertThat(ocupacion.estado(cnc, 0, 0)).isEqualTo(OcupacionService.EstadoOcupacion.OCUPADO);
-        Espacio e = catalogo.espacios().stream().filter(x -> !x.isFueraDeServicio()).filter(x -> ReservaService.disponibleSimulado(x.getNombre(), 3, "08:00")
-                && ReservaService.disponibleSimulado(x.getNombre(), 3, "10:00")).findFirst().orElseThrow();
-        assertThat(ocupacion.estado(e, 0, 3)).isEqualTo(OcupacionService.EstadoOcupacion.LIBRE);
-        reservas.reservar(e, Fechas.hoy().plusDays(3), "10:00 - 12:00", 1, "Prueba del mapa en vivo");
-        assertThat(ocupacion.estado(e, 0, 3)).isEqualTo(OcupacionService.EstadoOcupacion.POR_TERMINAR);
-        assertThat(ocupacion.estado(e, 1, 3)).isEqualTo(OcupacionService.EstadoOcupacion.OCUPADO);
+        DixonEspacio cnc = catalogo.dixonEspacio("taller-cnc").orElseThrow();
+        assertThat(ocupacion.dixonEstado(cnc, 0, 0)).isEqualTo(DixonOcupacionServicio.DixonEstadoOcupacion.OCUPADO);
+        DixonEspacio e = catalogo.dixonEspacios().stream().filter(x -> !x.isDixonFueraDeServicio()).filter(x -> DixonReservaServicio.dixonDisponibleSimulado(x.getDixonNombre(), 3, "08:00")
+                && DixonReservaServicio.dixonDisponibleSimulado(x.getDixonNombre(), 3, "10:00")).findFirst().orElseThrow();
+        assertThat(ocupacion.dixonEstado(e, 0, 3)).isEqualTo(DixonOcupacionServicio.DixonEstadoOcupacion.LIBRE);
+        reservas.dixonReservar(e, DixonFechas.dixonHoy().plusDays(3), "10:00 - 12:00", 1, "Prueba del mapa en vivo");
+        assertThat(ocupacion.dixonEstado(e, 0, 3)).isEqualTo(DixonOcupacionServicio.DixonEstadoOcupacion.POR_TERMINAR);
+        assertThat(ocupacion.dixonEstado(e, 1, 3)).isEqualTo(DixonOcupacionServicio.DixonEstadoOcupacion.OCUPADO);
     }
 
     @Test
     void carneAceptaFranjaActualYVecinasYRechazaVencidoOAlterado() {
-        long f = CarneService.franja(Fechas.milis());
-        String token = CarneService.token("20240157", f);
-        assertThat(carne.verificar(token, f).ok()).isTrue();
-        assertThat(carne.verificar(token, f + 1).ok()).isTrue();
-        assertThat(carne.verificar(token, f - 1).ok()).isTrue();
-        assertThat(carne.verificar(token, f + 2).mensaje()).isEqualTo("Código vencido. Pide al estudiante que muestre el código actual.");
+        long f = DixonCarneServicio.dixonFranja(DixonFechas.dixonMilis());
+        String token = DixonCarneServicio.dixonToken("20240157", f);
+        assertThat(carne.dixonVerificar(token, f).dixonCorrecto()).isTrue();
+        assertThat(carne.dixonVerificar(token, f + 1).dixonCorrecto()).isTrue();
+        assertThat(carne.dixonVerificar(token, f - 1).dixonCorrecto()).isTrue();
+        assertThat(carne.dixonVerificar(token, f + 2).dixonMensaje()).isEqualTo("Código vencido. Pide al estudiante que muestre el código actual.");
         String alterado = "ANDRA-ID|20240157|" + f + "|ZZZZZZ";
-        assertThat(carne.verificar(alterado, f).mensaje()).isEqualTo("Firma inválida: el código fue alterado.");
-        assertThat(carne.verificar("72458913", f).mensaje()).isEqualTo("Estudiante encontrado (validación manual por código)");
-        assertThat(carne.verificar("000", f).ok()).isFalse();
-        assertThat(carne.simularLectura().isConcedido()).isFalse();
+        assertThat(carne.dixonVerificar(alterado, f).dixonMensaje()).isEqualTo("Firma inválida: el código fue alterado.");
+        assertThat(carne.dixonVerificar("72458913", f).dixonMensaje()).isEqualTo("Estudiante encontrado (validación manual por código)");
+        assertThat(carne.dixonVerificar("000", f).dixonCorrecto()).isFalse();
+        assertThat(carne.dixonSimularLectura().isDixonConcedido()).isFalse();
     }
 
     @Test
     void analisisPorPeriodo() {
-        contexto.cambiarSede(Ajustes.TODAS);
-        AnaliticaService.Analisis sem = analitica.analizar("sem");
-        AnaliticaService.Analisis siete = analitica.analizar("7");
-        assertThat(sem.tramitesYOrdenes()).isGreaterThanOrEqualTo(siete.tramitesYOrdenes());
-        assertThat(sem.recaudacion()).isGreaterThanOrEqualTo(siete.recaudacion());
-        assertThat(sem.top()).hasSizeLessThanOrEqualTo(6);
-        for (int i = 1; i < sem.top().size(); i++) {
-            assertThat(sem.top().get(i - 1).valor()).isGreaterThanOrEqualTo(sem.top().get(i).valor());
+        contexto.dixonCambiarSede(DixonAjustes.DIXON_TODAS);
+        DixonAnaliticaServicio.DixonAnalisis sem = analitica.dixonAnalizar("sem");
+        DixonAnaliticaServicio.DixonAnalisis siete = analitica.dixonAnalizar("7");
+        assertThat(sem.dixonTramitesYOrdenes()).isGreaterThanOrEqualTo(siete.dixonTramitesYOrdenes());
+        assertThat(sem.dixonRecaudacion()).isGreaterThanOrEqualTo(siete.dixonRecaudacion());
+        assertThat(sem.dixonSuperior()).hasSizeLessThanOrEqualTo(6);
+        for (int i = 1; i < sem.dixonSuperior().size(); i++) {
+            assertThat(sem.dixonSuperior().get(i - 1).dixonValor()).isGreaterThanOrEqualTo(sem.dixonSuperior().get(i).dixonValor());
         }
-        assertThat(sem.hallazgos()).hasSize(4);
-        assertThat(sem.calor()[sem.pico()[0]][sem.pico()[1]]).isEqualTo(sem.calorMaximo());
-        assertThat(sem.subutilizados()).hasSize(4);
-        assertThat(sem.demandados()).hasSize(3);
-        assertThat(sem.porSede()).hasSize(3);
+        assertThat(sem.dixonHallazgos()).hasSize(4);
+        assertThat(sem.dixonCalor()[sem.dixonPico()[0]][sem.dixonPico()[1]]).isEqualTo(sem.dixonCalorMaximo());
+        assertThat(sem.dixonSubutilizados()).hasSize(4);
+        assertThat(sem.dixonDemandados()).hasSize(3);
+        assertThat(sem.dixonPorSede()).hasSize(3);
     }
 }

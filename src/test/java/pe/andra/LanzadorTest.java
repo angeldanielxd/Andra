@@ -19,10 +19,10 @@ class LanzadorTest {
         File base = carpeta.resolve("andra.db").toFile();
         Files.writeString(base.toPath(), "datos 1.0.0");
 
-        Lanzador.renovarSiCambioLaVersion(carpeta.toFile(), base);
+        AndraLanzador.andraRenovarSiCambioLaVersion(carpeta.toFile(), base);
 
         assertThat(base).doesNotExist();
-        assertThat(carpeta.resolve("version-datos.txt")).hasContent(Lanzador.VERSION_DATOS);
+        assertThat(carpeta.resolve("version-datos.txt")).hasContent(AndraLanzador.ANDRA_VERSION_DATOS);
         try (var archivos = Files.list(carpeta)) {
             assertThat(archivos.map(p -> p.getFileName().toString()))
                     .anyMatch(n -> n.startsWith("andra-respaldo-1.0.0-") && n.endsWith(".db"));
@@ -33,9 +33,9 @@ class LanzadorTest {
     void noTocaLaBaseSiYaEsDeLaVersionActual() throws Exception {
         File base = carpeta.resolve("andra.db").toFile();
         Files.writeString(base.toPath(), "datos actuales");
-        Files.writeString(carpeta.resolve("version-datos.txt"), Lanzador.VERSION_DATOS);
+        Files.writeString(carpeta.resolve("version-datos.txt"), AndraLanzador.ANDRA_VERSION_DATOS);
 
-        Lanzador.renovarSiCambioLaVersion(carpeta.toFile(), base);
+        AndraLanzador.andraRenovarSiCambioLaVersion(carpeta.toFile(), base);
 
         assertThat(base).hasContent("datos actuales");
     }
@@ -44,9 +44,9 @@ class LanzadorTest {
     void enUnaInstalacionNuevaSoloEscribeLaMarca() {
         File base = carpeta.resolve("andra.db").toFile();
 
-        Lanzador.renovarSiCambioLaVersion(carpeta.toFile(), base);
+        AndraLanzador.andraRenovarSiCambioLaVersion(carpeta.toFile(), base);
 
         assertThat(base).doesNotExist();
-        assertThat(carpeta.resolve("version-datos.txt")).hasContent(Lanzador.VERSION_DATOS);
+        assertThat(carpeta.resolve("version-datos.txt")).hasContent(AndraLanzador.ANDRA_VERSION_DATOS);
     }
 }

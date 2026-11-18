@@ -5,8 +5,8 @@
 
 <ScrollPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:id="desplazable"
-            fx:controller="pe.andra.controller.AnalisisController"
+            fx:id="andraDesplazable"
+            fx:controller="pe.andra.controller.AndraAnalisisControlador"
             fitToWidth="true" hbarPolicy="NEVER" styleClass="pagina-scroll">
-    <VBox fx:id="pagina" styleClass="pagina"/>
+    <VBox fx:id="andraPagina" styleClass="pagina"/>
 </ScrollPane>

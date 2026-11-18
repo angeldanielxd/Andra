@@ -15,7 +15,7 @@ Equipo: Soto Macedo Daniel Angel · Mendoza Mamani Jair Edison · Puma Saldivar 
 mvn javafx:run
 ```
 
-En IntelliJ: abre la carpeta `andra-javafx` y ejecuta `pe.andra.Lanzador`.
+En IntelliJ: abre la carpeta `andra-javafx` y ejecuta `pe.andra.AndraLanzador`.
 
 La base `andra.db` (SQLite) se crea sola en la carpeta del proyecto y se siembra desde `datos/catalogo.json` y `datos/datos-demo.json`.
 
@@ -44,7 +44,7 @@ mvn clean package -DskipTests
 macOS:
 
 ```bash
-jpackage --name Andra --input target --main-jar andra-javafx-1.1.0.jar \
+jpackage --name Andra --input target --main-jar andra-javafx-1.3.0.jar \
   --main-class org.springframework.boot.loader.launch.JarLauncher \
   --icon src/main/resources/img/logo-andra.png --type dmg
 ```
@@ -56,8 +56,8 @@ Windows (se ejecuta en Windows, con el JDK 21 o superior):
 
 El script deja en `empaquetado\windows\salida\`:
 - `Andra\Andra.exe`: la versión portable.
-- `Andra-1.1.0-windows-portable.zip`: la misma versión, comprimida.
-- `Andra-1.1.0.exe`: un instalador, solo si está instalado WiX Toolset 3.14.
+- `Andra-1.3.0-windows-portable.zip`: la misma versión, comprimida.
+- `Andra-1.3.0.exe`: un instalador, solo si está instalado WiX Toolset 3.14.
 
 Los pasos completos están en `empaquetado/windows/LEEME.txt`. Si cambias la versión en `pom.xml`, cámbiala también en `crear-exe.bat`.
 
@@ -65,16 +65,16 @@ Los pasos completos están en `empaquetado/windows/LEEME.txt`. Si cambias la ver
 
 ```
 src/main/java/pe/andra/
-├── AndraApplication · AplicacionFx · Lanzador
-├── config/       DatosInstitucion, JsonRecursos
-├── controller/   MainController (cabecera, navegación por rol, popovers) y una vista por sección
-├── exception/    NegocioException
+├── AndraAplicacion · AndraAplicacionFx · AndraLanzador
+├── config/       AndraDatosInstitucion, AndraJsonRecursos
+├── controller/   AndraPrincipalControlador (cabecera, navegación por rol, popovers) y una vista por sección
+├── exception/    DixonNegocioExcepcion
 ├── model/        entidades JPA y enums
 ├── repository/   Spring Data JPA (SQLite)
-├── seeder/       CatalogoSeeder, EstadoDemoSeeder, SembradorDemo, DatabaseSeeder
+├── seeder/       DixonCatalogoSembrador, DixonEstadoDemoSembrador, DixonSembradorDemo, DixonBaseDatosSembrador
 ├── service/      reglas de negocio (pagos, carné, seguimiento, ocupación, análisis, idiomas…)
-├── ui/           componentes (VidrioDasm, TarjetaGaleria, Filtros, VistaFactura, RastreadorCjsv…)
-└── util/         fechas, días hábiles, validación, TarjetaJemm (Luhn), montos
+├── ui/           componentes (AndraVidrioDasm, AndraTarjetaGaleria, AndraFiltros, AndraVistaFactura, AndraRastreadorCjsv…)
+└── util/         fechas, días hábiles, validación, DixonTarjetaJemm (Luhn), montos
 src/main/resources/
 ├── css/theme.css · view/*.fxml · img/ · fuentes/ · datos/*.json · i18n/traducciones.json
 ```

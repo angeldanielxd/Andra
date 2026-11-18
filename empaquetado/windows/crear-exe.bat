@@ -10,7 +10,7 @@ setlocal EnableExtensions
 cd /d "%~dp0"
 title Andra - crear .exe para Windows
 
-set "VERSION=1.1.0"
+set "VERSION=1.3.0"
 set "JAR_NOMBRE=andra-javafx-%VERSION%.jar"
 set "SALIDA=%~dp0salida"
 set "ICONO=%~dp0Andra.ico"
