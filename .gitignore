@@ -7,3 +7,5 @@ target/
 .DS_Store
 *.db
 HELP.md
+empaquetado/windows/salida/
+empaquetado/windows/*.jar

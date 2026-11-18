@@ -49,12 +49,17 @@ jpackage --name Andra --input target --main-jar andra-javafx-1.1.0.jar \
   --icon src/main/resources/img/logo-andra.png --type dmg
 ```
 
-Windows:
+Windows (se ejecuta en Windows, con el JDK 21 o superior):
 
-```bat
-jpackage --name Andra --input target --main-jar andra-javafx-1.1.0.jar ^
-  --main-class org.springframework.boot.loader.launch.JarLauncher --type msi --win-shortcut --win-menu
-```
+1. Compila en Windows con `mvn -DskipTests package` (Maven elige solo las librerías de JavaFX para Windows). Desde macOS también se puede, con `mvn -DskipTests -Djavafx.platform=win package`.
+2. Haz doble clic en `empaquetado\windows\crear-exe.bat`.
+
+El script deja en `empaquetado\windows\salida\`:
+- `Andra\Andra.exe`: la versión portable.
+- `Andra-1.1.0-windows-portable.zip`: la misma versión, comprimida.
+- `Andra-1.1.0.exe`: un instalador, solo si está instalado WiX Toolset 3.14.
+
+Los pasos completos están en `empaquetado/windows/LEEME.txt`. Si cambias la versión en `pom.xml`, cámbiala también en `crear-exe.bat`.
 
 ## Estructura
 

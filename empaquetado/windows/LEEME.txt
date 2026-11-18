@@ -1,0 +1,40 @@
+﻿ANDRA 1.1.0 - CREAR EL .EXE PARA WINDOWS
+========================================
+
+Qué hay en esta carpeta
+  crear-exe.bat            Genera el .exe. Se ejecuta con doble clic.
+  Andra.ico                Icono de la aplicación.
+  andra-javafx-1.1.0.jar   La aplicación ya compilada para Windows (solo viene en el kit .zip;
+                           en el proyecto, compílala antes con  mvn -DskipTests package).
+
+Pasos
+  1. Si recibiste el kit como .zip, descomprímelo primero (clic derecho > "Extraer todo...").
+  2. Instala el JDK 21 o superior, gratis. Por ejemplo Eclipse Temurin:
+       https://adoptium.net/temurin/releases/   (Windows · x64 · JDK · archivo .msi)
+     En el instalador activa "Add to PATH" y "Set JAVA_HOME variable".
+  3. Haz doble clic en crear-exe.bat y espera de 1 a 3 minutos.
+  4. Se abrirá la carpeta "salida" con:
+       Andra\Andra.exe                     Versión portable: ábrela con doble clic.
+                                           No separes Andra.exe de su carpeta.
+       Andra-1.1.0-windows-portable.zip    La misma versión comprimida, para compartir.
+       Andra-1.1.0.exe                     Instalador (solo si tienes WiX Toolset, ver abajo).
+
+  La app ya lleva su propio Java dentro: quien reciba la versión portable o el instalador
+  no necesita instalar nada más.
+
+Instalador opcional (Andra-1.1.0.exe)
+  Para que el script también cree un instalador con accesos en el menú Inicio y el escritorio,
+  instala WiX Toolset 3.14 (archivo wix314.exe):
+       https://github.com/wixtoolset/wix3/releases
+  Windows te pedirá activar .NET Framework 3.5; acéptalo. Luego vuelve a ejecutar crear-exe.bat.
+  Sin WiX igual obtienes la versión portable, que funciona igual.
+
+Al abrir Andra por primera vez
+  - Windows SmartScreen puede mostrar "Windows protegió su PC" porque la app no está firmada.
+    Haz clic en "Más información" y luego en "Ejecutar de todas formas".
+  - Los datos se guardan en %APPDATA%\Andra.
+  - Estudiante:     código 20240157 o DNI 72458913 · contraseña andra2026
+  - Administrador:  rmartinez@institucion.edu · contraseña admin2026
+
+Requisitos
+  Windows 10 u 11 de 64 bits. En equipos con procesador ARM instala el JDK x64, no el de ARM.
