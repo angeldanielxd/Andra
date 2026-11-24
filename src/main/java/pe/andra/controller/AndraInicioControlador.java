@@ -10,12 +10,12 @@ import javafx.scene.text.Text;
 import lombok.RequiredArgsConstructor;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.springframework.stereotype.Component;
-import pe.andra.model.DixonEspacio;
-import pe.andra.model.DixonPago;
+import pe.andra.model.AndraEspacio;
+import pe.andra.model.AndraPago;
 import pe.andra.service.*;
 import pe.andra.ui.*;
-import pe.andra.util.DixonFechas;
-import pe.andra.util.DixonMontos;
+import pe.andra.util.AndraFechas;
+import pe.andra.util.AndraMontos;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -43,11 +43,11 @@ public class AndraInicioControlador extends AndraVistaBase {
                     "Recibe alertas cuando un trámite requiera tu acción.", "/img/carrusel/05-solicitudes-archivo.jpg",
                     "Archivo de expedientes ordenados por número", 0.5, 0.4));
 
-    private final DixonContextoServicio andraContexto;
-    private final DixonCatalogoServicio andraCatalogo;
-    private final DixonReservaServicio andraReservas;
-    private final DixonPagoServicio andraPagos;
-    private final DixonOcupacionServicio andraOcupacion;
+    private final AndraContextoServicio andraContexto;
+    private final AndraCatalogoServicio andraCatalogo;
+    private final AndraReservaServicio andraReservas;
+    private final AndraPagoServicio andraPagos;
+    private final AndraOcupacionServicio andraOcupacion;
 
     private AndraCarrusel andraCarrusel;
     private String andraEspacioElegido;
@@ -80,17 +80,17 @@ public class AndraInicioControlador extends AndraVistaBase {
         VBox.setMargin(andraAcciones, new Insets(24, 0, 0, 0));
         andraArriba.getChildren().addAll(andraIntro, andraAcciones);
         andraArriba.setAlignment(Pos.TOP_CENTER);
-        List<DixonPago> andraPendientes = andraPagos.dixonPendientes();
+        List<AndraPago> andraPendientes = andraPagos.andraPendientes();
         if (!andraPendientes.isEmpty()) {
             int andraCantidad = andraPendientes.size();
             String andraTexto = andraCantidad > 1 ? "s" : "";
             Text andraMarca = AndraComponentes.andraTexto("Andra Pay", "strong");
             andraMarca.setStyle("-fx-font-weight: 700;");
             Text andraResto = AndraComponentes.andraTexto(" · Tienes " + andraCantidad + " pago" + andraTexto + " pendiente" + andraTexto + ", incluida tu matrícula "
-                    + andraPagos.dixonMatricula().getDixonPeriodo() + ".");
+                    + andraPagos.andraMatricula().getAndraPeriodo() + ".");
             javafx.scene.text.TextFlow andraFlujo = AndraComponentes.andraFlujo(andraMarca, andraResto);
             HBox.setHgrow(andraFlujo, Priority.ALWAYS);
-            HBox andraCartel = new HBox(andraFlujo, AndraComponentes.andraLiteral(DixonMontos.dixonSoles(DixonPagoServicio.dixonTotal(andraPendientes)), "strong"), new FontIcon("fth-arrow-right"));
+            HBox andraCartel = new HBox(andraFlujo, AndraComponentes.andraLiteral(AndraMontos.andraSoles(AndraPagoServicio.andraTotal(andraPendientes)), "strong"), new FontIcon("fth-arrow-right"));
             andraCartel.getStyleClass().add("pay-banner");
             andraCartel.setFocusTraversable(true);
             andraCartel.setOnMouseClicked(andraEvento -> andraIr("pay"));
@@ -98,13 +98,13 @@ public class AndraInicioControlador extends AndraVistaBase {
             VBox.setMargin(andraCartel, new Insets(24, 0, 0, 0));
             andraArriba.getChildren().add(andraCartel);
         }
-        DixonOcupacionServicio.DixonFranjaBnps andraFranjaBnps = andraOcupacion.dixonFranjaActual();
-        List<DixonEspacio> andraEnContexto = andraEspaciosContexto();
-        long andraLibres = andraOcupacion.dixonLibres(andraEnContexto, andraFranjaBnps);
+        AndraOcupacionServicio.AndraFranjaBnps andraFranjaBnps = andraOcupacion.andraFranjaActual();
+        List<AndraEspacio> andraEnContexto = andraEspaciosContexto();
+        long andraLibres = andraOcupacion.andraLibres(andraEnContexto, andraFranjaBnps);
         HBox andraCarne = andraRapido(AndraComponentes.andraIcono("fth-credit-card"), "Mi carné digital", () -> andraIr("carne"));
         Circle andraPunto = new Circle(5);
         andraPunto.getStyleClass().addAll("live-dot", "on");
-        HBox andraMapa = andraRapido(andraPunto, andraLibres + " espacios libres " + (andraFranjaBnps.dixonEnVivo() ? "ahora" : "en la próxima franja"), () -> andraIr("mapa"));
+        HBox andraMapa = andraRapido(andraPunto, andraLibres + " espacios libres " + (andraFranjaBnps.andraEnVivo() ? "ahora" : "en la próxima franja"), () -> andraIr("mapa"));
         andraMapa.getChildren().add(new FontIcon("fth-arrow-right"));
         HBox andraFila = new HBox(12, andraCarne, andraMapa);
         andraFila.setAlignment(Pos.CENTER);
@@ -129,8 +129,8 @@ public class AndraInicioControlador extends AndraVistaBase {
         return andraAlto;
     }
 
-    private List<DixonEspacio> andraEspaciosContexto() {
-        return andraCatalogo.dixonEspacios().stream().filter(andraEspacio -> andraContexto.dixonIncluye(andraEspacio.getDixonSede(), andraEspacio.getDixonEscuela())).toList();
+    private List<AndraEspacio> andraEspaciosContexto() {
+        return andraCatalogo.andraEspacios().stream().filter(andraEspacio -> andraContexto.andraIncluye(andraEspacio.getAndraSede(), andraEspacio.getAndraEscuela())).toList();
     }
 
     private VBox andraServicios() {
@@ -160,15 +160,15 @@ public class AndraInicioControlador extends AndraVistaBase {
         return andraSeccion;
     }
 
-    private VBox andraBuscador(List<DixonEspacio> andraEspacios) {
-        if (andraEspacios.stream().noneMatch(andraEspacio -> andraEspacio.getDixonCodigo().equals(andraEspacioElegido))) {
-            andraEspacioElegido = andraEspacios.isEmpty() ? null : andraEspacios.get(0).getDixonCodigo();
+    private VBox andraBuscador(List<AndraEspacio> andraEspacios) {
+        if (andraEspacios.stream().noneMatch(andraEspacio -> andraEspacio.getAndraCodigo().equals(andraEspacioElegido))) {
+            andraEspacioElegido = andraEspacios.isEmpty() ? null : andraEspacios.get(0).getAndraCodigo();
             andraFranja = null;
         }
-        LocalDate andraFecha = DixonFechas.dixonHoy().plusDays(andraDia);
+        LocalDate andraFecha = AndraFechas.andraHoy().plusDays(andraDia);
         List<AndraOpcion> andraOpciones = new ArrayList<>();
-        andraEspacios.forEach(andraEspacio -> andraOpciones.add(AndraOpcion.andraDe(andraEspacio.getDixonCodigo(), andraEspacio.getDixonNombre() + (andraEspacio.getDixonEscuela() == null ? " (uso general)" : ""))));
-        AndraCampo<ComboBox<AndraOpcion>> andraSelector = AndraFormulario.andraSelector("Espacio · Sede " + andraContexto.dixonNombreSede(), andraOpciones, null, andraEspacioElegido);
+        andraEspacios.forEach(andraEspacio -> andraOpciones.add(AndraOpcion.andraDe(andraEspacio.getAndraCodigo(), andraEspacio.getAndraNombre() + (andraEspacio.getAndraEscuela() == null ? " (uso general)" : ""))));
+        AndraCampo<ComboBox<AndraOpcion>> andraSelector = AndraFormulario.andraSelector("Espacio · Sede " + andraContexto.andraNombreSede(), andraOpciones, null, andraEspacioElegido);
         andraSelector.andraControl().valueProperty().addListener((andraObservable, andraOpcionA, andraOpcionB) -> {
             if (andraOpcionB != null && !andraOpcionB.andraValor().equals(andraEspacioElegido)) {
                 andraEspacioElegido = andraOpcionB.andraValor();
@@ -178,17 +178,17 @@ public class AndraInicioControlador extends AndraVistaBase {
         });
         Button andraCambiar = AndraComponentes.andraEnlaceFlecha("Cambiar sede o escuela", andraEvento -> andraIr("ctx:sede"));
         andraCambiar.setGraphic(null);
-        HBox andraMeta = new HBox(6, AndraComponentes.andraIcono("fth-book-open"), AndraComponentes.andraParrafo(andraContexto.dixonEscuela() != null
-                ? "Mostrando espacios de EP " + andraContexto.dixonEscuela().getDixonNombre() + " y de uso general." : "Mostrando todos los espacios de la sede.", "hint"), andraCambiar);
+        HBox andraMeta = new HBox(6, AndraComponentes.andraIcono("fth-book-open"), AndraComponentes.andraParrafo(andraContexto.andraEscuela() != null
+                ? "Mostrando espacios de EP " + andraContexto.andraEscuela().getAndraNombre() + " y de uso general." : "Mostrando todos los espacios de la sede.", "hint"), andraCambiar);
         andraMeta.getStyleClass().add("meta-line");
         andraMeta.setAlignment(Pos.CENTER_LEFT);
         AndraSegmentado andraDias = new AndraSegmentado(false).andraOpcion("0", "Hoy", null, null).andraOpcion("1", "Mañana", null, null)
-                .andraOpcion("2", "Pasado mañana", null, null).andraOpcion("cal", andraDia > 2 ? DixonFechas.dixonCorto(andraFecha) : "Otra fecha", "fth-calendar", null)
+                .andraOpcion("2", "Pasado mañana", null, null).andraOpcion("cal", andraDia > 2 ? AndraFechas.andraCorto(andraFecha) : "Otra fecha", "fth-calendar", null)
                 .andraSeleccionar(andraDia > 2 ? "cal" : String.valueOf(andraDia));
         andraDias.andraAlCambiar(andraValor -> {
             if ("cal".equals(andraValor)) {
                 AndraCalendario.andraAbrir(andraNotificador, andraFecha, andraFecha2 -> {
-                    andraDia = (int) ChronoUnit.DAYS.between(DixonFechas.dixonHoy(), andraFecha2);
+                    andraDia = (int) ChronoUnit.DAYS.between(AndraFechas.andraHoy(), andraFecha2);
                     andraFranja = null;
                     andraRedibujar();
                 });
@@ -199,16 +199,16 @@ public class AndraInicioControlador extends AndraVistaBase {
             andraFranja = null;
             andraRedibujar();
         });
-        VBox andraCampoDia = new VBox(6, AndraComponentes.andraEtiqueta("Día", "flabel"), andraDias, AndraComponentes.andraEtiqueta(DixonFechas.dixonLargo(andraFecha), "hint"));
+        VBox andraCampoDia = new VBox(6, AndraComponentes.andraEtiqueta("Día", "flabel"), andraDias, AndraComponentes.andraEtiqueta(AndraFechas.andraLargo(andraFecha), "hint"));
         andraCampoDia.getStyleClass().add("field");
         VBox andraIzquierda = new VBox(16, new VBox(6, AndraComponentes.andraParrafo("Buscar espacio", "h2"),
                 AndraComponentes.andraParrafo("Elige un espacio y un día para ver los horarios libres. Selecciona un horario disponible para reservarlo.", "muted", "small")),
                 andraSelector.andraNodo(), andraMeta, andraCampoDia);
-        DixonEspacio andraElegido = andraEspacios.stream().filter(andraEspacio -> andraEspacio.getDixonCodigo().equals(andraEspacioElegido)).findFirst().orElse(null);
+        AndraEspacio andraElegido = andraEspacios.stream().filter(andraEspacio -> andraEspacio.getAndraCodigo().equals(andraEspacioElegido)).findFirst().orElse(null);
         VBox andraFranjas = new VBox();
         andraFranjas.getStyleClass().add("slots");
-        for (String andraTexto : DixonCatalogoServicio.DIXON_FRANJAS) {
-            boolean andraCorrecto = andraElegido != null && andraReservas.dixonLibreEnInicio(andraElegido, andraDia, andraTexto);
+        for (String andraTexto : AndraCatalogoServicio.ANDRA_FRANJAS) {
+            boolean andraCorrecto = andraElegido != null && andraReservas.andraLibreEnInicio(andraElegido, andraDia, andraTexto);
             String andraFin = String.format("%02d:00", Integer.parseInt(andraTexto.substring(0, 2)) + 2);
             Label andraHora = AndraComponentes.andraLiteral(andraTexto + " – " + andraFin, "slot-time");
             HBox andraContenido = new HBox(andraHora, AndraComponentes.andraEspacio(), AndraComponentes.andraPildora(andraCorrecto ? "Disponible" : "Ocupado"));
@@ -250,14 +250,14 @@ public class AndraInicioControlador extends AndraVistaBase {
         return AndraComponentes.andraSeccion(andraCaja);
     }
 
-    private void andraConfirmar(DixonEspacio andraEspacio, LocalDate andraFecha) {
+    private void andraConfirmar(AndraEspacio andraEspacio, LocalDate andraFecha) {
         if (andraEspacio == null || andraFranja == null) {
             return;
         }
-        String andraHorario = DixonCatalogoServicio.DIXON_HORARIOS.get(DixonCatalogoServicio.DIXON_FRANJAS.indexOf(andraFranja));
-        andraNotificador.andraConfirmar("Confirmar reserva", andraEspacio.getDixonNombre() + " · " + DixonFechas.dixonLargo(andraFecha) + " · " + andraHorario
+        String andraHorario = AndraCatalogoServicio.ANDRA_HORARIOS.get(AndraCatalogoServicio.ANDRA_FRANJAS.indexOf(andraFranja));
+        andraNotificador.andraConfirmar("Confirmar reserva", andraEspacio.getAndraNombre() + " · " + AndraFechas.andraLargo(andraFecha) + " · " + andraHorario
                 + ". La solicitud quedará pendiente de aprobación y podrás verla en Reservas.", "Confirmar reserva", false, () -> {
-            if (andraIntentar(() -> andraReservas.dixonReservaRapida(andraEspacio, andraFecha, andraFranja))) {
+            if (andraIntentar(() -> andraReservas.andraReservaRapida(andraEspacio, andraFecha, andraFranja))) {
                 andraFranja = null;
                 andraRedibujar();
                 andraNotificador.andraExito("Reserva enviada. Puedes verla en Reservas.");

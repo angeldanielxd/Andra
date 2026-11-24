@@ -23,11 +23,11 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import pe.andra.controller.AndraPrincipalControlador;
-import pe.andra.model.DixonRol;
-import pe.andra.service.DixonCatalogoServicio;
-import pe.andra.service.DixonExpedienteServicio;
-import pe.andra.service.DixonPagoServicio;
-import pe.andra.service.DixonSesionServicio;
+import pe.andra.model.AndraRol;
+import pe.andra.service.AndraCatalogoServicio;
+import pe.andra.service.AndraExpedienteServicio;
+import pe.andra.service.AndraPagoServicio;
+import pe.andra.service.AndraSesionServicio;
 
 import javax.imageio.ImageIO;
 import java.io.File;
@@ -85,9 +85,9 @@ class CapturasTest {
         esperar(900);
         guardar("00-ingreso");
         String rutas = System.getProperty("rutas", "");
-        DixonSesionServicio sesion = contexto.getBean(DixonSesionServicio.class);
+        AndraSesionServicio sesion = contexto.getBean(AndraSesionServicio.class);
         enFx(() -> {
-            sesion.dixonIngresar(DixonRol.ESTUDIANTE, "20240157", "andra2026");
+            sesion.andraIngresar(AndraRol.ESTUDIANTE, "20240157", "andra2026");
             principal.andraAlIngresar();
             return null;
         });
@@ -112,14 +112,14 @@ class CapturasTest {
         guardarPagina("e-reservas-mapa");
         enFx(() -> {
             principal.andraIrA("documentos");
-            contexto.getBean(AndraAccionesPago.class).andraIniciar(contexto.getBean(DixonCatalogoServicio.class).dixonTramite("t-cest").orElseThrow(), null, () -> {
+            contexto.getBean(AndraAccionesPago.class).andraIniciar(contexto.getBean(AndraCatalogoServicio.class).andraTramite("t-cest").orElseThrow(), null, () -> {
             });
             return null;
         });
         esperar(700);
         guardar("m-asistente-datos");
         enFx(() -> {
-            String m = contexto.getBean(DixonPagoServicio.class).dixonMatricula().getDixonPago().getDixonCodigo();
+            String m = contexto.getBean(AndraPagoServicio.class).andraMatricula().getAndraPago().getAndraCodigo();
             contexto.getBean(AndraAccionesPago.class).andraPantalla(m, () -> {
             });
             return null;
@@ -128,7 +128,7 @@ class CapturasTest {
         guardar("m-pantalla-pago");
         enFx(() -> {
             contexto.getBean(AndraNotificador.class).andraCerrarModal();
-            contexto.getBean(AndraAccionesExpediente.class).andraSeguimiento(contexto.getBean(DixonExpedienteServicio.class).dixonMios().get(0).getDixonCodigo());
+            contexto.getBean(AndraAccionesExpediente.class).andraSeguimiento(contexto.getBean(AndraExpedienteServicio.class).andraMios().get(0).getAndraCodigo());
             return null;
         });
         esperar(700);
@@ -161,8 +161,8 @@ class CapturasTest {
             });
         }
         enFx(() -> {
-            sesion.dixonCerrar();
-            sesion.dixonIngresar(DixonRol.ADMINISTRADOR, "rmartinez@institucion.edu", "admin2026");
+            sesion.andraCerrar();
+            sesion.andraIngresar(AndraRol.ADMINISTRADOR, "rmartinez@institucion.edu", "admin2026");
             principal.andraAlIngresar();
             return null;
         });
@@ -179,7 +179,7 @@ class CapturasTest {
             guardarPagina("a-" + r + "-completa");
         }
         enFx(() -> {
-            sesion.dixonCerrar();
+            sesion.andraCerrar();
             ventana.close();
             return null;
         });

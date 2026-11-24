@@ -8,10 +8,10 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import org.kordamp.ikonli.javafx.FontIcon;
-import pe.andra.model.DixonEquipo;
-import pe.andra.model.DixonEspacio;
-import pe.andra.model.DixonTipoEspacio;
-import pe.andra.util.DixonHash;
+import pe.andra.model.AndraEquipo;
+import pe.andra.model.AndraEspacio;
+import pe.andra.model.AndraTipoEspacio;
+import pe.andra.util.AndraHash;
 
 import java.util.Map;
 
@@ -29,8 +29,8 @@ public final class AndraIlustraciones {
     private AndraIlustraciones() {
     }
 
-    public static String andraIconoCategoria(DixonEquipo andraEquipo) {
-        return ANDRA_ICONOS_CATEGORIA.getOrDefault(andraEquipo.getDixonCategoria().getDixonIcono(), "fth-box");
+    public static String andraIconoCategoria(AndraEquipo andraEquipo) {
+        return ANDRA_ICONOS_CATEGORIA.getOrDefault(andraEquipo.getAndraCategoria().getAndraIcono(), "fth-box");
     }
 
     private static Rectangle andraRect(double andraPosicionX, double andraPosicionY, double andraAncho, double andraAlto, double andraRadio, Color andraColor, double andraOpacidad) {
@@ -42,13 +42,13 @@ public final class AndraIlustraciones {
         return andraRectangulo;
     }
 
-    public static Group andraEspacio(DixonEspacio andraEspacio) {
-        long andraAlto = DixonHash.dixonNumero(andraEspacio.getDixonCodigo());
+    public static Group andraEspacio(AndraEspacio andraEspacio) {
+        long andraAlto = AndraHash.andraNumero(andraEspacio.getAndraCodigo());
         Group andraGrupo = new Group();
         andraGrupo.getChildren().add(andraRect(0, 0, 400, 250, 0, ANDRA_SF, 1));
-        DixonTipoEspacio andraTipo = andraEspacio.getDixonTipo();
-        if (andraTipo == DixonTipoEspacio.AUDITORIO) {
-            int andraFilas = andraEspacio.getDixonCapacidad() >= 1000 ? 7 : andraEspacio.getDixonCapacidad() >= 250 ? 5 : 4;
+        AndraTipoEspacio andraTipo = andraEspacio.getAndraTipo();
+        if (andraTipo == AndraTipoEspacio.AUDITORIO) {
+            int andraFilas = andraEspacio.getAndraCapacidad() >= 1000 ? 7 : andraEspacio.getAndraCapacidad() >= 250 ? 5 : 4;
             Path andraArco = new Path(new MoveTo(60, 70), new QuadCurveTo(200, 30, 340, 70), new LineTo(340, 92),
                     new QuadCurveTo(200, 56, 60, 92), new ClosePath());
             andraArco.setFill(ANDRA_P);
@@ -65,7 +65,7 @@ public final class AndraIlustraciones {
                     andraGrupo.getChildren().add(andraRect(andraPosicionX - 5, andraPosicionY, 10, 70.0 / andraFilas, 3, andraAzul ? ANDRA_P : ANDRA_T, andraAzul ? 0.9 : 0.14 + andraNumero * 0.04));
                 }
             }
-        } else if (andraTipo == DixonTipoEspacio.LABORATORIO) {
+        } else if (andraTipo == AndraTipoEspacio.LABORATORIO) {
             andraGrupo.getChildren().add(andraRect(0, 190, 400, 60, 0, ANDRA_W, 0.7));
             for (int andraNumero = 0; andraNumero < 2; andraNumero++) {
                 for (int andraIndice = 0; andraIndice < 4; andraIndice++) {
@@ -76,7 +76,7 @@ public final class AndraIlustraciones {
                             andraRect(andraPosicionX + 28, andraPosicionY + 42, 8, 10, 0, ANDRA_T, 0.6), andraRect(andraPosicionX - 6, andraPosicionY + 52, 76, 6, 3, ANDRA_B, 1));
                 }
             }
-        } else if (andraTipo == DixonTipoEspacio.AULA) {
+        } else if (andraTipo == AndraTipoEspacio.AULA) {
             andraGrupo.getChildren().add(andraRect(80, 26, 240, 60, 6, ANDRA_T, 0.85));
             Line andraLinea1 = new Line(100, 50, 180, 50);
             Line andraLinea2 = new Line(100, 64, 220, 64);
@@ -94,7 +94,7 @@ public final class AndraIlustraciones {
                     andraGrupo.getChildren().add(andraCarpeta);
                 }
             }
-        } else if (andraTipo == DixonTipoEspacio.SALA) {
+        } else if (andraTipo == AndraTipoEspacio.SALA) {
             Ellipse andraMesa = new Ellipse(200, 140, 110, 54);
             andraMesa.setFill(ANDRA_W);
             andraMesa.setStroke(ANDRA_B);
@@ -125,7 +125,7 @@ public final class AndraIlustraciones {
         return andraGrupo;
     }
 
-    public static Pane andraMarcoEspacio(DixonEspacio andraEspacio, Node[] andraObjetivoGiro) {
+    public static Pane andraMarcoEspacio(AndraEspacio andraEspacio, Node[] andraObjetivoGiro) {
         Group andraArte = andraEspacio(andraEspacio);
         Group andraGiratorio = new Group(andraArte);
         andraObjetivoGiro[0] = andraGiratorio;
@@ -147,7 +147,7 @@ public final class AndraIlustraciones {
         return andraMarco;
     }
 
-    public static StackPane andraEquipo(DixonEquipo andraEquipo, Node[] andraObjetivoGiro) {
+    public static StackPane andraEquipo(AndraEquipo andraEquipo, Node[] andraObjetivoGiro) {
         Circle andraCirculo1 = new Circle();
         andraCirculo1.getStyleClass().addAll("eq-ring", "r1");
         Circle andraCirculo2 = new Circle();

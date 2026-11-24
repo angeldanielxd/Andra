@@ -127,7 +127,6 @@
 
 .nav-link:hover { -fx-opacity: 1; }
 .nav-link:selected {
-    /* gota de vidrio: borde con brillo arriba, relleno translúcido y sombra suave */
     -fx-background-color:
         linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.35) 60%, rgba(0, 0, 0, 0.07)),
         linear-gradient(to bottom, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.62)),

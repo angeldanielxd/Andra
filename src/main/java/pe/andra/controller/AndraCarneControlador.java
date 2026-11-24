@@ -19,16 +19,16 @@ import javafx.util.Duration;
 import lombok.RequiredArgsConstructor;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.springframework.stereotype.Component;
-import pe.andra.model.DixonPersona;
-import pe.andra.model.DixonUsoCarne;
-import pe.andra.service.DixonCarneServicio;
-import pe.andra.service.DixonQrServicio;
-import pe.andra.service.DixonSesionServicio;
+import pe.andra.model.AndraPersona;
+import pe.andra.model.AndraUsoCarne;
+import pe.andra.service.AndraCarneServicio;
+import pe.andra.service.AndraQrServicio;
+import pe.andra.service.AndraSesionServicio;
 import pe.andra.ui.AndraComponentes;
 import pe.andra.ui.AndraMovimiento;
 import pe.andra.ui.AndraRejilla;
 import pe.andra.ui.AndraTarjetaCarne;
-import pe.andra.util.DixonFechas;
+import pe.andra.util.AndraFechas;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,8 +37,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AndraCarneControlador extends AndraVistaBase {
 
-    private final DixonCarneServicio andraCarne;
-    private final DixonSesionServicio andraSesion;
+    private final AndraCarneServicio andraCarne;
+    private final AndraSesionServicio andraSesion;
 
     private Timeline andraReloj;
     private long andraFranjaDibujada = -1;
@@ -53,8 +53,8 @@ public class AndraCarneControlador extends AndraVistaBase {
     @Override
     protected List<Node> andraConstruir() {
         andraSalir();
-        DixonPersona andraEstudianteActual = andraSesion.dixonEstudiante();
-        boolean andraVigente = andraCarne.dixonVigente();
+        AndraPersona andraEstudianteActual = andraSesion.andraEstudiante();
+        boolean andraVigente = andraCarne.andraVigente();
         List<Node> andraNodos = new ArrayList<>();
         andraNodos.add(AndraComponentes.andraPortada("Andra", "Mi carné digital",
                 "Tu carné vive en tu celular. Muéstralo en la biblioteca, en el préstamo de equipos o al entrar a un laboratorio.", null));
@@ -65,7 +65,7 @@ public class AndraCarneControlador extends AndraVistaBase {
         if (!andraVigente) {
             andraInsignias.getChildren().add(AndraComponentes.andraBotonSm("Confirmar matrícula en Andra Pay", "btn-primary", null, andraEvento -> andraIr("pay")));
         }
-        VBox andraIzquierda = new VBox(14, AndraTarjetaCarne.andraCrear(andraEstudianteActual, andraVigente, andraCarne.dixonFoto().orElse(null)), andraInsignias);
+        VBox andraIzquierda = new VBox(14, AndraTarjetaCarne.andraCrear(andraEstudianteActual, andraVigente, andraCarne.andraFoto().orElse(null)), andraInsignias);
         ImageView andraImagenQr = new ImageView();
         andraImagenQr.setFitWidth(168);
         andraImagenQr.setFitHeight(168);
@@ -87,14 +87,14 @@ public class AndraCarneControlador extends AndraVistaBase {
         Label andraRestante = AndraComponentes.andraEtiqueta("Se renueva en 15 s", "hint");
         andraFranjaDibujada = -1;
         Runnable andraActualizar = () -> {
-            long andraAhora = DixonFechas.dixonMilis();
-            long andraNumero = DixonCarneServicio.dixonFranja(andraAhora);
+            long andraAhora = AndraFechas.andraMilis();
+            long andraNumero = AndraCarneServicio.andraFranja(andraAhora);
             if (andraNumero != andraFranjaDibujada) {
-                andraImagenQr.setImage(DixonQrServicio.dixonImagen(DixonCarneServicio.dixonToken(andraEstudianteActual.getDixonCodigo(), andraNumero), 336));
+                andraImagenQr.setImage(AndraQrServicio.andraImagen(AndraCarneServicio.andraToken(andraEstudianteActual.getAndraCodigo(), andraNumero), 336));
                 andraFranjaDibujada = andraNumero;
             }
-            andraArco.setLength(360 * DixonCarneServicio.dixonFraccionRestante(andraAhora));
-            AndraComponentes.andraFijar(andraRestante, "Se renueva en " + DixonCarneServicio.dixonSegundosRestantes(andraAhora) + " s");
+            andraArco.setLength(360 * AndraCarneServicio.andraFraccionRestante(andraAhora));
+            AndraComponentes.andraFijar(andraRestante, "Se renueva en " + AndraCarneServicio.andraSegundosRestantes(andraAhora) + " s");
         };
         andraActualizar.run();
         andraReloj = new Timeline(new KeyFrame(Duration.millis(500), andraEvento -> andraActualizar.run()));
@@ -132,29 +132,29 @@ public class AndraCarneControlador extends AndraVistaBase {
         }
         andraNodos.add(AndraComponentes.andraSeccion(andraUsos));
         List<Node> andraFilas = new ArrayList<>();
-        for (DixonUsoCarne andraUsoCarne : andraCarne.dixonUltimos()) {
-            andraFilas.add(AndraComponentes.andraFila(AndraComponentes.andraTextosFila(andraUsoCarne.getDixonLugar(), DixonFechas.dixonDmy(andraUsoCarne.getDixonFecha().toLocalDate()) + " · " + DixonFechas.dixonHm(andraUsoCarne.getDixonFecha())),
-                    AndraComponentes.andraPildora(andraUsoCarne.isDixonConcedido() ? "Acceso concedido" : "Rechazado", andraUsoCarne.isDixonConcedido() ? "success" : "error")));
+        for (AndraUsoCarne andraUsoCarne : andraCarne.andraUltimos()) {
+            andraFilas.add(AndraComponentes.andraFila(AndraComponentes.andraTextosFila(andraUsoCarne.getAndraLugar(), AndraFechas.andraDmy(andraUsoCarne.getAndraFecha().toLocalDate()) + " · " + AndraFechas.andraHm(andraUsoCarne.getAndraFecha())),
+                    AndraComponentes.andraPildora(andraUsoCarne.isAndraConcedido() ? "Acceso concedido" : "Rechazado", andraUsoCarne.isAndraConcedido() ? "success" : "error")));
         }
         andraNodos.add(AndraComponentes.andraSeccion(AndraComponentes.andraCabeceraSeccion("Últimos usos", null),
                 andraFilas.isEmpty() ? AndraComponentes.andraVacio("fth-credit-card", "Sin registros", "Aún no usaste tu carné.") : AndraComponentes.andraLista(andraFilas)));
         return andraNodos;
     }
 
-    private void andraAmpliar(DixonPersona andraEstudianteActual) {
-        ImageView andraImagenQr = new ImageView(DixonQrServicio.dixonImagen(andraCarne.dixonTokenActual(), 520));
+    private void andraAmpliar(AndraPersona andraEstudianteActual) {
+        ImageView andraImagenQr = new ImageView(AndraQrServicio.andraImagen(andraCarne.andraTokenActual(), 520));
         andraImagenQr.setFitWidth(260);
         andraImagenQr.setFitHeight(260);
         StackPane andraMarco = new StackPane(andraImagenQr);
         andraMarco.getStyleClass().add("qr-img");
         andraMarco.setMaxSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
-        VBox andraCuerpo = new VBox(12, andraMarco, AndraComponentes.andraLiteral(andraEstudianteActual.getDixonNombre() + " · " + andraEstudianteActual.getDixonCodigo(), "hint"));
+        VBox andraCuerpo = new VBox(12, andraMarco, AndraComponentes.andraLiteral(andraEstudianteActual.getAndraNombre() + " · " + andraEstudianteActual.getAndraCodigo(), "hint"));
         andraCuerpo.setAlignment(Pos.CENTER);
         andraNotificador.andraModal("Código de acceso", andraCuerpo, false, AndraComponentes.andraBoton("Cerrar", "btn-primary", null, andraEvento -> andraNotificador.andraCerrarModal()));
     }
 
     private void andraLeer() {
-        String andraLugar = DixonCarneServicio.DIXON_LUGARES.get(new java.util.Random().nextInt(DixonCarneServicio.DIXON_LUGARES.size()));
+        String andraLugar = AndraCarneServicio.ANDRA_LUGARES.get(new java.util.Random().nextInt(AndraCarneServicio.ANDRA_LUGARES.size()));
         Rectangle andraLinea = new Rectangle(160, 3);
         andraLinea.setArcWidth(3);
         andraLinea.setArcHeight(3);
@@ -177,15 +177,15 @@ public class AndraCarneControlador extends AndraVistaBase {
             if (!andraNotificador.andraHayModal()) {
                 return;
             }
-            DixonUsoCarne andraUso = andraCarne.dixonSimularLectura();
-            boolean andraCorrecto = andraUso.isDixonConcedido();
+            AndraUsoCarne andraUso = andraCarne.andraSimularLectura();
+            boolean andraCorrecto = andraUso.isAndraConcedido();
             StackPane andraMarca = new StackPane(new FontIcon(andraCorrecto ? "fth-check" : "fth-x"));
             andraMarca.getStyleClass().add("ok-check");
             if (!andraCorrecto) {
                 andraMarca.getStyleClass().add("no");
             }
-            VBox andraCajaVertical = new VBox(6, andraMarca, AndraComponentes.andraParrafo(andraCorrecto ? "Acceso concedido" : "Acceso denegado", "h3"), AndraComponentes.andraLiteral(andraUso.getDixonLugar()),
-                    AndraComponentes.andraParrafo(andraCorrecto ? "Carné vigente · " + andraSesion.dixonEstudiante().getDixonNombre() : "Tu carné está pendiente: confirma tu matrícula en Andra Pay.", "hint"));
+            VBox andraCajaVertical = new VBox(6, andraMarca, AndraComponentes.andraParrafo(andraCorrecto ? "Acceso concedido" : "Acceso denegado", "h3"), AndraComponentes.andraLiteral(andraUso.getAndraLugar()),
+                    AndraComponentes.andraParrafo(andraCorrecto ? "Carné vigente · " + andraSesion.andraEstudiante().getAndraNombre() : "Tu carné está pendiente: confirma tu matrícula en Andra Pay.", "hint"));
             andraCajaVertical.getStyleClass().add("ok-hero");
             andraNotificador.andraModal("Lector de puerta", andraCajaVertical, false, AndraComponentes.andraBoton("Listo", "btn-primary", null, andraPosicionX -> {
                 andraNotificador.andraCerrarModal();

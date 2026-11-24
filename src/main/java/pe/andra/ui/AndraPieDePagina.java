@@ -9,9 +9,9 @@ import lombok.RequiredArgsConstructor;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.springframework.stereotype.Component;
 import pe.andra.config.AndraDatosInstitucion;
-import pe.andra.model.DixonRol;
-import pe.andra.service.DixonSesionServicio;
-import pe.andra.util.DixonPortapapeles;
+import pe.andra.model.AndraRol;
+import pe.andra.service.AndraSesionServicio;
+import pe.andra.util.AndraPortapapeles;
 
 import java.util.List;
 
@@ -22,12 +22,12 @@ public class AndraPieDePagina {
     private final AndraEnlaces andraEnlaces;
     private final AndraNotificador andraNotificador;
     private final AndraDatosInstitucion andraInstitucion;
-    private final DixonSesionServicio andraSesion;
+    private final AndraSesionServicio andraSesion;
 
     public VBox andraCrear() {
-        DixonRol andraRol = andraSesion.dixonRol();
-        List<DixonSesionServicio.DixonRuta> andraRutas = DixonSesionServicio.dixonRutas(andraRol);
-        int andraCorte = andraRol == DixonRol.ADMINISTRADOR ? 3 : 4;
+        AndraRol andraRol = andraSesion.andraRol();
+        List<AndraSesionServicio.AndraRuta> andraRutas = AndraSesionServicio.andraRutas(andraRol);
+        int andraCorte = andraRol == AndraRol.ADMINISTRADOR ? 3 : 4;
 
         VBox andraMarca = new VBox(2, AndraComponentes.andraLiteral("Andra", "brand-name"), AndraComponentes.andraLiteral("Institución", "brand-sub"),
                 AndraComponentes.andraLiteral("tus trámites más simples", "brand-sub"));
@@ -43,7 +43,7 @@ public class AndraPieDePagina {
 
         GridPane andraRejilla = new GridPane();
         andraRejilla.getStyleClass().add("pie-grid");
-        int andraColumnas = andraRol == DixonRol.ADMINISTRADOR ? 3 : 4;
+        int andraColumnas = andraRol == AndraRol.ADMINISTRADOR ? 3 : 4;
         for (int andraIndice = 0; andraIndice < andraColumnas; andraIndice++) {
             ColumnConstraints andraRestriccionColumna = new ColumnConstraints();
             andraRestriccionColumna.setPercentWidth(andraIndice == 0 ? 34 : 66.0 / (andraColumnas - 1));
@@ -52,7 +52,7 @@ public class AndraPieDePagina {
         andraRejilla.add(andraColMarca, 0, 0);
         andraRejilla.add(andraColumna("Servicios", andraRutas.subList(0, Math.min(andraCorte, andraRutas.size()))), 1, 0);
         andraRejilla.add(andraColumna("Seguimiento", andraRutas.subList(Math.min(andraCorte, andraRutas.size()), andraRutas.size())), 2, 0);
-        if (andraRol != DixonRol.ADMINISTRADOR) {
+        if (andraRol != AndraRol.ADMINISTRADOR) {
             VBox andraSoporte = new VBox(AndraComponentes.andraEtiqueta("Soporte", "pie-col-titulo"), andraEnlace("Centro de ayuda", "ayuda"),
                     andraEnlace("Contacto", "contacto"));
             andraSoporte.getStyleClass().add("pie-col");
@@ -73,10 +73,10 @@ public class AndraPieDePagina {
         return andraPie;
     }
 
-    private VBox andraColumna(String andraTitulo, List<DixonSesionServicio.DixonRuta> andraRutas) {
+    private VBox andraColumna(String andraTitulo, List<AndraSesionServicio.AndraRuta> andraRutas) {
         VBox andraCajaVertical = new VBox(AndraComponentes.andraEtiqueta(andraTitulo, "pie-col-titulo"));
         andraCajaVertical.getStyleClass().add("pie-col");
-        andraRutas.forEach(andraRuta -> andraCajaVertical.getChildren().add(andraEnlace(andraRuta.dixonEtiqueta(), andraRuta.dixonClave())));
+        andraRutas.forEach(andraRuta -> andraCajaVertical.getChildren().add(andraEnlace(andraRuta.andraEtiqueta(), andraRuta.andraClave())));
         return andraCajaVertical;
     }
 
@@ -113,7 +113,7 @@ public class AndraPieDePagina {
         andraNotificador.andraModal("Central telefónica", andraCuerpo, false,
                 AndraComponentes.andraBoton("Cerrar", "btn-secondary", null, andraEvento -> andraNotificador.andraCerrarModal()),
                 AndraComponentes.andraBoton("Copiar número", "btn-primary", null, andraEvento -> {
-                    DixonPortapapeles.dixonCopiar(andraInstitucion.getAndraTelefono());
+                    AndraPortapapeles.andraCopiar(andraInstitucion.getAndraTelefono());
                     andraNotificador.andraExito("Número copiado.");
                 }));
     }

@@ -214,7 +214,6 @@ public class AndraNotificador {
         andraMarco.getStyleClass().add("pop-marco");
         andraMarco.setPickOnBounds(true);
         andraMarco.translateYProperty().addListener((andraObservable, andraAntes, andraAhora) -> andraVidrio.andraMarcar());
-        // Medir con CSS aplicado
         andraCapaFlotante.getChildren().setAll(andraAtrapaClics, andraMarco);
         andraMarco.applyCss();
         double andraAlto = andraCapaFlotante.getHeight();

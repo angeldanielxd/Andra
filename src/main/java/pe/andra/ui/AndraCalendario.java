@@ -11,7 +11,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.TextFlow;
 import org.kordamp.ikonli.javafx.FontIcon;
-import pe.andra.util.DixonFechas;
+import pe.andra.util.AndraFechas;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -49,7 +49,7 @@ public final class AndraCalendario {
     }
 
     private void andraDibujar() {
-        LocalDate andraHoy = DixonFechas.dixonHoy();
+        LocalDate andraHoy = AndraFechas.andraHoy();
         LocalDate andraMaximo = andraHoy.plusDays(ANDRA_DIAS_MAXIMOS);
         Button andraAnterior = AndraComponentes.andraIconoRedondo("fth-chevron-left", "Mes anterior", andraEvento -> {
             andraMes = andraMes.minusMonths(1);
@@ -61,7 +61,7 @@ public final class AndraCalendario {
             andraDibujar();
         });
         andraSiguiente.setDisable(!andraMes.isBefore(YearMonth.from(andraMaximo)));
-        Label andraTitulo = AndraComponentes.andraEtiqueta(DixonFechas.dixonMesAnio(andraMes.atDay(1)), "cal-mes");
+        Label andraTitulo = AndraComponentes.andraEtiqueta(AndraFechas.andraMesAnio(andraMes.atDay(1)), "cal-mes");
         HBox andraCabecera = new HBox(andraAnterior, AndraComponentes.andraEspacio(), andraTitulo, AndraComponentes.andraEspacio(), andraSiguiente);
         andraCabecera.getStyleClass().add("cal-head");
 
@@ -90,7 +90,7 @@ public final class AndraCalendario {
                 andraDia.getStyleClass().add("on");
             }
             andraDia.setDisable(andraFecha.isBefore(andraHoy) || andraFecha.isAfter(andraMaximo));
-            AndraComponentes.andraAccesible(andraDia, DixonFechas.dixonLargo(andraFecha) + (andraFecha.equals(andraHoy) ? ", hoy" : ""));
+            AndraComponentes.andraAccesible(andraDia, AndraFechas.andraLargo(andraFecha) + (andraFecha.equals(andraHoy) ? ", hoy" : ""));
             andraDia.setMaxWidth(Double.MAX_VALUE);
             andraDia.setOnAction(andraEvento -> {
                 andraSeleccion = andraFecha;
@@ -106,7 +106,7 @@ public final class AndraCalendario {
             andraGrilla.add(andraDia, andraPosicion % 7, 1 + andraPosicion / 7);
         }
         TextFlow andraElegido = AndraComponentes.andraFlujo(AndraComponentes.andraTexto("Seleccionado:", "hint"), AndraComponentes.andraTexto(" "),
-                AndraComponentes.andraTexto(DixonFechas.dixonLargo(andraSeleccion), "strong"));
+                AndraComponentes.andraTexto(AndraFechas.andraLargo(andraSeleccion), "strong"));
         VBox.setMargin(andraElegido, new Insets(12, 0, 0, 0));
         andraCuerpo.getChildren().setAll(andraCabecera, andraGrilla, andraElegido);
     }

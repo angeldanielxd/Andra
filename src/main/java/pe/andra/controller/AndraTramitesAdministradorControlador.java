@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
 import pe.andra.model.*;
 import pe.andra.service.*;
 import pe.andra.ui.*;
-import pe.andra.util.DixonFechas;
-import pe.andra.util.DixonMontos;
-import pe.andra.util.DixonTextoPlano;
+import pe.andra.util.AndraFechas;
+import pe.andra.util.AndraMontos;
+import pe.andra.util.AndraTextoPlano;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -21,21 +21,21 @@ import java.util.function.Predicate;
 @RequiredArgsConstructor
 public class AndraTramitesAdministradorControlador extends AndraVistaBase {
 
-    private final DixonAdministradorServicio andraAdministrador;
-    private final DixonContextoServicio andraContexto;
-    private final DixonCatalogoServicio andraCatalogo;
+    private final AndraAdministradorServicio andraAdministrador;
+    private final AndraContextoServicio andraContexto;
+    private final AndraCatalogoServicio andraCatalogo;
     private final AndraAccionesAdministrador andraAcciones;
 
-    private final DixonEstadoFiltro andraFiltros = new DixonEstadoFiltro();
+    private final AndraEstadoFiltro andraFiltros = new AndraEstadoFiltro();
     private String andraPestana = "todo";
 
     @Override
     protected List<Node> andraConstruir() {
-        List<DixonExpediente> andraBase = andraAdministrador.dixonExpedientes();
-        Map<String, Predicate<DixonExpediente>> andraPestanas = new LinkedHashMap<>();
-        andraPestanas.put("todo", andraExpediente -> andraExpediente.getDixonGrupo() == DixonGrupoExpediente.TRAMITE);
-        andraPestanas.put("obs", andraExpediente -> andraExpediente.getDixonGrupo() == DixonGrupoExpediente.OBSERVADO);
-        andraPestanas.put("listo", andraExpediente -> andraExpediente.getDixonGrupo() == DixonGrupoExpediente.LISTO);
+        List<AndraExpediente> andraBase = andraAdministrador.andraExpedientes();
+        Map<String, Predicate<AndraExpediente>> andraPestanas = new LinkedHashMap<>();
+        andraPestanas.put("todo", andraExpediente -> andraExpediente.getAndraGrupo() == AndraGrupoExpediente.TRAMITE);
+        andraPestanas.put("obs", andraExpediente -> andraExpediente.getAndraGrupo() == AndraGrupoExpediente.OBSERVADO);
+        andraPestanas.put("listo", andraExpediente -> andraExpediente.getAndraGrupo() == AndraGrupoExpediente.LISTO);
         andraPestanas.put("all", andraExpediente -> true);
         String[][] andraNombres = {{"todo", "Por atender"}, {"obs", "Observados"}, {"listo", "Listos y entregados"}, {"all", "Todos"}};
         AndraSegmentado andraSeg = new AndraSegmentado(true);
@@ -47,54 +47,54 @@ public class AndraTramitesAdministradorControlador extends AndraVistaBase {
             andraRedibujar();
         });
         andraSeg.setMaxWidth(640);
-        List<DixonExpediente> andraLista = andraBase.stream().filter(andraPestanas.get(andraPestana)).toList();
-        Map<String, Function<DixonExpediente, String>> andraCampos = new LinkedHashMap<>();
+        List<AndraExpediente> andraLista = andraBase.stream().filter(andraPestanas.get(andraPestana)).toList();
+        Map<String, Function<AndraExpediente, String>> andraCampos = new LinkedHashMap<>();
         andraCampos.put("fac", andraExpediente -> andraEscuela(andraExpediente));
-        andraCampos.put("tipo", andraExpediente -> andraAcciones.andraSolicitante(andraExpediente).getDixonTipo());
-        andraLista = DixonFiltroServicio.dixonAplicarAvanzado(andraLista, andraFiltros, new DixonFiltroServicio.DixonAccesores<>(DixonSeguimientoServicio::dixonFechaDe, this::andraClave, andraCampos));
-        Map<String, Predicate<DixonExpediente>> andraPred = new HashMap<>(DixonFiltroServicio.dixonPredicadosFecha(DixonSeguimientoServicio::dixonFechaDe));
-        andraPred.put("paid", andraExpediente -> andraExpediente.getDixonPago() != null && andraExpediente.getDixonPago().dixonEsPagado());
-        andraPred.put("unpaid", andraExpediente -> andraExpediente.getDixonPago() != null && andraExpediente.getDixonPago().dixonEsPendiente());
-        andraPred.put("carne", andraExpediente -> andraExpediente.getDixonTramite() != null && andraExpediente.getDixonTramite().dixonEsCarne());
-        andraLista = DixonFiltroServicio.dixonAplicar(andraLista, andraFiltros, andraPred, andraExpediente -> andraExpediente.getDixonCodigo() + " " + andraExpediente.getDixonTitulo() + " " + andraExpediente.getDixonPersona().getDixonNombre() + " " + andraExpediente.getDixonEstado());
+        andraCampos.put("tipo", andraExpediente -> andraAcciones.andraSolicitante(andraExpediente).getAndraTipo());
+        andraLista = AndraFiltroServicio.andraAplicarAvanzado(andraLista, andraFiltros, new AndraFiltroServicio.AndraAccesores<>(AndraSeguimientoServicio::andraFechaDe, this::andraClave, andraCampos));
+        Map<String, Predicate<AndraExpediente>> andraPred = new HashMap<>(AndraFiltroServicio.andraPredicadosFecha(AndraSeguimientoServicio::andraFechaDe));
+        andraPred.put("paid", andraExpediente -> andraExpediente.getAndraPago() != null && andraExpediente.getAndraPago().andraEsPagado());
+        andraPred.put("unpaid", andraExpediente -> andraExpediente.getAndraPago() != null && andraExpediente.getAndraPago().andraEsPendiente());
+        andraPred.put("carne", andraExpediente -> andraExpediente.getAndraTramite() != null && andraExpediente.getAndraTramite().andraEsCarne());
+        andraLista = AndraFiltroServicio.andraAplicar(andraLista, andraFiltros, andraPred, andraExpediente -> andraExpediente.getAndraCodigo() + " " + andraExpediente.getAndraTitulo() + " " + andraExpediente.getAndraPersona().getAndraNombre() + " " + andraExpediente.getAndraEstado());
         List<AndraFiltros.AndraAvanzado> andraAvanzados = AndraAdministradorFiltros.andraFechas("Desde", "Hasta");
         andraAvanzados.addAll(AndraAdministradorFiltros.andraPersona(andraCatalogo, "Código o DNI del solicitante", "Ej. 20240157"));
-        HBox andraCab = new HBox(16, andraSeg, AndraComponentes.andraEspacio(), AndraFiltros.andraBoton(andraFiltros, DixonAdministradorServicio.DIXON_PREDEFINIDOS_TRAMITES, andraAvanzados, andraNotificador, this::andraRedibujar));
+        HBox andraCab = new HBox(16, andraSeg, AndraComponentes.andraEspacio(), AndraFiltros.andraBoton(andraFiltros, AndraAdministradorServicio.ANDRA_PREDEFINIDOS_TRAMITES, andraAvanzados, andraNotificador, this::andraRedibujar));
         andraCab.getStyleClass().add("section-h");
         Node andraCuerpo;
         if (andraLista.isEmpty()) {
             andraCuerpo = AndraComponentes.andraVacio("fth-inbox", "No hay trámites aquí", "Cambia de pestaña, de sede o quita filtros.");
         } else {
             List<Node[]> andraFilas = new ArrayList<>();
-            for (DixonExpediente andraExpediente : andraLista) {
-                DixonDatosSolicitante andraSol = andraAcciones.andraSolicitante(andraExpediente);
-                LocalDate andraFecha = DixonSeguimientoServicio.dixonFechaDe(andraExpediente);
-                DixonPago andraPago = andraExpediente.getDixonPago();
-                Node andraPago2 = andraPago == null ? AndraComponentes.andraEtiqueta("No aplica", "hint") : andraPago.dixonEsPagado() ? AndraComponentes.andraPildora(DixonMontos.dixonSoles(andraPago.dixonObtenerTotal()), "success")
-                        : AndraComponentes.andraPildora(andraPago.getDixonEstado() == DixonEstadoPago.PENDIENTE ? "Pendiente" : andraPago.getDixonEstado().dixonObtenerEtiqueta(), andraPago.dixonEsPendiente() ? "warning" : "neutral");
-                String andraEscuela = andraSol.getDixonEscuela() != null && andraCatalogo.dixonEscuela(andraSol.getDixonEscuela()).isPresent() ? " · " + andraCatalogo.dixonNombreEscuela(andraSol.getDixonEscuela()) : "";
-                andraFilas.add(new Node[]{AndraTabla.andraCelda(andraExpediente.getDixonCodigo(), andraFecha != null ? DixonFechas.dixonDmy(andraFecha) : andraExpediente.getDixonDatos().get(0).getDixonValor()),
-                        AndraTabla.andraCelda(andraSol.getDixonNombre(), andraSol.getDixonTipo() + " · " + (andraSol.getDixonCodigo() == null ? "—" : andraSol.getDixonCodigo()) + andraEscuela),
-                        AndraComponentes.andraParrafo(andraExpediente.getDixonTitulo(), "small"), AndraComponentes.andraLiteral(andraExpediente.getDixonSede().getDixonNombre(), "small"), andraPago2,
-                        AndraComponentes.andraPildora(DixonTextoPlano.dixonRecortar(andraExpediente.getDixonEstado(), 34), andraExpediente.getDixonTono()),
-                        AndraComponentes.andraBotonSm("Revisar", "btn-secondary", null, andraEvento -> andraAcciones.andraRevisar(andraExpediente.getDixonCodigo(), this::andraRedibujar))});
+            for (AndraExpediente andraExpediente : andraLista) {
+                AndraDatosSolicitante andraSol = andraAcciones.andraSolicitante(andraExpediente);
+                LocalDate andraFecha = AndraSeguimientoServicio.andraFechaDe(andraExpediente);
+                AndraPago andraPago = andraExpediente.getAndraPago();
+                Node andraPago2 = andraPago == null ? AndraComponentes.andraEtiqueta("No aplica", "hint") : andraPago.andraEsPagado() ? AndraComponentes.andraPildora(AndraMontos.andraSoles(andraPago.andraObtenerTotal()), "success")
+                        : AndraComponentes.andraPildora(andraPago.getAndraEstado() == AndraEstadoPago.PENDIENTE ? "Pendiente" : andraPago.getAndraEstado().andraObtenerEtiqueta(), andraPago.andraEsPendiente() ? "warning" : "neutral");
+                String andraEscuela = andraSol.getAndraEscuela() != null && andraCatalogo.andraEscuela(andraSol.getAndraEscuela()).isPresent() ? " · " + andraCatalogo.andraNombreEscuela(andraSol.getAndraEscuela()) : "";
+                andraFilas.add(new Node[]{AndraTabla.andraCelda(andraExpediente.getAndraCodigo(), andraFecha != null ? AndraFechas.andraDmy(andraFecha) : andraExpediente.getAndraDatos().get(0).getAndraValor()),
+                        AndraTabla.andraCelda(andraSol.getAndraNombre(), andraSol.getAndraTipo() + " · " + (andraSol.getAndraCodigo() == null ? "—" : andraSol.getAndraCodigo()) + andraEscuela),
+                        AndraComponentes.andraParrafo(andraExpediente.getAndraTitulo(), "small"), AndraComponentes.andraLiteral(andraExpediente.getAndraSede().getAndraNombre(), "small"), andraPago2,
+                        AndraComponentes.andraPildora(AndraTextoPlano.andraRecortar(andraExpediente.getAndraEstado(), 34), andraExpediente.getAndraTono()),
+                        AndraComponentes.andraBotonSm("Revisar", "btn-secondary", null, andraEvento -> andraAcciones.andraRevisar(andraExpediente.getAndraCodigo(), this::andraRedibujar))});
             }
             andraCuerpo = AndraTabla.andraCrear(new String[]{"Expediente", "Solicitante", "Trámite", "Sede", "Pago", "Estado", "Acciones"},
                     new double[]{14, 22, 20, 9, 11, 15, 9}, new boolean[]{false, false, false, false, false, false, true}, andraFilas);
         }
-        VBox andraSeccion = AndraComponentes.andraSeccion(andraCab, AndraFiltros.andraResumen(andraFiltros, DixonAdministradorServicio.DIXON_PREDEFINIDOS_TRAMITES, andraCatalogo::dixonNombreEscuela, this::andraRedibujar), andraCuerpo);
+        VBox andraSeccion = AndraComponentes.andraSeccion(andraCab, AndraFiltros.andraResumen(andraFiltros, AndraAdministradorServicio.ANDRA_PREDEFINIDOS_TRAMITES, andraCatalogo::andraNombreEscuela, this::andraRedibujar), andraCuerpo);
         andraSeccion.getStyleClass().add("sin-arriba");
         return List.of(AndraComponentes.andraPortadaAdministrador("Trámites y documentos", "Revisa lo que piden estudiantes, docentes, administrativos y público en general.",
-                AndraComponentes.andraLineaContexto(andraContexto.dixonTextoSede(), andraContexto.dixonTextoEscuela(), "ctx:sede")), andraSeccion);
+                AndraComponentes.andraLineaContexto(andraContexto.andraTextoSede(), andraContexto.andraTextoEscuela(), "ctx:sede")), andraSeccion);
     }
 
-    private String andraClave(DixonExpediente andraExpediente) {
-        DixonDatosSolicitante andraSol = andraAcciones.andraSolicitante(andraExpediente);
-        return (andraSol.getDixonCodigo() == null ? "" : andraSol.getDixonCodigo()) + " " + (andraSol.getDixonDni() == null ? "" : andraSol.getDixonDni()) + " " + andraSol.getDixonNombre();
+    private String andraClave(AndraExpediente andraExpediente) {
+        AndraDatosSolicitante andraSol = andraAcciones.andraSolicitante(andraExpediente);
+        return (andraSol.getAndraCodigo() == null ? "" : andraSol.getAndraCodigo()) + " " + (andraSol.getAndraDni() == null ? "" : andraSol.getAndraDni()) + " " + andraSol.getAndraNombre();
     }
 
-    private String andraEscuela(DixonExpediente andraExpediente) {
-        DixonDatosSolicitante andraSol = andraAcciones.andraSolicitante(andraExpediente);
-        return andraSol.getDixonEscuela();
+    private String andraEscuela(AndraExpediente andraExpediente) {
+        AndraDatosSolicitante andraSol = andraAcciones.andraSolicitante(andraExpediente);
+        return andraSol.getAndraEscuela();
     }
 }

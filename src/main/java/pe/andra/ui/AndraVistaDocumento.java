@@ -15,8 +15,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import org.kordamp.ikonli.javafx.FontIcon;
-import pe.andra.service.DixonDocumentoGeneradoServicio.DixonDocumentoOficial;
-import pe.andra.service.DixonQrServicio;
+import pe.andra.service.AndraDocumentoGeneradoServicio.AndraDocumentoOficial;
+import pe.andra.service.AndraQrServicio;
 
 import java.io.ByteArrayInputStream;
 
@@ -34,26 +34,26 @@ public final class AndraVistaDocumento {
         return andraPosicionX;
     }
 
-    public static StackPane andraCrear(DixonDocumentoOficial andraDocumentoOficial) {
-        if ("carne".equals(andraDocumentoOficial.dixonPlantilla())) {
+    public static StackPane andraCrear(AndraDocumentoOficial andraDocumentoOficial) {
+        if ("carne".equals(andraDocumentoOficial.andraPlantilla())) {
             return andraCarne(andraDocumentoOficial);
         }
         VBox andraTextos = new VBox(AndraComponentes.andraLiteral("Institución", "strong"),
                 AndraComponentes.andraLiteral("Dirección de Servicios Académicos · Andra", "hint"));
         HBox andraCabecera = new HBox(12, AndraComponentes.andraLogo(40), andraTextos);
         andraCabecera.getStyleClass().add("dg-head");
-        Label andraTitulo = AndraComponentes.andraLiteralParrafo(andraDocumentoOficial.dixonTitulo(), "dg-titulo");
+        Label andraTitulo = AndraComponentes.andraLiteralParrafo(andraDocumentoOficial.andraTitulo(), "dg-titulo");
         andraTitulo.setMaxWidth(Double.MAX_VALUE);
         andraTitulo.setAlignment(Pos.CENTER);
         TextFlow andraCuerpo = new TextFlow(andraT("La Dirección de Servicios Académicos hace constar que ", false),
-                andraT(andraDocumentoOficial.dixonSolicitante().getDixonNombre(), true), andraT(", identificado(a) con DNI N.° ", false), andraT(andraDocumentoOficial.dixonSolicitante().getDixonDni(), true));
-        if (andraDocumentoOficial.dixonConCodigo()) {
-            andraCuerpo.getChildren().addAll(andraT(" y código universitario N.° ", false), andraT(andraDocumentoOficial.dixonSolicitante().getDixonCodigo(), true));
+                andraT(andraDocumentoOficial.andraSolicitante().getAndraNombre(), true), andraT(", identificado(a) con DNI N.° ", false), andraT(andraDocumentoOficial.andraSolicitante().getAndraDni(), true));
+        if (andraDocumentoOficial.andraConCodigo()) {
+            andraCuerpo.getChildren().addAll(andraT(" y código universitario N.° ", false), andraT(andraDocumentoOficial.andraSolicitante().getAndraCodigo(), true));
         }
-        andraCuerpo.getChildren().add(andraT(", " + andraDocumentoOficial.dixonRol() + ", sede " + andraDocumentoOficial.dixonSede() + ".", false));
+        andraCuerpo.getChildren().add(andraT(", " + andraDocumentoOficial.andraRol() + ", sede " + andraDocumentoOficial.andraSede() + ".", false));
         andraCuerpo.setLineSpacing(4);
         VBox andraHoja = new VBox(14, andraCabecera, andraTitulo, andraCuerpo);
-        if (!andraDocumentoOficial.dixonSemestres().isEmpty()) {
+        if (!andraDocumentoOficial.andraSemestres().isEmpty()) {
             GridPane andraTabla = new GridPane();
             for (double andraValorA : new double[]{50, 25, 25}) {
                 ColumnConstraints andraRestriccionColumna = new ColumnConstraints();
@@ -66,21 +66,21 @@ public final class AndraVistaDocumento {
             for (int andraIndice = 0; andraIndice < 3; andraIndice++) {
                 andraTabla.add(AndraComponentes.andraLiteral(andraCab[andraIndice], "inv-th"), andraIndice, 0);
             }
-            for (int andraIndice = 0; andraIndice < andraDocumentoOficial.dixonSemestres().size(); andraIndice++) {
-                var andraSemestre = andraDocumentoOficial.dixonSemestres().get(andraIndice);
-                andraTabla.add(AndraComponentes.andraLiteral(andraSemestre.dixonPeriodo()), 0, andraIndice + 1);
-                andraTabla.add(AndraComponentes.andraLiteral(String.valueOf(andraSemestre.dixonCreditos())), 1, andraIndice + 1);
-                andraTabla.add(AndraComponentes.andraLiteral(andraSemestre.dixonPromedio()), 2, andraIndice + 1);
+            for (int andraIndice = 0; andraIndice < andraDocumentoOficial.andraSemestres().size(); andraIndice++) {
+                var andraSemestre = andraDocumentoOficial.andraSemestres().get(andraIndice);
+                andraTabla.add(AndraComponentes.andraLiteral(andraSemestre.andraPeriodo()), 0, andraIndice + 1);
+                andraTabla.add(AndraComponentes.andraLiteral(String.valueOf(andraSemestre.andraCreditos())), 1, andraIndice + 1);
+                andraTabla.add(AndraComponentes.andraLiteral(andraSemestre.andraPromedio()), 2, andraIndice + 1);
             }
             andraTabla.setVgap(8);
             andraHoja.getChildren().add(andraTabla);
         }
-        if ("certificado".equals(andraDocumentoOficial.dixonPlantilla())) {
+        if ("certificado".equals(andraDocumentoOficial.andraPlantilla())) {
             andraHoja.getChildren().add(new TextFlow(andraT("Se certifica que ha aprobado las asignaturas correspondientes a los semestres 2024-2 al 2026-1, conforme al detalle registrado en el sistema académico.", false)));
         }
         andraHoja.getChildren().add(new TextFlow(andraT("Se expide el presente documento a solicitud del interesado(a) para fines de ", false),
-                andraT(andraDocumentoOficial.dixonUso(), true), andraT(".", false)));
-        Label andraFecha = AndraComponentes.andraLiteral(andraDocumentoOficial.dixonFecha());
+                andraT(andraDocumentoOficial.andraUso(), true), andraT(".", false)));
+        Label andraFecha = AndraComponentes.andraLiteral(andraDocumentoOficial.andraFecha());
         HBox andraFilaFecha = new HBox(AndraComponentes.andraEspacio(), andraFecha);
         andraFilaFecha.setPadding(new Insets(6, 0, 0, 0));
         Region andraLinea = new Region();
@@ -89,10 +89,10 @@ public final class AndraVistaDocumento {
         andraLinea.setStyle("-fx-background-color: -color-text;");
         VBox andraFirma = new VBox(4, andraLinea, AndraComponentes.andraLiteral("Firma digital", "small"), AndraComponentes.andraLiteral("Director(a) de Servicios Académicos", "hint"));
         andraFirma.setAlignment(Pos.CENTER);
-        ImageView andraImagenQr = new ImageView(DixonQrServicio.dixonImagen(andraDocumentoOficial.dixonContenidoQr(), 192));
+        ImageView andraImagenQr = new ImageView(AndraQrServicio.andraImagen(andraDocumentoOficial.andraContenidoQr(), 192));
         andraImagenQr.setFitWidth(96);
         andraImagenQr.setFitHeight(96);
-        VBox andraQrCaja = new VBox(4, andraImagenQr, AndraComponentes.andraLiteral("Verificación: " + andraDocumentoOficial.dixonVerificacion(), "hint"));
+        VBox andraQrCaja = new VBox(4, andraImagenQr, AndraComponentes.andraLiteral("Verificación: " + andraDocumentoOficial.andraVerificacion(), "hint"));
         andraQrCaja.setAlignment(Pos.CENTER);
         HBox andraPie = new HBox(andraFirma, AndraComponentes.andraEspacio(), andraQrCaja);
         andraPie.setAlignment(Pos.BOTTOM_LEFT);
@@ -108,7 +108,7 @@ public final class AndraVistaDocumento {
         return andraCont;
     }
 
-    private static StackPane andraCarne(DixonDocumentoOficial andraDocumentoOficial) {
+    private static StackPane andraCarne(AndraDocumentoOficial andraDocumentoOficial) {
         HBox andraSuperior = new HBox(10, AndraComponentes.andraLogo(30), new VBox(AndraComponentes.andraLiteral("Institución", "strong"),
                 AndraComponentes.andraLiteral("Carné universitario 2026-2", "small")));
         andraSuperior.setPadding(new Insets(14, 16, 14, 16));
@@ -119,8 +119,8 @@ public final class AndraVistaDocumento {
         andraFoto.setMinSize(96, 118);
         andraFoto.setMaxSize(96, 118);
         andraFoto.setStyle("-fx-background-color: -color-fill; -fx-background-radius: 10;");
-        if (andraDocumentoOficial.dixonFoto() != null && andraDocumentoOficial.dixonFoto().length > 0) {
-            ImageView andraVistaImagen = new ImageView(new Image(new ByteArrayInputStream(andraDocumentoOficial.dixonFoto())));
+        if (andraDocumentoOficial.andraFoto() != null && andraDocumentoOficial.andraFoto().length > 0) {
+            ImageView andraVistaImagen = new ImageView(new Image(new ByteArrayInputStream(andraDocumentoOficial.andraFoto())));
             andraVistaImagen.setFitWidth(96);
             andraVistaImagen.setFitHeight(118);
             andraVistaImagen.setPreserveRatio(false);
@@ -132,13 +132,13 @@ public final class AndraVistaDocumento {
         } else {
             andraFoto.getChildren().add(new FontIcon("fth-user"));
         }
-        VBox andraDatos = new VBox(2, AndraComponentes.andraLiteral(andraDocumentoOficial.dixonSolicitante().getDixonNombre(), "strong"),
-                AndraComponentes.andraLiteral("DNI " + andraDocumentoOficial.dixonSolicitante().getDixonDni(), "small"),
-                AndraComponentes.andraLiteral("Código " + (andraDocumentoOficial.dixonSolicitante().getDixonCodigo() == null ? "—" : andraDocumentoOficial.dixonSolicitante().getDixonCodigo()), "small"),
-                AndraComponentes.andraLiteral("EP " + andraDocumentoOficial.dixonEscuela(), "small"), AndraComponentes.andraLiteral("Sede " + andraDocumentoOficial.dixonSede(), "small"));
+        VBox andraDatos = new VBox(2, AndraComponentes.andraLiteral(andraDocumentoOficial.andraSolicitante().getAndraNombre(), "strong"),
+                AndraComponentes.andraLiteral("DNI " + andraDocumentoOficial.andraSolicitante().getAndraDni(), "small"),
+                AndraComponentes.andraLiteral("Código " + (andraDocumentoOficial.andraSolicitante().getAndraCodigo() == null ? "—" : andraDocumentoOficial.andraSolicitante().getAndraCodigo()), "small"),
+                AndraComponentes.andraLiteral("EP " + andraDocumentoOficial.andraEscuela(), "small"), AndraComponentes.andraLiteral("Sede " + andraDocumentoOficial.andraSede(), "small"));
         HBox andraCuerpo = new HBox(16, andraFoto, andraDatos);
         andraCuerpo.setPadding(new Insets(16));
-        HBox andraPie = new HBox(AndraComponentes.andraLiteral("Válido hasta 31/03/2027", "hint"), AndraComponentes.andraEspacio(), AndraComponentes.andraLiteral(andraDocumentoOficial.dixonVerificacion(), "hint"));
+        HBox andraPie = new HBox(AndraComponentes.andraLiteral("Válido hasta 31/03/2027", "hint"), AndraComponentes.andraEspacio(), AndraComponentes.andraLiteral(andraDocumentoOficial.andraVerificacion(), "hint"));
         andraPie.setPadding(new Insets(10, 16, 10, 16));
         andraPie.setStyle("-fx-border-color: -color-border transparent transparent transparent;");
         VBox andraTarjeta = new VBox(andraSuperior, andraCuerpo, andraPie);

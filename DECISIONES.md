@@ -4,7 +4,7 @@ Decisiones mínimas tomadas donde el prompt no definía algo, o donde se adaptó
 
 1. **Persistencia en SQLite (no JSON).** Por pedido del equipo, todo el estado vive en `andra.db` con JPA/Hibernate, igual que `andra-spring`. `datos-demo.json` es la semilla; el archivo se crea en la carpeta del proyecto (como en `andra-spring`) en lugar de `~/.andra/estado.json`.
 2. **Fechas relativas.** Al sembrar, todas las fechas de `datos-demo.json` se desplazan `hoy − fechaReferencia` días; los textos con fechas `dd/mm/aaaa` de otros usuarios también. El préstamo activo vence a la hora actual + 2 h 15 min.
-3. **Traducción.** Se carga `traducciones.dixonJson` directamente (sin `.properties`) con un traductor que replica el del prototipo: busca el texto exacto, luego con números y códigos como `{0}`, traduce fechas, separa por `·`, `:` o `,` y aplica prefijos. Todas las etiquetas están enlazadas a la propiedad de idioma, así cambian al instante (también modales y toasts). Si falta una traducción se muestra el castellano y se registra en el log.
+3. **Traducción.** Se carga `traducciones.andraJson` directamente (sin `.properties`) con un traductor que replica el del prototipo: busca el texto exacto, luego con números y códigos como `{0}`, traduce fechas, separa por `·`, `:` o `,` y aplica prefijos. Todas las etiquetas están enlazadas a la propiedad de idioma, así cambian al instante (también modales y toasts). Si falta una traducción se muestra el castellano y se registra en el log.
 4. **Documentos generados y comprobantes** se muestran siempre en castellano (oficiales). Los nombres de espacios y personas no se traducen.
 5. **Tipografía.** En macOS se usa la fuente del sistema (SF); en Windows/Linux, Inter incluida. JavaFX no mapea el peso 600 de la fuente del sistema, por eso los títulos usan negrita.
 6. **Vidrio.** La cabecera usa `AndraVidrioDasm`: captura lo que hay detrás, lo desenfoca (28 px) y satura; se actualiza a ~30 fps y cae a solo translucidez si tarda más de 24 ms. Modales: el contenido de atrás se desenfoca 8 px con velo. Popovers, toasts y tarjetas usan translucidez sin captura.
@@ -16,7 +16,7 @@ Decisiones mínimas tomadas donde el prompt no definía algo, o donde se adaptó
 12. **Firma del carné:** 6 caracteres base 36 del SHA-256 de `código|franja|andra`.
 13. **Ventanilla N** del seguimiento = 1 + hash del código del expediente mod 6.
 14. **Ocupación simulada** de espacios: misma función hash del prototipo (nombre + día + franja), más las reservas reales.
-15. **Nombres únicos del equipo.** Algunas clases y variables llevan las iniciales de los integrantes: `AndraVidrioDasm` (Daniel Angel Soto Macedo), `DixonTarjetaJemm` y `dixonOrdenJemm` (Jair Edison Mendoza Mamani), `DixonOcupacionServicio.DixonFranjaBnps` y `AndraGraficos.andraMapaCalorBnps` (Brayan Nestor Puma Saldivar), `AndraRastreadorCjsv`, `DixonSeguimientoCjsv` y `DIXON_SEMILLA_CJSV` (Carlos Josue Saldaña Valeriano).
+15. **Nombres únicos del equipo.** Algunas clases y variables llevan las iniciales de los integrantes: `AndraVidrioDasm` (Daniel Angel Soto Macedo), `AndraTarjetaJemm` y `andraOrdenJemm` (Jair Edison Mendoza Mamani), `AndraOcupacionServicio.AndraFranjaBnps` y `AndraGraficos.andraMapaCalorBnps` (Brayan Nestor Puma Saldivar), `AndraRastreadorCjsv`, `AndraSeguimientoCjsv` y `ANDRA_SEMILLA_CJSV` (Carlos Josue Saldaña Valeriano).
 16. **Sin comentarios** en ningún archivo de código, por pedido del equipo. Por eso no se incluye el `mvnw` (el script estándar trae comentarios); se usa Maven o IntelliJ.
 
 ## Cobertura (§4–§7)

@@ -40,14 +40,14 @@ public class AndraPrincipalControlador {
 
     private final ApplicationContext andraContexto;
     private final AndraNotificador andraNotificador;
-    private final DixonContextoServicio andraContextoServicio;
-    private final DixonCatalogoServicio andraCatalogo;
-    private final DixonNotificacionServicio andraNotificaciones;
-    private final DixonDemoServicio andraDemo;
-    private final DixonSesionServicio andraSesion;
-    private final DixonIdiomaServicio andraIdioma;
-    private final DixonAjustesServicio andraAjustes;
-    private final DixonConexionServicio andraConexion;
+    private final AndraContextoServicio andraContextoServicio;
+    private final AndraCatalogoServicio andraCatalogo;
+    private final AndraNotificacionServicio andraNotificaciones;
+    private final AndraDemoServicio andraDemo;
+    private final AndraSesionServicio andraSesion;
+    private final AndraIdiomaServicio andraIdioma;
+    private final AndraAjustesServicio andraAjustes;
+    private final AndraConexionServicio andraConexion;
 
     @FXML private StackPane andraRaiz;
     @FXML private StackPane andraAplicacion;
@@ -79,12 +79,12 @@ public class AndraPrincipalControlador {
     public void initialize() {
         andraNotificador.andraRegistrar(andraRaiz, andraAplicacion, andraCapaFlotante, andraCapaModal, andraZonaAvisos);
         andraRaiz.addEventHandler(AndraNavegacion.ANDRA_IR, andraNavegacion2 -> andraNavegar(andraNavegacion2.andraObtenerRuta()));
-        DixonAjustes andraAjustes2 = andraAjustes.dixonObtener();
-        andraIdioma.dixonAsignarIdioma(andraAjustes2.getDixonIdioma());
-        AndraMovimiento.andraReducidoPropiedad().set(andraAjustes2.isDixonReducirMovimiento());
+        AndraAjustes andraAjustes2 = andraAjustes.andraObtener();
+        andraIdioma.andraAsignarIdioma(andraAjustes2.getAndraIdioma());
+        AndraMovimiento.andraReducidoPropiedad().set(andraAjustes2.isAndraReducirMovimiento());
         andraConstruirCabecera();
-        andraConexion.dixonEnLineaPropiedad().addListener((andraObservable, andraAntes, andraAhora) -> andraAlCambiarConexion(andraAntes, andraAhora));
-        andraConexion.dixonPendientesPropiedad().addListener((andraObservable, andraPosicionX, andraPosicionY) -> andraActualizarBarraSinConexion());
+        andraConexion.andraEnLineaPropiedad().addListener((andraObservable, andraAntes, andraAhora) -> andraAlCambiarConexion(andraAntes, andraAhora));
+        andraConexion.andraPendientesPropiedad().addListener((andraObservable, andraPosicionX, andraPosicionY) -> andraActualizarBarraSinConexion());
         Timeline andraRefresco = new Timeline(new KeyFrame(Duration.millis(500), andraEvento -> andraVidrio.andraMarcar()));
         andraRefresco.setCycleCount(Timeline.INDEFINITE);
         andraRefresco.play();
@@ -112,13 +112,13 @@ public class AndraPrincipalControlador {
         if (andraVentana == null) {
             return;
         }
-        andraAjustes.dixonCambiar(andraAjustes2 -> {
-            andraAjustes2.setDixonMaximizada(andraVentana.isMaximized());
+        andraAjustes.andraCambiar(andraAjustes2 -> {
+            andraAjustes2.setAndraMaximizada(andraVentana.isMaximized());
             if (!andraVentana.isMaximized()) {
-                andraAjustes2.setDixonVentanaX(andraVentana.getX());
-                andraAjustes2.setDixonVentanaY(andraVentana.getY());
-                andraAjustes2.setDixonVentanaAncho(andraVentana.getWidth());
-                andraAjustes2.setDixonVentanaAlto(andraVentana.getScene().getHeight());
+                andraAjustes2.setAndraVentanaX(andraVentana.getX());
+                andraAjustes2.setAndraVentanaY(andraVentana.getY());
+                andraAjustes2.setAndraVentanaAncho(andraVentana.getWidth());
+                andraAjustes2.setAndraVentanaAlto(andraVentana.getScene().getHeight());
             }
         });
     }
@@ -131,7 +131,7 @@ public class AndraPrincipalControlador {
             return;
         }
         boolean andraMod = andraEvento.isShortcutDown();
-        if (!andraMod || !andraSesion.dixonConectado()) {
+        if (!andraMod || !andraSesion.andraConectado()) {
             return;
         }
         if (andraEvento.getCode() == KeyCode.F) {
@@ -144,9 +144,9 @@ public class AndraPrincipalControlador {
         }
         if (andraEvento.getCode().isDigitKey()) {
             int andraCantidad = andraEvento.getCode().getCode() - KeyCode.DIGIT1.getCode();
-            List<DixonSesionServicio.DixonRuta> andraRutas = DixonSesionServicio.dixonRutas(andraSesion.dixonRol());
+            List<AndraSesionServicio.AndraRuta> andraRutas = AndraSesionServicio.andraRutas(andraSesion.andraRol());
             if (andraCantidad >= 0 && andraCantidad < andraRutas.size() && !andraNotificador.andraHayModal()) {
-                andraIrA(andraRutas.get(andraCantidad).dixonClave());
+                andraIrA(andraRutas.get(andraCantidad).andraClave());
                 andraEvento.consume();
             }
         }
@@ -158,7 +158,7 @@ public class AndraPrincipalControlador {
         andraVistas.clear();
         andraNotificador.andraCerrarArriba();
         andraConstruirNavegacion();
-        boolean andraConectado = andraSesion.dixonConectado();
+        boolean andraConectado = andraSesion.andraConectado();
         andraCapaCabecera.setVisible(andraConectado);
         andraCapaCabecera.setManaged(andraConectado);
         if (!andraConectado) {
@@ -166,15 +166,15 @@ public class AndraPrincipalControlador {
             return;
         }
         andraActualizarCabecera();
-        andraIrA(DixonSesionServicio.dixonRutaInicial(andraSesion.dixonRol()));
+        andraIrA(AndraSesionServicio.andraRutaInicial(andraSesion.andraRol()));
     }
 
     public void andraAlIngresar() {
         andraArrancarSesion();
-        if (andraSesion.dixonEsAdministrador()) {
-            andraNotificador.andraExito("Hola, " + andraSesion.dixonAdministrador().dixonObtenerPrimerNombre() + ". Bienvenida al panel.");
+        if (andraSesion.andraEsAdministrador()) {
+            andraNotificador.andraExito("Hola, " + andraSesion.andraAdministrador().andraObtenerPrimerNombre() + ". Bienvenida al panel.");
         } else {
-            andraNotificador.andraExito("Hola, " + andraSesion.dixonEstudiante().dixonObtenerPrimerNombre() + ".");
+            andraNotificador.andraExito("Hola, " + andraSesion.andraEstudiante().andraObtenerPrimerNombre() + ".");
         }
     }
 
@@ -190,7 +190,7 @@ public class AndraPrincipalControlador {
         HBox andraMarca = new HBox(andraLogo, andraTextos, andraLema);
         andraMarca.getStyleClass().add("brand");
         AndraComponentes.andraAccesible(andraMarca, "Andra, tus trámites más simples. Ir al inicio");
-        andraMarca.setOnMouseClicked(andraEvento -> andraIrA(DixonSesionServicio.dixonRutaInicial(andraSesion.dixonRol())));
+        andraMarca.setOnMouseClicked(andraEvento -> andraIrA(AndraSesionServicio.andraRutaInicial(andraSesion.andraRol())));
 
         andraBotonIdioma = AndraComponentes.andraIconoRedondo("fth-globe", "Idioma", andraEvento -> andraEmergenteIdioma());
         andraBotonCampana = AndraComponentes.andraIconoRedondo("fth-bell", "Notificaciones", andraEvento -> andraEmergenteNotificaciones());
@@ -249,14 +249,14 @@ public class AndraPrincipalControlador {
         andraGrupoNavegacion.getToggles().clear();
         andraNavegacion.getChildren().clear();
         andraSilencioNavegacion = false;
-        DixonRol andraRol = andraSesion.dixonRol();
+        AndraRol andraRol = andraSesion.andraRol();
         if (andraRol == null) {
             return;
         }
-        for (DixonSesionServicio.DixonRuta andraRuta : DixonSesionServicio.dixonRutas(andraRol)) {
+        for (AndraSesionServicio.AndraRuta andraRuta : AndraSesionServicio.andraRutas(andraRol)) {
             ToggleButton andraBotonOpcion = new ToggleButton();
-            AndraComponentes.andraFijar(andraBotonOpcion, andraRuta.dixonEtiqueta());
-            andraBotonOpcion.setUserData(andraRuta.dixonClave());
+            AndraComponentes.andraFijar(andraBotonOpcion, andraRuta.andraEtiqueta());
+            andraBotonOpcion.setUserData(andraRuta.andraClave());
             andraBotonOpcion.setToggleGroup(andraGrupoNavegacion);
             andraBotonOpcion.getStyleClass().add("nav-link");
             andraBotonOpcion.setMnemonicParsing(false);
@@ -266,9 +266,9 @@ public class AndraPrincipalControlador {
 
     public void andraIrA(String andraRuta) {
         andraNotificador.andraCerrarEmergente();
-        DixonRol andraRol = andraSesion.dixonRol();
-        if (!DixonSesionServicio.dixonPuedeAcceder(andraRol, andraRuta)) {
-            andraRuta = DixonSesionServicio.dixonRutaInicial(andraRol);
+        AndraRol andraRol = andraSesion.andraRol();
+        if (!AndraSesionServicio.andraPuedeAcceder(andraRol, andraRuta)) {
+            andraRuta = AndraSesionServicio.andraRutaInicial(andraRol);
         }
         String andraDestino = andraRuta;
         Toggle andraOpcion = andraGrupoNavegacion.getToggles().stream().filter(andraPosicionX -> andraDestino.equals(andraPosicionX.getUserData())).findFirst().orElse(null);
@@ -358,10 +358,10 @@ public class AndraPrincipalControlador {
         } else if ("admin".equals(andraRutaActual)) {
             andraTitulo = "Andra · Panel";
         } else {
-            andraTitulo = "Andra · " + DixonSesionServicio.dixonEtiqueta(andraRutaActual);
+            andraTitulo = "Andra · " + AndraSesionServicio.andraEtiqueta(andraRutaActual);
         }
         andraVentana.titleProperty().unbind();
-        andraVentana.titleProperty().bind(DixonIdiomaServicio.dixonEnlace(andraTitulo));
+        andraVentana.titleProperty().bind(AndraIdiomaServicio.andraEnlace(andraTitulo));
     }
 
     private void andraRefrescarActual() {
@@ -372,27 +372,27 @@ public class AndraPrincipalControlador {
     }
 
     private void andraActualizarCabecera() {
-        if (!andraSesion.dixonConectado()) {
+        if (!andraSesion.andraConectado()) {
             return;
         }
-        AndraComponentes.andraFijar(andraBotonSede, andraContextoServicio.dixonNombreSede());
-        AndraComponentes.andraAccesible(andraBotonSede, "Sede: " + andraContextoServicio.dixonNombreSede() + ". Cambiar sede");
-        DixonEscuelaProfesional andraEscuelaProfesional = andraContextoServicio.dixonEscuela();
+        AndraComponentes.andraFijar(andraBotonSede, andraContextoServicio.andraNombreSede());
+        AndraComponentes.andraAccesible(andraBotonSede, "Sede: " + andraContextoServicio.andraNombreSede() + ". Cambiar sede");
+        AndraEscuelaProfesional andraEscuelaProfesional = andraContextoServicio.andraEscuela();
         andraPuntoEscuela.setVisible(andraEscuelaProfesional != null);
-        AndraComponentes.andraAyuda(andraBotonEscuela, andraEscuelaProfesional == null ? "Todas las escuelas" : andraEscuelaProfesional.getDixonNombre());
-        AndraComponentes.andraAccesible(andraBotonEscuela, "Escuela profesional: " + (andraEscuelaProfesional == null ? "todas" : andraEscuelaProfesional.getDixonNombre()) + ". Cambiar escuela");
+        AndraComponentes.andraAyuda(andraBotonEscuela, andraEscuelaProfesional == null ? "Todas las escuelas" : andraEscuelaProfesional.getAndraNombre());
+        AndraComponentes.andraAccesible(andraBotonEscuela, "Escuela profesional: " + (andraEscuelaProfesional == null ? "todas" : andraEscuelaProfesional.getAndraNombre()) + ". Cambiar escuela");
         andraActualizarCampana();
     }
 
     private void andraActualizarCampana() {
-        long andraCantidad = andraNotificaciones.dixonNoLeidas(andraSesion.dixonRol());
+        long andraCantidad = andraNotificaciones.andraNoLeidas(andraSesion.andraRol());
         andraInsignia.setText(String.valueOf(andraCantidad));
         andraInsignia.setVisible(andraCantidad > 0);
         AndraComponentes.andraAccesible(andraBotonCampana, "Notificaciones" + (andraCantidad > 0 ? ", " + andraCantidad + " sin leer" : ""));
     }
 
     @EventListener
-    public void andraAlCambiarDatos(DixonCambioDatos andraEvento) {
+    public void andraAlCambiarDatos(AndraCambioDatos andraEvento) {
         if (andraInsignia == null) {
             return;
         }
@@ -409,10 +409,10 @@ public class AndraPrincipalControlador {
 
     private void andraAlCambiarConexion(boolean andraAntes, boolean andraAhora) {
         andraActualizarBarraSinConexion();
-        if (!andraSesion.dixonConectado()) {
+        if (!andraSesion.andraConectado()) {
             return;
         }
-        if (andraAntes && !andraAhora && !andraConexion.dixonEsSimulado()) {
+        if (andraAntes && !andraAhora && !andraConexion.andraEsSimulado()) {
             andraNotificador.andraInformacion("Te quedaste sin conexión. Andra sigue funcionando con tus datos guardados.");
         }
         if (!andraAntes && andraAhora) {
@@ -421,7 +421,7 @@ public class AndraPrincipalControlador {
     }
 
     private void andraSincronizar() {
-        int andraCantidad = andraConexion.dixonContarPendientes();
+        int andraCantidad = andraConexion.andraContarPendientes();
         andraActualizarBarraSinConexion();
         if (andraCantidad == 0) {
             return;
@@ -430,7 +430,7 @@ public class AndraPrincipalControlador {
         andraNotificador.andraInformacion("Conexión recuperada. Sincronizando " + andraCantidad + " cambio" + andraTexto + "…");
         PauseTransition andraPausa = new PauseTransition(Duration.millis(1200));
         andraPausa.setOnFinished(andraEvento -> {
-            andraConexion.dixonSincronizar();
+            andraConexion.andraSincronizar();
             andraActualizarBarraSinConexion();
             andraNotificador.andraExito("Listo: " + andraCantidad + " cambio" + andraTexto + " sincronizado" + andraTexto + ".");
         });
@@ -438,11 +438,11 @@ public class AndraPrincipalControlador {
     }
 
     private void andraActualizarBarraSinConexion() {
-        boolean andraVisible = andraConexion.dixonSinConexion() && andraSesion.dixonConectado();
+        boolean andraVisible = andraConexion.andraSinConexion() && andraSesion.andraConectado();
         andraBarraSinConexion.setVisible(andraVisible);
         andraBarraSinConexion.setManaged(andraVisible);
         if (andraVisible) {
-            int andraCantidad = andraConexion.dixonContarPendientes();
+            int andraCantidad = andraConexion.andraContarPendientes();
             Label andraTexto = AndraComponentes.andraParrafo("Puedes ver tus documentos, tu carné y tus reservas. Lo que hagas se enviará al volver la conexión.");
             Label andraNegrita = AndraComponentes.andraEtiqueta("Sin conexión.", "off-negrita");
             HBox andraMensaje = new HBox(6, andraNegrita, andraTexto);
@@ -452,9 +452,9 @@ public class AndraPrincipalControlador {
             if (andraCantidad > 0) {
                 andraBarraSinConexion.getChildren().add(AndraComponentes.andraPildoraPlano(andraCantidad + " cambio" + (andraCantidad > 1 ? "s" : "") + " por sincronizar", "warning"));
             }
-            if (andraConexion.dixonEsSimulado()) {
+            if (andraConexion.andraEsSimulado()) {
                 andraBarraSinConexion.getChildren().add(AndraComponentes.andraBotonSm("Volver a conectarse", "btn-secondary", null,
-                        andraEvento -> andraConexion.dixonSimularSinConexion(false)));
+                        andraEvento -> andraConexion.andraSimularSinConexion(false)));
             }
         }
         if (!andraContenido.getChildren().isEmpty() && andraContenido.getChildren().get(0) instanceof ScrollPane andraDesplazable
@@ -537,8 +537,8 @@ public class AndraPrincipalControlador {
     private void andraEmergenteIdioma() {
         VBox andraCajaVertical = andraCaja();
         andraCajaVertical.getChildren().add(andraCabeceraEmergente("Idioma", null));
-        for (String[] andraTextos : DixonIdiomaServicio.DIXON_IDIOMAS) {
-            andraCajaVertical.getChildren().add(andraOpcion(andraTextos[1], andraTextos[2], andraTextos[0].equals(andraIdioma.dixonObtenerIdioma()), true, () -> andraCambiarIdioma(andraTextos[0])));
+        for (String[] andraTextos : AndraIdiomaServicio.ANDRA_IDIOMAS) {
+            andraCajaVertical.getChildren().add(andraOpcion(andraTextos[1], andraTextos[2], andraTextos[0].equals(andraIdioma.andraObtenerIdioma()), true, () -> andraCambiarIdioma(andraTextos[0])));
         }
         Label andraNota = AndraComponentes.andraParrafo("Traducción de demostración: el quechua y el aimara deben ser revisados por hablantes nativos.", "hint");
         andraNota.setPadding(new Insets(8, 12, 4, 12));
@@ -548,8 +548,8 @@ public class AndraPrincipalControlador {
 
     public void andraCambiarIdioma(String andraCodigo) {
         andraNotificador.andraCerrarEmergente();
-        andraIdioma.dixonAsignarIdioma(andraCodigo);
-        andraAjustes.dixonCambiar(andraAjustes2 -> andraAjustes2.setDixonIdioma(andraCodigo));
+        andraIdioma.andraAsignarIdioma(andraCodigo);
+        andraAjustes.andraCambiar(andraAjustes2 -> andraAjustes2.setAndraIdioma(andraCodigo));
         String andraAviso = switch (andraCodigo) {
             case "en" -> "Language: English";
             case "qu" -> "Simi: Runasimi";
@@ -561,32 +561,32 @@ public class AndraPrincipalControlador {
 
     private void andraEmergenteNotificaciones() {
         VBox andraCajaVertical = andraCaja();
-        DixonRol andraRol = andraSesion.dixonRol();
+        AndraRol andraRol = andraSesion.andraRol();
         Button andraMarcar = AndraComponentes.andraBotonSm("Marcar todo como leído", "btn-tertiary", null, andraEvento -> {
-            andraNotificaciones.dixonMarcarTodas(andraRol);
+            andraNotificaciones.andraMarcarTodas(andraRol);
             andraEmergenteNotificaciones();
         });
         andraCajaVertical.getChildren().add(andraCabeceraEmergente("Notificaciones", andraMarcar));
-        List<DixonNotificacion> andraLista = andraNotificaciones.dixonListar(andraRol);
+        List<AndraNotificacion> andraLista = andraNotificaciones.andraListar(andraRol);
         if (andraLista.isEmpty()) {
             Label andraVacio = AndraComponentes.andraEtiqueta("No tienes notificaciones.", "muted", "small");
             andraVacio.setPadding(new Insets(12));
             andraCajaVertical.getChildren().add(andraVacio);
         }
-        for (DixonNotificacion andraNotificacion : andraLista) {
+        for (AndraNotificacion andraNotificacion : andraLista) {
             Circle andraPunto = new Circle(4);
             andraPunto.getStyleClass().add("bullet");
-            Label andraTexto = AndraComponentes.andraParrafo(andraNotificacion.getDixonTexto(), "notif-texto");
+            Label andraTexto = AndraComponentes.andraParrafo(andraNotificacion.getAndraTexto(), "notif-texto");
             HBox.setHgrow(andraTexto, Priority.ALWAYS);
             HBox andraFila = new HBox(andraPunto, andraTexto);
             HBox.setMargin(andraPunto, new Insets(7, 0, 0, 0));
             andraFila.getStyleClass().add("notif");
             andraFila.setFocusTraversable(true);
-            if (andraNotificacion.isDixonLeida()) {
+            if (andraNotificacion.isAndraLeida()) {
                 andraFila.getStyleClass().add("read");
             }
             Runnable andraAbrir = () -> {
-                String andraDestino = andraNotificaciones.dixonAbrir(andraNotificacion.getDixonId());
+                String andraDestino = andraNotificaciones.andraAbrir(andraNotificacion.getAndraId());
                 andraNotificador.andraCerrarEmergente();
                 andraIrA(andraDestino);
             };
@@ -604,32 +604,32 @@ public class AndraPrincipalControlador {
     private void andraEmergenteSede() {
         VBox andraCajaVertical = andraCaja();
         andraCajaVertical.getChildren().add(andraCabeceraEmergente("Sede", null));
-        String andraActual = andraContextoServicio.dixonCodigoSede();
-        if (andraSesion.dixonEsAdministrador()) {
-            andraCajaVertical.getChildren().add(andraOpcion("Todas las sedes", "Vista consolidada", DixonAjustes.DIXON_TODAS.equals(andraActual), false,
-                    () -> andraCambiarContexto(andraContextoServicio.dixonCambiarSede(DixonAjustes.DIXON_TODAS))));
+        String andraActual = andraContextoServicio.andraCodigoSede();
+        if (andraSesion.andraEsAdministrador()) {
+            andraCajaVertical.getChildren().add(andraOpcion("Todas las sedes", "Vista consolidada", AndraAjustes.ANDRA_TODAS.equals(andraActual), false,
+                    () -> andraCambiarContexto(andraContextoServicio.andraCambiarSede(AndraAjustes.ANDRA_TODAS))));
         }
-        for (DixonSede andraSede : andraCatalogo.dixonSedes()) {
-            andraCajaVertical.getChildren().add(andraOpcion(andraSede.getDixonNombreCompleto(), andraSede.getDixonDescripcion(), andraSede.getDixonCodigo().equals(andraActual), false,
-                    () -> andraCambiarContexto(andraContextoServicio.dixonCambiarSede(andraSede.getDixonCodigo()))));
+        for (AndraSede andraSede : andraCatalogo.andraSedes()) {
+            andraCajaVertical.getChildren().add(andraOpcion(andraSede.getAndraNombreCompleto(), andraSede.getAndraDescripcion(), andraSede.getAndraCodigo().equals(andraActual), false,
+                    () -> andraCambiarContexto(andraContextoServicio.andraCambiarSede(andraSede.getAndraCodigo()))));
         }
         andraNotificador.andraEmergente(andraCajaVertical, andraBotonSede);
     }
 
     private void andraEmergenteEscuela() {
-        DixonEscuelaProfesional andraActual = andraContextoServicio.dixonEscuela();
+        AndraEscuelaProfesional andraActual = andraContextoServicio.andraEscuela();
         VBox andraOpciones = new VBox();
-        andraOpciones.getChildren().add(andraOpcion("Todas las escuelas", "Ver todo lo de la sede " + andraContextoServicio.dixonNombreSede(),
-                andraActual == null, false, () -> andraCambiarContexto(andraContextoServicio.dixonCambiarEscuela(null))));
-        for (DixonSede andraSede : andraCatalogo.dixonSedes()) {
-            List<DixonEscuelaProfesional> andraEscuelas = andraCatalogo.dixonEscuelasDe(andraSede);
+        andraOpciones.getChildren().add(andraOpcion("Todas las escuelas", "Ver todo lo de la sede " + andraContextoServicio.andraNombreSede(),
+                andraActual == null, false, () -> andraCambiarContexto(andraContextoServicio.andraCambiarEscuela(null))));
+        for (AndraSede andraSede : andraCatalogo.andraSedes()) {
+            List<AndraEscuelaProfesional> andraEscuelas = andraCatalogo.andraEscuelasDe(andraSede);
             if (andraEscuelas.isEmpty()) {
                 continue;
             }
-            andraOpciones.getChildren().add(AndraComponentes.andraMayus("Sede " + andraSede.getDixonNombre(), "pop-group"));
-            for (DixonEscuelaProfesional andraEscuelaProfesional : andraEscuelas) {
-                andraOpciones.getChildren().add(andraOpcion(andraEscuelaProfesional.getDixonNombre(), null, andraActual != null && andraActual.getDixonId().equals(andraEscuelaProfesional.getDixonId()), false,
-                        () -> andraCambiarContexto(andraContextoServicio.dixonCambiarEscuela(andraEscuelaProfesional.getDixonCodigo()))));
+            andraOpciones.getChildren().add(AndraComponentes.andraMayus("Sede " + andraSede.getAndraNombre(), "pop-group"));
+            for (AndraEscuelaProfesional andraEscuelaProfesional : andraEscuelas) {
+                andraOpciones.getChildren().add(andraOpcion(andraEscuelaProfesional.getAndraNombre(), null, andraActual != null && andraActual.getAndraId().equals(andraEscuelaProfesional.getAndraId()), false,
+                        () -> andraCambiarContexto(andraContextoServicio.andraCambiarEscuela(andraEscuelaProfesional.getAndraCodigo()))));
             }
         }
         VBox andraCajaVertical = andraCaja();
@@ -648,16 +648,16 @@ public class AndraPrincipalControlador {
         VBox andraCajaVertical = andraCaja();
         VBox andraDatos = new VBox(2);
         andraDatos.setPadding(new Insets(12, 12, 8, 12));
-        boolean andraAdministrador = andraSesion.dixonEsAdministrador();
+        boolean andraAdministrador = andraSesion.andraEsAdministrador();
         if (andraAdministrador) {
-            DixonAdministrador andraAdministrador2 = andraSesion.dixonAdministrador();
-            andraDatos.getChildren().addAll(AndraComponentes.andraLiteral(andraAdministrador2.getDixonNombre(), "strong", "texto"),
-                    AndraComponentes.andraParrafo(andraAdministrador2.getDixonCargo(), "muted", "small"), AndraComponentes.andraLiteral(andraAdministrador2.getDixonCorreo(), "muted", "small"));
+            AndraAdministrador andraAdministrador2 = andraSesion.andraAdministrador();
+            andraDatos.getChildren().addAll(AndraComponentes.andraLiteral(andraAdministrador2.getAndraNombre(), "strong", "texto"),
+                    AndraComponentes.andraParrafo(andraAdministrador2.getAndraCargo(), "muted", "small"), AndraComponentes.andraLiteral(andraAdministrador2.getAndraCorreo(), "muted", "small"));
         } else {
-            DixonPersona andraPersona = andraSesion.dixonEstudiante();
-            andraDatos.getChildren().addAll(AndraComponentes.andraLiteral(andraPersona.getDixonNombre(), "strong", "texto"),
-                    AndraComponentes.andraEtiqueta("Código " + andraPersona.getDixonCodigo() + " · DNI " + andraPersona.getDixonDni(), "muted", "small"),
-                    AndraComponentes.andraParrafo("EP " + andraPersona.getDixonEscuela().getDixonNombre() + " · Sede " + andraPersona.getDixonSede().getDixonNombre(), "muted", "small"));
+            AndraPersona andraPersona = andraSesion.andraEstudiante();
+            andraDatos.getChildren().addAll(AndraComponentes.andraLiteral(andraPersona.getAndraNombre(), "strong", "texto"),
+                    AndraComponentes.andraEtiqueta("Código " + andraPersona.getAndraCodigo() + " · DNI " + andraPersona.getAndraDni(), "muted", "small"),
+                    AndraComponentes.andraParrafo("EP " + andraPersona.getAndraEscuela().getAndraNombre() + " · Sede " + andraPersona.getAndraSede().getAndraNombre(), "muted", "small"));
         }
         Label andraRol = AndraComponentes.andraEtiqueta(andraAdministrador ? "Administrador" : "Estudiante", "user-role");
         VBox.setMargin(andraRol, new Insets(6, 0, 0, 0));
@@ -673,9 +673,9 @@ public class AndraPrincipalControlador {
                     andraOpcionMenu("Andra Pay", false, () -> andraIrA("pay")),
                     andraOpcionMenu("Mis favoritos", false, () -> andraIrA("favoritos")));
         }
-        boolean andraSimulado = andraConexion.dixonEsSimulado();
+        boolean andraSimulado = andraConexion.andraEsSimulado();
         andraCajaVertical.getChildren().add(andraOpcionMenu(andraSimulado ? "Volver a conectarse" : "Probar modo sin conexión", false, () -> {
-            andraConexion.dixonSimularSinConexion(!andraSimulado);
+            andraConexion.andraSimularSinConexion(!andraSimulado);
             if (!andraSimulado) {
                 andraNotificador.andraInformacion("Modo sin conexión activado para la prueba.");
             }
@@ -683,7 +683,7 @@ public class AndraPrincipalControlador {
         andraCajaVertical.getChildren().add(andraOpcionMenu(AndraMovimiento.andraReducido() ? "Reducir movimiento: activado" : "Reducir movimiento: desactivado", false, () -> {
             boolean andraNuevo = !AndraMovimiento.andraReducido();
             AndraMovimiento.andraReducidoPropiedad().set(andraNuevo);
-            andraAjustes.dixonCambiar(andraAjustes2 -> andraAjustes2.setDixonReducirMovimiento(andraNuevo));
+            andraAjustes.andraCambiar(andraAjustes2 -> andraAjustes2.setAndraReducirMovimiento(andraNuevo));
             andraNotificador.andraInformacion(andraNuevo ? "Reducir movimiento activado." : "Reducir movimiento desactivado.");
         }));
         andraCajaVertical.getChildren().add(andraOpcionMenu("Restablecer datos de demostración", false, this::andraRestablecerDemo));
@@ -694,8 +694,8 @@ public class AndraPrincipalControlador {
     private void andraRestablecerDemo() {
         andraNotificador.andraConfirmar("¿Restablecer datos de demostración?",
                 "Se borrarán las reservas, solicitudes y cambios que hiciste en esta aplicación.", "Restablecer", true, () -> {
-                    andraDemo.dixonRestablecer();
-                    andraIdioma.dixonAsignarIdioma(andraAjustes.dixonObtener().getDixonIdioma());
+                    andraDemo.andraRestablecer();
+                    andraIdioma.andraAsignarIdioma(andraAjustes.andraObtener().getAndraIdioma());
                     andraActualizarCabecera();
                     andraRefrescarActual();
                     andraNotificador.andraExito("Datos restablecidos.");
@@ -705,7 +705,7 @@ public class AndraPrincipalControlador {
     private void andraCerrarSesion() {
         andraNotificador.andraConfirmar("¿Cerrar sesión?", "Volverás a la pantalla de ingreso. Tus datos de demostración se mantienen.",
                 "Cerrar sesión", false, () -> {
-                    andraSesion.dixonCerrar();
+                    andraSesion.andraCerrar();
                     andraArrancarSesion();
                 });
     }

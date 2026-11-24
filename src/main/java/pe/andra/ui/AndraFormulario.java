@@ -13,8 +13,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.util.StringConverter;
 import org.kordamp.ikonli.javafx.FontIcon;
-import pe.andra.service.DixonIdiomaServicio;
-import pe.andra.util.DixonFechas;
+import pe.andra.service.AndraIdiomaServicio;
+import pe.andra.util.AndraFechas;
 
 import java.io.File;
 import java.time.LocalDate;
@@ -125,7 +125,7 @@ public class AndraFormulario {
         andraCombo.setConverter(new StringConverter<>() {
             @Override
             public String toString(AndraOpcion andraOpcion) {
-                return andraOpcion == null ? "" : DixonIdiomaServicio.dixonT(andraOpcion.andraEtiqueta());
+                return andraOpcion == null ? "" : AndraIdiomaServicio.andraT(andraOpcion.andraEtiqueta());
             }
 
             @Override
@@ -143,7 +143,7 @@ public class AndraFormulario {
                     setText(null);
                     return;
                 }
-                setText(DixonIdiomaServicio.dixonT(andraOpcion.andraEtiqueta()));
+                setText(AndraIdiomaServicio.andraT(andraOpcion.andraEtiqueta()));
                 if (andraOpcion.andraGrupo()) {
                     getStyleClass().add("grupo");
                     setDisable(true);
@@ -156,7 +156,7 @@ public class AndraFormulario {
             }
         });
         andraSeleccionar(andraCombo, andraValor == null ? "" : andraValor);
-        if (DixonIdiomaServicio.dixonActual() != null) {
+        if (AndraIdiomaServicio.andraActual() != null) {
             ChangeListener<String> andraRefresco = (andraObservable, andraTextoA, andraTextoB) -> {
                 AndraOpcion andraActual = andraCombo.getValue();
                 List<AndraOpcion> andraCopia = new ArrayList<>(andraCombo.getItems());
@@ -164,7 +164,7 @@ public class AndraFormulario {
                 andraCombo.setValue(andraActual);
             };
             andraCombo.getProperties().put("refrescoIdioma", andraRefresco);
-            DixonIdiomaServicio.dixonActual().dixonIdiomaPropiedad().addListener(new WeakChangeListener<>(andraRefresco));
+            AndraIdiomaServicio.andraActual().andraIdiomaPropiedad().addListener(new WeakChangeListener<>(andraRefresco));
         }
     }
 
@@ -264,7 +264,7 @@ public class AndraFormulario {
     }
 
     public static String andraTextoFecha(LocalDate andraFecha) {
-        return andraFecha == null ? "" : DixonFechas.dixonDmy(andraFecha);
+        return andraFecha == null ? "" : AndraFechas.andraDmy(andraFecha);
     }
 
     public static VBox andraColumna(javafx.scene.Node... andraNodos) {

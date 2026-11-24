@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import pe.andra.model.*;
 import pe.andra.service.*;
 import pe.andra.ui.*;
-import pe.andra.util.DixonMontos;
+import pe.andra.util.AndraMontos;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,26 +21,26 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class AndraFavoritosControlador extends AndraVistaBase {
 
-    private final DixonFavoritoServicio andraFavoritos;
-    private final DixonCatalogoServicio andraCatalogo;
-    private final DixonDocumentoServicio andraDocumentos;
+    private final AndraFavoritoServicio andraFavoritos;
+    private final AndraCatalogoServicio andraCatalogo;
+    private final AndraDocumentoServicio andraDocumentos;
     private final AndraAccionesDocumento andraAccionesDocumento;
     private final AndraAccionesEquipo andraAccionesEquipo;
     private final AndraAccionesEspacio andraAccionesEspacio;
-    private final DixonReservaServicio andraReservas;
+    private final AndraReservaServicio andraReservas;
 
     private String andraPestana = "docs";
 
     @Override
     protected List<Node> andraConstruir() {
-        Set<String> andraFavDocs = andraFavoritos.dixonCodigos(DixonTipoFavorito.DOCUMENTO);
-        Set<String> andraFavMios = andraFavoritos.dixonCodigos(DixonTipoFavorito.MI_DOCUMENTO);
-        Set<String> andraFavEq = andraFavoritos.dixonCodigos(DixonTipoFavorito.EQUIPO);
-        Set<String> andraFavEsp = andraFavoritos.dixonCodigos(DixonTipoFavorito.ESPACIO);
-        List<DixonDocumento> andraDocs = andraCatalogo.dixonDocumentos().stream().filter(andraDocumento -> andraFavDocs.contains(andraDocumento.getDixonCodigo())).toList();
-        List<DixonDocumentoPersonal> andraMios = andraDocumentos.dixonMisDocumentos().stream().filter(andraDocumentoPersonal -> andraFavMios.contains(andraDocumentoPersonal.getDixonCodigo())).toList();
-        List<DixonEquipo> andraEqs = andraCatalogo.dixonEquipos().stream().filter(andraEquipo -> andraFavEq.contains(andraEquipo.getDixonCodigo())).toList();
-        List<DixonEspacio> andraEsps = andraCatalogo.dixonEspacios().stream().filter(andraEspacio -> andraFavEsp.contains(andraEspacio.getDixonCodigo())).toList();
+        Set<String> andraFavDocs = andraFavoritos.andraCodigos(AndraTipoFavorito.DOCUMENTO);
+        Set<String> andraFavMios = andraFavoritos.andraCodigos(AndraTipoFavorito.MI_DOCUMENTO);
+        Set<String> andraFavEq = andraFavoritos.andraCodigos(AndraTipoFavorito.EQUIPO);
+        Set<String> andraFavEsp = andraFavoritos.andraCodigos(AndraTipoFavorito.ESPACIO);
+        List<AndraDocumento> andraDocs = andraCatalogo.andraDocumentos().stream().filter(andraDocumento -> andraFavDocs.contains(andraDocumento.getAndraCodigo())).toList();
+        List<AndraDocumentoPersonal> andraMios = andraDocumentos.andraMisDocumentos().stream().filter(andraDocumentoPersonal -> andraFavMios.contains(andraDocumentoPersonal.getAndraCodigo())).toList();
+        List<AndraEquipo> andraEqs = andraCatalogo.andraEquipos().stream().filter(andraEquipo -> andraFavEq.contains(andraEquipo.getAndraCodigo())).toList();
+        List<AndraEspacio> andraEsps = andraCatalogo.andraEspacios().stream().filter(andraEspacio -> andraFavEsp.contains(andraEspacio.getAndraCodigo())).toList();
         AndraSegmentado andraPestanas = new AndraSegmentado(true).andraOpcion("docs", "Documentación", null, (long) (andraDocs.size() + andraMios.size()))
                 .andraOpcion("eq", "Equipos", null, (long) andraEqs.size()).andraOpcion("areas", "Áreas", null, (long) andraEsps.size()).andraSeleccionar(andraPestana);
         andraPestanas.andraAlCambiar(andraValor -> {
@@ -104,39 +104,39 @@ public class AndraFavoritosControlador extends AndraVistaBase {
         return andraCapa;
     }
 
-    private VBox andraTarjetaEquipo(DixonEquipo andraEquipo) {
-        boolean andraCorrecto = andraEquipo.dixonEsDisponibleAhora();
-        Button andraEstrella = AndraComponentes.andraEstrella(true, andraEquipo.getDixonNombre(), () -> {
-            andraFavoritos.dixonAlternar(DixonTipoFavorito.EQUIPO, andraEquipo.getDixonCodigo());
+    private VBox andraTarjetaEquipo(AndraEquipo andraEquipo) {
+        boolean andraCorrecto = andraEquipo.andraEsDisponibleAhora();
+        Button andraEstrella = AndraComponentes.andraEstrella(true, andraEquipo.getAndraNombre(), () -> {
+            andraFavoritos.andraAlternar(AndraTipoFavorito.EQUIPO, andraEquipo.getAndraCodigo());
             andraNotificador.andraExito("Quitado de favoritos.");
             andraRedibujar();
         });
         StackPane andraArriba = new StackPane(andraMiniatura(AndraIlustraciones.andraIconoCategoria(andraEquipo)), andraEstrella);
         StackPane.setAlignment(andraEstrella, Pos.TOP_RIGHT);
         StackPane.setMargin(andraEstrella, new Insets(10));
-        HBox andraCab = new HBox(AndraComponentes.andraMayus(andraEquipo.getDixonRotulo(), "label-caps"), AndraComponentes.andraEspacio(), andraAccionesEquipo.andraEstado(andraEquipo, true));
+        HBox andraCab = new HBox(AndraComponentes.andraMayus(andraEquipo.getAndraRotulo(), "label-caps"), AndraComponentes.andraEspacio(), andraAccionesEquipo.andraEstado(andraEquipo, true));
         andraCab.setAlignment(Pos.CENTER_LEFT);
-        VBox andraCajaVertical = new VBox(8, andraArriba, andraCab, AndraComponentes.andraParrafo(andraEquipo.getDixonNombre(), "h3", "sm"), AndraComponentes.andraParrafo(andraEquipo.getDixonEspecificaciones(), "eq-specs"),
-                AndraComponentes.andraMetaLinea("fth-map-pin", "Sede " + andraEquipo.getDixonSede().getDixonNombre() + " · " + andraEquipo.getDixonUbicacion()));
-        if (andraEquipo.getDixonEscuela() != null) {
-            andraCajaVertical.getChildren().add(AndraComponentes.andraMetaLinea("fth-book-open", "Uso preferente: EP " + andraEquipo.getDixonEscuela().getDixonNombre()));
+        VBox andraCajaVertical = new VBox(8, andraArriba, andraCab, AndraComponentes.andraParrafo(andraEquipo.getAndraNombre(), "h3", "sm"), AndraComponentes.andraParrafo(andraEquipo.getAndraEspecificaciones(), "eq-specs"),
+                AndraComponentes.andraMetaLinea("fth-map-pin", "Sede " + andraEquipo.getAndraSede().getAndraNombre() + " · " + andraEquipo.getAndraUbicacion()));
+        if (andraEquipo.getAndraEscuela() != null) {
+            andraCajaVertical.getChildren().add(AndraComponentes.andraMetaLinea("fth-book-open", "Uso preferente: EP " + andraEquipo.getAndraEscuela().getAndraNombre()));
         }
-        Button andraPedir = AndraComponentes.andraBloque(AndraComponentes.andraBotonSm(andraEquipo.dixonEsPorTurno() ? "Reservar turno" : andraCorrecto ? "Solicitar préstamo" : "Sin unidades",
+        Button andraPedir = AndraComponentes.andraBloque(AndraComponentes.andraBotonSm(andraEquipo.andraEsPorTurno() ? "Reservar turno" : andraCorrecto ? "Solicitar préstamo" : "Sin unidades",
                 andraCorrecto ? "btn-primary" : "btn-secondary", null, andraEvento -> andraAccionesEquipo.andraSolicitar(andraEquipo, this::andraRedibujar, null, null)));
-        andraPedir.setDisable(!andraCorrecto && !andraEquipo.dixonEsPorTurno());
+        andraPedir.setDisable(!andraCorrecto && !andraEquipo.andraEsPorTurno());
         andraCajaVertical.getChildren().addAll(AndraComponentes.andraEspacioV(), andraPedir);
         andraCajaVertical.getStyleClass().add("eq-card");
         return andraCajaVertical;
     }
 
-    private VBox andraTarjetaEspacio(DixonEspacio andraEspacio) {
-        String andraEstado = andraReservas.dixonEstadoGaleria(andraEspacio, null, null);
-        Button andraEstrella = AndraComponentes.andraEstrella(true, andraEspacio.getDixonNombre(), () -> {
-            andraFavoritos.dixonAlternar(DixonTipoFavorito.ESPACIO, andraEspacio.getDixonCodigo());
+    private VBox andraTarjetaEspacio(AndraEspacio andraEspacio) {
+        String andraEstado = andraReservas.andraEstadoGaleria(andraEspacio, null, null);
+        Button andraEstrella = AndraComponentes.andraEstrella(true, andraEspacio.getAndraNombre(), () -> {
+            andraFavoritos.andraAlternar(AndraTipoFavorito.ESPACIO, andraEspacio.getAndraCodigo());
             andraNotificador.andraExito("Quitado de favoritos.");
             andraRedibujar();
         });
-        String andraIcono = switch (andraEspacio.getDixonTipo()) {
+        String andraIcono = switch (andraEspacio.getAndraTipo()) {
             case LABORATORIO -> "fth-droplet";
             case TALLER -> "fth-tool";
             case SALA -> "fth-list";
@@ -145,16 +145,16 @@ public class AndraFavoritosControlador extends AndraVistaBase {
         StackPane andraArriba = new StackPane(andraMiniatura(andraIcono), andraEstrella);
         StackPane.setAlignment(andraEstrella, Pos.TOP_RIGHT);
         StackPane.setMargin(andraEstrella, new Insets(10));
-        HBox andraMeta = new HBox(AndraComponentes.andraEtiqueta("Capacidad: " + DixonMontos.dixonMiles(andraEspacio.getDixonCapacidad()) + " personas", "muted", "small"), AndraComponentes.andraEspacio(),
+        HBox andraMeta = new HBox(AndraComponentes.andraEtiqueta("Capacidad: " + AndraMontos.andraMiles(andraEspacio.getAndraCapacidad()) + " personas", "muted", "small"), AndraComponentes.andraEspacio(),
                 AndraComponentes.andraPildora(andraEstado));
         andraMeta.setAlignment(Pos.CENTER_LEFT);
         boolean andraCorrecto = "Disponible".equals(andraEstado);
         Button andraReservar = AndraComponentes.andraBloque(AndraComponentes.andraBotonSm(andraCorrecto ? "Reservar" : "No disponible", andraCorrecto ? "btn-primary" : "btn-secondary", null,
                 andraEvento -> andraAccionesEspacio.andraReservar(andraEspacio, AndraAccionesEspacio.AndraPrecarga.ANDRA_VACIA, this::andraRedibujar)));
         andraReservar.setDisable(!andraCorrecto);
-        VBox andraCajaVertical = new VBox(12, andraArriba, AndraComponentes.andraLiteralParrafo(andraEspacio.getDixonNombre(), "h3", "sm"),
-                AndraComponentes.andraMetaLinea("fth-map-pin", "Sede " + andraEspacio.getDixonSede().getDixonNombre() + " · " + andraEspacio.getDixonEdificio()),
-                AndraComponentes.andraMetaLinea("fth-book-open", andraEspacio.getDixonEscuela() != null ? "EP " + andraEspacio.getDixonEscuela().getDixonNombre() : "Uso general"), andraMeta,
+        VBox andraCajaVertical = new VBox(12, andraArriba, AndraComponentes.andraLiteralParrafo(andraEspacio.getAndraNombre(), "h3", "sm"),
+                AndraComponentes.andraMetaLinea("fth-map-pin", "Sede " + andraEspacio.getAndraSede().getAndraNombre() + " · " + andraEspacio.getAndraEdificio()),
+                AndraComponentes.andraMetaLinea("fth-book-open", andraEspacio.getAndraEscuela() != null ? "EP " + andraEspacio.getAndraEscuela().getAndraNombre() : "Uso general"), andraMeta,
                 AndraComponentes.andraEspacioV(), andraReservar);
         andraCajaVertical.getStyleClass().add("space-card");
         return andraCajaVertical;

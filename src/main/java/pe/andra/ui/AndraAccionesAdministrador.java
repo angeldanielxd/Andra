@@ -6,11 +6,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import pe.andra.exception.DixonNegocioExcepcion;
+import pe.andra.exception.AndraNegocioExcepcion;
 import pe.andra.model.*;
 import pe.andra.service.*;
-import pe.andra.util.DixonFechas;
-import pe.andra.util.DixonMontos;
+import pe.andra.util.AndraFechas;
+import pe.andra.util.AndraMontos;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,54 +20,54 @@ import java.util.List;
 public class AndraAccionesAdministrador {
 
     private final AndraNotificador andraNotificador;
-    private final DixonAdministradorServicio andraAdministrador;
-    private final DixonCatalogoServicio andraCatalogo;
+    private final AndraAdministradorServicio andraAdministrador;
+    private final AndraCatalogoServicio andraCatalogo;
     private final AndraAccionesPago andraAccionesPago;
-    private final DixonDocumentoGeneradoServicio andraGenerador;
+    private final AndraDocumentoGeneradoServicio andraGenerador;
 
-    public DixonDatosSolicitante andraSolicitante(DixonExpediente andraExpediente) {
-        if (andraExpediente.getDixonSolicitante() != null && andraExpediente.getDixonSolicitante().getDixonNombre() != null) {
-            return andraExpediente.getDixonSolicitante();
+    public AndraDatosSolicitante andraSolicitante(AndraExpediente andraExpediente) {
+        if (andraExpediente.getAndraSolicitante() != null && andraExpediente.getAndraSolicitante().getAndraNombre() != null) {
+            return andraExpediente.getAndraSolicitante();
         }
-        if (andraExpediente.getDixonPago() != null && andraExpediente.getDixonPago().getDixonSolicitante() != null && andraExpediente.getDixonPago().getDixonSolicitante().getDixonNombre() != null) {
-            return andraExpediente.getDixonPago().getDixonSolicitante();
+        if (andraExpediente.getAndraPago() != null && andraExpediente.getAndraPago().getAndraSolicitante() != null && andraExpediente.getAndraPago().getAndraSolicitante().getAndraNombre() != null) {
+            return andraExpediente.getAndraPago().getAndraSolicitante();
         }
-        DixonPersona andraPersona = andraExpediente.getDixonPersona();
-        return DixonDatosSolicitante.builder().dixonTipo(andraPersona.getDixonTipo()).dixonNombre(andraPersona.getDixonNombre()).dixonDni(andraPersona.getDixonDni()).dixonCodigo(andraPersona.getDixonCodigo())
-                .dixonEscuela(andraPersona.getDixonEscuela() == null ? null : andraPersona.getDixonEscuela().getDixonCodigo()).dixonCorreo(andraPersona.getDixonCorreo()).build();
+        AndraPersona andraPersona = andraExpediente.getAndraPersona();
+        return AndraDatosSolicitante.builder().andraTipo(andraPersona.getAndraTipo()).andraNombre(andraPersona.getAndraNombre()).andraDni(andraPersona.getAndraDni()).andraCodigo(andraPersona.getAndraCodigo())
+                .andraEscuela(andraPersona.getAndraEscuela() == null ? null : andraPersona.getAndraEscuela().getAndraCodigo()).andraCorreo(andraPersona.getAndraCorreo()).build();
     }
 
     public void andraRevisar(String andraCodigo, Runnable andraAlCambiar) {
-        DixonExpediente andraExpediente = andraAdministrador.dixonExpediente(andraCodigo);
-        DixonPago andraPago = andraExpediente.getDixonPago();
-        DixonDatosSolicitante andraSol = andraSolicitante(andraExpediente);
-        FlowPane andraFichas = AndraComponentes.andraFichas(AndraComponentes.andraPildora(andraExpediente.getDixonEstado(), andraExpediente.getDixonTono()), AndraComponentes.andraLiteral(andraExpediente.getDixonCodigo(), "tag"),
-                AndraComponentes.andraDistintivo("Sede " + andraExpediente.getDixonSede().getDixonNombre()));
-        List<Object> andraDatos = new ArrayList<>(List.of("Nombre", AndraComponentes.andraLiteralParrafo(andraSol.getDixonNombre(), "dd"), "Tipo", andraSol.getDixonTipo(),
-                "DNI", AndraComponentes.andraLiteral(andraSol.getDixonDni() == null ? "—" : andraSol.getDixonDni(), "dd"), "Código", AndraComponentes.andraLiteral(andraSol.getDixonCodigo() == null ? "—" : andraSol.getDixonCodigo(), "dd")));
-        if (andraSol.getDixonEscuela() != null && andraCatalogo.dixonEscuela(andraSol.getDixonEscuela()).isPresent()) {
+        AndraExpediente andraExpediente = andraAdministrador.andraExpediente(andraCodigo);
+        AndraPago andraPago = andraExpediente.getAndraPago();
+        AndraDatosSolicitante andraSol = andraSolicitante(andraExpediente);
+        FlowPane andraFichas = AndraComponentes.andraFichas(AndraComponentes.andraPildora(andraExpediente.getAndraEstado(), andraExpediente.getAndraTono()), AndraComponentes.andraLiteral(andraExpediente.getAndraCodigo(), "tag"),
+                AndraComponentes.andraDistintivo("Sede " + andraExpediente.getAndraSede().getAndraNombre()));
+        List<Object> andraDatos = new ArrayList<>(List.of("Nombre", AndraComponentes.andraLiteralParrafo(andraSol.getAndraNombre(), "dd"), "Tipo", andraSol.getAndraTipo(),
+                "DNI", AndraComponentes.andraLiteral(andraSol.getAndraDni() == null ? "—" : andraSol.getAndraDni(), "dd"), "Código", AndraComponentes.andraLiteral(andraSol.getAndraCodigo() == null ? "—" : andraSol.getAndraCodigo(), "dd")));
+        if (andraSol.getAndraEscuela() != null && andraCatalogo.andraEscuela(andraSol.getAndraEscuela()).isPresent()) {
             andraDatos.add("Escuela");
-            andraDatos.add(AndraComponentes.andraLiteralParrafo("EP " + andraCatalogo.dixonNombreEscuela(andraSol.getDixonEscuela()), "dd"));
+            andraDatos.add(AndraComponentes.andraLiteralParrafo("EP " + andraCatalogo.andraNombreEscuela(andraSol.getAndraEscuela()), "dd"));
         }
-        if (andraSol.getDixonCorreo() != null) {
+        if (andraSol.getAndraCorreo() != null) {
             andraDatos.add("Correo");
-            andraDatos.add(AndraComponentes.andraLiteral(andraSol.getDixonCorreo(), "dd"));
+            andraDatos.add(AndraComponentes.andraLiteral(andraSol.getAndraCorreo(), "dd"));
         }
         VBox andraIzquierda = new VBox(8, AndraComponentes.andraMayus("Solicitante", "label-caps"), AndraComponentes.andraKv(andraDatos.toArray()));
         VBox andraDerecha = new VBox(8, AndraComponentes.andraMayus("Pago", "label-caps"));
         if (andraPago != null) {
-            List<Object> andraPagoDatos = new ArrayList<>(List.of("Orden", AndraComponentes.andraLiteral(andraPago.getDixonCodigo(), "dd"), "Monto", DixonMontos.dixonSoles(andraPago.dixonObtenerTotal()),
-                    "Estado", andraPago.dixonEsPagado() ? AndraComponentes.andraPildora("Pagado · " + andraPago.getDixonMetodo().dixonObtenerEtiqueta(), "success") : AndraComponentes.andraPildora("Pendiente", "warning")));
-            if (andraPago.getDixonBoleta() != null) {
+            List<Object> andraPagoDatos = new ArrayList<>(List.of("Orden", AndraComponentes.andraLiteral(andraPago.getAndraCodigo(), "dd"), "Monto", AndraMontos.andraSoles(andraPago.andraObtenerTotal()),
+                    "Estado", andraPago.andraEsPagado() ? AndraComponentes.andraPildora("Pagado · " + andraPago.getAndraMetodo().andraObtenerEtiqueta(), "success") : AndraComponentes.andraPildora("Pendiente", "warning")));
+            if (andraPago.getAndraBoleta() != null) {
                 andraPagoDatos.add("Comprobante");
-                andraPagoDatos.add(AndraComponentes.andraLiteral(andraPago.getDixonBoleta(), "dd"));
+                andraPagoDatos.add(AndraComponentes.andraLiteral(andraPago.getAndraBoleta(), "dd"));
             }
             andraDerecha.getChildren().add(AndraComponentes.andraKv(andraPagoDatos.toArray()));
         } else {
             andraDerecha.getChildren().add(AndraComponentes.andraParrafo("Este trámite no tiene costo.", "muted", "small"));
         }
-        if (andraExpediente.getDixonObservacion() != null && andraExpediente.getDixonGrupo() == DixonGrupoExpediente.OBSERVADO) {
-            VBox andraObs = new VBox(AndraComponentes.andraEtiqueta("Observación", "obs-titulo"), AndraComponentes.andraParrafo(andraExpediente.getDixonObservacion(), "obs-texto"));
+        if (andraExpediente.getAndraObservacion() != null && andraExpediente.getAndraGrupo() == AndraGrupoExpediente.OBSERVADO) {
+            VBox andraObs = new VBox(AndraComponentes.andraEtiqueta("Observación", "obs-titulo"), AndraComponentes.andraParrafo(andraExpediente.getAndraObservacion(), "obs-texto"));
             andraObs.getStyleClass().add("obs");
             andraDerecha.getChildren().add(andraObs);
         }
@@ -82,82 +82,82 @@ public class AndraAccionesAdministrador {
         andraRejilla.add(andraDerecha, 1, 0);
         GridPane.setValignment(andraDerecha, javafx.geometry.VPos.TOP);
         VBox andraCuerpo = new VBox(14, andraFichas, andraRejilla);
-        if (andraPago != null && andraPago.getDixonTramite() != null && andraPago.getDixonTramite().dixonGeneraDocumento() && andraPago.dixonEsPagado()) {
-            andraCuerpo.getChildren().add(new HBox(AndraComponentes.andraBotonSm("Ver documento generado", "btn-tertiary", "fth-file-text", andraEvento -> andraAccionesPago.andraDocumento(andraPago.getDixonCodigo()))));
+        if (andraPago != null && andraPago.getAndraTramite() != null && andraPago.getAndraTramite().andraGeneraDocumento() && andraPago.andraEsPagado()) {
+            andraCuerpo.getChildren().add(new HBox(AndraComponentes.andraBotonSm("Ver documento generado", "btn-tertiary", "fth-file-text", andraEvento -> andraAccionesPago.andraDocumento(andraPago.getAndraCodigo()))));
         }
         List<Node> andraPie = new ArrayList<>();
         Button andraObservar = AndraComponentes.andraBoton("Observar", "btn-danger", null, andraEvento -> andraObservar(andraExpediente, andraAlCambiar));
-        andraObservar.setDisable(andraExpediente.getDixonGrupo() != DixonGrupoExpediente.TRAMITE);
+        andraObservar.setDisable(andraExpediente.getAndraGrupo() != AndraGrupoExpediente.TRAMITE);
         andraPie.add(andraObservar);
-        if (andraExpediente.getDixonGrupo() == DixonGrupoExpediente.LISTO && !andraExpediente.dixonEsEntregado()) {
+        if (andraExpediente.getAndraGrupo() == AndraGrupoExpediente.LISTO && !andraExpediente.andraEsEntregado()) {
             andraPie.add(AndraComponentes.andraBoton("Marcar entregado", "btn-secondary", null, andraEvento -> {
-                andraAdministrador.dixonEntregar(andraExpediente.getDixonCodigo());
+                andraAdministrador.andraEntregar(andraExpediente.getAndraCodigo());
                 andraNotificador.andraCerrarModal();
                 andraAlCambiar.run();
                 andraNotificador.andraExito("Entrega registrada.");
             }));
         }
-        boolean andraPuede = DixonAdministradorServicio.dixonPuedeEmitir(andraExpediente);
-        Button andraEmitir = AndraComponentes.andraBoton(andraPuede ? "Emitir y marcar listo para recoger" : andraPago != null && !andraPago.dixonEsPagado() ? "Esperando pago" : "Ya atendido",
+        boolean andraPuede = AndraAdministradorServicio.andraPuedeEmitir(andraExpediente);
+        Button andraEmitir = AndraComponentes.andraBoton(andraPuede ? "Emitir y marcar listo para recoger" : andraPago != null && !andraPago.andraEsPagado() ? "Esperando pago" : "Ya atendido",
                 "btn-primary", null, andraEvento -> {
                     try {
-                        andraAdministrador.dixonEmitir(andraExpediente.getDixonCodigo());
+                        andraAdministrador.andraEmitir(andraExpediente.getAndraCodigo());
                         andraNotificador.andraCerrarModal();
                         andraAlCambiar.run();
-                        andraNotificador.andraExito(andraExpediente.getDixonCodigo() + " emitido y listo para recoger.");
-                    } catch (DixonNegocioExcepcion andraNegocioExcepcion) {
+                        andraNotificador.andraExito(andraExpediente.getAndraCodigo() + " emitido y listo para recoger.");
+                    } catch (AndraNegocioExcepcion andraNegocioExcepcion) {
                         andraNotificador.andraError(andraNegocioExcepcion.getMessage());
                     }
                 });
         andraEmitir.setDisable(!andraPuede);
         andraPie.add(andraEmitir);
-        andraNotificador.andraModal(andraExpediente.getDixonTitulo(), andraCuerpo, true, andraPie.toArray(new Node[0]));
+        andraNotificador.andraModal(andraExpediente.getAndraTitulo(), andraCuerpo, true, andraPie.toArray(new Node[0]));
     }
 
-    private void andraObservar(DixonExpediente andraExpediente, Runnable andraAlCambiar) {
+    private void andraObservar(AndraExpediente andraExpediente, Runnable andraAlCambiar) {
         AndraFormulario andraFormulario = new AndraFormulario();
         AndraCampo<TextArea> andraMotivo = andraFormulario.andraAgregar(AndraFormulario.andraArea("Motivo de la observación", "Ej. Falta adjuntar la copia del DNI legible."))
                 .andraRequerido("Explica qué debe corregir el solicitante.").andraMinimo(15);
-        VBox andraCuerpo = new VBox(14, AndraComponentes.andraParrafo(andraExpediente.getDixonCodigo() + " · " + andraExpediente.getDixonTitulo() + ". El solicitante verá este motivo y podrá subsanar.", "muted", "small"), andraMotivo.andraNodo());
+        VBox andraCuerpo = new VBox(14, AndraComponentes.andraParrafo(andraExpediente.getAndraCodigo() + " · " + andraExpediente.getAndraTitulo() + ". El solicitante verá este motivo y podrá subsanar.", "muted", "small"), andraMotivo.andraNodo());
         andraNotificador.andraModal("Observar trámite", andraCuerpo, false, AndraComponentes.andraBoton("Cancelar", "btn-secondary", null, andraEvento -> andraNotificador.andraCerrarModal()),
                 AndraComponentes.andraBoton("Enviar observación", "btn-primary", null, andraEvento -> {
                     if (!andraFormulario.andraValidar()) {
                         return;
                     }
                     try {
-                        andraAdministrador.dixonObservar(andraExpediente.getDixonCodigo(), andraMotivo.andraControl().getText());
+                        andraAdministrador.andraObservar(andraExpediente.getAndraCodigo(), andraMotivo.andraControl().getText());
                         andraNotificador.andraCerrarModal();
                         andraAlCambiar.run();
                         andraNotificador.andraExito("Observación enviada al solicitante.");
-                    } catch (DixonNegocioExcepcion andraNegocioExcepcion) {
+                    } catch (AndraNegocioExcepcion andraNegocioExcepcion) {
                         andraNotificador.andraError(andraNegocioExcepcion.getMessage());
                     }
                 }));
     }
 
-    public void andraReembolsar(DixonPago andraPago, Runnable andraAlCambiar) {
-        andraNotificador.andraConfirmar("¿Reembolsar este pago?", andraPago.getDixonConcepto() + " · " + DixonMontos.dixonSoles(andraPago.dixonObtenerTotal()) + " a " + andraPago.getDixonPersona().getDixonNombre()
+    public void andraReembolsar(AndraPago andraPago, Runnable andraAlCambiar) {
+        andraNotificador.andraConfirmar("¿Reembolsar este pago?", andraPago.getAndraConcepto() + " · " + AndraMontos.andraSoles(andraPago.andraObtenerTotal()) + " a " + andraPago.getAndraPersona().getAndraNombre()
                 + ". Tesorería devolverá el monto por el mismo medio de pago.", "Reembolsar", true, () -> {
-            andraAdministrador.dixonReembolsar(andraPago.getDixonCodigo());
+            andraAdministrador.andraReembolsar(andraPago.getAndraCodigo());
             andraAlCambiar.run();
             andraNotificador.andraExito("Reembolso registrado.");
         });
     }
 
-    public void andraAprobarReserva(DixonReserva andraReserva, Runnable andraAlCambiar) {
-        andraAdministrador.dixonAprobarReserva(andraReserva.getDixonId());
+    public void andraAprobarReserva(AndraReserva andraReserva, Runnable andraAlCambiar) {
+        andraAdministrador.andraAprobarReserva(andraReserva.getAndraId());
         andraAlCambiar.run();
         andraNotificador.andraExito("Reserva aprobada.");
     }
 
-    public void andraRechazarReserva(DixonReserva andraReserva, Runnable andraAlCambiar) {
+    public void andraRechazarReserva(AndraReserva andraReserva, Runnable andraAlCambiar) {
         AndraFormulario andraFormulario = new AndraFormulario();
         AndraCampo<TextArea> andraMotivo = andraFormulario.andraAgregar(AndraFormulario.andraArea("Motivo", null)).andraRequerido("Indica el motivo del rechazo.").andraMinimo(10);
-        VBox andraCuerpo = new VBox(14, AndraComponentes.andraLiteralParrafo(andraReserva.getDixonEspacio().getDixonNombre() + " · " + DixonFechas.dixonDmy(andraReserva.getDixonFecha()) + " " + andraReserva.getDixonHorario(), "muted", "small"), andraMotivo.andraNodo());
+        VBox andraCuerpo = new VBox(14, AndraComponentes.andraLiteralParrafo(andraReserva.getAndraEspacio().getAndraNombre() + " · " + AndraFechas.andraDmy(andraReserva.getAndraFecha()) + " " + andraReserva.getAndraHorario(), "muted", "small"), andraMotivo.andraNodo());
         andraNotificador.andraModal("Rechazar reserva", andraCuerpo, false, AndraComponentes.andraBoton("Cancelar", "btn-secondary", null, andraEvento -> andraNotificador.andraCerrarModal()),
                 AndraComponentes.andraBoton("Rechazar", "btn-primary", null, andraEvento -> {
                     if (andraFormulario.andraValidar()) {
-                        andraAdministrador.dixonRechazarReserva(andraReserva.getDixonId(), andraMotivo.andraControl().getText());
+                        andraAdministrador.andraRechazarReserva(andraReserva.getAndraId(), andraMotivo.andraControl().getText());
                         andraNotificador.andraCerrarModal();
                         andraAlCambiar.run();
                         andraNotificador.andraExito("Reserva rechazada.");
@@ -165,33 +165,33 @@ public class AndraAccionesAdministrador {
                 }));
     }
 
-    public void andraAprobarPrestamo(DixonPrestamo andraPrestamo, Runnable andraAlCambiar) {
-        andraAdministrador.dixonAprobarPrestamo(andraPrestamo.getDixonId());
+    public void andraAprobarPrestamo(AndraPrestamo andraPrestamo, Runnable andraAlCambiar) {
+        andraAdministrador.andraAprobarPrestamo(andraPrestamo.getAndraId());
         andraAlCambiar.run();
         andraNotificador.andraExito("Préstamo aprobado.");
     }
 
-    public void andraRechazarPrestamo(DixonPrestamo andraPrestamo, Runnable andraAlCambiar) {
-        andraNotificador.andraConfirmar("¿Rechazar este préstamo?", andraPrestamo.getDixonNombre() + " (" + andraPrestamo.getDixonCodigo() + ").", "Rechazar", true, () -> {
-            andraAdministrador.dixonRechazarPrestamo(andraPrestamo.getDixonId());
+    public void andraRechazarPrestamo(AndraPrestamo andraPrestamo, Runnable andraAlCambiar) {
+        andraNotificador.andraConfirmar("¿Rechazar este préstamo?", andraPrestamo.getAndraNombre() + " (" + andraPrestamo.getAndraCodigo() + ").", "Rechazar", true, () -> {
+            andraAdministrador.andraRechazarPrestamo(andraPrestamo.getAndraId());
             andraAlCambiar.run();
             andraNotificador.andraExito("Préstamo rechazado.");
         });
     }
 
-    public void andraDevolverPrestamo(DixonPrestamo andraPrestamo, Runnable andraAlCambiar) {
-        andraAdministrador.dixonDevolverPrestamo(andraPrestamo.getDixonId());
+    public void andraDevolverPrestamo(AndraPrestamo andraPrestamo, Runnable andraAlCambiar) {
+        andraAdministrador.andraDevolverPrestamo(andraPrestamo.getAndraId());
         andraAlCambiar.run();
         andraNotificador.andraExito("Devolución registrada.");
     }
 
     public void andraDevolverCustodia(Runnable andraAlCambiar) {
-        andraAdministrador.dixonDevolverCustodia();
+        andraAdministrador.andraDevolverCustodia();
         andraAlCambiar.run();
         andraNotificador.andraExito("Devolución registrada.");
     }
 
-    public DixonDocumentoGeneradoServicio andraGenerador() {
+    public AndraDocumentoGeneradoServicio andraGenerador() {
         return andraGenerador;
     }
 }

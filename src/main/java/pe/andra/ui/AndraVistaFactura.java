@@ -6,9 +6,9 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import pe.andra.model.*;
-import pe.andra.service.DixonCatalogoServicio;
-import pe.andra.util.DixonFechas;
-import pe.andra.util.DixonMontos;
+import pe.andra.service.AndraCatalogoServicio;
+import pe.andra.util.AndraFechas;
+import pe.andra.util.AndraMontos;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -19,29 +19,29 @@ public final class AndraVistaFactura {
     private AndraVistaFactura() {
     }
 
-    public static StackPane andraCrear(String andraCodigo, List<DixonElementoPago> andraElementos, DixonDatosSolicitante andraSol, LocalDate andraVence, DixonSede andraSede,
-                                  DixonPago andraPagado, DixonCatalogoServicio andraCatalogo) {
-        BigDecimal andraTotal = andraElementos.stream().map(DixonElementoPago::dixonObtenerImporte).reduce(BigDecimal.ZERO, BigDecimal::add);
+    public static StackPane andraCrear(String andraCodigo, List<AndraElementoPago> andraElementos, AndraDatosSolicitante andraSol, LocalDate andraVence, AndraSede andraSede,
+                                  AndraPago andraPagado, AndraCatalogoServicio andraCatalogo) {
+        BigDecimal andraTotal = andraElementos.stream().map(AndraElementoPago::andraObtenerImporte).reduce(BigDecimal.ZERO, BigDecimal::add);
         VBox andraMarca = new VBox(AndraComponentes.andraLiteral("Andra Pay", "strong", "h3"), AndraComponentes.andraLiteral("tus trámites más simples", "hint"));
         HBox andraMarcaFila = new HBox(10, AndraComponentes.andraLogo(36), andraMarca);
         andraMarcaFila.setAlignment(Pos.CENTER_LEFT);
         VBox andraId = new VBox(2, AndraComponentes.andraLiteral(andraPagado != null ? "COMPROBANTE DE PAGO" : "ORDEN DE PAGO", "label-caps"),
-                AndraComponentes.andraLiteral(andraPagado != null ? andraPagado.getDixonBoleta() : andraCodigo, "h3"));
+                AndraComponentes.andraLiteral(andraPagado != null ? andraPagado.getAndraBoleta() : andraCodigo, "h3"));
         andraId.setAlignment(Pos.TOP_RIGHT);
         if (andraPagado != null) {
-            andraId.getChildren().add(AndraComponentes.andraLiteral("Op. " + andraPagado.getDixonOperacion(), "hint"));
+            andraId.getChildren().add(AndraComponentes.andraLiteral("Op. " + andraPagado.getAndraOperacion(), "hint"));
         }
         HBox andraCabecera = new HBox(andraMarcaFila, AndraComponentes.andraEspacio(), andraId);
         andraCabecera.getStyleClass().add("inv-head");
 
-        String andraTipo = andraSol.getDixonTipo() + (andraCatalogo.dixonEscuela(andraSol.getDixonEscuela()).isPresent() ? " · EP " + andraCatalogo.dixonNombreEscuela(andraSol.getDixonEscuela()) : "");
-        VBox andraIzquierda = new VBox(2, AndraComponentes.andraLiteral("SOLICITANTE", "label-caps"), AndraComponentes.andraLiteral(andraSol.getDixonNombre(), "strong"),
-                AndraComponentes.andraLiteral("DNI " + andraSol.getDixonDni() + (andraSol.getDixonCodigo() != null && !andraSol.getDixonCodigo().isBlank() ? " · Código " + andraSol.getDixonCodigo() : ""), "small"),
+        String andraTipo = andraSol.getAndraTipo() + (andraCatalogo.andraEscuela(andraSol.getAndraEscuela()).isPresent() ? " · EP " + andraCatalogo.andraNombreEscuela(andraSol.getAndraEscuela()) : "");
+        VBox andraIzquierda = new VBox(2, AndraComponentes.andraLiteral("SOLICITANTE", "label-caps"), AndraComponentes.andraLiteral(andraSol.getAndraNombre(), "strong"),
+                AndraComponentes.andraLiteral("DNI " + andraSol.getAndraDni() + (andraSol.getAndraCodigo() != null && !andraSol.getAndraCodigo().isBlank() ? " · Código " + andraSol.getAndraCodigo() : ""), "small"),
                 AndraComponentes.andraLiteral(andraTipo, "small"));
         VBox andraDerecha = new VBox(2, AndraComponentes.andraLiteral(andraPagado != null ? "FECHA DE PAGO" : "EMITIDA", "label-caps"),
-                AndraComponentes.andraLiteral(andraPagado != null ? DixonFechas.dixonDmyHm(andraPagado.getDixonPagado()) : DixonFechas.dixonDmy(DixonFechas.dixonHoy()), "strong"),
+                AndraComponentes.andraLiteral(andraPagado != null ? AndraFechas.andraDmyHm(andraPagado.getAndraPagado()) : AndraFechas.andraDmy(AndraFechas.andraHoy()), "strong"),
                 AndraComponentes.andraLiteral(andraPagado != null ? "MÉTODO" : "VENCE", "label-caps"),
-                AndraComponentes.andraLiteral(andraPagado != null ? andraPagado.getDixonMetodo().dixonObtenerEtiqueta() : DixonFechas.dixonDmy(andraVence), "strong"));
+                AndraComponentes.andraLiteral(andraPagado != null ? andraPagado.getAndraMetodo().andraObtenerEtiqueta() : AndraFechas.andraDmy(andraVence), "strong"));
         VBox.setMargin(andraDerecha.getChildren().get(2), new Insets(8, 0, 0, 0));
         GridPane andraMeta = new GridPane();
         andraMeta.getStyleClass().add("inv-meta");
@@ -69,19 +69,19 @@ public final class AndraVistaFactura {
             andraTabla.add(andraCelda(andraEtiqueta, andraIndice > 0), andraIndice, 0);
         }
         int andraFila = 1;
-        for (DixonElementoPago andraElementoPago : andraElementos) {
-            andraTabla.add(andraCelda(AndraComponentes.andraLiteralParrafo(andraElementoPago.getDixonConcepto()), false), 0, andraFila);
-            andraTabla.add(andraCelda(AndraComponentes.andraLiteral(String.valueOf(andraElementoPago.getDixonCantidad())), true), 1, andraFila);
-            andraTabla.add(andraCelda(AndraComponentes.andraLiteral(DixonMontos.dixonSoles(andraElementoPago.getDixonPrecioUnitario())), true), 2, andraFila);
-            andraTabla.add(andraCelda(AndraComponentes.andraLiteral(DixonMontos.dixonSoles(andraElementoPago.dixonObtenerImporte())), true), 3, andraFila);
+        for (AndraElementoPago andraElementoPago : andraElementos) {
+            andraTabla.add(andraCelda(AndraComponentes.andraLiteralParrafo(andraElementoPago.getAndraConcepto()), false), 0, andraFila);
+            andraTabla.add(andraCelda(AndraComponentes.andraLiteral(String.valueOf(andraElementoPago.getAndraCantidad())), true), 1, andraFila);
+            andraTabla.add(andraCelda(AndraComponentes.andraLiteral(AndraMontos.andraSoles(andraElementoPago.getAndraPrecioUnitario())), true), 2, andraFila);
+            andraTabla.add(andraCelda(AndraComponentes.andraLiteral(AndraMontos.andraSoles(andraElementoPago.andraObtenerImporte())), true), 3, andraFila);
             andraFila++;
         }
         HBox andraTotalFila = new HBox(AndraComponentes.andraLiteral("Total a pagar", "strong"), AndraComponentes.andraEspacio(),
-                AndraComponentes.andraLiteral(DixonMontos.dixonSoles(andraTotal), "strong"));
+                AndraComponentes.andraLiteral(AndraMontos.andraSoles(andraTotal), "strong"));
         andraTotalFila.getStyleClass().add("inv-total");
         andraTotalFila.setPadding(new Insets(12, 6, 0, 6));
         Label andraNota = AndraComponentes.andraLiteralParrafo((andraPagado != null ? "Pago confirmado. " : "") + "Sede de atención: "
-                + andraSede.getDixonNombreCompleto() + ". Montos referenciales de demostración; no se realizan cargos reales.", "inv-note");
+                + andraSede.getAndraNombreCompleto() + ". Montos referenciales de demostración; no se realizan cargos reales.", "inv-note");
         VBox andraHoja = new VBox(andraCabecera, andraMeta, andraTabla, andraTotalFila, andraNota);
         StackPane andraContenedor = new StackPane(andraHoja);
         andraContenedor.getStyleClass().add("sheet");

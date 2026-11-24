@@ -36,7 +36,6 @@ public class AndraVidrioDasm extends StackPane {
         this(andraClaseTinte, true);
     }
 
-    // Satura fondo, no en flotantes
     public AndraVidrioDasm(String andraClaseTinte, boolean andraSaturar) {
         andraCapa.setManaged(false);
         andraCapa.setMouseTransparent(true);

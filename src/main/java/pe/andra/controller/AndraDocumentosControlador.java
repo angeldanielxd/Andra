@@ -9,12 +9,12 @@ import javafx.scene.layout.*;
 import lombok.RequiredArgsConstructor;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.springframework.stereotype.Component;
-import pe.andra.model.DixonDocumento;
-import pe.andra.model.DixonEscuelaProfesional;
-import pe.andra.model.DixonTramite;
+import pe.andra.model.AndraDocumento;
+import pe.andra.model.AndraEscuelaProfesional;
+import pe.andra.model.AndraTramite;
 import pe.andra.service.*;
 import pe.andra.ui.*;
-import pe.andra.util.DixonMontos;
+import pe.andra.util.AndraMontos;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -23,14 +23,14 @@ import java.util.*;
 @RequiredArgsConstructor
 public class AndraDocumentosControlador extends AndraVistaBase {
 
-    private final DixonContextoServicio andraContexto;
-    private final DixonCatalogoServicio andraCatalogo;
-    private final DixonDocumentoServicio andraDocumentos;
+    private final AndraContextoServicio andraContexto;
+    private final AndraCatalogoServicio andraCatalogo;
+    private final AndraDocumentoServicio andraDocumentos;
     private final AndraAccionesDocumento andraAccionesDocumento;
     private final AndraAccionesPago andraAccionesPago;
 
-    private final DixonEstadoFiltro andraFiltros = new DixonEstadoFiltro();
-    private DixonDocumentoServicio.DixonCriterio andraAplicado = DixonDocumentoServicio.DixonCriterio.dixonVacio();
+    private final AndraEstadoFiltro andraFiltros = new AndraEstadoFiltro();
+    private AndraDocumentoServicio.AndraCriterio andraAplicado = AndraDocumentoServicio.AndraCriterio.andraVacio();
     private String andraOrden = "rel";
     private String andraPublicoTramite = "all";
     private boolean andraTodosTramites;
@@ -49,7 +49,7 @@ public class AndraDocumentosControlador extends AndraVistaBase {
     protected List<Node> andraConstruir() {
         List<Node> andraNodos = new ArrayList<>();
         andraNodos.add(AndraComponentes.andraPortada(null, "Documentos", "Solicita constancias y otros documentos académicos. Realiza el seguimiento de tus solicitudes.",
-                AndraComponentes.andraLineaContexto(null, andraContexto.dixonTextoEscuela(), "ctx:escuela")));
+                AndraComponentes.andraLineaContexto(null, andraContexto.andraTextoEscuela(), "ctx:escuela")));
         andraNodos.add(andraTramites());
         andraNodos.add(andraBuscador());
         andraNodos.add(andraResultados());
@@ -77,28 +77,28 @@ public class AndraDocumentosControlador extends AndraVistaBase {
         }
         AndraComponentes.andraAccesible(andraFichas, "Para quién");
         VBox.setMargin(andraFichas, new Insets(0, 0, 16, 0));
-        List<DixonTramite> andraLista = andraCatalogo.dixonTramites().stream().filter(andraTramite -> "all".equals(andraPublicoTramite) || andraTramite.dixonAdmite(andraPublicoTramite)).toList();
-        List<DixonTramite> andraVisibles = andraTodosTramites ? andraLista : andraLista.subList(0, Math.min(8, andraLista.size()));
+        List<AndraTramite> andraLista = andraCatalogo.andraTramites().stream().filter(andraTramite -> "all".equals(andraPublicoTramite) || andraTramite.andraAdmite(andraPublicoTramite)).toList();
+        List<AndraTramite> andraVisibles = andraTodosTramites ? andraLista : andraLista.subList(0, Math.min(8, andraLista.size()));
         AndraRejilla andraTarjetas = new AndraRejilla(4, 230, 14);
-        for (DixonTramite andraTramite : andraVisibles) {
-            HBox andraArriba = new HBox(AndraComponentes.andraMayus(andraTramite.getDixonCategoria(), "label-caps"), AndraComponentes.andraEspacio(),
-                    AndraComponentes.andraLiteral(DixonMontos.dixonSoles(andraTramite.getDixonMonto()), "tc-price"));
+        for (AndraTramite andraTramite : andraVisibles) {
+            HBox andraArriba = new HBox(AndraComponentes.andraMayus(andraTramite.getAndraCategoria(), "label-caps"), AndraComponentes.andraEspacio(),
+                    AndraComponentes.andraLiteral(AndraMontos.andraSoles(andraTramite.getAndraMonto()), "tc-price"));
             andraArriba.setAlignment(Pos.CENTER_LEFT);
             VBox andraTarjeta = new VBox(8, andraArriba);
-            if (andraTramite.getDixonUnidad() != null) {
-                Label andraEtiqueta = AndraComponentes.andraEtiqueta(andraTramite.getDixonUnidad(), "hint");
+            if (andraTramite.getAndraUnidad() != null) {
+                Label andraEtiqueta = AndraComponentes.andraEtiqueta(andraTramite.getAndraUnidad(), "hint");
                 HBox andraFila = new HBox(AndraComponentes.andraEspacio(), andraEtiqueta);
                 andraTarjeta.getChildren().add(andraFila);
             }
-            Label andraEntrega = AndraComponentes.andraEtiqueta(andraTramite.dixonObtenerTextoEntrega());
+            Label andraEntrega = AndraComponentes.andraEtiqueta(andraTramite.andraObtenerTextoEntrega());
             andraEntrega.setGraphic(new FontIcon("fth-clock"));
-            Label andraQuien = AndraComponentes.andraEtiqueta(andraTramite.dixonObtenerListaPublicos().size() > 3 ? "Varios solicitantes" : String.join(", ", andraTramite.dixonObtenerListaPublicos()));
+            Label andraQuien = AndraComponentes.andraEtiqueta(andraTramite.andraObtenerListaPublicos().size() > 3 ? "Varios solicitantes" : String.join(", ", andraTramite.andraObtenerListaPublicos()));
             andraQuien.setGraphic(new FontIcon("fth-user"));
             andraQuien.setWrapText(true);
             VBox andraMeta = new VBox(4, andraEntrega, andraQuien);
             andraMeta.getStyleClass().add("tc-meta");
             Button andraSolicitar = AndraComponentes.andraBloque(AndraComponentes.andraBotonSm("Solicitar", "btn-primary", null, andraEvento -> andraAccionesPago.andraIniciar(andraTramite, null, this::andraRedibujar)));
-            andraTarjeta.getChildren().addAll(AndraComponentes.andraParrafo(andraTramite.getDixonNombre(), "h3", "sm"), AndraComponentes.andraParrafo(andraTramite.getDixonDescripcion(), "muted", "small"),
+            andraTarjeta.getChildren().addAll(AndraComponentes.andraParrafo(andraTramite.getAndraNombre(), "h3", "sm"), AndraComponentes.andraParrafo(andraTramite.getAndraDescripcion(), "muted", "small"),
                     andraMeta, AndraComponentes.andraEspacioV(), andraSolicitar);
             andraTarjeta.getStyleClass().add("tupa-card");
             andraTarjetas.getChildren().add(andraTarjeta);
@@ -127,8 +127,8 @@ public class AndraDocumentosControlador extends AndraVistaBase {
     }
 
     private VBox andraBuscador() {
-        DixonEscuelaProfesional andraFac = andraContexto.dixonEscuela();
-        andraBusqueda = new TextField(andraAplicado.dixonTexto());
+        AndraEscuelaProfesional andraFac = andraContexto.andraEscuela();
+        andraBusqueda = new TextField(andraAplicado.andraTexto());
         AndraComponentes.andraIndicacion(andraBusqueda, "Busca formatos, resoluciones, sílabos o palabras clave…");
         AndraComponentes.andraAccesible(andraBusqueda, "Buscar documentos");
         StackPane andraCaja = new StackPane(andraBusqueda, AndraComponentes.andraIcono("fth-search"));
@@ -136,50 +136,50 @@ public class AndraDocumentosControlador extends AndraVistaBase {
         StackPane.setMargin(andraCaja.getChildren().get(1), new Insets(0, 0, 0, 14));
         andraCaja.getStyleClass().addAll("search", "search-lg");
         AndraFormulario andraFormulario = new AndraFormulario();
-        AndraCampo<ComboBox<AndraOpcion>> andraTipo = andraFormulario.andraAgregar(AndraFormulario.andraSelector("Tipo de documento", AndraOpcion.andraLista(andraCatalogo.dixonTiposDocumento()), "Todos los tipos", andraAplicado.dixonTipo()));
+        AndraCampo<ComboBox<AndraOpcion>> andraTipo = andraFormulario.andraAgregar(AndraFormulario.andraSelector("Tipo de documento", AndraOpcion.andraLista(andraCatalogo.andraTiposDocumento()), "Todos los tipos", andraAplicado.andraTipo()));
         List<AndraOpcion> andraDeps = new ArrayList<>();
         andraDeps.add(AndraOpcion.andraGrupo("Escuelas profesionales"));
-        andraCatalogo.dixonEscuelas().forEach(andraEscuelaProfesional -> andraDeps.add(AndraOpcion.andraDe(andraEscuelaProfesional.getDixonNombre(), andraEscuelaProfesional.getDixonNombre())));
+        andraCatalogo.andraEscuelas().forEach(andraEscuelaProfesional -> andraDeps.add(AndraOpcion.andraDe(andraEscuelaProfesional.getAndraNombre(), andraEscuelaProfesional.getAndraNombre())));
         andraDeps.add(AndraOpcion.andraGrupo("Dependencias administrativas"));
-        andraCatalogo.dixonDependencias().forEach(andraTexto -> andraDeps.add(AndraOpcion.andraDe(andraTexto, andraTexto)));
+        andraCatalogo.andraDependencias().forEach(andraTexto -> andraDeps.add(AndraOpcion.andraDe(andraTexto, andraTexto)));
         AndraCampo<ComboBox<AndraOpcion>> andraDep = andraFormulario.andraAgregar(AndraFormulario.andraSelector("Dependencia / Escuela profesional", andraDeps,
-                andraFac != null ? "EP " + andraFac.getDixonNombre() + " e institucionales" : "Todas las dependencias", andraAplicado.dixonDependencia()));
-        AndraCampo<ComboBox<AndraOpcion>> andraPublico = andraFormulario.andraAgregar(AndraFormulario.andraSelector("Público objetivo", AndraOpcion.andraLista(DixonDocumentoServicio.DIXON_PUBLICOS), "Todo el público", andraAplicado.dixonPublico()));
-        AndraCampo<ComboBox<AndraOpcion>> andraRango = andraFormulario.andraAgregar(AndraFormulario.andraSelector("Rango de fechas", AndraOpcion.andraPares(DixonDocumentoServicio.DIXON_RANGOS), null, andraAplicado.dixonRango()));
-        AndraCampo<DatePicker> andraDesde = andraFormulario.andraAgregar(AndraFormulario.andraFecha("Desde", andraAplicado.dixonDesde(), null, pe.andra.util.DixonFechas.dixonHoy()));
-        AndraCampo<DatePicker> andraHasta = andraFormulario.andraAgregar(AndraFormulario.andraFecha("Hasta", andraAplicado.dixonHasta(), null, pe.andra.util.DixonFechas.dixonHoy()));
+                andraFac != null ? "EP " + andraFac.getAndraNombre() + " e institucionales" : "Todas las dependencias", andraAplicado.andraDependencia()));
+        AndraCampo<ComboBox<AndraOpcion>> andraPublico = andraFormulario.andraAgregar(AndraFormulario.andraSelector("Público objetivo", AndraOpcion.andraLista(AndraDocumentoServicio.ANDRA_PUBLICOS), "Todo el público", andraAplicado.andraPublico()));
+        AndraCampo<ComboBox<AndraOpcion>> andraRango = andraFormulario.andraAgregar(AndraFormulario.andraSelector("Rango de fechas", AndraOpcion.andraPares(AndraDocumentoServicio.ANDRA_RANGOS), null, andraAplicado.andraRango()));
+        AndraCampo<DatePicker> andraDesde = andraFormulario.andraAgregar(AndraFormulario.andraFecha("Desde", andraAplicado.andraDesde(), null, pe.andra.util.AndraFechas.andraHoy()));
+        AndraCampo<DatePicker> andraHasta = andraFormulario.andraAgregar(AndraFormulario.andraFecha("Hasta", andraAplicado.andraHasta(), null, pe.andra.util.AndraFechas.andraHoy()));
         GridPane andraPersonalizado = AndraFormulario.andraRejilla(2, andraDesde.andraNodo(), andraHasta.andraNodo());
-        andraPersonalizado.setVisible("custom".equals(andraAplicado.dixonRango()));
+        andraPersonalizado.setVisible("custom".equals(andraAplicado.andraRango()));
         andraPersonalizado.managedProperty().bind(andraPersonalizado.visibleProperty());
         andraRango.andraControl().valueProperty().addListener((andraObservable, andraOpcionA, andraOpcionB) -> andraPersonalizado.setVisible(andraOpcionB != null && "custom".equals(andraOpcionB.andraValor())));
         FlowPane andraRapidos = AndraComponentes.andraFichas();
-        for (String andraTexto2 : DixonDocumentoServicio.DIXON_TIPOS_RAPIDOS) {
+        for (String andraTexto2 : AndraDocumentoServicio.ANDRA_TIPOS_RAPIDOS) {
             ToggleButton andraBotonOpcionB = new ToggleButton();
             AndraComponentes.andraFijar(andraBotonOpcionB, andraTexto2);
             andraBotonOpcionB.getStyleClass().add("chip");
-            andraBotonOpcionB.setSelected(andraTexto2.equals(andraAplicado.dixonTipo()));
+            andraBotonOpcionB.setSelected(andraTexto2.equals(andraAplicado.andraTipo()));
             andraBotonOpcionB.setOnAction(andraEvento -> {
-                andraAplicado = andraAplicado.dixonConTipo(andraTexto2.equals(andraAplicado.dixonTipo()) ? "" : andraTexto2);
+                andraAplicado = andraAplicado.andraConTipo(andraTexto2.equals(andraAplicado.andraTipo()) ? "" : andraTexto2);
                 andraMas.clear();
                 andraRedibujar();
             });
             andraRapidos.getChildren().add(andraBotonOpcionB);
         }
         AndraComponentes.andraAccesible(andraRapidos, "Accesos rápidos por tipo");
-        int andraCantidad = andraDocumentos.dixonBuscar(andraAplicado, andraFac, andraFiltros, andraOrden).size();
+        int andraCantidad = andraDocumentos.andraBuscar(andraAplicado, andraFac, andraFiltros, andraOrden).size();
         Label andraConteo = AndraComponentes.andraEtiqueta(String.format("%02d", andraCantidad) + " documento" + (andraCantidad == 1 ? "" : "s") + " encontrado" + (andraCantidad == 1 ? "" : "s"), "hint");
         HBox.setHgrow(andraConteo, Priority.ALWAYS);
         andraConteo.setMaxWidth(Double.MAX_VALUE);
         Button andraLimpiar = AndraComponentes.andraBoton("Limpiar", "btn-tertiary", null, andraEvento -> {
-            andraAplicado = DixonDocumentoServicio.DixonCriterio.dixonVacio();
+            andraAplicado = AndraDocumentoServicio.AndraCriterio.andraVacio();
             andraMas.clear();
             andraRedibujar();
         });
         Button andraBuscar = AndraComponentes.andraBoton("Buscar documento", "btn-primary", null, andraEvento -> {
-            DixonDocumentoServicio.DixonCriterio andraCriterio = new DixonDocumentoServicio.DixonCriterio(andraBusqueda.getText().trim(), AndraFormulario.andraValor(andraTipo.andraControl()),
+            AndraDocumentoServicio.AndraCriterio andraCriterio = new AndraDocumentoServicio.AndraCriterio(andraBusqueda.getText().trim(), AndraFormulario.andraValor(andraTipo.andraControl()),
                     AndraFormulario.andraValor(andraDep.andraControl()), AndraFormulario.andraValor(andraPublico.andraControl()), AndraFormulario.andraValor(andraRango.andraControl()),
                     andraDesde.andraControl().getValue(), andraHasta.andraControl().getValue());
-            String andraError = DixonDocumentoServicio.dixonValidarRangoPersonalizado(andraCriterio);
+            String andraError = AndraDocumentoServicio.andraValidarRangoPersonalizado(andraCriterio);
             if (andraError != null) {
                 andraHasta.andraMostrar(andraError);
                 andraHasta.andraControl().requestFocus();
@@ -199,16 +199,16 @@ public class AndraDocumentosControlador extends AndraVistaBase {
     }
 
     private VBox andraResultados() {
-        DixonEscuelaProfesional andraFac = andraContexto.dixonEscuela();
-        List<DixonDocumento> andraLista = andraDocumentos.dixonBuscar(andraAplicado, andraFac, andraFiltros, andraOrden);
+        AndraEscuelaProfesional andraFac = andraContexto.andraEscuela();
+        List<AndraDocumento> andraLista = andraDocumentos.andraBuscar(andraAplicado, andraFac, andraFiltros, andraOrden);
         MenuButton andraOrdenar = new MenuButton();
-        AndraComponentes.andraFijar(andraOrdenar, "Ordenar por: " + DixonDocumentoServicio.dixonEtiquetaOrden(andraOrden));
+        AndraComponentes.andraFijar(andraOrdenar, "Ordenar por: " + AndraDocumentoServicio.andraEtiquetaOrden(andraOrden));
         andraOrdenar.setGraphic(new FontIcon("fth-bar-chart-2"));
         andraOrdenar.getStyleClass().addAll("btn", "btn-secondary", "btn-sm");
         ToggleGroup andraGrupoOrden = new ToggleGroup();
-        for (String[] andraTextos : DixonDocumentoServicio.DIXON_ORDENES) {
+        for (String[] andraTextos : AndraDocumentoServicio.ANDRA_ORDENES) {
             RadioMenuItem andraElemento = new RadioMenuItem();
-            andraElemento.textProperty().bind(DixonIdiomaServicio.dixonEnlace(andraTextos[1]));
+            andraElemento.textProperty().bind(AndraIdiomaServicio.andraEnlace(andraTextos[1]));
             andraElemento.setToggleGroup(andraGrupoOrden);
             andraElemento.setSelected(andraTextos[0].equals(andraOrden));
             andraElemento.setOnAction(andraEvento -> {
@@ -217,19 +217,19 @@ public class AndraDocumentosControlador extends AndraVistaBase {
             });
             andraOrdenar.getItems().add(andraElemento);
         }
-        HBox andraCab = AndraComponentes.andraCabeceraSeccion("Resultado(s)", null, AndraFiltros.andraBoton(andraFiltros, DixonDocumentoServicio.DIXON_PREDEFINIDOS, null, andraNotificador, this::andraRedibujar), andraOrdenar);
-        VBox andraSeccion = AndraComponentes.andraSeccion(andraCab, AndraFiltros.andraResumen(andraFiltros, DixonDocumentoServicio.DIXON_PREDEFINIDOS, null, this::andraRedibujar));
+        HBox andraCab = AndraComponentes.andraCabeceraSeccion("Resultado(s)", null, AndraFiltros.andraBoton(andraFiltros, AndraDocumentoServicio.ANDRA_PREDEFINIDOS, null, andraNotificador, this::andraRedibujar), andraOrdenar);
+        VBox andraSeccion = AndraComponentes.andraSeccion(andraCab, AndraFiltros.andraResumen(andraFiltros, AndraDocumentoServicio.ANDRA_PREDEFINIDOS, null, this::andraRedibujar));
         if (andraLista.isEmpty()) {
             andraSeccion.getChildren().add(AndraComponentes.andraVacio("fth-search", "No encontramos documentos", "Revisa la ortografía o quita algunos filtros."));
             return andraSeccion;
         }
-        boolean andraPorEscuela = andraFac != null && (andraAplicado.dixonDependencia() == null || andraAplicado.dixonDependencia().isBlank());
-        List<DixonDocumento> andraDeEscuela = andraPorEscuela ? andraLista.stream().filter(andraDocumento -> andraDocumento.getDixonEscuela() != null && andraDocumento.getDixonEscuela().getDixonCodigo().equals(andraFac.getDixonCodigo())).toList() : List.of();
-        List<DixonDocumento> andraFrecuentes = andraLista.stream().filter(DixonDocumento::isDixonFrecuente).filter(andraDocumento -> !andraDeEscuela.contains(andraDocumento)).toList();
-        List<DixonDocumento> andraGenerales = andraLista.stream().filter(andraDocumento -> !andraDocumento.isDixonFrecuente()).filter(andraDocumento -> !andraDeEscuela.contains(andraDocumento)).toList();
+        boolean andraPorEscuela = andraFac != null && (andraAplicado.andraDependencia() == null || andraAplicado.andraDependencia().isBlank());
+        List<AndraDocumento> andraDeEscuela = andraPorEscuela ? andraLista.stream().filter(andraDocumento -> andraDocumento.getAndraEscuela() != null && andraDocumento.getAndraEscuela().getAndraCodigo().equals(andraFac.getAndraCodigo())).toList() : List.of();
+        List<AndraDocumento> andraFrecuentes = andraLista.stream().filter(AndraDocumento::isAndraFrecuente).filter(andraDocumento -> !andraDeEscuela.contains(andraDocumento)).toList();
+        List<AndraDocumento> andraGenerales = andraLista.stream().filter(andraDocumento -> !andraDocumento.isAndraFrecuente()).filter(andraDocumento -> !andraDeEscuela.contains(andraDocumento)).toList();
         VBox andraGrupos = new VBox(32);
         if (andraPorEscuela) {
-            andraAgregarGrupo(andraGrupos, "fac", "EP " + andraFac.getDixonNombre(), andraDeEscuela);
+            andraAgregarGrupo(andraGrupos, "fac", "EP " + andraFac.getAndraNombre(), andraDeEscuela);
         }
         andraAgregarGrupo(andraGrupos, "freq", "Frecuente", andraFrecuentes);
         andraAgregarGrupo(andraGrupos, "gen", andraPorEscuela ? "Institucionales y generales" : "General", andraGenerales);
@@ -237,7 +237,7 @@ public class AndraDocumentosControlador extends AndraVistaBase {
         return andraSeccion;
     }
 
-    private void andraAgregarGrupo(VBox andraDestino, String andraClave, String andraTitulo, List<DixonDocumento> andraLista) {
+    private void andraAgregarGrupo(VBox andraDestino, String andraClave, String andraTitulo, List<AndraDocumento> andraLista) {
         if (andraLista.isEmpty()) {
             return;
         }
@@ -265,7 +265,7 @@ public class AndraDocumentosControlador extends AndraVistaBase {
 
     private VBox andraMisDocumentos() {
         List<Node> andraFilas = new ArrayList<>();
-        andraDocumentos.dixonMisDocumentos().forEach(andraDocumentoPersonal -> andraFilas.add(andraAccionesDocumento.andraFilaPersonal(andraDocumentoPersonal, this::andraRedibujar)));
+        andraDocumentos.andraMisDocumentos().forEach(andraDocumentoPersonal -> andraFilas.add(andraAccionesDocumento.andraFilaPersonal(andraDocumentoPersonal, this::andraRedibujar)));
         return AndraComponentes.andraSeccion(AndraComponentes.andraCabeceraSeccion("Mis documentos", "Documentos emitidos a tu nombre"), AndraComponentes.andraLista(andraFilas));
     }
 }

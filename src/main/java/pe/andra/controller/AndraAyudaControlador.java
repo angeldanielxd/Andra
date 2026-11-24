@@ -12,12 +12,12 @@ import lombok.RequiredArgsConstructor;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.springframework.stereotype.Component;
 import pe.andra.config.AndraDatosInstitucion;
-import pe.andra.model.DixonExpediente;
-import pe.andra.model.DixonSede;
+import pe.andra.model.AndraExpediente;
+import pe.andra.model.AndraSede;
 import pe.andra.service.*;
 import pe.andra.ui.*;
-import pe.andra.util.DixonFechas;
-import pe.andra.util.DixonPortapapeles;
+import pe.andra.util.AndraFechas;
+import pe.andra.util.AndraPortapapeles;
 
 import java.util.*;
 
@@ -25,11 +25,11 @@ import java.util.*;
 @RequiredArgsConstructor
 public class AndraAyudaControlador extends AndraVistaBase {
 
-    private final DixonAyudaServicio andraAyuda;
-    private final DixonContextoServicio andraContexto;
-    private final DixonCatalogoServicio andraCatalogo;
-    private final DixonSesionServicio andraSesion;
-    private final DixonExpedienteServicio andraExpedientes;
+    private final AndraAyudaServicio andraAyuda;
+    private final AndraContextoServicio andraContexto;
+    private final AndraCatalogoServicio andraCatalogo;
+    private final AndraSesionServicio andraSesion;
+    private final AndraExpedienteServicio andraExpedientes;
     private final AndraDatosInstitucion andraInstitucion;
 
     private TextField andraBusqueda;
@@ -72,12 +72,12 @@ public class AndraAyudaControlador extends AndraVistaBase {
     @Override
     protected List<Node> andraConstruir() {
         String andraConsulta = andraBusqueda().getText() == null ? "" : andraBusqueda.getText().trim();
-        List<DixonAyudaServicio.DixonArea> andraAreas = andraAyuda.dixonAreas(andraConsulta);
-        List<DixonAyudaServicio.DixonGuia> andraGuias = andraAyuda.dixonGuias(andraConsulta);
-        List<DixonAyudaServicio.DixonPregunta> andraPreguntas = andraAyuda.dixonPreguntas(andraConsulta);
+        List<AndraAyudaServicio.AndraArea> andraAreas = andraAyuda.andraAreas(andraConsulta);
+        List<AndraAyudaServicio.AndraGuia> andraGuias = andraAyuda.andraGuias(andraConsulta);
+        List<AndraAyudaServicio.AndraPregunta> andraPreguntas = andraAyuda.andraPreguntas(andraConsulta);
         List<Node> andraNodos = new ArrayList<>();
         andraNodos.add(AndraComponentes.andraPortada(null, "Ayuda", "Centro de asistencia, preguntas frecuentes y contacto directo con encargados de Mesa de Partes.",
-                AndraComponentes.andraLineaContexto(andraContexto.dixonTextoSede(), andraContexto.dixonTextoEscuela(), "ctx:sede")));
+                AndraComponentes.andraLineaContexto(andraContexto.andraTextoSede(), andraContexto.andraTextoEscuela(), "ctx:sede")));
         andraNodos.add(andraBuscador(andraConsulta));
         andraCanales = null;
         if (!andraConsulta.isBlank() && andraAreas.isEmpty() && andraGuias.isEmpty() && andraPreguntas.isEmpty()) {
@@ -118,7 +118,7 @@ public class AndraAyudaControlador extends AndraVistaBase {
         andraCaja.getStyleClass().addAll("search", "search-lg");
         FlowPane andraFichas = AndraComponentes.andraFichas(AndraComponentes.andraEtiqueta("Búsquedas populares:", "hint"));
         andraFichas.getStyleClass().add("centro");
-        for (String andraTexto : DixonAyudaServicio.DIXON_POPULARES) {
+        for (String andraTexto : AndraAyudaServicio.ANDRA_POPULARES) {
             ToggleButton andraBotonOpcion = new ToggleButton();
             AndraComponentes.andraFijar(andraBotonOpcion, andraTexto);
             andraBotonOpcion.getStyleClass().add("chip");
@@ -136,29 +136,29 @@ public class AndraAyudaControlador extends AndraVistaBase {
         return andraSeccion;
     }
 
-    private VBox andraAreas(List<DixonAyudaServicio.DixonArea> andraAreas) {
+    private VBox andraAreas(List<AndraAyudaServicio.AndraArea> andraAreas) {
         AndraRejilla andraRejilla = new AndraRejilla(2, 340);
-        for (DixonAyudaServicio.DixonArea andraArea : andraAreas) {
-            StackPane andraCapa = new StackPane(new FontIcon(andraArea.dixonIcono()));
+        for (AndraAyudaServicio.AndraArea andraArea : andraAreas) {
+            StackPane andraCapa = new StackPane(new FontIcon(andraArea.andraIcono()));
             andraCapa.getStyleClass().add("area-ic");
-            HBox andraArriba = new HBox(10, andraCapa, AndraComponentes.andraMayus(andraArea.dixonEtiqueta(), "label-caps"), AndraComponentes.andraEspacio(), AndraComponentes.andraDistintivo("Guía oficial"));
+            HBox andraArriba = new HBox(10, andraCapa, AndraComponentes.andraMayus(andraArea.andraEtiqueta(), "label-caps"), AndraComponentes.andraEspacio(), AndraComponentes.andraDistintivo("Guía oficial"));
             andraArriba.setAlignment(Pos.CENTER_LEFT);
             VBox andraPuntos = new VBox(4);
-            andraArea.dixonPuntos().forEach(andraTexto -> andraPuntos.getChildren().add(AndraComponentes.andraVineta(andraTexto, "vineta")));
-            VBox andraTarjeta = new VBox(12, andraArriba, AndraComponentes.andraParrafo(andraArea.dixonTitulo(), "h3"), AndraComponentes.andraParrafo(andraArea.dixonDescripcion(), "muted", "small"), andraPuntos,
-                    AndraComponentes.andraEspacioV(), AndraComponentes.andraEnlaceFlecha(andraArea.dixonEnlace(), andraEvento -> andraModalArea(andraArea)));
+            andraArea.andraPuntos().forEach(andraTexto -> andraPuntos.getChildren().add(AndraComponentes.andraVineta(andraTexto, "vineta")));
+            VBox andraTarjeta = new VBox(12, andraArriba, AndraComponentes.andraParrafo(andraArea.andraTitulo(), "h3"), AndraComponentes.andraParrafo(andraArea.andraDescripcion(), "muted", "small"), andraPuntos,
+                    AndraComponentes.andraEspacioV(), AndraComponentes.andraEnlaceFlecha(andraArea.andraEnlace(), andraEvento -> andraModalArea(andraArea)));
             andraTarjeta.getStyleClass().add("area");
             andraRejilla.getChildren().add(andraTarjeta);
         }
         return AndraComponentes.andraSeccion(AndraComponentes.andraCabeceraSeccion("Explorar por áreas temáticas", "Selecciona una categoría para ver reglamentos y guías oficiales."), andraRejilla);
     }
 
-    private void andraModalArea(DixonAyudaServicio.DixonArea andraArea) {
+    private void andraModalArea(AndraAyudaServicio.AndraArea andraArea) {
         VBox andraPuntos = new VBox(6);
-        andraArea.dixonPuntos().forEach(andraTexto -> andraPuntos.getChildren().add(AndraComponentes.andraVineta(andraTexto, "small")));
-        VBox andraCuerpo = new VBox(14, AndraComponentes.andraParrafo(andraArea.dixonDescripcion(), "muted"), andraPuntos,
+        andraArea.andraPuntos().forEach(andraTexto -> andraPuntos.getChildren().add(AndraComponentes.andraVineta(andraTexto, "small")));
+        VBox andraCuerpo = new VBox(14, AndraComponentes.andraParrafo(andraArea.andraDescripcion(), "muted"), andraPuntos,
                 AndraComponentes.andraParrafo("Guía oficial resumida. El reglamento completo está disponible en Documentos.", "hint"));
-        andraNotificador.andraModal(andraArea.dixonTitulo(), andraCuerpo, false, AndraComponentes.andraBoton("Cerrar", "btn-secondary", null, andraEvento -> andraNotificador.andraCerrarModal()),
+        andraNotificador.andraModal(andraArea.andraTitulo(), andraCuerpo, false, AndraComponentes.andraBoton("Cerrar", "btn-secondary", null, andraEvento -> andraNotificador.andraCerrarModal()),
                 AndraComponentes.andraBoton("Ir a Documentos", "btn-primary", null, andraEvento -> {
                     andraNotificador.andraCerrarModal();
                     andraIr("documentos");
@@ -166,7 +166,7 @@ public class AndraAyudaControlador extends AndraVistaBase {
     }
 
     private VBox andraCanales() {
-        DixonSede andraSede = andraContexto.dixonSedeOPrincipal();
+        AndraSede andraSede = andraContexto.andraSedeOPrincipal();
         VBox andraChat = andraCanal("fth-message-circle", AndraComponentes.andraPildora("En línea · Espera: 2 min", "success"), "Chat en vivo con Mesa de Partes",
                 "Conversa en tiempo real con un operador académico para subsanar observaciones.", "Horario: lunes a viernes de 08:30 a 20:00 hrs",
                 AndraComponentes.andraBoton("Iniciar chat con asesor", "btn-primary", null, andraEvento -> andraChat()));
@@ -175,7 +175,7 @@ public class AndraAyudaControlador extends AndraVistaBase {
                 "Central: " + andraInstitucion.getAndraTelefono() + " | Anexos: " + andraInstitucion.getAndraAnexos(),
                 AndraComponentes.andraBoton("Solicitar llamada de un encargado", "btn-secondary", null, andraEvento -> andraLlamada()));
         VBox andraTurno = andraCanal("fth-tag", AndraComponentes.andraPildora("Turno digital sin colas", "neutral"), "Atención presencial en ventanilla",
-                "Reserva un ticket digital para atención directa en ventanilla física.", "Sede " + andraSede.getDixonNombre() + " · " + andraSede.getDixonOficina(),
+                "Reserva un ticket digital para atención directa en ventanilla física.", "Sede " + andraSede.getAndraNombre() + " · " + andraSede.getAndraOficina(),
                 AndraComponentes.andraBoton("Reservar turno presencial", "btn-secondary", null, andraEvento -> andraTurno()));
         AndraRejilla andraRejilla = new AndraRejilla(3, 260);
         andraRejilla.getChildren().addAll(andraChat, andraLlamada, andraTurno);
@@ -194,7 +194,7 @@ public class AndraAyudaControlador extends AndraVistaBase {
     private void andraChat() {
         VBox andraRegistro = new VBox(8);
         andraRegistro.getStyleClass().add("chat-log");
-        Label andraSaludo = AndraComponentes.andraParrafo("Hola, " + andraSesion.dixonEstudiante().dixonObtenerPrimerNombre() + ". Soy el asesor de Mesa de Partes. ¿En qué te ayudo?", "msg", "op");
+        Label andraSaludo = AndraComponentes.andraParrafo("Hola, " + andraSesion.andraEstudiante().andraObtenerPrimerNombre() + ". Soy el asesor de Mesa de Partes. ¿En qué te ayudo?", "msg", "op");
         andraRegistro.getChildren().add(andraBurbuja(andraSaludo, false));
         ScrollPane andraDesplazable2 = new ScrollPane(andraRegistro);
         andraDesplazable2.setFitToWidth(true);
@@ -215,7 +215,7 @@ public class AndraAyudaControlador extends AndraVistaBase {
             Platform.runLater(() -> andraDesplazable2.setVvalue(1));
             PauseTransition andraPausa = new PauseTransition(Duration.millis(700));
             andraPausa.setOnFinished(andraEvento -> {
-                andraRegistro.getChildren().add(andraBurbuja(AndraComponentes.andraParrafo(DixonAyudaServicio.dixonRespuestaChat(andraTexto), "msg", "op"), false));
+                andraRegistro.getChildren().add(andraBurbuja(AndraComponentes.andraParrafo(AndraAyudaServicio.andraRespuestaChat(andraTexto), "msg", "op"), false));
                 Platform.runLater(() -> andraDesplazable2.setVvalue(1));
             });
             andraPausa.play();
@@ -257,9 +257,9 @@ public class AndraAyudaControlador extends AndraVistaBase {
     private void andraTurno() {
         AndraFormulario andraFormulario = new AndraFormulario();
         List<AndraOpcion> andraSedes = new ArrayList<>();
-        andraCatalogo.dixonSedes().forEach(andraSede -> andraSedes.add(AndraOpcion.andraDe(andraSede.getDixonCodigo(), andraSede.getDixonNombreCompleto() + " · " + andraSede.getDixonOficina())));
-        AndraCampo<ComboBox<AndraOpcion>> andraSede2 = andraFormulario.andraAgregar(AndraFormulario.andraSelector("Sede", andraSedes, null, andraContexto.dixonSedeOPrincipal().getDixonCodigo()));
-        AndraCampo<DatePicker> andraFecha = andraFormulario.andraAgregar(AndraFormulario.andraFecha("Fecha", DixonFechas.dixonHoy(), DixonFechas.dixonHoy(), null)).andraRequerido("Elige una fecha.");
+        andraCatalogo.andraSedes().forEach(andraSede -> andraSedes.add(AndraOpcion.andraDe(andraSede.getAndraCodigo(), andraSede.getAndraNombreCompleto() + " · " + andraSede.getAndraOficina())));
+        AndraCampo<ComboBox<AndraOpcion>> andraSede2 = andraFormulario.andraAgregar(AndraFormulario.andraSelector("Sede", andraSedes, null, andraContexto.andraSedeOPrincipal().getAndraCodigo()));
+        AndraCampo<DatePicker> andraFecha = andraFormulario.andraAgregar(AndraFormulario.andraFecha("Fecha", AndraFechas.andraHoy(), AndraFechas.andraHoy(), null)).andraRequerido("Elige una fecha.");
         AndraCampo<ComboBox<AndraOpcion>> andraHora = andraFormulario.andraAgregar(AndraFormulario.andraSelector("Hora", AndraOpcion.andraLista(List.of("08:30", "09:30", "10:30", "11:30", "14:00", "15:00", "16:00", "17:00")),
                 "Seleccionar", null)).andraRequerido("Elige una hora.");
         AndraCampo<ComboBox<AndraOpcion>> andraMotivo = andraFormulario.andraAgregar(AndraFormulario.andraSelector("Motivo", AndraOpcion.andraLista(List.of("Entrega de documentos", "Consulta de expediente",
@@ -272,67 +272,67 @@ public class AndraAyudaControlador extends AndraVistaBase {
                         return;
                     }
                     String andraTicket = "T-" + (100 + new Random().nextInt(900));
-                    DixonSede andraSede = andraCatalogo.dixonSede(AndraFormulario.andraValor(andraSede2.andraControl())).orElseThrow();
+                    AndraSede andraSede = andraCatalogo.andraSede(AndraFormulario.andraValor(andraSede2.andraControl())).orElseThrow();
                     VBox andraCajaVertical = new VBox(6, AndraComponentes.andraMayus("Tu ticket", "label-caps"), AndraComponentes.andraLiteral(andraTicket, "dato-grande"),
-                            AndraComponentes.andraParrafo(andraSede.getDixonNombreCompleto() + " · " + DixonFechas.dixonLargo(andraFecha.andraControl().getValue()) + " · " + AndraFormulario.andraValor(andraHora.andraControl()), "muted"),
+                            AndraComponentes.andraParrafo(andraSede.getAndraNombreCompleto() + " · " + AndraFechas.andraLargo(andraFecha.andraControl().getValue()) + " · " + AndraFormulario.andraValor(andraHora.andraControl()), "muted"),
                             AndraComponentes.andraParrafo("Preséntate 5 minutos antes con tu carné universitario.", "hint"));
                     andraCajaVertical.setAlignment(Pos.CENTER);
                     andraNotificador.andraModal("Turno reservado", andraCajaVertical, false, AndraComponentes.andraBoton("Listo", "btn-primary", null, andraPosicionX -> andraNotificador.andraCerrarModal()));
                 }));
     }
 
-    private VBox andraGuias(List<DixonAyudaServicio.DixonGuia> andraGuias) {
+    private VBox andraGuias(List<AndraAyudaServicio.AndraGuia> andraGuias) {
         AndraRejilla andraRejilla = new AndraRejilla(3, 260);
-        for (DixonAyudaServicio.DixonGuia andraGuia : andraGuias) {
+        for (AndraAyudaServicio.AndraGuia andraGuia : andraGuias) {
             VBox andraPasos = new VBox(4);
-            for (int andraIndice = 0; andraIndice < andraGuia.dixonPasos().size(); andraIndice++) {
+            for (int andraIndice = 0; andraIndice < andraGuia.andraPasos().size(); andraIndice++) {
                 Label andraEtiqueta = AndraComponentes.andraLiteral((andraIndice + 1) + ".", "vineta");
-                Label andraEtiqueta2 = AndraComponentes.andraParrafo(andraGuia.dixonPasos().get(andraIndice), "vineta");
+                Label andraEtiqueta2 = AndraComponentes.andraParrafo(andraGuia.andraPasos().get(andraIndice), "vineta");
                 HBox.setHgrow(andraEtiqueta2, Priority.ALWAYS);
                 andraPasos.getChildren().add(new HBox(6, andraEtiqueta, andraEtiqueta2));
             }
-            VBox andraTarjeta = new VBox(12, new HBox(AndraComponentes.andraDistintivo(andraGuia.dixonPaso())), AndraComponentes.andraParrafo(andraGuia.dixonTitulo(), "h3"), andraPasos, AndraComponentes.andraEspacioV(),
-                    AndraComponentes.andraEnlaceFlecha(andraGuia.dixonEnlace(), andraEvento -> andraModalGuia(andraGuia)));
+            VBox andraTarjeta = new VBox(12, new HBox(AndraComponentes.andraDistintivo(andraGuia.andraPaso())), AndraComponentes.andraParrafo(andraGuia.andraTitulo(), "h3"), andraPasos, AndraComponentes.andraEspacioV(),
+                    AndraComponentes.andraEnlaceFlecha(andraGuia.andraEnlace(), andraEvento -> andraModalGuia(andraGuia)));
             andraTarjeta.getStyleClass().add("guide");
             andraRejilla.getChildren().add(andraTarjeta);
         }
         return AndraComponentes.andraSeccion(AndraComponentes.andraCabeceraSeccion("Guías esenciales de resolución rápida", "Procedimientos clave para gestionar tus trámites universitarios."), andraRejilla);
     }
 
-    private void andraModalGuia(DixonAyudaServicio.DixonGuia andraGuia) {
+    private void andraModalGuia(AndraAyudaServicio.AndraGuia andraGuia) {
         VBox andraLista = new VBox(10);
-        for (int andraIndice = 0; andraIndice < andraGuia.dixonPasos().size(); andraIndice++) {
+        for (int andraIndice = 0; andraIndice < andraGuia.andraPasos().size(); andraIndice++) {
             StackPane andraCapa = new StackPane(AndraComponentes.andraLiteral(String.valueOf(andraIndice + 1)));
             andraCapa.getStyleClass().add("tl-dot");
-            Label andraEtiqueta = AndraComponentes.andraParrafo(andraGuia.dixonPasos().get(andraIndice));
+            Label andraEtiqueta = AndraComponentes.andraParrafo(andraGuia.andraPasos().get(andraIndice));
             HBox.setHgrow(andraEtiqueta, Priority.ALWAYS);
             HBox andraFila = new HBox(14, andraCapa, andraEtiqueta);
             andraFila.getStyleClass().add("tl-item");
             andraLista.getChildren().add(andraFila);
         }
-        String andraDestino = "documentos".equals(andraGuia.dixonDestino()) ? "Documentos" : "Mis Solicitudes";
-        andraNotificador.andraModal(andraGuia.dixonTitulo(), andraLista, false, AndraComponentes.andraBoton("Cerrar", "btn-secondary", null, andraEvento -> andraNotificador.andraCerrarModal()),
+        String andraDestino = "documentos".equals(andraGuia.andraDestino()) ? "Documentos" : "Mis Solicitudes";
+        andraNotificador.andraModal(andraGuia.andraTitulo(), andraLista, false, AndraComponentes.andraBoton("Cerrar", "btn-secondary", null, andraEvento -> andraNotificador.andraCerrarModal()),
                 AndraComponentes.andraBoton("Ir a " + andraDestino, "btn-primary", null, andraEvento -> {
                     andraNotificador.andraCerrarModal();
-                    andraIr(andraGuia.dixonDestino());
+                    andraIr(andraGuia.andraDestino());
                 }));
     }
 
-    private VBox andraPreguntas(List<DixonAyudaServicio.DixonPregunta> andraPreguntas, boolean andraAbrirTodas) {
+    private VBox andraPreguntas(List<AndraAyudaServicio.AndraPregunta> andraPreguntas, boolean andraAbrirTodas) {
         List<Node> andraFilas = new ArrayList<>();
-        for (DixonAyudaServicio.DixonPregunta andraPregunta : andraPreguntas) {
-            int andraIndice = DixonAyudaServicio.DIXON_PREGUNTAS.indexOf(andraPregunta);
+        for (AndraAyudaServicio.AndraPregunta andraPregunta : andraPreguntas) {
+            int andraIndice = AndraAyudaServicio.ANDRA_PREGUNTAS.indexOf(andraPregunta);
             boolean andraAbierta = andraAbrirTodas || andraAbiertas.contains(andraIndice);
-            VBox andraTextos = new VBox(2, AndraComponentes.andraMayus(andraPregunta.dixonCategoria(), "label-caps"), AndraComponentes.andraParrafo(andraPregunta.dixonPregunta(), "faq-pregunta"));
+            VBox andraTextos = new VBox(2, AndraComponentes.andraMayus(andraPregunta.andraCategoria(), "label-caps"), AndraComponentes.andraParrafo(andraPregunta.andraPregunta(), "faq-pregunta"));
             HBox.setHgrow(andraTextos, Priority.ALWAYS);
             FontIcon andraFlecha = new FontIcon(andraAbierta ? "fth-chevron-up" : "fth-chevron-down");
             HBox andraCajaHorizontal = new HBox(andraTextos, andraFlecha);
             andraCajaHorizontal.getStyleClass().add("faq-q");
             andraCajaHorizontal.setFocusTraversable(true);
-            Label andraRespuesta = AndraComponentes.andraParrafo(andraPregunta.dixonRespuesta(), "faq-a");
+            Label andraRespuesta = AndraComponentes.andraParrafo(andraPregunta.andraRespuesta(), "faq-a");
             andraRespuesta.setVisible(andraAbierta);
             andraRespuesta.setManaged(andraAbierta);
-            AndraComponentes.andraAccesible(andraCajaHorizontal, andraPregunta.dixonPregunta());
+            AndraComponentes.andraAccesible(andraCajaHorizontal, andraPregunta.andraPregunta());
             Runnable andraAlternar = () -> {
                 boolean andraAhora = !andraRespuesta.isVisible();
                 andraRespuesta.setVisible(andraAhora);
@@ -373,20 +373,20 @@ public class AndraAyudaControlador extends AndraVistaBase {
     }
 
     private VBox andraSedes() {
-        DixonSede andraActual = andraContexto.dixonSede();
-        List<DixonSede> andraOrden = new ArrayList<>();
+        AndraSede andraActual = andraContexto.andraSede();
+        List<AndraSede> andraOrden = new ArrayList<>();
         if (andraActual != null) {
             andraOrden.add(andraActual);
         }
-        andraCatalogo.dixonSedes().stream().filter(andraSede -> andraActual == null || !andraSede.getDixonId().equals(andraActual.getDixonId())).forEach(andraOrden::add);
+        andraCatalogo.andraSedes().stream().filter(andraSede -> andraActual == null || !andraSede.getAndraId().equals(andraActual.getAndraId())).forEach(andraOrden::add);
         AndraRejilla andraRejilla = new AndraRejilla(2, 340);
-        for (DixonSede andraSede : andraOrden) {
-            HBox andraCab = new HBox(8, AndraComponentes.andraParrafo("Mesa de Partes · " + andraSede.getDixonNombreCompleto(), "h3"), AndraComponentes.andraEspacio());
-            if (andraActual != null && andraSede.getDixonId().equals(andraActual.getDixonId())) {
+        for (AndraSede andraSede : andraOrden) {
+            HBox andraCab = new HBox(8, AndraComponentes.andraParrafo("Mesa de Partes · " + andraSede.getAndraNombreCompleto(), "h3"), AndraComponentes.andraEspacio());
+            if (andraActual != null && andraSede.getAndraId().equals(andraActual.getAndraId())) {
                 andraCab.getChildren().add(AndraComponentes.andraPildora("Tu sede", "info"));
             }
-            String andraAtiende = String.join(", ", andraCatalogo.dixonEscuelasDe(andraSede).stream().map(andraEscuelaProfesional -> andraEscuelaProfesional.getDixonNombre()).toList());
-            VBox andraCajaVertical = new VBox(12, andraCab, AndraComponentes.andraKv("Ubicación", andraSede.getDixonOficina(), "Horario", andraSede.getDixonHorario(),
+            String andraAtiende = String.join(", ", andraCatalogo.andraEscuelasDe(andraSede).stream().map(andraEscuelaProfesional -> andraEscuelaProfesional.getAndraNombre()).toList());
+            VBox andraCajaVertical = new VBox(12, andraCab, AndraComponentes.andraKv("Ubicación", andraSede.getAndraOficina(), "Horario", andraSede.getAndraHorario(),
                     "Atiende a", andraAtiende.isBlank() ? "Auditorios, eventos y oficinas centrales" : andraAtiende, "Correo", andraCopiar(andraInstitucion.getAndraCorreoMesaPartes())));
             andraCajaVertical.getStyleClass().add("office");
             andraRejilla.getChildren().add(andraCajaVertical);
@@ -402,7 +402,7 @@ public class AndraAyudaControlador extends AndraVistaBase {
 
     private HBox andraCopiar(String andraCorreo) {
         Button andraBoton = AndraComponentes.andraBotonSm("Copiar", "btn-tertiary", null, andraEvento -> {
-            DixonPortapapeles.dixonCopiar(andraCorreo);
+            AndraPortapapeles.andraCopiar(andraCorreo);
             andraNotificador.andraExito("Correo copiado.");
         });
         HBox andraAlto = new HBox(6, AndraComponentes.andraLiteral(andraCorreo, "dd"), andraBoton);
@@ -451,10 +451,10 @@ public class AndraAyudaControlador extends AndraVistaBase {
                         return;
                     }
                     try {
-                        DixonExpediente andraPosicionX = andraExpedientes.dixonExtraordinaria(AndraFormulario.andraValor(andraTipo.andraControl()), andraDesc.andraControl().getText(), andraAdj.andraTexto());
+                        AndraExpediente andraPosicionX = andraExpedientes.andraExtraordinaria(AndraFormulario.andraValor(andraTipo.andraControl()), andraDesc.andraControl().getText(), andraAdj.andraTexto());
                         andraNotificador.andraCerrarModal();
-                        andraNotificador.andraExito("Expediente " + andraPosicionX.getDixonCodigo() + " registrado. Puedes seguirlo en Mis Solicitudes.");
-                    } catch (pe.andra.exception.DixonNegocioExcepcion andraNegocioExcepcion) {
+                        andraNotificador.andraExito("Expediente " + andraPosicionX.getAndraCodigo() + " registrado. Puedes seguirlo en Mis Solicitudes.");
+                    } catch (pe.andra.exception.AndraNegocioExcepcion andraNegocioExcepcion) {
                         andraNotificador.andraError(andraNegocioExcepcion.getMessage());
                     }
                 }));

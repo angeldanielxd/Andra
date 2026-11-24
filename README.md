@@ -44,7 +44,7 @@ mvn clean package -DskipTests
 macOS:
 
 ```bash
-jpackage --name Andra --input target --main-jar andra-javafx-1.3.0.jar \
+jpackage --name Andra --input target --main-jar andra-javafx-1.4.0.jar \
   --main-class org.springframework.boot.loader.launch.JarLauncher \
   --icon src/main/resources/img/logo-andra.png --type dmg
 ```
@@ -56,8 +56,8 @@ Windows (se ejecuta en Windows, con el JDK 21 o superior):
 
 El script deja en `empaquetado\windows\salida\`:
 - `Andra\Andra.exe`: la versión portable.
-- `Andra-1.3.0-windows-portable.zip`: la misma versión, comprimida.
-- `Andra-1.3.0.exe`: un instalador, solo si está instalado WiX Toolset 3.14.
+- `Andra-1.4.0-windows-portable.zip`: la misma versión, comprimida.
+- `Andra-1.4.0.exe`: un instalador, solo si está instalado WiX Toolset 3.14.
 
 Los pasos completos están en `empaquetado/windows/LEEME.txt`. Si cambias la versión en `pom.xml`, cámbiala también en `crear-exe.bat`.
 
@@ -68,13 +68,13 @@ src/main/java/pe/andra/
 ├── AndraAplicacion · AndraAplicacionFx · AndraLanzador
 ├── config/       AndraDatosInstitucion, AndraJsonRecursos
 ├── controller/   AndraPrincipalControlador (cabecera, navegación por rol, popovers) y una vista por sección
-├── exception/    DixonNegocioExcepcion
+├── exception/    AndraNegocioExcepcion
 ├── model/        entidades JPA y enums
 ├── repository/   Spring Data JPA (SQLite)
-├── seeder/       DixonCatalogoSembrador, DixonEstadoDemoSembrador, DixonSembradorDemo, DixonBaseDatosSembrador
+├── seeder/       AndraCatalogoSembrador, AndraEstadoDemoSembrador, AndraSembradorDemo, AndraBaseDatosSembrador
 ├── service/      reglas de negocio (pagos, carné, seguimiento, ocupación, análisis, idiomas…)
 ├── ui/           componentes (AndraVidrioDasm, AndraTarjetaGaleria, AndraFiltros, AndraVistaFactura, AndraRastreadorCjsv…)
-└── util/         fechas, días hábiles, validación, DixonTarjetaJemm (Luhn), montos
+└── util/         fechas, días hábiles, validación, AndraTarjetaJemm (Luhn), montos
 src/main/resources/
 ├── css/theme.css · view/*.fxml · img/ · fuentes/ · datos/*.json · i18n/traducciones.json
 ```

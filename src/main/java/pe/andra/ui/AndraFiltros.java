@@ -5,9 +5,9 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import org.kordamp.ikonli.javafx.FontIcon;
-import pe.andra.service.DixonEstadoFiltro;
-import pe.andra.service.DixonFiltroServicio;
-import pe.andra.util.DixonFechas;
+import pe.andra.service.AndraEstadoFiltro;
+import pe.andra.service.AndraFiltroServicio;
+import pe.andra.util.AndraFechas;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -38,10 +38,10 @@ public final class AndraFiltros {
     private AndraFiltros() {
     }
 
-    public static Button andraBoton(DixonEstadoFiltro andraEstado, List<String[]> andraPredefinidos, List<AndraAvanzado> andraAvanzados, AndraNotificador andraNotificador,
+    public static Button andraBoton(AndraEstadoFiltro andraEstado, List<String[]> andraPredefinidos, List<AndraAvanzado> andraAvanzados, AndraNotificador andraNotificador,
                                Runnable andraAlCambiar) {
         Button andraBoton = AndraComponentes.andraBotonSm("Filtros", "btn-secondary", "fth-filter", null);
-        int andraCantidad = andraEstado.dixonCantidad();
+        int andraCantidad = andraEstado.andraCantidad();
         if (andraCantidad > 0) {
             andraBoton.getStyleClass().add("is-on");
             Label andraEtiqueta = AndraComponentes.andraLiteral(String.valueOf(andraCantidad), "flt-count");
@@ -55,7 +55,7 @@ public final class AndraFiltros {
         return andraBoton;
     }
 
-    private static VBox andraPanel(DixonEstadoFiltro andraEstado, List<String[]> andraPredefinidos, List<AndraAvanzado> andraAvanzados, AndraNotificador andraNotificador,
+    private static VBox andraPanel(AndraEstadoFiltro andraEstado, List<String[]> andraPredefinidos, List<AndraAvanzado> andraAvanzados, AndraNotificador andraNotificador,
                               Runnable andraAlCambiar) {
         VBox andraCaja = new VBox(4);
         andraCaja.getStyleClass().add("pop");
@@ -69,9 +69,9 @@ public final class AndraFiltros {
             ToggleButton andraFicha = new ToggleButton();
             AndraComponentes.andraFijar(andraFicha, andraTextos[1]);
             andraFicha.getStyleClass().add("chip");
-            andraFicha.setSelected(andraEstado.dixonObtenerActivos().contains(andraTextos[0]));
+            andraFicha.setSelected(andraEstado.andraObtenerActivos().contains(andraTextos[0]));
             andraFicha.setOnAction(andraEvento -> {
-                andraEstado.dixonAlternar(andraTextos[0]);
+                andraEstado.andraAlternar(andraTextos[0]);
                 andraAlCambiar.run();
             });
             andraFichas.getChildren().add(andraFicha);
@@ -97,12 +97,12 @@ public final class AndraFiltros {
             for (AndraAvanzado andraAvanzado : andraAvanzados) {
                 AndraCampo<?> andraCampo = switch (andraAvanzado.andraTipo()) {
                     case "date" -> {
-                        String andraValor = andraEstado.dixonAvanzado(andraAvanzado.andraId());
+                        String andraValor = andraEstado.andraAvanzado(andraAvanzado.andraId());
                         yield AndraFormulario.andraFecha(andraAvanzado.andraEtiqueta(), andraValor == null ? null : LocalDate.parse(andraValor), null, null);
                     }
                     case "select" -> AndraFormulario.andraSelector(andraAvanzado.andraEtiqueta(), andraAvanzado.andraOpciones(), andraAvanzado.andraMarcador() == null ? "Todos" : andraAvanzado.andraMarcador(),
-                            andraEstado.dixonAvanzado(andraAvanzado.andraId()));
-                    default -> AndraFormulario.andraTexto(andraAvanzado.andraEtiqueta(), andraAvanzado.andraMarcador(), andraEstado.dixonAvanzado(andraAvanzado.andraId()));
+                            andraEstado.andraAvanzado(andraAvanzado.andraId()));
+                    default -> AndraFormulario.andraTexto(andraAvanzado.andraEtiqueta(), andraAvanzado.andraMarcador(), andraEstado.andraAvanzado(andraAvanzado.andraId()));
                 };
                 andraCampos.put(andraAvanzado.andraId(), andraCampo);
                 if (andraAvanzado.andraAncho()) {
@@ -124,7 +124,7 @@ public final class AndraFiltros {
             andraCaja.getChildren().addAll(andraRejilla, andraErrorRango);
         }
         andraCaja.getChildren().add(AndraComponentes.andraEtiqueta("Tu propio filtro", "pop-group"));
-        TextField andraPropio = new TextField(andraEstado.dixonObtenerTexto());
+        TextField andraPropio = new TextField(andraEstado.andraObtenerTexto());
         AndraComponentes.andraIndicacion(andraPropio, "Escribe una palabra o código…");
         AndraComponentes.andraAccesible(andraPropio, "Escribe un filtro");
         HBox.setHgrow(andraPropio, Priority.ALWAYS);
@@ -133,11 +133,11 @@ public final class AndraFiltros {
         HBox andraFila = new HBox(andraPropio, andraAplicar);
         andraFila.getStyleClass().add("copy-row");
         andraCaja.getChildren().add(andraFila);
-        int andraCantidad = andraEstado.dixonCantidad();
+        int andraCantidad = andraEstado.andraCantidad();
         Label andraResumen = AndraComponentes.andraEtiqueta(andraCantidad == 0 ? "Sin filtros activos"
                 : andraCantidad + " filtro" + (andraCantidad > 1 ? "s" : "") + " activo" + (andraCantidad > 1 ? "s" : ""), "hint");
         Button andraLimpiar = AndraComponentes.andraBotonSm("Limpiar", "btn-tertiary", null, andraEvento -> {
-            andraEstado.dixonLimpiar();
+            andraEstado.andraLimpiar();
             andraNotificador.andraCerrarEmergente();
             andraAlCambiar.run();
             andraNotificador.andraInformacion("Filtros quitados.");
@@ -150,7 +150,7 @@ public final class AndraFiltros {
         andraAplicar.setOnAction(andraEvento -> {
             Map<String, String> andraValores = new LinkedHashMap<>();
             andraCampos.forEach((andraTexto, andraCampo2) -> andraValores.put(andraTexto, andraCampo2.andraTexto()));
-            String andraError = DixonFiltroServicio.dixonValidarRango(andraValores.get("from"), andraValores.get("to"));
+            String andraError = AndraFiltroServicio.andraValidarRango(andraValores.get("from"), andraValores.get("to"));
             if (andraError != null) {
                 AndraComponentes.andraFijar(andraErrorRango, andraError);
                 andraErrorRango.setVisible(true);
@@ -158,36 +158,36 @@ public final class AndraFiltros {
                 andraCampos.get("to").andraControl().requestFocus();
                 return;
             }
-            andraEstado.dixonObtenerAvanzados().clear();
+            andraEstado.andraObtenerAvanzados().clear();
             andraValores.forEach((andraTexto, andraValor) -> {
                 if (andraValor != null && !andraValor.isBlank()) {
-                    andraEstado.dixonObtenerAvanzados().put(andraTexto, andraValor);
+                    andraEstado.andraObtenerAvanzados().put(andraTexto, andraValor);
                 }
             });
-            andraEstado.dixonAsignarTexto(andraPropio.getText());
+            andraEstado.andraAsignarTexto(andraPropio.getText());
             andraNotificador.andraCerrarEmergente();
             andraAlCambiar.run();
-            andraNotificador.andraInformacion(andraEstado.dixonCantidad() > 0 ? "Filtros aplicados." : "Sin filtros activos.");
+            andraNotificador.andraInformacion(andraEstado.andraCantidad() > 0 ? "Filtros aplicados." : "Sin filtros activos.");
         });
         return andraCaja;
     }
 
-    public static Node andraResumen(DixonEstadoFiltro andraEstado, List<String[]> andraPredefinidos, Function<String, String> andraNombreEscuela,
+    public static Node andraResumen(AndraEstadoFiltro andraEstado, List<String[]> andraPredefinidos, Function<String, String> andraNombreEscuela,
                                Runnable andraAlCambiar) {
         List<Node> andraEtiquetas = new ArrayList<>();
-        for (String andraId : andraEstado.dixonObtenerActivos()) {
+        for (String andraId : andraEstado.andraObtenerActivos()) {
             String andraNombre = andraPredefinidos.stream().filter(andraTextos -> andraTextos[0].equals(andraId)).map(andraTextos -> andraTextos[1]).findFirst().orElse(andraId);
             andraEtiquetas.add(AndraComponentes.andraDistintivo(andraNombre));
         }
-        if (!andraEstado.dixonObtenerTexto().isBlank()) {
-            andraEtiquetas.add(AndraComponentes.andraLiteral("“" + andraEstado.dixonObtenerTexto() + "”", "tag"));
+        if (!andraEstado.andraObtenerTexto().isBlank()) {
+            andraEtiquetas.add(AndraComponentes.andraLiteral("“" + andraEstado.andraObtenerTexto() + "”", "tag"));
         }
-        andraEstado.dixonObtenerAvanzados().forEach((andraTexto, andraValor) -> {
+        andraEstado.andraObtenerAvanzados().forEach((andraTexto, andraValor) -> {
             if (andraValor == null || andraValor.isBlank()) {
                 return;
             }
             String andraValor2 = "fac".equals(andraTexto) && andraNombreEscuela != null ? andraNombreEscuela.apply(andraValor)
-                    : andraValor.matches("\\d{4}-\\d{2}-\\d{2}") ? DixonFechas.dixonDmy(LocalDate.parse(andraValor)) : andraValor;
+                    : andraValor.matches("\\d{4}-\\d{2}-\\d{2}") ? AndraFechas.andraDmy(LocalDate.parse(andraValor)) : andraValor;
             andraEtiquetas.add(AndraComponentes.andraDistintivo(ANDRA_NOMBRES.getOrDefault(andraTexto, andraTexto) + ": " + andraValor2));
         });
         if (andraEtiquetas.isEmpty()) {
@@ -199,7 +199,7 @@ public final class AndraFiltros {
         andraPanelFlujo.getStyleClass().add("flt-active");
         andraPanelFlujo.getChildren().addAll(andraEtiquetas);
         Button andraQuitar = AndraComponentes.andraEnlaceFlecha("Quitar filtros", andraEvento -> {
-            andraEstado.dixonLimpiar();
+            andraEstado.andraLimpiar();
             andraAlCambiar.run();
         });
         andraQuitar.setGraphic(null);

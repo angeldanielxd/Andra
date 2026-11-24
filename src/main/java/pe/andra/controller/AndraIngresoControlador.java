@@ -12,12 +12,12 @@ import javafx.scene.layout.*;
 import javafx.scene.shape.Rectangle;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import pe.andra.exception.DixonNegocioExcepcion;
-import pe.andra.model.DixonAdministrador;
-import pe.andra.model.DixonPersona;
-import pe.andra.model.DixonRol;
-import pe.andra.service.DixonIdiomaServicio;
-import pe.andra.service.DixonSesionServicio;
+import pe.andra.exception.AndraNegocioExcepcion;
+import pe.andra.model.AndraAdministrador;
+import pe.andra.model.AndraPersona;
+import pe.andra.model.AndraRol;
+import pe.andra.service.AndraIdiomaServicio;
+import pe.andra.service.AndraSesionServicio;
 import pe.andra.ui.*;
 
 import java.util.Objects;
@@ -26,15 +26,15 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class AndraIngresoControlador implements AndraVista {
 
-    private final DixonSesionServicio andraSesion;
-    private final DixonIdiomaServicio andraIdioma;
+    private final AndraSesionServicio andraSesion;
+    private final AndraIdiomaServicio andraIdioma;
     private final AndraNotificador andraNotificador;
     private final AndraPrincipalControlador andraPrincipal;
 
     @FXML
     private HBox andraRaiz;
 
-    private DixonRol andraRol = DixonRol.ESTUDIANTE;
+    private AndraRol andraRol = AndraRol.ESTUDIANTE;
     private String andraError = "";
 
     @Override
@@ -84,11 +84,11 @@ public class AndraIngresoControlador implements AndraVista {
         FlowPane andraIdiomas = new FlowPane(4, 4);
         andraIdiomas.setAlignment(Pos.CENTER_RIGHT);
         ToggleGroup andraGrupoIdioma = new ToggleGroup();
-        for (String[] andraTextos : DixonIdiomaServicio.DIXON_IDIOMAS) {
+        for (String[] andraTextos : AndraIdiomaServicio.ANDRA_IDIOMAS) {
             ToggleButton andraBotonOpcionB = new ToggleButton(andraTextos[1]);
             andraBotonOpcionB.getStyleClass().addAll("chip", "lang");
             andraBotonOpcionB.setToggleGroup(andraGrupoIdioma);
-            andraBotonOpcionB.setSelected(andraTextos[0].equals(andraIdioma.dixonObtenerIdioma()));
+            andraBotonOpcionB.setSelected(andraTextos[0].equals(andraIdioma.andraObtenerIdioma()));
             andraBotonOpcionB.setOnAction(andraEvento -> {
                 andraPrincipal.andraCambiarIdioma(andraTextos[0]);
                 andraBotonOpcionB.setSelected(true);
@@ -107,13 +107,13 @@ public class AndraIngresoControlador implements AndraVista {
         AndraSegmentado andraTipo = new AndraSegmentado(true).andraOpcion("ESTUDIANTE", "Estudiante", "fth-user", null)
                 .andraOpcion("ADMINISTRADOR", "Administrador", "fth-shield", null).andraSeleccionar(andraRol.name());
         andraTipo.andraAlCambiar(andraValor -> {
-            andraRol = DixonRol.valueOf(andraValor);
+            andraRol = AndraRol.valueOf(andraValor);
             andraError = "";
             andraRefrescar();
         });
         VBox.setMargin(andraTipo, new Insets(18, 0, 20, 0));
 
-        boolean andraEstudiante = andraRol == DixonRol.ESTUDIANTE;
+        boolean andraEstudiante = andraRol == AndraRol.ESTUDIANTE;
         AndraFormulario andraFormulario = new AndraFormulario();
         AndraCampo<TextField> andraUsuario = andraFormulario.andraAgregar(AndraFormulario.andraTexto(andraEstudiante ? "Código universitario o DNI" : "Correo institucional", null, ""))
                 .andraRequerido(andraEstudiante ? "Escribe tu código o DNI." : "Escribe tu correo institucional.");
@@ -132,10 +132,10 @@ public class AndraIngresoControlador implements AndraVista {
                 return;
             }
             try {
-                andraSesion.dixonIngresar(andraRol, andraUsuario.andraControl().getText(), andraClave.andraControl().getText());
+                andraSesion.andraIngresar(andraRol, andraUsuario.andraControl().getText(), andraClave.andraControl().getText());
                 andraError = "";
                 AndraNavegacion.andraIr(andraRaiz, "sesion:entrar");
-            } catch (DixonNegocioExcepcion andraNegocioExcepcion) {
+            } catch (AndraNegocioExcepcion andraNegocioExcepcion) {
                 andraError = andraNegocioExcepcion.getMessage();
                 AndraComponentes.andraFijar(andraEtiquetaError, andraError);
                 andraEtiquetaError.setVisible(true);
@@ -153,14 +153,14 @@ public class AndraIngresoControlador implements AndraVista {
         andraDemo.getStyleClass().add("demo-box");
         andraDemo.getChildren().add(AndraComponentes.andraEtiqueta("Cuenta de demostración", "strong"));
         if (andraEstudiante) {
-            DixonPersona andraPersona = andraSesion.dixonEstudiante();
-            andraDemo.getChildren().add(AndraComponentes.andraParrafo("Código " + andraPersona.getDixonCodigo() + " o DNI " + andraPersona.getDixonDni() + " · contraseña andra2026"));
+            AndraPersona andraPersona = andraSesion.andraEstudiante();
+            andraDemo.getChildren().add(AndraComponentes.andraParrafo("Código " + andraPersona.getAndraCodigo() + " o DNI " + andraPersona.getAndraDni() + " · contraseña andra2026"));
         } else {
-            DixonAdministrador andraAdministradorA = andraSesion.dixonAdministrador();
-            andraDemo.getChildren().add(AndraComponentes.andraParrafo("Correo " + andraAdministradorA.getDixonCorreo() + " · contraseña admin2026"));
+            AndraAdministrador andraAdministradorA = andraSesion.andraAdministrador();
+            andraDemo.getChildren().add(AndraComponentes.andraParrafo("Correo " + andraAdministradorA.getAndraCorreo() + " · contraseña admin2026"));
         }
         andraDemo.getChildren().add(AndraComponentes.andraBotonSm("Usar cuenta de demostración", "btn-secondary", null, andraEvento -> {
-            andraUsuario.andraControl().setText(andraEstudiante ? andraSesion.dixonEstudiante().getDixonCodigo() : andraSesion.dixonAdministrador().getDixonCorreo());
+            andraUsuario.andraControl().setText(andraEstudiante ? andraSesion.andraEstudiante().getAndraCodigo() : andraSesion.andraAdministrador().getAndraCorreo());
             andraClave.andraControl().setText(andraEstudiante ? "andra2026" : "admin2026");
             andraIngresar.requestFocus();
         }));

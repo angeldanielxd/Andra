@@ -10,10 +10,10 @@ import javafx.scene.text.TextFlow;
 import lombok.RequiredArgsConstructor;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.springframework.stereotype.Component;
-import pe.andra.model.DixonPersona;
+import pe.andra.model.AndraPersona;
 import pe.andra.service.*;
 import pe.andra.ui.*;
-import pe.andra.util.DixonMontos;
+import pe.andra.util.AndraMontos;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +22,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AndraAnalisisControlador extends AndraVistaBase {
 
-    private final DixonAnaliticaServicio andraAnalitica;
-    private final DixonContextoServicio andraContexto;
-    private final DixonCarneServicio andraCarne;
+    private final AndraAnaliticaServicio andraAnalitica;
+    private final AndraContextoServicio andraContexto;
+    private final AndraCarneServicio andraCarne;
 
     private String andraPeriodo = "30";
     private TextField andraValidar;
@@ -32,10 +32,10 @@ public class AndraAnalisisControlador extends AndraVistaBase {
 
     @Override
     protected List<Node> andraConstruir() {
-        DixonAnaliticaServicio.DixonAnalisis andraAnalisisA = andraAnalitica.dixonAnalizar(andraPeriodo);
+        AndraAnaliticaServicio.AndraAnalisis andraAnalisisA = andraAnalitica.andraAnalizar(andraPeriodo);
         List<Node> andraNodos = new ArrayList<>();
         andraNodos.add(AndraComponentes.andraPortadaAdministrador("Análisis", "Datos para decidir: qué se pide, cuándo se saturan las ventanillas y qué espacios se aprovechan poco.",
-                AndraComponentes.andraLineaContexto(andraContexto.dixonTextoSede(), andraContexto.dixonTextoEscuela(), "ctx:sede")));
+                AndraComponentes.andraLineaContexto(andraContexto.andraTextoSede(), andraContexto.andraTextoEscuela(), "ctx:sede")));
         AndraSegmentado andraPer = new AndraSegmentado(true).andraOpcion("7", "7 días", null, null).andraOpcion("30", "30 días", null, null)
                 .andraOpcion("sem", "Semestre", null, null).andraSeleccionar(andraPeriodo);
         andraPer.andraAlCambiar(andraValor -> {
@@ -46,26 +46,26 @@ public class AndraAnalisisControlador extends AndraVistaBase {
         AndraComponentes.andraAccesible(andraPer, "Periodo");
         VBox.setMargin(andraPer, new javafx.geometry.Insets(0, 0, 20, 0));
         AndraRejilla andraIndicadores = new AndraRejilla(4, 200, 16);
-        andraIndicadores.getChildren().addAll(AndraComponentes.andraIndicador("Trámites y órdenes", String.valueOf(andraAnalisisA.dixonTramitesYOrdenes()), null, "En el periodo"),
-                AndraComponentes.andraIndicador("Recaudación", DixonMontos.dixonSoles(andraAnalisisA.dixonRecaudacion()), null, "Pagos confirmados"),
+        andraIndicadores.getChildren().addAll(AndraComponentes.andraIndicador("Trámites y órdenes", String.valueOf(andraAnalisisA.andraTramitesYOrdenes()), null, "En el periodo"),
+                AndraComponentes.andraIndicador("Recaudación", AndraMontos.andraSoles(andraAnalisisA.andraRecaudacion()), null, "Pagos confirmados"),
                 AndraComponentes.andraIndicador("Atención promedio", "4 h 20 min", null, "Del pago a \"listo para recoger\""),
-                AndraComponentes.andraIndicador("Uso de espacios", andraAnalisisA.dixonUsoPromedio() + " %", null, "Promedio semanal"));
+                AndraComponentes.andraIndicador("Uso de espacios", andraAnalisisA.andraUsoPromedio() + " %", null, "Promedio semanal"));
         VBox andraSeccion0 = AndraComponentes.andraSeccion(andraPer, andraIndicadores);
         andraSeccion0.getStyleClass().add("sin-arriba");
         andraNodos.add(andraSeccion0);
         VBox andraLista = new VBox(6);
-        for (DixonAnaliticaServicio.DixonHallazgo andraAlto : andraAnalisisA.dixonHallazgos()) {
+        for (AndraAnaliticaServicio.AndraHallazgo andraAlto : andraAnalisisA.andraHallazgos()) {
             TextFlow andraFlujoTexto = new TextFlow();
-            if (!andraAlto.dixonAntes().isBlank()) {
-                andraFlujoTexto.getChildren().add(AndraComponentes.andraTexto(andraAlto.dixonAntes()));
+            if (!andraAlto.andraAntes().isBlank()) {
+                andraFlujoTexto.getChildren().add(AndraComponentes.andraTexto(andraAlto.andraAntes()));
             }
-            if (!andraAlto.dixonNegrita().isBlank()) {
-                Text andraTexto = AndraComponentes.andraTexto(andraAlto.dixonNegrita());
+            if (!andraAlto.andraNegrita().isBlank()) {
+                Text andraTexto = AndraComponentes.andraTexto(andraAlto.andraNegrita());
                 andraTexto.setStyle("-fx-font-weight: 700;");
                 andraFlujoTexto.getChildren().add(andraTexto);
             }
-            if (!andraAlto.dixonDespues().isBlank()) {
-                andraFlujoTexto.getChildren().add(AndraComponentes.andraTexto(andraAlto.dixonDespues()));
+            if (!andraAlto.andraDespues().isBlank()) {
+                andraFlujoTexto.getChildren().add(AndraComponentes.andraTexto(andraAlto.andraDespues()));
             }
             andraFlujoTexto.getChildren().forEach(andraNodo -> andraNodo.setStyle((andraNodo.getStyle() == null ? "" : andraNodo.getStyle()) + "-fx-font-size: 14.5px;"));
             andraLista.getChildren().add(new HBox(8, AndraComponentes.andraLiteral("•"), andraFlujoTexto));
@@ -76,16 +76,16 @@ public class AndraAnalisisControlador extends AndraVistaBase {
         andraHallazgos.getStyleClass().add("insights");
         andraNodos.add(AndraComponentes.andraSeccion(andraHallazgos));
         VBox andraSuperior = andraPanel("Trámites más pedidos", "Cantidad de solicitudes en el periodo");
-        andraSuperior.getChildren().add(andraAnalisisA.dixonSuperior().isEmpty() ? AndraComponentes.andraParrafo("Sin datos en el periodo.", "hint")
-                : AndraGraficos.andraBarrasHorizontales(andraAnalisisA.dixonSuperior(), andraBarraB -> String.valueOf((int) andraBarraB.dixonValor()), false));
+        andraSuperior.getChildren().add(andraAnalisisA.andraSuperior().isEmpty() ? AndraComponentes.andraParrafo("Sin datos en el periodo.", "hint")
+                : AndraGraficos.andraBarrasHorizontales(andraAnalisisA.andraSuperior(), andraBarraB -> String.valueOf((int) andraBarraB.andraValor()), false));
         VBox andraSedes = andraPanel("Recaudación por sede", "Soles, pagos confirmados");
-        andraSedes.getChildren().add(AndraGraficos.andraBarrasHorizontales(andraAnalisisA.dixonPorSede(), andraBarraB -> DixonMontos.dixonSoles(andraBarraB.dixonValor()), false));
+        andraSedes.getChildren().add(AndraGraficos.andraBarrasHorizontales(andraAnalisisA.andraPorSede(), andraBarraB -> AndraMontos.andraSoles(andraBarraB.andraValor()), false));
         andraNodos.add(AndraComponentes.andraSeccion(AndraPanelControlador.andraDosColumnas(andraSuperior, andraSedes, 50)));
         VBox andraCalor = andraPanel("Horas punta en Mesa de Partes", "Atenciones estimadas por día y franja");
         andraCalor.getChildren().add(AndraGraficos.andraMapaCalorBnps(andraAnalisisA));
         VBox andraUso = andraPanel("Uso de espacios", "% del horario semanal ocupado");
-        andraUso.getChildren().addAll(AndraComponentes.andraMayus("Subutilizados", "label-caps"), AndraGraficos.andraBarrasHorizontales(andraAnalisisA.dixonSubutilizados(), andraBarraB -> (int) andraBarraB.dixonValor() + " %", true),
-                AndraComponentes.andraMayus("Más demandados", "label-caps"), AndraGraficos.andraBarrasHorizontales(andraAnalisisA.dixonDemandados(), andraBarraB -> (int) andraBarraB.dixonValor() + " %", true));
+        andraUso.getChildren().addAll(AndraComponentes.andraMayus("Subutilizados", "label-caps"), AndraGraficos.andraBarrasHorizontales(andraAnalisisA.andraSubutilizados(), andraBarraB -> (int) andraBarraB.andraValor() + " %", true),
+                AndraComponentes.andraMayus("Más demandados", "label-caps"), AndraGraficos.andraBarrasHorizontales(andraAnalisisA.andraDemandados(), andraBarraB -> (int) andraBarraB.andraValor() + " %", true));
         andraNodos.add(AndraComponentes.andraSeccion(AndraPanelControlador.andraDosColumnas(andraCalor, andraUso, 50)));
         andraNodos.add(AndraComponentes.andraSeccion(andraValidador()));
         return andraNodos;
@@ -113,15 +113,15 @@ public class AndraAnalisisControlador extends AndraVistaBase {
     }
 
     private void andraMostrar() {
-        DixonCarneServicio.DixonVerificacion andraVerificacion = andraCarne.dixonVerificar(andraValidar.getText());
-        VBox andraTextos = new VBox(2, AndraComponentes.andraParrafo(andraVerificacion.dixonMensaje(), "strong"));
-        DixonPersona andraPersona = andraVerificacion.dixonPersona();
+        AndraCarneServicio.AndraVerificacion andraVerificacion = andraCarne.andraVerificar(andraValidar.getText());
+        VBox andraTextos = new VBox(2, AndraComponentes.andraParrafo(andraVerificacion.andraMensaje(), "strong"));
+        AndraPersona andraPersona = andraVerificacion.andraPersona();
         if (andraPersona != null) {
-            andraTextos.getChildren().add(AndraComponentes.andraLiteralParrafo(andraPersona.getDixonNombre() + " · " + andraPersona.getDixonTipo() + " · " + andraPersona.getDixonCodigo()
-                    + (andraPersona.getDixonEscuela() != null ? " · EP " + andraPersona.getDixonEscuela().getDixonNombre() : ""), "small"));
+            andraTextos.getChildren().add(AndraComponentes.andraLiteralParrafo(andraPersona.getAndraNombre() + " · " + andraPersona.getAndraTipo() + " · " + andraPersona.getAndraCodigo()
+                    + (andraPersona.getAndraEscuela() != null ? " · EP " + andraPersona.getAndraEscuela().getAndraNombre() : ""), "small"));
         }
-        HBox andraCaja = new HBox(new FontIcon(andraVerificacion.dixonCorrecto() ? "fth-check-circle" : "fth-alert-triangle"), andraTextos);
-        andraCaja.getStyleClass().addAll("vc", andraVerificacion.dixonCorrecto() ? "ok" : "no");
+        HBox andraCaja = new HBox(new FontIcon(andraVerificacion.andraCorrecto() ? "fth-check-circle" : "fth-alert-triangle"), andraTextos);
+        andraCaja.getStyleClass().addAll("vc", andraVerificacion.andraCorrecto() ? "ok" : "no");
         andraCaja.setAlignment(Pos.TOP_LEFT);
         andraResultado.getChildren().setAll(andraCaja);
         AndraMovimiento.andraSubir(andraCaja);

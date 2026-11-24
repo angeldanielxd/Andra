@@ -11,7 +11,6 @@ import java.time.format.DateTimeFormatter;
 
 public class AndraLanzador {
 
-    // Versión de datos demo
     static final String ANDRA_VERSION_DATOS = "1.1.0";
 
     public static void main(String[] andraArgs) {
@@ -19,7 +18,6 @@ public class AndraLanzador {
         Application.launch(AndraAplicacionFx.class, andraArgs);
     }
 
-    // Base en carpeta del usuario
     private static void andraConfigurarBaseInstalada() {
         if (System.getProperty("jpackage.app-path") == null || System.getProperty("spring.datasource.url") != null) {
             return;
@@ -40,7 +38,6 @@ public class AndraLanzador {
         System.setProperty("spring.datasource.url", "jdbc:sqlite:" + andraBase.getAbsolutePath());
     }
 
-    // Respalda base desactualizada
     static void andraRenovarSiCambioLaVersion(File andraCarpeta, File andraBase) {
         File andraMarca = new File(andraCarpeta, "version-datos.txt");
         String andraAnterior = null;
@@ -68,7 +65,6 @@ public class AndraLanzador {
         try {
             Files.writeString(andraMarca.toPath(), ANDRA_VERSION_DATOS, StandardCharsets.UTF_8);
         } catch (IOException andraIgnorada) {
-            // Reintenta en próximo inicio
         }
     }
 }

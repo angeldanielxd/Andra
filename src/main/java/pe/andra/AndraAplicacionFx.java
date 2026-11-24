@@ -15,9 +15,9 @@ import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 import pe.andra.controller.AndraPrincipalControlador;
-import pe.andra.model.DixonAjustes;
-import pe.andra.service.DixonAjustesServicio;
-import pe.andra.service.DixonConexionServicio;
+import pe.andra.model.AndraAjustes;
+import pe.andra.service.AndraAjustesServicio;
+import pe.andra.service.AndraConexionServicio;
 import pe.andra.ui.AndraEnlaces;
 
 import java.io.InputStream;
@@ -54,9 +54,9 @@ public class AndraAplicacionFx extends Application {
         if (!andraMac) {
             andraRaiz.setStyle("-fx-font-family: 'Inter', 'Segoe UI', sans-serif;");
         }
-        DixonAjustes andraAjustes = andraContexto.getBean(DixonAjustesServicio.class).dixonObtener();
-        double andraAncho = andraAjustes.getDixonVentanaAncho() != null ? andraAjustes.getDixonVentanaAncho() : 1280;
-        double andraAlto = andraAjustes.getDixonVentanaAlto() != null ? andraAjustes.getDixonVentanaAlto() : 800;
+        AndraAjustes andraAjustes = andraContexto.getBean(AndraAjustesServicio.class).andraObtener();
+        double andraAncho = andraAjustes.getAndraVentanaAncho() != null ? andraAjustes.getAndraVentanaAncho() : 1280;
+        double andraAlto = andraAjustes.getAndraVentanaAlto() != null ? andraAjustes.getAndraVentanaAlto() : 800;
         Scene andraEscena = new Scene(andraRaiz, andraAncho, andraAlto);
         andraEscena.setCamera(new PerspectiveCamera());
         andraEscena.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/theme.css")).toExternalForm());
@@ -64,14 +64,14 @@ public class AndraAplicacionFx extends Application {
         andraVentana.setScene(andraEscena);
         andraVentana.setMinWidth(1024);
         andraVentana.setMinHeight(680);
-        if (andraAjustes.getDixonVentanaX() != null && andraAjustes.getDixonVentanaY() != null && andraDentroDePantalla(andraAjustes.getDixonVentanaX(), andraAjustes.getDixonVentanaY())) {
-            andraVentana.setX(andraAjustes.getDixonVentanaX());
-            andraVentana.setY(andraAjustes.getDixonVentanaY());
+        if (andraAjustes.getAndraVentanaX() != null && andraAjustes.getAndraVentanaY() != null && andraDentroDePantalla(andraAjustes.getAndraVentanaX(), andraAjustes.getAndraVentanaY())) {
+            andraVentana.setX(andraAjustes.getAndraVentanaX());
+            andraVentana.setY(andraAjustes.getAndraVentanaY());
         }
-        andraVentana.setMaximized(andraAjustes.isDixonMaximizada());
+        andraVentana.setMaximized(andraAjustes.isAndraMaximizada());
         andraPrincipal = andraCargador.getController();
         andraPrincipal.andraIniciar(andraVentana);
-        andraContexto.getBean(DixonConexionServicio.class).dixonIniciarMonitoreo();
+        andraContexto.getBean(AndraConexionServicio.class).andraIniciarMonitoreo();
         andraVentana.show();
     }
 

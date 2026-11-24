@@ -8,7 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.shape.Rectangle;
 import org.kordamp.ikonli.javafx.FontIcon;
-import pe.andra.model.DixonPersona;
+import pe.andra.model.AndraPersona;
 
 import java.io.ByteArrayInputStream;
 
@@ -17,7 +17,7 @@ public final class AndraTarjetaCarne {
     private AndraTarjetaCarne() {
     }
 
-    public static StackPane andraCrear(DixonPersona andraPersona, boolean andraVigente, byte[] andraFoto) {
+    public static StackPane andraCrear(AndraPersona andraPersona, boolean andraVigente, byte[] andraFoto) {
         HBox andraSuperior = new HBox(10, AndraComponentes.andraLogo(30), new VBox(AndraComponentes.andraLiteral("Institución", "strong"),
                 AndraComponentes.andraEtiqueta("Carné universitario digital", "small")), AndraComponentes.andraEspacio(),
                 AndraComponentes.andraLiteral("2026-2", "dcard-sem"));
@@ -34,12 +34,12 @@ public final class AndraTarjetaCarne {
             andraVistaImagen.setClip(andraRectangulo);
             andraMarcoFoto.getChildren().add(andraVistaImagen);
         } else {
-            andraMarcoFoto.getChildren().add(AndraComponentes.andraLiteral(andraPersona.dixonObtenerIniciales(), "dcard-ini"));
+            andraMarcoFoto.getChildren().add(AndraComponentes.andraLiteral(andraPersona.andraObtenerIniciales(), "dcard-ini"));
         }
-        VBox andraDatos = new VBox(1, AndraComponentes.andraLiteral(andraPersona.getDixonNombre(), "dcard-nombre"),
-                AndraComponentes.andraEtiqueta("Código " + andraPersona.getDixonCodigo(), "dcard-dato"), AndraComponentes.andraEtiqueta("DNI " + andraPersona.getDixonDni(), "dcard-dato"),
-                AndraComponentes.andraLiteral("EP " + andraPersona.getDixonEscuela().getDixonNombre(), "dcard-dato"),
-                AndraComponentes.andraEtiqueta("Sede " + andraPersona.getDixonSede().getDixonNombre(), "dcard-dato"));
+        VBox andraDatos = new VBox(1, AndraComponentes.andraLiteral(andraPersona.getAndraNombre(), "dcard-nombre"),
+                AndraComponentes.andraEtiqueta("Código " + andraPersona.getAndraCodigo(), "dcard-dato"), AndraComponentes.andraEtiqueta("DNI " + andraPersona.getAndraDni(), "dcard-dato"),
+                AndraComponentes.andraLiteral("EP " + andraPersona.getAndraEscuela().getAndraNombre(), "dcard-dato"),
+                AndraComponentes.andraEtiqueta("Sede " + andraPersona.getAndraSede().getAndraNombre(), "dcard-dato"));
         HBox andraCuerpo = new HBox(16, andraMarcoFoto, andraDatos);
         andraCuerpo.setAlignment(Pos.CENTER_LEFT);
         Label andraEstado = AndraComponentes.andraEtiqueta(andraVigente ? "Vigente" : "Matrícula pendiente", "dc-state", andraVigente ? "ok" : "warn");

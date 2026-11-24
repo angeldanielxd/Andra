@@ -17,8 +17,8 @@ import org.springframework.stereotype.Component;
 import pe.andra.model.*;
 import pe.andra.service.*;
 import pe.andra.ui.*;
-import pe.andra.util.DixonFechas;
-import pe.andra.util.DixonMontos;
+import pe.andra.util.AndraFechas;
+import pe.andra.util.AndraMontos;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -30,17 +30,17 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AndraPagosControlador extends AndraVistaBase {
 
-    private final DixonPagoServicio andraPagos;
+    private final AndraPagoServicio andraPagos;
     private final AndraAccionesPago andraAccionesPago;
 
-    private final DixonEstadoFiltro andraFiltros = new DixonEstadoFiltro();
+    private final AndraEstadoFiltro andraFiltros = new AndraEstadoFiltro();
     private String andraPestana = "pend";
 
     @Override
     protected List<Node> andraConstruir() {
-        List<DixonPago> andraTodos = andraPagos.dixonMios();
-        List<DixonPago> andraPendientes = andraTodos.stream().filter(DixonPago::dixonEsPendiente).toList();
-        List<DixonPago> andraPagados = andraTodos.stream().filter(DixonPago::dixonEsPagado).toList();
+        List<AndraPago> andraTodos = andraPagos.andraMios();
+        List<AndraPago> andraPendientes = andraTodos.stream().filter(AndraPago::andraEsPendiente).toList();
+        List<AndraPago> andraPagados = andraTodos.stream().filter(AndraPago::andraEsPagado).toList();
         List<Node> andraNodos = new ArrayList<>();
         andraNodos.add(andraEncabezado(andraPendientes));
         andraNodos.add(andraMatricula());
@@ -57,7 +57,7 @@ public class AndraPagosControlador extends AndraVistaBase {
         return andraCirculo;
     }
 
-    private StackPane andraEncabezado(List<DixonPago> andraPendientes) {
+    private StackPane andraEncabezado(List<AndraPago> andraPendientes) {
         Label andraAntetitulo = AndraComponentes.andraLiteral("Andra Pay", "pay-eyebrow");
         Label andraTitulo = AndraComponentes.andraParrafo("Paga tu universidad sin ir al banco.", "pay-titulo");
         andraTitulo.setMaxWidth(560);
@@ -71,20 +71,20 @@ public class AndraPagosControlador extends AndraVistaBase {
         VBox.setMargin(andraMetodos, new Insets(6, 0, 0, 0));
         HBox.setHgrow(andraIzquierda, Priority.ALWAYS);
         int andraCantidad = andraPendientes.size();
-        VBox andraSaldo = new VBox(AndraComponentes.andraMayus("Por pagar", "label-caps"), AndraComponentes.andraLiteral(DixonMontos.dixonSoles(DixonPagoServicio.dixonTotal(andraPendientes)), "pay-balance-valor"),
+        VBox andraSaldo = new VBox(AndraComponentes.andraMayus("Por pagar", "label-caps"), AndraComponentes.andraLiteral(AndraMontos.andraSoles(AndraPagoServicio.andraTotal(andraPendientes)), "pay-balance-valor"),
                 AndraComponentes.andraEtiqueta(andraCantidad + " derecho" + (andraCantidad == 1 ? "" : "s") + " de pago pendiente" + (andraCantidad == 1 ? "" : "s"), "hint"));
         andraSaldo.getStyleClass().add("pay-balance");
-        Optional<DixonPago> andraProximo = andraPagos.dixonMasProximo();
+        Optional<AndraPago> andraProximo = andraPagos.andraMasProximo();
         if (andraProximo.isPresent()) {
-            DixonPago andraPago = andraProximo.get();
-            andraSaldo.getChildren().addAll(AndraComponentes.andraBloque(AndraComponentes.andraBoton("Pagar lo más próximo · " + DixonMontos.dixonSoles(andraPago.dixonObtenerTotal()), "btn-primary", null,
-                    andraEvento -> andraAccionesPago.andraPantalla(andraPago.getDixonCodigo(), this::andraRedibujar))), AndraComponentes.andraParrafo("Vence el " + DixonFechas.dixonDmy(andraPago.getDixonVence()) + " · " + andraPago.getDixonConcepto(), "hint"));
+            AndraPago andraPago = andraProximo.get();
+            andraSaldo.getChildren().addAll(AndraComponentes.andraBloque(AndraComponentes.andraBoton("Pagar lo más próximo · " + AndraMontos.andraSoles(andraPago.andraObtenerTotal()), "btn-primary", null,
+                    andraEvento -> andraAccionesPago.andraPantalla(andraPago.getAndraCodigo(), this::andraRedibujar))), AndraComponentes.andraParrafo("Vence el " + AndraFechas.andraDmy(andraPago.getAndraVence()) + " · " + andraPago.getAndraConcepto(), "hint"));
         } else {
             Label andraAldia = AndraComponentes.andraEtiqueta("Estás al día", "hint");
             andraAldia.setGraphic(AndraComponentes.andraIcono("fth-check", "verde"));
             andraSaldo.getChildren().add(andraAldia);
         }
-        HBox andraPagado = new HBox(AndraComponentes.andraEtiqueta("Pagado en 2026"), AndraComponentes.andraEspacio(), AndraComponentes.andraLiteral(DixonMontos.dixonSoles(andraPagos.dixonPagadoEnAnio(2026)), "strong"));
+        HBox andraPagado = new HBox(AndraComponentes.andraEtiqueta("Pagado en 2026"), AndraComponentes.andraEspacio(), AndraComponentes.andraLiteral(AndraMontos.andraSoles(andraPagos.andraPagadoEnAnio(2026)), "strong"));
         andraPagado.getStyleClass().add("pb-row");
         andraSaldo.getChildren().add(andraPagado);
         andraSaldo.setPrefWidth(400);
@@ -117,22 +117,22 @@ public class AndraPagosControlador extends AndraVistaBase {
     }
 
     private VBox andraMatricula() {
-        DixonMatricula andraMatricula = andraPagos.dixonMatricula();
-        DixonPago andraPago = andraMatricula.getDixonPago();
-        boolean andraCorrecto = andraMatricula.dixonEsConfirmada();
-        VBox andraTextos = new VBox(4, AndraComponentes.andraMayus("Matrícula " + andraMatricula.getDixonPeriodo(), "label-caps"),
+        AndraMatricula andraMatricula = andraPagos.andraMatricula();
+        AndraPago andraPago = andraMatricula.getAndraPago();
+        boolean andraCorrecto = andraMatricula.andraEsConfirmada();
+        VBox andraTextos = new VBox(4, AndraComponentes.andraMayus("Matrícula " + andraMatricula.getAndraPeriodo(), "label-caps"),
                 AndraComponentes.andraParrafo(andraCorrecto ? "Tu matrícula está confirmada" : "Completa tu matrícula con el pago", "h2"),
-                AndraComponentes.andraParrafo(andraCorrecto ? "Pagaste " + DixonMontos.dixonSoles(andraPago.dixonObtenerTotal()) + " con " + andraPago.getDixonMetodo().dixonObtenerEtiqueta() + " · Comprobante " + andraPago.getDixonBoleta()
+                AndraComponentes.andraParrafo(andraCorrecto ? "Pagaste " + AndraMontos.andraSoles(andraPago.andraObtenerTotal()) + " con " + andraPago.getAndraMetodo().andraObtenerEtiqueta() + " · Comprobante " + andraPago.getAndraBoleta()
                         : "Ya llenaste tu ficha en el sistema académico de la institución. Tu derecho de pago llegó a Andra Pay: págalo aquí y tu matrícula queda confirmada al instante.", "muted", "small"));
         andraTextos.setMaxWidth(620);
         HBox.setHgrow(andraTextos, Priority.ALWAYS);
-        Button andraAccion = andraCorrecto ? AndraComponentes.andraBoton("Ver comprobante", "btn-secondary", "fth-file", andraEvento -> andraAccionesPago.andraComprobante(andraPago.getDixonCodigo()))
-                : AndraComponentes.andraBoton("Pagar matrícula · " + DixonMontos.dixonSoles(andraPago.dixonObtenerTotal()), "btn-primary", "fth-credit-card", andraEvento -> andraAccionesPago.andraPantalla(andraPago.getDixonCodigo(), this::andraRedibujar));
+        Button andraAccion = andraCorrecto ? AndraComponentes.andraBoton("Ver comprobante", "btn-secondary", "fth-file", andraEvento -> andraAccionesPago.andraComprobante(andraPago.getAndraCodigo()))
+                : AndraComponentes.andraBoton("Pagar matrícula · " + AndraMontos.andraSoles(andraPago.andraObtenerTotal()), "btn-primary", "fth-credit-card", andraEvento -> andraAccionesPago.andraPantalla(andraPago.getAndraCodigo(), this::andraRedibujar));
         HBox andraCab = new HBox(20, andraTextos, andraAccion);
         andraCab.setAlignment(Pos.TOP_LEFT);
         AndraRejilla andraPasos = new AndraRejilla(3, 220, 10);
         andraPasos.getChildren().addAll(andraPaso("done", null, "Ficha de matrícula", "Completada en el sistema académico"),
-                andraPaso(andraCorrecto ? "done" : "cur", "2", "Derecho de pago", andraCorrecto ? "Pagado en Andra Pay" : "Pendiente · vence el " + DixonFechas.dixonDmy(andraPago.getDixonVence())),
+                andraPaso(andraCorrecto ? "done" : "cur", "2", "Derecho de pago", andraCorrecto ? "Pagado en Andra Pay" : "Pendiente · vence el " + AndraFechas.andraDmy(andraPago.getAndraVence())),
                 andraPaso(andraCorrecto ? "done" : "", "3", "Matrícula confirmada", "Constancia disponible en Documentos"));
         VBox andraTarjeta = new VBox(andraCab, andraPasos);
         andraTarjeta.getStyleClass().add("mat-card");
@@ -154,9 +154,9 @@ public class AndraPagosControlador extends AndraVistaBase {
         return andraAlto;
     }
 
-    private VBox andraDerechos(List<DixonPago> andraTodos, List<DixonPago> andraPendientes, List<DixonPago> andraPagados) {
+    private VBox andraDerechos(List<AndraPago> andraTodos, List<AndraPago> andraPendientes, List<AndraPago> andraPagados) {
         HBox andraCab = AndraComponentes.andraCabeceraSeccion("Derechos de pago", "Todo lo que debes pagar a la universidad, en un solo lugar.",
-                AndraFiltros.andraBoton(andraFiltros, DixonPagoServicio.DIXON_PREDEFINIDOS, null, andraNotificador, this::andraRedibujar),
+                AndraFiltros.andraBoton(andraFiltros, AndraPagoServicio.ANDRA_PREDEFINIDOS, null, andraNotificador, this::andraRedibujar),
                 AndraComponentes.andraBotonSm("Nuevo pago", "btn-primary", "fth-plus", andraEvento -> andraAccionesPago.andraNuevoPago(this::andraRedibujar)));
         AndraSegmentado andraPestanas = new AndraSegmentado(true).andraOpcion("pend", "Por pagar", null, (long) andraPendientes.size())
                 .andraOpcion("paid", "Pagados", null, (long) andraPagados.size()).andraOpcion("all", "Todos", null, (long) andraTodos.size()).andraSeleccionar(andraPestana);
@@ -167,9 +167,9 @@ public class AndraPagosControlador extends AndraVistaBase {
         andraPestanas.setMaxWidth(460);
         AndraComponentes.andraAccesible(andraPestanas, "Estado");
         VBox.setMargin(andraPestanas, new Insets(0, 0, 16, 0));
-        List<DixonPago> andraLista = "pend".equals(andraPestana) ? andraPendientes : "paid".equals(andraPestana) ? andraPagados : andraTodos;
-        andraLista = new ArrayList<>(DixonFiltroServicio.dixonAplicar(andraLista, andraFiltros, andraPagos.dixonPredicados(), andraPago -> andraPago.getDixonConcepto() + " " + andraPago.getDixonCodigo() + " " + (andraPago.getDixonBoleta() == null ? "" : andraPago.getDixonBoleta())));
-        andraLista.sort(Comparator.comparing((DixonPago andraPago) -> andraPago.getDixonPagado() != null ? andraPago.getDixonPagado() : andraPago.getDixonCreado()).reversed());
+        List<AndraPago> andraLista = "pend".equals(andraPestana) ? andraPendientes : "paid".equals(andraPestana) ? andraPagados : andraTodos;
+        andraLista = new ArrayList<>(AndraFiltroServicio.andraAplicar(andraLista, andraFiltros, andraPagos.andraPredicados(), andraPago -> andraPago.getAndraConcepto() + " " + andraPago.getAndraCodigo() + " " + (andraPago.getAndraBoleta() == null ? "" : andraPago.getAndraBoleta())));
+        andraLista.sort(Comparator.comparing((AndraPago andraPago) -> andraPago.getAndraPagado() != null ? andraPago.getAndraPagado() : andraPago.getAndraCreado()).reversed());
         Node andraCuerpo;
         if (andraLista.isEmpty()) {
             andraCuerpo = AndraComponentes.andraVacio("fth-credit-card", "pend".equals(andraPestana) ? "No tienes pagos pendientes" : "No hay pagos con esos filtros",
@@ -179,28 +179,28 @@ public class AndraPagosControlador extends AndraVistaBase {
             andraLista.forEach(andraPago -> andraFilas.getChildren().add(andraFila(andraPago)));
             andraCuerpo = andraFilas;
         }
-        return AndraComponentes.andraSeccion(andraCab, andraPestanas, AndraFiltros.andraResumen(andraFiltros, DixonPagoServicio.DIXON_PREDEFINIDOS, null, this::andraRedibujar), andraCuerpo);
+        return AndraComponentes.andraSeccion(andraCab, andraPestanas, AndraFiltros.andraResumen(andraFiltros, AndraPagoServicio.ANDRA_PREDEFINIDOS, null, this::andraRedibujar), andraCuerpo);
     }
 
-    private HBox andraFila(DixonPago andraPago) {
-        StackPane andraIcono = new StackPane(new FontIcon(andraPago.getDixonTipo().dixonObtenerIcono()));
+    private HBox andraFila(AndraPago andraPago) {
+        StackPane andraIcono = new StackPane(new FontIcon(andraPago.getAndraTipo().andraObtenerIcono()));
         andraIcono.getStyleClass().add("pr-ico");
-        String andraDetalle = andraPago.getDixonCodigo() + " · " + andraPago.getDixonTipo().dixonObtenerEtiqueta() + (andraPago.dixonEsPagado() && andraPago.getDixonPagado() != null
-                ? " · Pagado el " + DixonFechas.dixonDmy(andraPago.getDixonPagado().toLocalDate()) + " con " + andraPago.getDixonMetodo().dixonObtenerEtiqueta()
-                : andraPago.getDixonVence() != null ? " · Vence el " + DixonFechas.dixonDmy(andraPago.getDixonVence()) : "");
-        VBox andraTextos = new VBox(2, AndraComponentes.andraParrafo(andraPago.getDixonConcepto(), "strong"), AndraComponentes.andraEtiqueta(andraDetalle, "hint"));
+        String andraDetalle = andraPago.getAndraCodigo() + " · " + andraPago.getAndraTipo().andraObtenerEtiqueta() + (andraPago.andraEsPagado() && andraPago.getAndraPagado() != null
+                ? " · Pagado el " + AndraFechas.andraDmy(andraPago.getAndraPagado().toLocalDate()) + " con " + andraPago.getAndraMetodo().andraObtenerEtiqueta()
+                : andraPago.getAndraVence() != null ? " · Vence el " + AndraFechas.andraDmy(andraPago.getAndraVence()) : "");
+        VBox andraTextos = new VBox(2, AndraComponentes.andraParrafo(andraPago.getAndraConcepto(), "strong"), AndraComponentes.andraEtiqueta(andraDetalle, "hint"));
         HBox.setHgrow(andraTextos, Priority.ALWAYS);
-        String andraEstado = DixonPagoServicio.dixonEstadoVisible(andraPago);
-        HBox andraAlto = new HBox(andraIcono, andraTextos, AndraComponentes.andraLiteral(DixonMontos.dixonSoles(andraPago.dixonObtenerTotal()), "pr-amt"), AndraComponentes.andraPildora(andraEstado, DixonPagoServicio.dixonTonoEstado(andraEstado)),
+        String andraEstado = AndraPagoServicio.andraEstadoVisible(andraPago);
+        HBox andraAlto = new HBox(andraIcono, andraTextos, AndraComponentes.andraLiteral(AndraMontos.andraSoles(andraPago.andraObtenerTotal()), "pr-amt"), AndraComponentes.andraPildora(andraEstado, AndraPagoServicio.andraTonoEstado(andraEstado)),
                 AndraComponentes.andraIcono("fth-arrow-right", "muted"));
         andraAlto.getStyleClass().add("pay-row");
         andraAlto.setFocusTraversable(true);
-        AndraComponentes.andraAccesible(andraAlto, andraPago.getDixonConcepto() + " · " + DixonMontos.dixonSoles(andraPago.dixonObtenerTotal()) + " · " + andraEstado);
+        AndraComponentes.andraAccesible(andraAlto, andraPago.getAndraConcepto() + " · " + AndraMontos.andraSoles(andraPago.andraObtenerTotal()) + " · " + andraEstado);
         Runnable andraAbrir = () -> {
-            if (andraPago.dixonEsPendiente()) {
-                andraAccionesPago.andraDetalle(andraPago.getDixonCodigo(), this::andraRedibujar);
+            if (andraPago.andraEsPendiente()) {
+                andraAccionesPago.andraDetalle(andraPago.getAndraCodigo(), this::andraRedibujar);
             } else {
-                andraAccionesPago.andraComprobante(andraPago.getDixonCodigo());
+                andraAccionesPago.andraComprobante(andraPago.getAndraCodigo());
             }
         };
         andraAlto.setOnMouseClicked(andraEvento -> andraAbrir.run());

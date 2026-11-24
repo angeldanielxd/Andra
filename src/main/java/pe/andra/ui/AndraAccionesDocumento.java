@@ -9,15 +9,15 @@ import lombok.RequiredArgsConstructor;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.springframework.stereotype.Component;
 import pe.andra.config.AndraDatosInstitucion;
-import pe.andra.model.DixonDocumento;
-import pe.andra.model.DixonDocumentoPersonal;
-import pe.andra.model.DixonTipoFavorito;
-import pe.andra.service.DixonCatalogoServicio;
-import pe.andra.service.DixonDocumentoGeneradoServicio;
-import pe.andra.service.DixonFavoritoServicio;
-import pe.andra.service.DixonSesionServicio;
-import pe.andra.util.DixonFechas;
-import pe.andra.util.DixonPortapapeles;
+import pe.andra.model.AndraDocumento;
+import pe.andra.model.AndraDocumentoPersonal;
+import pe.andra.model.AndraTipoFavorito;
+import pe.andra.service.AndraCatalogoServicio;
+import pe.andra.service.AndraDocumentoGeneradoServicio;
+import pe.andra.service.AndraFavoritoServicio;
+import pe.andra.service.AndraSesionServicio;
+import pe.andra.util.AndraFechas;
+import pe.andra.util.AndraPortapapeles;
 
 @Component
 @RequiredArgsConstructor
@@ -25,18 +25,18 @@ public class AndraAccionesDocumento {
 
     private final AndraNotificador andraNotificador;
     private final AndraDescargas andraDescargas;
-    private final DixonDocumentoGeneradoServicio andraGenerador;
-    private final DixonFavoritoServicio andraFavoritos;
-    private final DixonCatalogoServicio andraCatalogo;
-    private final DixonSesionServicio andraSesion;
+    private final AndraDocumentoGeneradoServicio andraGenerador;
+    private final AndraFavoritoServicio andraFavoritos;
+    private final AndraCatalogoServicio andraCatalogo;
+    private final AndraSesionServicio andraSesion;
     private final AndraDatosInstitucion andraInstitucion;
 
-    public String andraMeta(DixonDocumento andraDocumento) {
-        return andraDocumento.getDixonTipo() + " · " + andraCatalogo.dixonEtiquetaDependencia(andraDocumento.getDixonDependencia()) + " · " + DixonFechas.dixonDmy(andraDocumento.getDixonFecha()) + " · "
-                + andraDocumento.getDixonPaginas() + " página" + (andraDocumento.getDixonPaginas() > 1 ? "s" : "");
+    public String andraMeta(AndraDocumento andraDocumento) {
+        return andraDocumento.getAndraTipo() + " · " + andraCatalogo.andraEtiquetaDependencia(andraDocumento.getAndraDependencia()) + " · " + AndraFechas.andraDmy(andraDocumento.getAndraFecha()) + " · "
+                + andraDocumento.getAndraPaginas() + " página" + (andraDocumento.getAndraPaginas() > 1 ? "s" : "");
     }
 
-    public HBox andraTarjeta(DixonDocumento andraDocumento, Runnable andraAlCambiar) {
+    public HBox andraTarjeta(AndraDocumento andraDocumento, Runnable andraAlCambiar) {
         VBox andraMiniatura = new VBox();
         andraMiniatura.getStyleClass().add("doc-thumb");
         for (double andraAncho : new double[]{1, 0.7, 1, 0.5}) {
@@ -46,18 +46,18 @@ public class AndraAccionesDocumento {
             andraMiniatura.getChildren().add(andraLinea);
         }
         andraMiniatura.getChildren().add(AndraComponentes.andraLiteral("PDF", "pdf"));
-        Button andraVista = AndraComponentes.andraBotonSm("Vista previa", "btn-secondary", "fth-eye", andraEvento -> andraVistaPrevia(andraDocumento.getDixonNombre(), andraMeta(andraDocumento)));
-        Button andraBajar = AndraComponentes.andraBotonSm("Descargar", "btn-secondary", "fth-download", andraEvento -> andraDescargar(andraDocumento.getDixonNombre(), andraMeta(andraDocumento)));
-        Button andraCompartir = AndraComponentes.andraBotonSm("Compartir", "btn-tertiary", "fth-link", andraEvento -> andraCompartir(andraInstitucion.getAndraUrlDocumentos() + "/documentos/" + andraDocumento.getDixonCodigo()));
+        Button andraVista = AndraComponentes.andraBotonSm("Vista previa", "btn-secondary", "fth-eye", andraEvento -> andraVistaPrevia(andraDocumento.getAndraNombre(), andraMeta(andraDocumento)));
+        Button andraBajar = AndraComponentes.andraBotonSm("Descargar", "btn-secondary", "fth-download", andraEvento -> andraDescargar(andraDocumento.getAndraNombre(), andraMeta(andraDocumento)));
+        Button andraCompartir = AndraComponentes.andraBotonSm("Compartir", "btn-tertiary", "fth-link", andraEvento -> andraCompartir(andraInstitucion.getAndraUrlDocumentos() + "/documentos/" + andraDocumento.getAndraCodigo()));
         FlowPane andraAcciones = new FlowPane(andraVista, andraBajar, andraCompartir);
         andraAcciones.getStyleClass().add("doc-actions");
-        VBox andraCuerpo = new VBox(4, AndraComponentes.andraMayus(andraDocumento.getDixonTipo(), "label-caps"), AndraComponentes.andraParrafo(andraDocumento.getDixonNombre(), "h3", "sm"),
-                AndraComponentes.andraParrafo(andraDocumento.getDixonDescripcion(), "muted", "small"),
-                AndraComponentes.andraLiteralParrafo(andraCatalogo.dixonEtiquetaDependencia(andraDocumento.getDixonDependencia()) + " · " + DixonFechas.dixonDmy(andraDocumento.getDixonFecha()), "hint"), andraAcciones);
+        VBox andraCuerpo = new VBox(4, AndraComponentes.andraMayus(andraDocumento.getAndraTipo(), "label-caps"), AndraComponentes.andraParrafo(andraDocumento.getAndraNombre(), "h3", "sm"),
+                AndraComponentes.andraParrafo(andraDocumento.getAndraDescripcion(), "muted", "small"),
+                AndraComponentes.andraLiteralParrafo(andraCatalogo.andraEtiquetaDependencia(andraDocumento.getAndraDependencia()) + " · " + AndraFechas.andraDmy(andraDocumento.getAndraFecha()), "hint"), andraAcciones);
         HBox.setHgrow(andraCuerpo, Priority.ALWAYS);
-        boolean andraFav = andraFavoritos.dixonEs(DixonTipoFavorito.DOCUMENTO, andraDocumento.getDixonCodigo());
-        Button andraEstrella = AndraComponentes.andraEstrella(andraFav, andraDocumento.getDixonNombre(), () -> {
-            boolean andraAhora = andraFavoritos.dixonAlternar(DixonTipoFavorito.DOCUMENTO, andraDocumento.getDixonCodigo());
+        boolean andraFav = andraFavoritos.andraEs(AndraTipoFavorito.DOCUMENTO, andraDocumento.getAndraCodigo());
+        Button andraEstrella = AndraComponentes.andraEstrella(andraFav, andraDocumento.getAndraNombre(), () -> {
+            boolean andraAhora = andraFavoritos.andraAlternar(AndraTipoFavorito.DOCUMENTO, andraDocumento.getAndraCodigo());
             andraNotificador.andraExito(andraAhora ? "Agregado a favoritos." : "Quitado de favoritos.");
             andraAlCambiar.run();
         });
@@ -67,21 +67,21 @@ public class AndraAccionesDocumento {
         return andraTarjeta;
     }
 
-    public HBox andraFilaPersonal(DixonDocumentoPersonal andraDocumentoPersonal, Runnable andraAlCambiar) {
-        HBox andraPrincipal = new HBox(12, AndraComponentes.andraIcono("fth-file-text", "doc-icono"), AndraComponentes.andraLiteral(andraDocumentoPersonal.getDixonNombre(), "row-title"));
+    public HBox andraFilaPersonal(AndraDocumentoPersonal andraDocumentoPersonal, Runnable andraAlCambiar) {
+        HBox andraPrincipal = new HBox(12, AndraComponentes.andraIcono("fth-file-text", "doc-icono"), AndraComponentes.andraLiteral(andraDocumentoPersonal.getAndraNombre(), "row-title"));
         andraPrincipal.setAlignment(Pos.CENTER_LEFT);
-        String andraMeta = "Emitido a nombre de " + andraSesion.dixonEstudiante().getDixonNombre() + " · Código " + andraSesion.dixonEstudiante().getDixonCodigo();
-        boolean andraFav = andraFavoritos.dixonEs(DixonTipoFavorito.MI_DOCUMENTO, andraDocumentoPersonal.getDixonCodigo());
-        Button andraEstrella = AndraComponentes.andraEstrella(andraFav, andraDocumentoPersonal.getDixonNombre(), () -> {
-            boolean andraAhora = andraFavoritos.dixonAlternar(DixonTipoFavorito.MI_DOCUMENTO, andraDocumentoPersonal.getDixonCodigo());
+        String andraMeta = "Emitido a nombre de " + andraSesion.andraEstudiante().getAndraNombre() + " · Código " + andraSesion.andraEstudiante().getAndraCodigo();
+        boolean andraFav = andraFavoritos.andraEs(AndraTipoFavorito.MI_DOCUMENTO, andraDocumentoPersonal.getAndraCodigo());
+        Button andraEstrella = AndraComponentes.andraEstrella(andraFav, andraDocumentoPersonal.getAndraNombre(), () -> {
+            boolean andraAhora = andraFavoritos.andraAlternar(AndraTipoFavorito.MI_DOCUMENTO, andraDocumentoPersonal.getAndraCodigo());
             andraNotificador.andraExito(andraAhora ? "Agregado a favoritos." : "Quitado de favoritos.");
             andraAlCambiar.run();
         });
         andraEstrella.getStyleClass().add("plano");
         return AndraComponentes.andraFila(andraPrincipal,
-                AndraComponentes.andraBotonSm("Compartir", "btn-tertiary", "fth-link", andraEvento -> andraCompartir(andraInstitucion.getAndraUrlDocumentos() + "/mis-documentos/" + andraDocumentoPersonal.getDixonCodigo())),
-                AndraComponentes.andraBotonSm("Descargar", "btn-secondary", "fth-download", andraEvento -> andraDescargar(andraDocumentoPersonal.getDixonNombre(), andraMeta)),
-                AndraComponentes.andraBotonSm("Vista previa", "btn-secondary", "fth-eye", andraEvento -> andraVistaPrevia(andraDocumentoPersonal.getDixonNombre(), andraMeta)), andraEstrella);
+                AndraComponentes.andraBotonSm("Compartir", "btn-tertiary", "fth-link", andraEvento -> andraCompartir(andraInstitucion.getAndraUrlDocumentos() + "/mis-documentos/" + andraDocumentoPersonal.getAndraCodigo())),
+                AndraComponentes.andraBotonSm("Descargar", "btn-secondary", "fth-download", andraEvento -> andraDescargar(andraDocumentoPersonal.getAndraNombre(), andraMeta)),
+                AndraComponentes.andraBotonSm("Vista previa", "btn-secondary", "fth-eye", andraEvento -> andraVistaPrevia(andraDocumentoPersonal.getAndraNombre(), andraMeta)), andraEstrella);
     }
 
     public void andraVistaPrevia(String andraNombre, String andraMeta) {
@@ -110,11 +110,11 @@ public class AndraAccionesDocumento {
     }
 
     public void andraDescargar(String andraNombre, String andraMeta) {
-        andraDescargas.andraGuardarPdf(andraNombre, () -> andraGenerador.dixonPdfSimple(andraNombre, andraMeta));
+        andraDescargas.andraGuardarPdf(andraNombre, () -> andraGenerador.andraPdfSimple(andraNombre, andraMeta));
     }
 
     public void andraCompartir(String andraUrl) {
-        DixonPortapapeles.dixonCopiar(andraUrl);
+        AndraPortapapeles.andraCopiar(andraUrl);
         andraNotificador.andraExito("Enlace del documento copiado.");
     }
 

@@ -1,16 +1,9 @@
 @echo off
-rem ==================================================================
-rem  Andra - crea el .exe para Windows con jpackage.
-rem  Uso: doble clic en este archivo.
-rem  Necesita: JDK 21 o superior (trae jpackage).
-rem  Opcional: WiX Toolset 3.14 para crear tambien el instalador.
-rem  Si cambias la version en pom.xml, cambiala tambien aqui abajo.
-rem ==================================================================
 setlocal EnableExtensions
 cd /d "%~dp0"
 title Andra - crear .exe para Windows
 
-set "VERSION=1.3.0"
+set "VERSION=1.4.0"
 set "JAR_NOMBRE=andra-javafx-%VERSION%.jar"
 set "SALIDA=%~dp0salida"
 set "ICONO=%~dp0Andra.ico"
@@ -23,13 +16,11 @@ echo  Andra %VERSION% - empaquetado para Windows
 echo  ===========================================
 echo.
 
-rem --- 1. JAR: junto a este archivo (kit) o en target del proyecto ---
 set "JAR=%~dp0%JAR_NOMBRE%"
 if not exist "%JAR%" set "JAR=%~dp0..\..\target\%JAR_NOMBRE%"
 if not exist "%JAR%" goto :sin_jar
 if not exist "%ICONO%" goto :sin_icono
 
-rem --- 2. jpackage: primero JAVA_HOME, luego el PATH ---
 set "JPACKAGE="
 if defined JAVA_HOME if exist "%JAVA_HOME%\bin\jpackage.exe" set "JPACKAGE=%JAVA_HOME%\bin\jpackage.exe"
 if not defined JPACKAGE for /f "delims=" %%i in ('where jpackage.exe 2^>nul') do if not defined JPACKAGE set "JPACKAGE=%%i"
@@ -49,7 +40,6 @@ echo  JDK %JDKV%: "%JPACKAGE%"
 echo  JAR: "%JAR%"
 echo.
 
-rem --- 3. Carpeta de trabajo ---
 if exist "%SALIDA%" rmdir /s /q "%SALIDA%"
 mkdir "%SALIDA%\entrada"
 copy /y "%JAR%" "%SALIDA%\entrada\%JAR_NOMBRE%" >nul

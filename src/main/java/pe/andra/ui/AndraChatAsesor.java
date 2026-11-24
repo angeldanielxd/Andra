@@ -8,23 +8,23 @@ import javafx.scene.layout.*;
 import javafx.util.Duration;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import pe.andra.exception.DixonNegocioExcepcion;
+import pe.andra.exception.AndraNegocioExcepcion;
 import pe.andra.model.*;
-import pe.andra.service.DixonConsultaAsesorServicio;
-import pe.andra.util.DixonFechas;
+import pe.andra.service.AndraConsultaAsesorServicio;
+import pe.andra.util.AndraFechas;
 
 @Component
 @RequiredArgsConstructor
 public class AndraChatAsesor {
 
     private final AndraNotificador andraNotificador;
-    private final DixonConsultaAsesorServicio andraConsultas;
+    private final AndraConsultaAsesorServicio andraConsultas;
 
-    public void andraAbrir(DixonExpediente andraExpediente) {
-        DixonConsultaAsesor andraInicial;
+    public void andraAbrir(AndraExpediente andraExpediente) {
+        AndraConsultaAsesor andraInicial;
         try {
-            andraInicial = andraConsultas.dixonAbrir(andraExpediente.getDixonCodigo());
-        } catch (DixonNegocioExcepcion andraNegocioExcepcion) {
+            andraInicial = andraConsultas.andraAbrir(andraExpediente.getAndraCodigo());
+        } catch (AndraNegocioExcepcion andraNegocioExcepcion) {
             andraNotificador.andraError(andraNegocioExcepcion.getMessage());
             return;
         }
@@ -45,25 +45,25 @@ public class AndraChatAsesor {
         Label andraAyudaAmpliar = AndraComponentes.andraParrafo("", "hint");
 
         Runnable[] andraPintar = new Runnable[1];
-        DixonConsultaAsesor[] andraActual = {andraInicial};
+        AndraConsultaAsesor[] andraActual = {andraInicial};
         andraPintar[0] = () -> {
-            DixonConsultaAsesor andraConsultaAsesor = andraActual[0];
+            AndraConsultaAsesor andraConsultaAsesor = andraActual[0];
             andraRegistro.getChildren().clear();
-            for (int andraIndice = 0; andraIndice < andraConsultaAsesor.getDixonMensajes().size(); andraIndice++) {
-                DixonMensajeAsesor andraMensajeAsesor = andraConsultaAsesor.getDixonMensajes().get(andraIndice);
+            for (int andraIndice = 0; andraIndice < andraConsultaAsesor.getAndraMensajes().size(); andraIndice++) {
+                AndraMensajeAsesor andraMensajeAsesor = andraConsultaAsesor.getAndraMensajes().get(andraIndice);
                 andraRegistro.getChildren().add(andraIndice == 0 ? andraContexto(andraMensajeAsesor) : andraBurbuja(andraMensajeAsesor));
             }
-            int andraQuedan = andraConsultaAsesor.dixonRestantes();
-            AndraComponentes.andraFijar(andraCupo, andraQuedan + " de " + andraConsultaAsesor.getDixonCupo() + " consultas disponibles");
+            int andraQuedan = andraConsultaAsesor.andraRestantes();
+            AndraComponentes.andraFijar(andraCupo, andraQuedan + " de " + andraConsultaAsesor.getAndraCupo() + " consultas disponibles");
             andraCupo.getStyleClass().removeAll("success", "warning", "error");
             andraCupo.getStyleClass().add(andraQuedan == 0 ? "error" : andraQuedan == 1 ? "warning" : "success");
-            boolean andraPendiente = andraConsultaAsesor.getDixonAmpliacion() == DixonEstadoAmpliacion.PENDIENTE;
+            boolean andraPendiente = andraConsultaAsesor.getAndraAmpliacion() == AndraEstadoAmpliacion.PENDIENTE;
             andraEntrada.setDisable(andraQuedan == 0);
             andraEnviar.setDisable(andraQuedan == 0);
             AndraComponentes.andraIndicacion(andraEntrada, andraQuedan == 0 ? (andraPendiente ? "Esperando la evaluación del asesor…" : "Agotaste tus consultas")
                     : "Escribe tu consulta sobre este trámite…");
-            andraAmpliar.setDisable(andraQuedan > 0 || andraConsultaAsesor.getDixonAmpliacion() != DixonEstadoAmpliacion.NINGUNA);
-            AndraComponentes.andraFijar(andraAyudaAmpliar, switch (andraConsultaAsesor.getDixonAmpliacion()) {
+            andraAmpliar.setDisable(andraQuedan > 0 || andraConsultaAsesor.getAndraAmpliacion() != AndraEstadoAmpliacion.NINGUNA);
+            AndraComponentes.andraFijar(andraAyudaAmpliar, switch (andraConsultaAsesor.getAndraAmpliacion()) {
                 case PENDIENTE -> "Solicitud enviada. El asesor está evaluando si es necesario ampliar tu consulta.";
                 case APROBADA -> "El asesor aprobó la ampliación: se sumaron 3 consultas adicionales.";
                 case RECHAZADA -> "El asesor no consideró necesaria la ampliación.";
@@ -79,13 +79,13 @@ public class AndraChatAsesor {
                 return;
             }
             try {
-                andraActual[0] = andraConsultas.dixonPreguntar(andraExpediente.getDixonCodigo(), andraTexto);
+                andraActual[0] = andraConsultas.andraPreguntar(andraExpediente.getAndraCodigo(), andraTexto);
                 andraEntrada.clear();
                 andraPintar[0].run();
                 if (!andraEntrada.isDisabled()) {
                     Platform.runLater(andraEntrada::requestFocus);
                 }
-            } catch (DixonNegocioExcepcion andraNegocioExcepcion) {
+            } catch (AndraNegocioExcepcion andraNegocioExcepcion) {
                 andraNotificador.andraError(andraNegocioExcepcion.getMessage());
             }
         };
@@ -93,18 +93,18 @@ public class AndraChatAsesor {
         andraEntrada.setOnAction(andraEvento -> andraMandar.run());
         andraAmpliar.setOnAction(andraEvento -> {
             try {
-                andraActual[0] = andraConsultas.dixonSolicitarAmpliacion(andraExpediente.getDixonCodigo());
+                andraActual[0] = andraConsultas.andraSolicitarAmpliacion(andraExpediente.getAndraCodigo());
                 andraPintar[0].run();
                 PauseTransition andraPausa = new PauseTransition(Duration.millis(1500));
                 andraPausa.setOnFinished(andraPosicionX -> {
-                    andraActual[0] = andraConsultas.dixonEvaluarAmpliacion(andraExpediente.getDixonCodigo());
+                    andraActual[0] = andraConsultas.andraEvaluarAmpliacion(andraExpediente.getAndraCodigo());
                     andraPintar[0].run();
-                    if (andraActual[0].getDixonAmpliacion() == DixonEstadoAmpliacion.APROBADA) {
+                    if (andraActual[0].getAndraAmpliacion() == AndraEstadoAmpliacion.APROBADA) {
                         andraNotificador.andraExito("El asesor amplió tu consulta: 3 oportunidades más.");
                     }
                 });
                 andraPausa.play();
-            } catch (DixonNegocioExcepcion andraNegocioExcepcion) {
+            } catch (AndraNegocioExcepcion andraNegocioExcepcion) {
                 andraNotificador.andraError(andraNegocioExcepcion.getMessage());
             }
         });
@@ -116,27 +116,27 @@ public class AndraChatAsesor {
         andraFila.getStyleClass().add("copy-row");
         VBox andraCuerpo = new VBox(10, andraCabecera, andraDesplazable, andraFila, new Separator(), andraAmpliar, andraAyudaAmpliar,
                 AndraComponentes.andraParrafo("Simulación: las respuestas del asesor son automáticas de demostración.", "hint"));
-        andraNotificador.andraModal("Consulta en línea · " + andraExpediente.getDixonCodigo(), andraCuerpo, false);
+        andraNotificador.andraModal("Consulta en línea · " + andraExpediente.getAndraCodigo(), andraCuerpo, false);
         if (!andraEntrada.isDisabled()) {
             Platform.runLater(andraEntrada::requestFocus);
         }
     }
 
-    private VBox andraContexto(DixonMensajeAsesor andraMensajeAsesor) {
+    private VBox andraContexto(AndraMensajeAsesor andraMensajeAsesor) {
         VBox andraCajaVertical = new VBox(4, AndraComponentes.andraMayus("Contexto enviado automáticamente", "label-caps"),
-                AndraComponentes.andraLiteralParrafo(andraMensajeAsesor.getDixonTexto(), "small"));
+                AndraComponentes.andraLiteralParrafo(andraMensajeAsesor.getAndraTexto(), "small"));
         andraCajaVertical.getStyleClass().add("wa-msg");
         andraCajaVertical.getStyleClass().add("mail");
         return andraCajaVertical;
     }
 
-    private HBox andraBurbuja(DixonMensajeAsesor andraMensajeAsesor) {
-        Label andraEtiqueta = AndraComponentes.andraLiteralParrafo(andraMensajeAsesor.getDixonTexto(), "msg", andraMensajeAsesor.isDixonDeAsesor() ? "op" : "me");
+    private HBox andraBurbuja(AndraMensajeAsesor andraMensajeAsesor) {
+        Label andraEtiqueta = AndraComponentes.andraLiteralParrafo(andraMensajeAsesor.getAndraTexto(), "msg", andraMensajeAsesor.isAndraDeAsesor() ? "op" : "me");
         andraEtiqueta.setMaxWidth(380);
-        VBox andraCajaVertical = new VBox(2, andraEtiqueta, AndraComponentes.andraEtiqueta((andraMensajeAsesor.isDixonDeAsesor() ? "Asesor · " : "Tú · ") + DixonFechas.dixonHm(andraMensajeAsesor.getDixonEnviado()), "hint"));
-        andraCajaVertical.setAlignment(andraMensajeAsesor.isDixonDeAsesor() ? Pos.CENTER_LEFT : Pos.CENTER_RIGHT);
+        VBox andraCajaVertical = new VBox(2, andraEtiqueta, AndraComponentes.andraEtiqueta((andraMensajeAsesor.isAndraDeAsesor() ? "Asesor · " : "Tú · ") + AndraFechas.andraHm(andraMensajeAsesor.getAndraEnviado()), "hint"));
+        andraCajaVertical.setAlignment(andraMensajeAsesor.isAndraDeAsesor() ? Pos.CENTER_LEFT : Pos.CENTER_RIGHT);
         HBox andraAlto = new HBox(andraCajaVertical);
-        andraAlto.setAlignment(andraMensajeAsesor.isDixonDeAsesor() ? Pos.CENTER_LEFT : Pos.CENTER_RIGHT);
+        andraAlto.setAlignment(andraMensajeAsesor.isAndraDeAsesor() ? Pos.CENTER_LEFT : Pos.CENTER_RIGHT);
         return andraAlto;
     }
 }

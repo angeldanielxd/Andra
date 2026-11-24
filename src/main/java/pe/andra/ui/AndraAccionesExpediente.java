@@ -9,10 +9,10 @@ import javafx.scene.layout.*;
 import lombok.RequiredArgsConstructor;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.springframework.stereotype.Component;
-import pe.andra.exception.DixonNegocioExcepcion;
+import pe.andra.exception.AndraNegocioExcepcion;
 import pe.andra.model.*;
 import pe.andra.service.*;
-import pe.andra.util.DixonFechas;
+import pe.andra.util.AndraFechas;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,41 +23,41 @@ import java.util.Optional;
 public class AndraAccionesExpediente {
 
     private final AndraNotificador andraNotificador;
-    private final DixonExpedienteServicio andraExpedientes;
-    private final DixonSeguimientoServicio andraSeguimiento;
-    private final DixonSesionServicio andraSesion;
-    private final DixonCatalogoServicio andraCatalogo;
-    private final DixonContextoServicio andraContexto;
+    private final AndraExpedienteServicio andraExpedientes;
+    private final AndraSeguimientoServicio andraSeguimiento;
+    private final AndraSesionServicio andraSesion;
+    private final AndraCatalogoServicio andraCatalogo;
+    private final AndraContextoServicio andraContexto;
     private final AndraAccionesPago andraAccionesPago;
     private final AndraDescargas andraDescargas;
-    private final DixonDocumentoGeneradoServicio andraGenerador;
+    private final AndraDocumentoGeneradoServicio andraGenerador;
 
     public void andraSeguimiento(String andraCodigo) {
-        DixonExpediente andraExpediente = andraExpedientes.dixonObtener(andraCodigo);
-        DixonSeguimientoServicio.DixonSeguimientoCjsv andraSeguimientoCjsv = DixonSeguimientoServicio.dixonCalcular(andraExpediente);
-        VBox andraPortada = new VBox(4, AndraComponentes.andraLiteral(andraExpediente.getDixonCodigo(), "label-caps"), AndraComponentes.andraParrafo(andraSeguimientoCjsv.dixonEstimado(), "trk-hero-titulo"),
-                AndraComponentes.andraLiteralParrafo(andraExpediente.getDixonTitulo(), "muted", "small"));
+        AndraExpediente andraExpediente = andraExpedientes.andraObtener(andraCodigo);
+        AndraSeguimientoServicio.AndraSeguimientoCjsv andraSeguimientoCjsv = AndraSeguimientoServicio.andraCalcular(andraExpediente);
+        VBox andraPortada = new VBox(4, AndraComponentes.andraLiteral(andraExpediente.getAndraCodigo(), "label-caps"), AndraComponentes.andraParrafo(andraSeguimientoCjsv.andraEstimado(), "trk-hero-titulo"),
+                AndraComponentes.andraLiteralParrafo(andraExpediente.getAndraTitulo(), "muted", "small"));
         andraPortada.getStyleClass().add("trk-hero");
-        if (andraSeguimientoCjsv.dixonObservado()) {
+        if (andraSeguimientoCjsv.andraObservado()) {
             andraPortada.getStyleClass().add("trk-obs");
         }
         VBox andraTiempo = AndraRastreadorCjsv.andraLineaTiempo(andraSeguimientoCjsv);
-        DixonPersona andraEstudianteActual = andraExpediente.getDixonPersona();
-        DixonSeguimientoServicio.DixonPreferencias andraPref = andraSeguimiento.dixonPreferencias();
+        AndraPersona andraEstudianteActual = andraExpediente.getAndraPersona();
+        AndraSeguimientoServicio.AndraPreferencias andraPref = andraSeguimiento.andraPreferencias();
         VBox andraAvisos = new VBox(AndraComponentes.andraMayus("Avísame cuando cambie", "label-caps"),
-                andraInterruptor("fth-message-circle", "WhatsApp", andraEstudianteActual.getDixonCelular() == null ? null : "+51 " + andraEstudianteActual.getDixonCelular(), andraPref.dixonWhatsapp(), "wa"),
-                andraInterruptor("fth-mail", "Correo", andraEstudianteActual.getDixonCorreo(), andraPref.dixonCorreo(), "mail"),
-                andraInterruptor("fth-bell", "Notificación en Andra", null, andraPref.dixonAplicacion(), "app"));
+                andraInterruptor("fth-message-circle", "WhatsApp", andraEstudianteActual.getAndraCelular() == null ? null : "+51 " + andraEstudianteActual.getAndraCelular(), andraPref.andraWhatsapp(), "wa"),
+                andraInterruptor("fth-mail", "Correo", andraEstudianteActual.getAndraCorreo(), andraPref.andraCorreo(), "mail"),
+                andraInterruptor("fth-bell", "Notificación en Andra", null, andraPref.andraAplicacion(), "app"));
         VBox andraMensajes = new VBox(8);
-        List<DixonMensajeEnviado> andraLista = andraSeguimiento.dixonMensajes(andraExpediente);
+        List<AndraMensajeEnviado> andraLista = andraSeguimiento.andraMensajes(andraExpediente);
         if (andraLista.isEmpty()) {
             andraMensajes.getChildren().add(AndraComponentes.andraParrafo("Aún no hay mensajes. Te escribiremos cuando tu trámite avance.", "hint"));
         }
-        for (DixonMensajeEnviado andraMensajeEnviado : andraLista) {
-            VBox andraBurbuja = new VBox(AndraComponentes.andraEtiqueta(andraMensajeEnviado.getDixonCanal().dixonObtenerEtiqueta() + " · " + DixonFechas.dixonHm(andraMensajeEnviado.getDixonEnviado()), "wa-c"),
-                    AndraComponentes.andraLiteralParrafo(andraMensajeEnviado.getDixonTexto(), "small"));
+        for (AndraMensajeEnviado andraMensajeEnviado : andraLista) {
+            VBox andraBurbuja = new VBox(AndraComponentes.andraEtiqueta(andraMensajeEnviado.getAndraCanal().andraObtenerEtiqueta() + " · " + AndraFechas.andraHm(andraMensajeEnviado.getAndraEnviado()), "wa-c"),
+                    AndraComponentes.andraLiteralParrafo(andraMensajeEnviado.getAndraTexto(), "small"));
             andraBurbuja.getStyleClass().add("wa-msg");
-            if (andraMensajeEnviado.getDixonCanal() == DixonCanalAviso.CORREO) {
+            if (andraMensajeEnviado.getAndraCanal() == AndraCanalAviso.CORREO) {
                 andraBurbuja.getStyleClass().add("mail");
             }
             andraMensajes.getChildren().add(andraBurbuja);
@@ -85,7 +85,7 @@ public class AndraAccionesExpediente {
         andraCasilla.setSelected(andraActivo);
         AndraComponentes.andraAccesible(andraCasilla, andraNombre);
         andraCasilla.selectedProperty().addListener((andraObservable, andraBanderaA, andraBanderaB) -> {
-            andraSeguimiento.dixonCambiarPreferencia(andraCanal, andraBanderaB);
+            andraSeguimiento.andraCambiarPreferencia(andraCanal, andraBanderaB);
             andraNotificador.andraInformacion(andraBanderaB ? "Aviso activado." : "Aviso desactivado.");
         });
         HBox andraFila = new HBox(10, andraCasilla, AndraComponentes.andraIcono(andraIcono), AndraComponentes.andraEtiqueta(andraNombre));
@@ -102,53 +102,53 @@ public class AndraAccionesExpediente {
     }
 
     public void andraCargo(String andraCodigo) {
-        DixonExpediente andraExpediente = andraExpedientes.dixonObtener(andraCodigo);
-        List<Object> andraPares = new ArrayList<>(List.of("Expediente", AndraComponentes.andraLiteral(andraExpediente.getDixonCodigo(), "dd"), "Trámite", AndraComponentes.andraParrafo(andraExpediente.getDixonTitulo(), "dd")));
-        andraExpediente.getDixonDatos().forEach(andraDatoExpediente -> {
-            andraPares.add(andraDatoExpediente.getDixonEtiqueta());
-            andraPares.add(AndraComponentes.andraParrafo(andraDatoExpediente.getDixonValor(), "dd"));
+        AndraExpediente andraExpediente = andraExpedientes.andraObtener(andraCodigo);
+        List<Object> andraPares = new ArrayList<>(List.of("Expediente", AndraComponentes.andraLiteral(andraExpediente.getAndraCodigo(), "dd"), "Trámite", AndraComponentes.andraParrafo(andraExpediente.getAndraTitulo(), "dd")));
+        andraExpediente.getAndraDatos().forEach(andraDatoExpediente -> {
+            andraPares.add(andraDatoExpediente.getAndraEtiqueta());
+            andraPares.add(AndraComponentes.andraParrafo(andraDatoExpediente.getAndraValor(), "dd"));
         });
         andraPares.add("Titular");
-        andraPares.add(AndraComponentes.andraLiteral(andraExpediente.getDixonPersona().getDixonNombre() + " (" + andraExpediente.getDixonPersona().getDixonCodigo() + ")", "dd"));
-        String andraTitulo = andraExpediente.getDixonClase() == DixonClaseExpediente.EQ ? "Cargo digital" : "Cargo de entrega";
+        andraPares.add(AndraComponentes.andraLiteral(andraExpediente.getAndraPersona().getAndraNombre() + " (" + andraExpediente.getAndraPersona().getAndraCodigo() + ")", "dd"));
+        String andraTitulo = andraExpediente.getAndraClase() == AndraClaseExpediente.EQ ? "Cargo digital" : "Cargo de entrega";
         andraNotificador.andraModal(andraTitulo, AndraComponentes.andraKv(andraPares.toArray()), false,
                 AndraComponentes.andraBoton("Cerrar", "btn-secondary", null, andraEvento -> andraNotificador.andraCerrarModal()),
-                AndraComponentes.andraBoton("Descargar", "btn-primary", "fth-download", andraEvento -> andraDescargas.andraGuardarPdf("Cargo " + andraExpediente.getDixonCodigo(),
-                        () -> andraGenerador.dixonPdfSimple(andraTitulo + " " + andraExpediente.getDixonCodigo(), andraExpediente.getDixonTitulo()))));
+                AndraComponentes.andraBoton("Descargar", "btn-primary", "fth-download", andraEvento -> andraDescargas.andraGuardarPdf("Cargo " + andraExpediente.getAndraCodigo(),
+                        () -> andraGenerador.andraPdfSimple(andraTitulo + " " + andraExpediente.getAndraCodigo(), andraExpediente.getAndraTitulo()))));
     }
 
     public void andraEstado(String andraCodigo) {
-        DixonExpediente andraExpediente = andraExpedientes.dixonObtener(andraCodigo);
-        int andraPaso = Math.max(1, Math.min(4, andraExpediente.getDixonPaso()));
-        VBox andraCuerpo = new VBox(12, AndraComponentes.andraPildora(andraExpediente.getDixonEstado(), andraExpediente.getDixonTono()), AndraComponentes.andraKv("Expediente", AndraComponentes.andraLiteral(andraExpediente.getDixonCodigo(), "dd"),
-                "Paso actual", andraPaso + ". " + DixonExpedienteServicio.DIXON_PASOS.get(andraPaso - 1)[1], "Plazo de respuesta", "48 horas útiles",
+        AndraExpediente andraExpediente = andraExpedientes.andraObtener(andraCodigo);
+        int andraPaso = Math.max(1, Math.min(4, andraExpediente.getAndraPaso()));
+        VBox andraCuerpo = new VBox(12, AndraComponentes.andraPildora(andraExpediente.getAndraEstado(), andraExpediente.getAndraTono()), AndraComponentes.andraKv("Expediente", AndraComponentes.andraLiteral(andraExpediente.getAndraCodigo(), "dd"),
+                "Paso actual", andraPaso + ". " + AndraExpedienteServicio.ANDRA_PASOS.get(andraPaso - 1)[1], "Plazo de respuesta", "48 horas útiles",
                 "Última actualización", "Hoy"));
         andraNotificador.andraModal("Estado del expediente", andraCuerpo, false, AndraComponentes.andraBoton("Cerrar", "btn-primary", null, andraEvento -> andraNotificador.andraCerrarModal()));
     }
 
     public void andraDescargar(String andraCodigo) {
-        DixonExpediente andraExpediente = andraExpedientes.dixonObtener(andraCodigo);
-        andraDescargas.andraGuardarPdf(andraExpediente.getDixonTitulo(), () -> andraGenerador.dixonPdfSimple(andraExpediente.getDixonTitulo(), andraExpediente.getDixonCodigo() + " · " + andraExpediente.getDixonEstado()));
+        AndraExpediente andraExpediente = andraExpedientes.andraObtener(andraCodigo);
+        andraDescargas.andraGuardarPdf(andraExpediente.getAndraTitulo(), () -> andraGenerador.andraPdfSimple(andraExpediente.getAndraTitulo(), andraExpediente.getAndraCodigo() + " · " + andraExpediente.getAndraEstado()));
     }
 
     public void andraSubsanar(String andraCodigo, Runnable andraAlCambiar) {
-        DixonExpediente andraExpediente = andraExpedientes.dixonObtener(andraCodigo);
+        AndraExpediente andraExpediente = andraExpedientes.andraObtener(andraCodigo);
         AndraFormulario andraFormulario = new AndraFormulario();
         AndraCampo<AndraFormulario.AndraArchivo> andraArchivo = andraFormulario.andraAgregar(AndraFormulario.andraArchivo("Documento de subsanación (PDF)", "*.pdf", "Solo PDF. Máximo 5 MB.", andraNotificador, null))
                 .andraRequerido("Adjunta el documento en PDF.");
         AndraCampo<TextArea> andraComentario = andraFormulario.andraAgregar(AndraFormulario.andraArea("Comentario para Secretaría (opcional)", "Ej. Adjunto certificado con visado del Servicio Médico."));
-        VBox andraCuerpo = new VBox(14, AndraComponentes.andraParrafo("Expediente " + andraExpediente.getDixonCodigo() + ". Adjunta la constancia visada por el Servicio Médico.", "muted", "small"),
+        VBox andraCuerpo = new VBox(14, AndraComponentes.andraParrafo("Expediente " + andraExpediente.getAndraCodigo() + ". Adjunta la constancia visada por el Servicio Médico.", "muted", "small"),
                 andraArchivo.andraNodo(), andraComentario.andraNodo());
         Button andraEnviar = AndraComponentes.andraBoton("Enviar subsanación", "btn-primary", null, andraEvento -> {
             if (!andraFormulario.andraValidar()) {
                 return;
             }
             try {
-                andraExpedientes.dixonSubsanar(andraCodigo, andraArchivo.andraTexto());
+                andraExpedientes.andraSubsanar(andraCodigo, andraArchivo.andraTexto());
                 andraNotificador.andraCerrarModal();
                 andraAlCambiar.run();
                 andraNotificador.andraExito("Subsanación enviada. El plazo del trámite continúa.");
-            } catch (DixonNegocioExcepcion andraNegocioExcepcion) {
+            } catch (AndraNegocioExcepcion andraNegocioExcepcion) {
                 andraNotificador.andraError(andraNegocioExcepcion.getMessage());
             }
         });
@@ -158,18 +158,18 @@ public class AndraAccionesExpediente {
     public void andraDesistir(String andraCodigo, Runnable andraAlCambiar) {
         andraNotificador.andraConfirmar("¿Desistir de este trámite?", "El expediente " + andraCodigo + " se anulará. Si pagaste una tasa, Tesorería la reintegrará en 5 días hábiles.",
                 "Desistir del trámite", true, () -> {
-                    andraExpedientes.dixonDesistir(andraCodigo);
+                    andraExpedientes.andraDesistir(andraCodigo);
                     andraAlCambiar.run();
                     andraNotificador.andraExito("Trámite anulado.");
                 });
     }
 
     public void andraCancelar(String andraCodigo, Runnable andraAlCambiar) {
-        DixonExpediente andraExpediente = andraExpedientes.dixonObtener(andraCodigo);
-        andraNotificador.andraConfirmar(andraExpediente.getDixonClase() == DixonClaseExpediente.LAB ? "¿Cancelar la reserva?" : "¿Cancelar el préstamo?",
+        AndraExpediente andraExpediente = andraExpedientes.andraObtener(andraCodigo);
+        andraNotificador.andraConfirmar(andraExpediente.getAndraClase() == AndraClaseExpediente.LAB ? "¿Cancelar la reserva?" : "¿Cancelar el préstamo?",
                 "El expediente " + andraCodigo + " quedará cancelado. Hazlo con al menos 30 minutos de anticipación para evitar penalizaciones.",
                 "Sí, cancelar", true, () -> {
-                    andraExpedientes.dixonCancelar(andraCodigo);
+                    andraExpedientes.andraCancelar(andraCodigo);
                     andraAlCambiar.run();
                     andraNotificador.andraExito("Cancelado correctamente.");
                 });
@@ -189,16 +189,16 @@ public class AndraAccionesExpediente {
     }
 
     public void andraPase(String andraCodigo) {
-        DixonExpediente andraExpediente = andraExpedientes.dixonObtener(andraCodigo);
-        ImageView andraImagenQr = new ImageView(DixonQrServicio.dixonImagen("ANDRA-LAB|" + andraExpediente.getDixonCodigo() + "|DEMO", 320));
+        AndraExpediente andraExpediente = andraExpedientes.andraObtener(andraCodigo);
+        ImageView andraImagenQr = new ImageView(AndraQrServicio.andraImagen("ANDRA-LAB|" + andraExpediente.getAndraCodigo() + "|DEMO", 320));
         andraImagenQr.setFitWidth(160);
         andraImagenQr.setFitHeight(160);
         StackPane andraMarco = new StackPane(andraImagenQr);
         andraMarco.getStyleClass().add("qr-img");
         andraMarco.setMaxWidth(Region.USE_PREF_SIZE);
-        String andraClave = andraExpediente.getDixonEtiquetas().stream().filter(andraPosicionX -> andraPosicionX.contains("LAB-")).map(andraPosicionX -> andraPosicionX.substring(andraPosicionX.indexOf("LAB-"))).findFirst().orElse("LAB-992-K");
-        String andraLugar = andraExpediente.getDixonDatos().size() > 1 ? andraExpediente.getDixonDatos().get(1).getDixonValor() : "";
-        String andraFecha = andraExpediente.getDixonDatos().isEmpty() ? "" : andraExpediente.getDixonDatos().get(0).getDixonValor();
+        String andraClave = andraExpediente.getAndraEtiquetas().stream().filter(andraPosicionX -> andraPosicionX.contains("LAB-")).map(andraPosicionX -> andraPosicionX.substring(andraPosicionX.indexOf("LAB-"))).findFirst().orElse("LAB-992-K");
+        String andraLugar = andraExpediente.getAndraDatos().size() > 1 ? andraExpediente.getAndraDatos().get(1).getAndraValor() : "";
+        String andraFecha = andraExpediente.getAndraDatos().isEmpty() ? "" : andraExpediente.getAndraDatos().get(0).getAndraValor();
         VBox andraCuerpo = new VBox(8, andraMarco, AndraComponentes.andraMayus("Código de llave / acceso", "label-caps"), AndraComponentes.andraLiteral(andraClave, "dato-grande"),
                 AndraComponentes.andraLiteralParrafo(andraLugar + " · " + andraFecha, "muted", "small"), AndraComponentes.andraParrafo("Código ilustrativo de demostración.", "hint"));
         andraCuerpo.setAlignment(Pos.CENTER);
@@ -206,25 +206,25 @@ public class AndraAccionesExpediente {
     }
 
     public void andraReprogramar(String andraCodigo, Runnable andraAlCambiar) {
-        DixonExpediente andraExpediente = andraExpedientes.dixonObtener(andraCodigo);
+        AndraExpediente andraExpediente = andraExpedientes.andraObtener(andraCodigo);
         AndraFormulario andraFormulario = new AndraFormulario();
-        AndraCampo<DatePicker> andraFecha = andraFormulario.andraAgregar(AndraFormulario.andraFecha("Nueva fecha", DixonFechas.dixonHoy(), DixonFechas.dixonHoy(), null)).andraRequerido("Elige una fecha.");
-        AndraCampo<ComboBox<AndraOpcion>> andraHora = andraFormulario.andraAgregar(AndraFormulario.andraSelector("Nuevo horario", AndraOpcion.andraLista(DixonExpedienteServicio.dixonHorariosReprogramacion(andraExpediente)),
+        AndraCampo<DatePicker> andraFecha = andraFormulario.andraAgregar(AndraFormulario.andraFecha("Nueva fecha", AndraFechas.andraHoy(), AndraFechas.andraHoy(), null)).andraRequerido("Elige una fecha.");
+        AndraCampo<ComboBox<AndraOpcion>> andraHora = andraFormulario.andraAgregar(AndraFormulario.andraSelector("Nuevo horario", AndraOpcion.andraLista(AndraExpedienteServicio.andraHorariosReprogramacion(andraExpediente)),
                 "Seleccionar", null)).andraRequerido("Elige un horario.");
-        VBox andraCuerpo = new VBox(14, AndraComponentes.andraParrafo("Expediente " + andraExpediente.getDixonCodigo() + ". El cambio queda sujeto a disponibilidad.", "muted", "small"),
+        VBox andraCuerpo = new VBox(14, AndraComponentes.andraParrafo("Expediente " + andraExpediente.getAndraCodigo() + ". El cambio queda sujeto a disponibilidad.", "muted", "small"),
                 AndraFormulario.andraRejilla(2, andraFecha.andraNodo(), andraHora.andraNodo()));
-        andraNotificador.andraModal(andraExpediente.getDixonClase() == DixonClaseExpediente.LAB ? "Modificar horario" : "Modificar retiro", andraCuerpo, false,
+        andraNotificador.andraModal(andraExpediente.getAndraClase() == AndraClaseExpediente.LAB ? "Modificar horario" : "Modificar retiro", andraCuerpo, false,
                 AndraComponentes.andraBoton("Cancelar", "btn-secondary", null, andraEvento -> andraNotificador.andraCerrarModal()),
                 AndraComponentes.andraBoton("Guardar cambio", "btn-primary", null, andraEvento -> {
                     if (!andraFormulario.andraValidar()) {
                         return;
                     }
                     try {
-                        andraExpedientes.dixonReprogramar(andraCodigo, andraFecha.andraControl().getValue(), AndraFormulario.andraValor(andraHora.andraControl()));
+                        andraExpedientes.andraReprogramar(andraCodigo, andraFecha.andraControl().getValue(), AndraFormulario.andraValor(andraHora.andraControl()));
                         andraNotificador.andraCerrarModal();
                         andraAlCambiar.run();
                         andraNotificador.andraExito("Horario actualizado.");
-                    } catch (DixonNegocioExcepcion andraNegocioExcepcion) {
+                    } catch (AndraNegocioExcepcion andraNegocioExcepcion) {
                         andraNotificador.andraError(andraNegocioExcepcion.getMessage());
                     }
                 }));
@@ -233,24 +233,24 @@ public class AndraAccionesExpediente {
     public void andraNueva(Runnable andraAlCambiar) {
         AndraFormulario andraFormulario = new AndraFormulario();
         List<AndraOpcion> andraTipos = new ArrayList<>();
-        for (DixonExpedienteServicio.DixonGrupoOpciones andraGrupoOpciones : DixonExpedienteServicio.DIXON_TIPOS_SOLICITUD) {
-            andraTipos.add(AndraOpcion.andraGrupo(andraGrupoOpciones.dixonGrupo()));
-            andraGrupoOpciones.dixonOpciones().forEach(andraTexto -> andraTipos.add(AndraOpcion.andraDe(andraTexto, andraTexto)));
+        for (AndraExpedienteServicio.AndraGrupoOpciones andraGrupoOpciones : AndraExpedienteServicio.ANDRA_TIPOS_SOLICITUD) {
+            andraTipos.add(AndraOpcion.andraGrupo(andraGrupoOpciones.andraGrupo()));
+            andraGrupoOpciones.andraOpciones().forEach(andraTexto -> andraTipos.add(AndraOpcion.andraDe(andraTexto, andraTexto)));
         }
         AndraCampo<ComboBox<AndraOpcion>> andraTipo = andraFormulario.andraAgregar(AndraFormulario.andraSelector("Tipo de trámite", andraTipos, "Seleccionar", null)).andraRequerido("Elige el tipo de trámite.");
         List<AndraOpcion> andraUnidades = new ArrayList<>();
         andraUnidades.add(AndraOpcion.andraGrupo("Escuelas profesionales"));
-        andraCatalogo.dixonEscuelas().forEach(andraEscuelaProfesional -> andraUnidades.add(AndraOpcion.andraDe("EP " + andraEscuelaProfesional.getDixonNombre(), andraEscuelaProfesional.getDixonNombre())));
+        andraCatalogo.andraEscuelas().forEach(andraEscuelaProfesional -> andraUnidades.add(AndraOpcion.andraDe("EP " + andraEscuelaProfesional.getAndraNombre(), andraEscuelaProfesional.getAndraNombre())));
         andraUnidades.add(AndraOpcion.andraGrupo("Dependencias administrativas"));
-        andraCatalogo.dixonDependencias().forEach(andraTexto2 -> andraUnidades.add(AndraOpcion.andraDe(andraTexto2, andraTexto2)));
-        DixonEscuelaProfesional andraEscuela = andraContexto.dixonEscuela();
-        String andraUnidadInicial = "EP " + (andraEscuela != null ? andraEscuela.getDixonNombre() : andraSesion.dixonEstudiante().getDixonEscuela().getDixonNombre());
+        andraCatalogo.andraDependencias().forEach(andraTexto2 -> andraUnidades.add(AndraOpcion.andraDe(andraTexto2, andraTexto2)));
+        AndraEscuelaProfesional andraEscuela = andraContexto.andraEscuela();
+        String andraUnidadInicial = "EP " + (andraEscuela != null ? andraEscuela.getAndraNombre() : andraSesion.andraEstudiante().getAndraEscuela().getAndraNombre());
         AndraCampo<ComboBox<AndraOpcion>> andraUnidad = andraFormulario.andraAgregar(AndraFormulario.andraSelector("Unidad académica", andraUnidades, "Seleccionar", andraUnidadInicial))
                 .andraRequerido("Elige la unidad académica.");
         List<AndraOpcion> andraSedes = new ArrayList<>();
-        andraCatalogo.dixonSedes().forEach(andraSede -> andraSedes.add(AndraOpcion.andraDe(andraSede.getDixonCodigo(), andraSede.getDixonNombreCompleto())));
+        andraCatalogo.andraSedes().forEach(andraSede -> andraSedes.add(AndraOpcion.andraDe(andraSede.getAndraCodigo(), andraSede.getAndraNombreCompleto())));
         AndraCampo<ComboBox<AndraOpcion>> andraSede2 = andraFormulario.andraAgregar(AndraFormulario.andraSelector("Sede de atención", andraSedes, null,
-                andraContexto.dixonTodasLasSedes() ? andraSesion.dixonEstudiante().getDixonSede().getDixonCodigo() : andraContexto.dixonCodigoSede()));
+                andraContexto.andraTodasLasSedes() ? andraSesion.andraEstudiante().getAndraSede().getAndraCodigo() : andraContexto.andraCodigoSede()));
         AndraCampo<TextArea> andraDetalle = andraFormulario.andraAgregar(AndraFormulario.andraArea("Detalle de la solicitud", "Ej. Necesito la constancia para presentarla a mi centro de prácticas."))
                 .andraRequerido("Describe tu solicitud.").andraMinimo(15);
         AndraCampo<AndraFormulario.AndraArchivo> andraAdjunto = andraFormulario.andraAgregar(AndraFormulario.andraArchivo("Documento de sustento (opcional)", "*.pdf *.jpg *.png", null, andraNotificador, null));
@@ -258,7 +258,7 @@ public class AndraAccionesExpediente {
                 andraTipo.andraNodo(), andraUnidad.andraNodo(), andraSede2.andraNodo(), andraDetalle.andraNodo(), andraAdjunto.andraNodo());
         Button andraRegistrar = AndraComponentes.andraBoton("Registrar solicitud", "btn-primary", null, andraEvento -> {
             String andraTexto3 = AndraFormulario.andraValor(andraTipo.andraControl());
-            Optional<DixonTramite> andraConPago = andraExpedientes.dixonTramitePara(andraTexto3);
+            Optional<AndraTramite> andraConPago = andraExpedientes.andraTramitePara(andraTexto3);
             if (andraConPago.isPresent()) {
                 andraAccionesPago.andraIniciar(andraConPago.get(), null, andraAlCambiar);
                 return;
@@ -267,34 +267,34 @@ public class AndraAccionesExpediente {
                 return;
             }
             try {
-                DixonExpediente andraNuevo = andraExpedientes.dixonRegistrar(andraTexto3, AndraFormulario.andraValor(andraUnidad.andraControl()), AndraFormulario.andraValor(andraSede2.andraControl()),
+                AndraExpediente andraNuevo = andraExpedientes.andraRegistrar(andraTexto3, AndraFormulario.andraValor(andraUnidad.andraControl()), AndraFormulario.andraValor(andraSede2.andraControl()),
                         andraDetalle.andraControl().getText(), andraAdjunto.andraTexto());
                 andraNotificador.andraCerrarModal();
                 andraAlCambiar.run();
-                andraNotificador.andraExito("Solicitud " + andraNuevo.getDixonCodigo() + " registrada.");
-            } catch (DixonNegocioExcepcion andraNegocioExcepcion) {
+                andraNotificador.andraExito("Solicitud " + andraNuevo.getAndraCodigo() + " registrada.");
+            } catch (AndraNegocioExcepcion andraNegocioExcepcion) {
                 andraNotificador.andraError(andraNegocioExcepcion.getMessage());
             }
         });
         andraNotificador.andraModal("Nueva solicitud", andraCuerpo, false, AndraComponentes.andraBoton("Cancelar", "btn-secondary", null, andraEvento -> andraNotificador.andraCerrarModal()), andraRegistrar);
     }
 
-    public void andraEjecutar(String andraAccion, DixonExpediente andraExpediente, Runnable andraAlCambiar, Runnable andraAlternarObservacion) {
+    public void andraEjecutar(String andraAccion, AndraExpediente andraExpediente, Runnable andraAlCambiar, Runnable andraAlternarObservacion) {
         switch (andraAccion) {
-            case "route-sol", "track-sol" -> andraSeguimiento(andraExpediente.getDixonCodigo());
-            case "download-sol" -> andraDescargar(andraExpediente.getDixonCodigo());
-            case "cargo-sol" -> andraCargo(andraExpediente.getDixonCodigo());
-            case "state-sol" -> andraEstado(andraExpediente.getDixonCodigo());
-            case "desist-sol" -> andraDesistir(andraExpediente.getDixonCodigo(), andraAlCambiar);
-            case "fix-sol" -> andraSubsanar(andraExpediente.getDixonCodigo(), andraAlCambiar);
+            case "route-sol", "track-sol" -> andraSeguimiento(andraExpediente.getAndraCodigo());
+            case "download-sol" -> andraDescargar(andraExpediente.getAndraCodigo());
+            case "cargo-sol" -> andraCargo(andraExpediente.getAndraCodigo());
+            case "state-sol" -> andraEstado(andraExpediente.getAndraCodigo());
+            case "desist-sol" -> andraDesistir(andraExpediente.getAndraCodigo(), andraAlCambiar);
+            case "fix-sol" -> andraSubsanar(andraExpediente.getAndraCodigo(), andraAlCambiar);
             case "obs-sol" -> andraAlternarObservacion.run();
-            case "ask-sol" -> andraConsultar(andraExpediente.getDixonCodigo());
-            case "pass-sol" -> andraPase(andraExpediente.getDixonCodigo());
-            case "resched-sol" -> andraReprogramar(andraExpediente.getDixonCodigo(), andraAlCambiar);
-            case "cancel-sol" -> andraCancelar(andraExpediente.getDixonCodigo(), andraAlCambiar);
-            case "pay-sol" -> andraAccionesPago.andraPantalla(andraExpediente.getDixonPago().getDixonCodigo(), andraAlCambiar);
-            case "rcpt-sol" -> andraAccionesPago.andraComprobante(andraExpediente.getDixonPago().getDixonCodigo());
-            case "gen-sol" -> andraAccionesPago.andraDocumento(andraExpediente.getDixonPago().getDixonCodigo());
+            case "ask-sol" -> andraConsultar(andraExpediente.getAndraCodigo());
+            case "pass-sol" -> andraPase(andraExpediente.getAndraCodigo());
+            case "resched-sol" -> andraReprogramar(andraExpediente.getAndraCodigo(), andraAlCambiar);
+            case "cancel-sol" -> andraCancelar(andraExpediente.getAndraCodigo(), andraAlCambiar);
+            case "pay-sol" -> andraAccionesPago.andraPantalla(andraExpediente.getAndraPago().getAndraCodigo(), andraAlCambiar);
+            case "rcpt-sol" -> andraAccionesPago.andraComprobante(andraExpediente.getAndraPago().getAndraCodigo());
+            case "gen-sol" -> andraAccionesPago.andraDocumento(andraExpediente.getAndraPago().getAndraCodigo());
             default -> andraNotificador.andraInformacion("Acción no disponible en la demostración.");
         }
     }

@@ -26,7 +26,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.util.Duration;
 import org.kordamp.ikonli.javafx.FontIcon;
-import pe.andra.service.DixonIdiomaServicio;
+import pe.andra.service.AndraIdiomaServicio;
 
 import java.util.List;
 import java.util.Map;
@@ -50,22 +50,22 @@ public final class AndraComponentes {
 
     public static void andraFijar(Labeled andraRotulo, String andraTexto) {
         andraRotulo.textProperty().unbind();
-        andraRotulo.textProperty().bind(DixonIdiomaServicio.dixonEnlace(andraTexto == null ? "" : andraTexto));
+        andraRotulo.textProperty().bind(AndraIdiomaServicio.andraEnlace(andraTexto == null ? "" : andraTexto));
     }
 
     public static void andraIndicacion(TextInputControl andraCampo, String andraTexto) {
         andraCampo.promptTextProperty().unbind();
-        andraCampo.promptTextProperty().bind(DixonIdiomaServicio.dixonEnlace(andraTexto));
+        andraCampo.promptTextProperty().bind(AndraIdiomaServicio.andraEnlace(andraTexto));
     }
 
     public static void andraAccesible(Node andraNodo, String andraTexto) {
         andraNodo.accessibleTextProperty().unbind();
-        andraNodo.accessibleTextProperty().bind(DixonIdiomaServicio.dixonEnlace(andraTexto));
+        andraNodo.accessibleTextProperty().bind(AndraIdiomaServicio.andraEnlace(andraTexto));
     }
 
     public static void andraAyuda(Control andraControl, String andraTexto) {
         Tooltip andraAyuda = new Tooltip();
-        andraAyuda.textProperty().bind(DixonIdiomaServicio.dixonEnlace(andraTexto));
+        andraAyuda.textProperty().bind(AndraIdiomaServicio.andraEnlace(andraTexto));
         andraControl.setTooltip(andraAyuda);
     }
 
@@ -79,7 +79,7 @@ public final class AndraComponentes {
 
     public static Label andraMayus(String andraTexto, String... andraClases) {
         Label andraEtiqueta = new Label();
-        andraEtiqueta.textProperty().bind(DixonIdiomaServicio.dixonEnlaceMayus(andraTexto));
+        andraEtiqueta.textProperty().bind(AndraIdiomaServicio.andraEnlaceMayus(andraTexto));
         andraEtiqueta.getStyleClass().addAll(andraClases);
         andraEtiqueta.setMnemonicParsing(false);
         return andraEtiqueta;
@@ -108,7 +108,7 @@ public final class AndraComponentes {
 
     public static Text andraTexto(String andraContenido, String... andraClases) {
         Text andraTexto = new Text();
-        andraTexto.textProperty().bind(DixonIdiomaServicio.dixonEnlace(andraContenido));
+        andraTexto.textProperty().bind(AndraIdiomaServicio.andraEnlace(andraContenido));
         andraTexto.getStyleClass().addAll(andraClases);
         return andraTexto;
     }

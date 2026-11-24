@@ -6,7 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import org.springframework.beans.factory.annotation.Autowired;
-import pe.andra.exception.DixonNegocioExcepcion;
+import pe.andra.exception.AndraNegocioExcepcion;
 import pe.andra.ui.AndraNotificador;
 import pe.andra.ui.AndraPieDePagina;
 import pe.andra.ui.AndraVista;
@@ -52,7 +52,7 @@ public abstract class AndraVistaBase implements AndraVista {
         try {
             andraAccion.run();
             return true;
-        } catch (DixonNegocioExcepcion andraNegocioExcepcion) {
+        } catch (AndraNegocioExcepcion andraNegocioExcepcion) {
             andraNotificador.andraError(andraNegocioExcepcion.getMessage());
             return false;
         }
